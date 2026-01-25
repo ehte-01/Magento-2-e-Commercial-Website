@@ -1,0 +1,131 @@
+[2026-01-25T10:01:52.507301+00:00] main.INFO: Source table payment_services_order_status_data_production_submitted_hash does not exist. Skipping data migration... [] []
+[2026-01-25T10:01:54.332743+00:00] main.ERROR: Could not validate a connection to Elasticsearch. No alive nodes found in your cluster
+#0 /home/shan_03/magento2/setup/src/Magento/Setup/Model/SearchConfig.php(69): Magento\Setup\Model\SearchConfig->validateSearchEngine()
+#1 /home/shan_03/magento2/setup/src/Magento/Setup/Model/Installer.php(1206): Magento\Setup\Model\SearchConfig->saveConfiguration()
+#2 [internal function]: Magento\Setup\Model\Installer->installSearchConfiguration()
+#3 /home/shan_03/magento2/setup/src/Magento/Setup/Model/Installer.php(407): call_user_func_array()
+#4 /home/shan_03/magento2/setup/src/Magento/Setup/Console/Command/InstallCommand.php(237): Magento\Setup\Model\Installer->install()
+#5 /home/shan_03/magento2/vendor/symfony/console/Command/Command.php(326): Magento\Setup\Console\Command\InstallCommand->execute()
+#6 /home/shan_03/magento2/vendor/symfony/console/Application.php(1083): Symfony\Component\Console\Command\Command->run()
+#7 /home/shan_03/magento2/vendor/symfony/console/Application.php(324): Symfony\Component\Console\Application->doRunCommand()
+#8 /home/shan_03/magento2/vendor/magento/framework/Console/Cli.php(118): Symfony\Component\Console\Application->doRun()
+#9 /home/shan_03/magento2/vendor/symfony/console/Application.php(175): Magento\Framework\Console\Cli->doRun()
+#10 /home/shan_03/magento2/bin/magento(23): Symfony\Component\Console\Application->run()
+#11 {main} [] []
+[2026-01-25T10:18:44.158161+00:00] main.ERROR: Could not validate a connection to Elasticsearch. No alive nodes found in your cluster
+#0 /home/shan_03/magento2/setup/src/Magento/Setup/Model/SearchConfig.php(69): Magento\Setup\Model\SearchConfig->validateSearchEngine()
+#1 /home/shan_03/magento2/setup/src/Magento/Setup/Model/Installer.php(1206): Magento\Setup\Model\SearchConfig->saveConfiguration()
+#2 [internal function]: Magento\Setup\Model\Installer->installSearchConfiguration()
+#3 /home/shan_03/magento2/setup/src/Magento/Setup/Model/Installer.php(407): call_user_func_array()
+#4 /home/shan_03/magento2/setup/src/Magento/Setup/Console/Command/InstallCommand.php(237): Magento\Setup\Model\Installer->install()
+#5 /home/shan_03/magento2/vendor/symfony/console/Command/Command.php(326): Magento\Setup\Console\Command\InstallCommand->execute()
+#6 /home/shan_03/magento2/vendor/symfony/console/Application.php(1083): Symfony\Component\Console\Command\Command->run()
+#7 /home/shan_03/magento2/vendor/symfony/console/Application.php(324): Symfony\Component\Console\Application->doRunCommand()
+#8 /home/shan_03/magento2/vendor/magento/framework/Console/Cli.php(118): Symfony\Component\Console\Application->doRun()
+#9 /home/shan_03/magento2/vendor/symfony/console/Application.php(175): Magento\Framework\Console\Cli->doRun()
+#10 /home/shan_03/magento2/bin/magento(23): Symfony\Component\Console\Application->run()
+#11 {main} [] []
+[2026-01-25T10:50:00.571725+00:00] main.ERROR: Braintree\Configuration::merchantId needs to be set (or accessToken needs to be passed to Braintree\Gateway). [] []
+[2026-01-25T10:50:00.571751+00:00] main.ERROR: Braintree\Configuration::merchantId needs to be set (or accessToken needs to be passed to Braintree\Gateway). [] []
+[2026-01-25T10:55:39.731791+00:00] main.ERROR: Missing write permissions to the following paths:
+/home/shan_03/magento2/app/etc
+#0 /home/shan_03/magento2/setup/src/Magento/Setup/Model/Installer.php(978): Magento\Setup\Model\Installer->throwExceptionForNotWritablePaths()
+#1 /home/shan_03/magento2/setup/src/Magento/Setup/Model/Installer.php(962): Magento\Setup\Model\Installer->checkFilePermissionsForDbUpgrade()
+#2 /home/shan_03/magento2/setup/src/Magento/Setup/Console/Command/DbDataUpgradeCommand.php(69): Magento\Setup\Model\Installer->installDataFixtures()
+#3 /home/shan_03/magento2/vendor/symfony/console/Command/Command.php(326): Magento\Setup\Console\Command\DbDataUpgradeCommand->execute()
+#4 /home/shan_03/magento2/vendor/symfony/console/Application.php(1083): Symfony\Component\Console\Command\Command->run()
+#5 /home/shan_03/magento2/vendor/symfony/console/Application.php(324): Symfony\Component\Console\Application->doRunCommand()
+#6 /home/shan_03/magento2/vendor/magento/framework/Console/Cli.php(118): Symfony\Component\Console\Application->doRun()
+#7 /home/shan_03/magento2/vendor/symfony/console/Application.php(175): Magento\Framework\Console\Cli->doRun()
+#8 /home/shan_03/magento2/bin/magento(23): Symfony\Component\Console\Application->run()
+#9 {main} [] []
+[2026-01-25T11:00:34.626058+00:00] main.ERROR: Braintree\Configuration::merchantId needs to be set (or accessToken needs to be passed to Braintree\Gateway). [] []
+[2026-01-25T11:00:34.730997+00:00] main.ERROR: Braintree\Configuration::merchantId needs to be set (or accessToken needs to be passed to Braintree\Gateway). [] []
+[2026-01-25T11:00:39.194362+00:00] main.ERROR: Braintree\Configuration::merchantId needs to be set (or accessToken needs to be passed to Braintree\Gateway). [] []
+[2026-01-25T11:02:34.008353+00:00] main.ERROR: Braintree\Configuration::merchantId needs to be set (or accessToken needs to be passed to Braintree\Gateway). [] []
+[2026-01-25T11:10:03.124867+00:00] main.ERROR: Braintree\Configuration::merchantId needs to be set (or accessToken needs to be passed to Braintree\Gateway). [] []
+[2026-01-25T11:10:04.669726+00:00] main.ERROR: Braintree\Configuration::merchantId needs to be set (or accessToken needs to be passed to Braintree\Gateway). [] []
+[2026-01-25T11:10:05.822677+00:00] main.ERROR: Braintree\Configuration::merchantId needs to be set (or accessToken needs to be passed to Braintree\Gateway). [] []
+[2026-01-25T11:10:59.613488+00:00] main.ERROR: Braintree\Configuration::merchantId needs to be set (or accessToken needs to be passed to Braintree\Gateway). [] []
+[2026-01-25T11:14:30.666240+00:00] main.ERROR: Braintree\Configuration::merchantId needs to be set (or accessToken needs to be passed to Braintree\Gateway). [] []
+[2026-01-25T11:15:03.830177+00:00] main.ERROR: Braintree\Configuration::merchantId needs to be set (or accessToken needs to be passed to Braintree\Gateway). [] []
+[2026-01-25T11:19:29.197732+00:00] main.ERROR: Braintree\Configuration::merchantId needs to be set (or accessToken needs to be passed to Braintree\Gateway). [] []
+[2026-01-25T11:26:41.477821+00:00] main.ERROR: Braintree\Configuration::merchantId needs to be set (or accessToken needs to be passed to Braintree\Gateway). [] []
+[2026-01-25T11:26:41.542273+00:00] main.ERROR: Braintree\Configuration::merchantId needs to be set (or accessToken needs to be passed to Braintree\Gateway). [] []
+[2026-01-25T11:26:47.042062+00:00] main.ERROR: Braintree\Configuration::merchantId needs to be set (or accessToken needs to be passed to Braintree\Gateway). [] []
+[2026-01-25T11:27:51.802346+00:00] main.ERROR: Braintree\Configuration::merchantId needs to be set (or accessToken needs to be passed to Braintree\Gateway). [] []
+[2026-01-25T12:52:33.746980+00:00] main.ERROR: Sample Data error: Warning: file_get_contents(/home/shan_03/magento2/pub/media/downloadable/files/links/l/u/luma_background_-_model_against_fence_4_sec_.mp4): Failed to open stream: No such file or directory in /home/shan_03/magento2/vendor/magento/module-downloadable-sample-data/Model/Product/Converter.php on line 132 [] []
+[2026-01-25T12:53:31.423812+00:00] main.WARNING: Memory size allocated for the temporary table is more than 20% of innodb_buffer_pool_size. Please update innodb_buffer_pool_size or decrease batch size value (which decreases memory usages for the temporary table). Current batch size: 100000; Allocated memory size: 50000000 bytes; InnoDB buffer pool size: 134217728 bytes. [] []
+[2026-01-25T12:53:31.465254+00:00] main.WARNING: Memory size allocated for the temporary table is more than 20% of innodb_buffer_pool_size. Please update innodb_buffer_pool_size or decrease batch size value (which decreases memory usages for the temporary table). Current batch size: 100000; Allocated memory size: 50000000 bytes; InnoDB buffer pool size: 134217728 bytes. [] []
+[2026-01-25T12:53:31.510493+00:00] main.WARNING: Memory size allocated for the temporary table is more than 20% of innodb_buffer_pool_size. Please update innodb_buffer_pool_size or decrease batch size value (which decreases memory usages for the temporary table). Current batch size: 100000; Allocated memory size: 50000000 bytes; InnoDB buffer pool size: 134217728 bytes. [] []
+[2026-01-25T12:53:31.699191+00:00] main.WARNING: Memory size allocated for the temporary table is more than 20% of innodb_buffer_pool_size. Please update innodb_buffer_pool_size or decrease batch size value (which decreases memory usages for the temporary table). Current batch size: 100000; Allocated memory size: 50000000 bytes; InnoDB buffer pool size: 134217728 bytes. [] []
+[2026-01-25T12:53:31.741452+00:00] main.WARNING: Memory size allocated for the temporary table is more than 20% of innodb_buffer_pool_size. Please update innodb_buffer_pool_size or decrease batch size value (which decreases memory usages for the temporary table). Current batch size: 100000; Allocated memory size: 50000000 bytes; InnoDB buffer pool size: 134217728 bytes. [] []
+[2026-01-25T12:53:31.788198+00:00] main.WARNING: Memory size allocated for the temporary table is more than 20% of innodb_buffer_pool_size. Please update innodb_buffer_pool_size or decrease batch size value (which decreases memory usages for the temporary table). Current batch size: 100000; Allocated memory size: 50000000 bytes; InnoDB buffer pool size: 134217728 bytes. [] []
+[2026-01-25T12:53:37.337191+00:00] main.WARNING: Memory size allocated for the temporary table is more than 20% of innodb_buffer_pool_size. Please update innodb_buffer_pool_size or decrease batch size value (which decreases memory usages for the temporary table). Current batch size: 3334; Allocated memory size: 40008000 bytes; InnoDB buffer pool size: 134217728 bytes. [] []
+[2026-01-25T12:55:44.082932+00:00] main.ERROR: Braintree\Configuration::merchantId needs to be set (or accessToken needs to be passed to Braintree\Gateway). [] []
+[2026-01-25T12:55:52.234820+00:00] main.ERROR: Braintree\Configuration::merchantId needs to be set (or accessToken needs to be passed to Braintree\Gateway). [] []
+[2026-01-25T12:56:08.900950+00:00] main.ERROR: Braintree\Configuration::merchantId needs to be set (or accessToken needs to be passed to Braintree\Gateway). [] []
+[2026-01-25T12:56:23.948551+00:00] main.ERROR: Braintree\Configuration::merchantId needs to be set (or accessToken needs to be passed to Braintree\Gateway). [] []
+[2026-01-25T12:56:30.206731+00:00] main.ERROR: Braintree\Configuration::merchantId needs to be set (or accessToken needs to be passed to Braintree\Gateway). [] []
+[2026-01-25T12:56:30.236760+00:00] main.ERROR: Braintree\Configuration::merchantId needs to be set (or accessToken needs to be passed to Braintree\Gateway). [] []
+[2026-01-25T12:58:48.385591+00:00] main.ERROR: Command "admin:user:list" is not defined.
+
+Did you mean one of these?
+    admin:user:create
+    admin:user:unlock
+    info:backups:list
+    info:currency:list
+    info:language:list
+    info:timezone:list
+    inventory:reservation:list-inconsistencies
+    queue:consumers:list
+    setup:db-declaration:generate-whitelist
+    store:website:list
+#0 /home/shan_03/magento2/vendor/symfony/console/Application.php(266): Symfony\Component\Console\Application->find()
+#1 /home/shan_03/magento2/vendor/magento/framework/Console/Cli.php(118): Symfony\Component\Console\Application->doRun()
+#2 /home/shan_03/magento2/vendor/symfony/console/Application.php(175): Magento\Framework\Console\Cli->doRun()
+#3 /home/shan_03/magento2/bin/magento(23): Symfony\Component\Console\Application->run()
+#4 {main} [] []
+[2026-01-25T12:59:15.376192+00:00] main.ERROR: Command "admin:user:password-reset" is not defined.
+
+Did you mean one of these?
+    admin:user:create
+    admin:user:unlock
+#0 /home/shan_03/magento2/vendor/symfony/console/Application.php(266): Symfony\Component\Console\Application->find()
+#1 /home/shan_03/magento2/vendor/magento/framework/Console/Cli.php(118): Symfony\Component\Console\Application->doRun()
+#2 /home/shan_03/magento2/vendor/symfony/console/Application.php(175): Magento\Framework\Console\Cli->doRun()
+#3 /home/shan_03/magento2/bin/magento(23): Symfony\Component\Console\Application->run()
+#4 {main} [] []
+[2026-01-25T12:59:59.066736+00:00] main.ERROR: The "--username" option does not exist.
+#0 /home/shan_03/magento2/vendor/symfony/console/Input/ArgvInput.php(150): Symfony\Component\Console\Input\ArgvInput->addLongOption()
+#1 /home/shan_03/magento2/vendor/symfony/console/Input/ArgvInput.php(85): Symfony\Component\Console\Input\ArgvInput->parseLongOption()
+#2 /home/shan_03/magento2/vendor/symfony/console/Input/ArgvInput.php(74): Symfony\Component\Console\Input\ArgvInput->parseToken()
+#3 /home/shan_03/magento2/vendor/symfony/console/Input/Input.php(56): Symfony\Component\Console\Input\ArgvInput->parse()
+#4 /home/shan_03/magento2/vendor/symfony/console/Command/Command.php(285): Symfony\Component\Console\Input\Input->bind()
+#5 /home/shan_03/magento2/vendor/symfony/console/Application.php(1083): Symfony\Component\Console\Command\Command->run()
+#6 /home/shan_03/magento2/vendor/symfony/console/Application.php(324): Symfony\Component\Console\Application->doRunCommand()
+#7 /home/shan_03/magento2/vendor/magento/framework/Console/Cli.php(118): Symfony\Component\Console\Application->doRun()
+#8 /home/shan_03/magento2/vendor/symfony/console/Application.php(175): Magento\Framework\Console\Cli->doRun()
+#9 /home/shan_03/magento2/bin/magento(23): Symfony\Component\Console\Application->run()
+#10 {main} [] []
+[2026-01-25T13:02:54.717804+00:00] main.ERROR: The "--username" option does not exist.
+#0 /home/shan_03/magento2/vendor/symfony/console/Input/ArgvInput.php(150): Symfony\Component\Console\Input\ArgvInput->addLongOption()
+#1 /home/shan_03/magento2/vendor/symfony/console/Input/ArgvInput.php(85): Symfony\Component\Console\Input\ArgvInput->parseLongOption()
+#2 /home/shan_03/magento2/vendor/symfony/console/Input/ArgvInput.php(74): Symfony\Component\Console\Input\ArgvInput->parseToken()
+#3 /home/shan_03/magento2/vendor/symfony/console/Input/Input.php(56): Symfony\Component\Console\Input\ArgvInput->parse()
+#4 /home/shan_03/magento2/vendor/symfony/console/Command/Command.php(285): Symfony\Component\Console\Input\Input->bind()
+#5 /home/shan_03/magento2/vendor/symfony/console/Application.php(1083): Symfony\Component\Console\Command\Command->run()
+#6 /home/shan_03/magento2/vendor/symfony/console/Application.php(324): Symfony\Component\Console\Application->doRunCommand()
+#7 /home/shan_03/magento2/vendor/magento/framework/Console/Cli.php(118): Symfony\Component\Console\Application->doRun()
+#8 /home/shan_03/magento2/vendor/symfony/console/Application.php(175): Magento\Framework\Console\Cli->doRun()
+#9 /home/shan_03/magento2/bin/magento(23): Symfony\Component\Console\Application->run()
+#10 {main} [] []
+[2026-01-25T13:06:01.578929+00:00] main.ERROR: Braintree\Configuration::merchantId needs to be set (or accessToken needs to be passed to Braintree\Gateway). [] []
+[2026-01-25T15:00:55.898660+00:00] main.ERROR: Braintree\Configuration::merchantId needs to be set (or accessToken needs to be passed to Braintree\Gateway). [] []
+[2026-01-25T15:01:33.210335+00:00] main.ERROR: Braintree\Configuration::merchantId needs to be set (or accessToken needs to be passed to Braintree\Gateway). [] []
+[2026-01-25T15:01:33.348771+00:00] main.ERROR: Braintree\Configuration::merchantId needs to be set (or accessToken needs to be passed to Braintree\Gateway). [] []
+[2026-01-25T15:02:25.609924+00:00] main.ERROR: Braintree\Configuration::merchantId needs to be set (or accessToken needs to be passed to Braintree\Gateway). [] []
+[2026-01-25T15:02:29.793099+00:00] main.ERROR: Braintree\Configuration::merchantId needs to be set (or accessToken needs to be passed to Braintree\Gateway). [] []
+[2026-01-25T15:02:31.842510+00:00] main.ERROR: Braintree\Configuration::merchantId needs to be set (or accessToken needs to be passed to Braintree\Gateway). [] []
+[2026-01-25T15:02:32.879406+00:00] main.ERROR: Braintree\Configuration::merchantId needs to be set (or accessToken needs to be passed to Braintree\Gateway). [] []
+[2026-01-25T15:02:35.694049+00:00] main.ERROR: Braintree\Configuration::merchantId needs to be set (or accessToken needs to be passed to Braintree\Gateway). [] []

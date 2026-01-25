@@ -1,0 +1,637 @@
+[2026-01-25T10:01:54.130397+00:00] main.ERROR: {"feed":"undefined","operation":"undefined","status":"Cannot set indexer to Update On Schedule mode: Missing required argument $data of Magento\\CatalogSearch\\Model\\Indexer\\Fulltext.","elapsed":"00:00:00 423 ms","pid":"28296","caller":"bin\/magento setup:install --base-url=http:\/\/localhost\/ --db-host=localhost --db-name=magento_db --db-user=magento_user"} {"indexer":"catalogsearch_fulltext","exception":"[object] (BadMethodCallException(code: 0): Missing required argument $data of Magento\\CatalogSearch\\Model\\Indexer\\Fulltext. at /home/shan_03/magento2/vendor/magento/framework/ObjectManager/Factory/AbstractFactory.php:264)"} []
+[2026-01-25T10:01:54.157490+00:00] main.INFO: {"feed":"undefined","operation":"undefined","status":"Setting mode Update On Schedule for indexer Sales Order Feed","elapsed":"00:00:00 450 ms","pid":"28296","caller":"bin\/magento setup:install --base-url=http:\/\/localhost\/ --db-host=localhost --db-name=magento_db --db-user=magento_user"} [] []
+[2026-01-25T10:01:54.182785+00:00] main.ERROR: {"feed":"undefined","operation":"undefined","status":"Cannot set indexer to Update On Schedule mode: SQLSTATE[HY000]: General error: 1419 You do not have the SUPER privilege and binary logging is enabled (you *might* want to use the less safe log_bin_trust_function_creators variable), query was: CREATE TRIGGER trg_sales_order_after_insert AFTER INSERT ON sales_order FOR EACH ROW
+BEGIN
+INSERT IGNORE INTO `sales_order_data_exporter_cl` (`entity_id`) VALUES (NEW.`entity_id`);
+END","elapsed":"00:00:00 475 ms","pid":"28296","caller":"bin\/magento setup:install --base-url=http:\/\/localhost\/ --db-host=localhost --db-name=magento_db --db-user=magento_user"} {"indexer":"sales_order_data_exporter","exception":"[object] (Zend_Db_Statement_Exception(code: 0): SQLSTATE[HY000]: General error: 1419 You do not have the SUPER privilege and binary logging is enabled (you *might* want to use the less safe log_bin_trust_function_creators variable), query was: CREATE TRIGGER trg_sales_order_after_insert AFTER INSERT ON sales_order FOR EACH ROW
+BEGIN
+INSERT IGNORE INTO `sales_order_data_exporter_cl` (`entity_id`) VALUES (NEW.`entity_id`);
+END at /home/shan_03/magento2/vendor/magento/framework/DB/Statement/Pdo/Mysql.php:109)
+[previous exception] [object] (PDOException(code: HY000): SQLSTATE[HY000]: General error: 1419 You do not have the SUPER privilege and binary logging is enabled (you *might* want to use the less safe log_bin_trust_function_creators variable) at /home/shan_03/magento2/vendor/magento/framework/DB/Statement/Pdo/Mysql.php:90)"} []
+[2026-01-25T10:01:54.183547+00:00] main.INFO: {"feed":"undefined","operation":"undefined","status":"Setting mode Update On Schedule for indexer Sales Order Statuses Feed","elapsed":"00:00:00 476 ms","pid":"28296","caller":"bin\/magento setup:install --base-url=http:\/\/localhost\/ --db-host=localhost --db-name=magento_db --db-user=magento_user"} [] []
+[2026-01-25T10:01:54.240954+00:00] main.ERROR: {"feed":"undefined","operation":"undefined","status":"Cannot set indexer to Update On Schedule mode: SQLSTATE[HY000]: General error: 1419 You do not have the SUPER privilege and binary logging is enabled (you *might* want to use the less safe log_bin_trust_function_creators variable), query was: CREATE TRIGGER trg_sales_order_status_after_insert AFTER INSERT ON sales_order_status FOR EACH ROW
+BEGIN
+INSERT IGNORE INTO `sales_order_status_data_exporter_cl` (`entity_id`) VALUES (NEW.`status`);
+END","elapsed":"00:00:00 533 ms","pid":"28296","caller":"bin\/magento setup:install --base-url=http:\/\/localhost\/ --db-host=localhost --db-name=magento_db --db-user=magento_user"} {"indexer":"sales_order_status_data_exporter","exception":"[object] (Zend_Db_Statement_Exception(code: 0): SQLSTATE[HY000]: General error: 1419 You do not have the SUPER privilege and binary logging is enabled (you *might* want to use the less safe log_bin_trust_function_creators variable), query was: CREATE TRIGGER trg_sales_order_status_after_insert AFTER INSERT ON sales_order_status FOR EACH ROW
+BEGIN
+INSERT IGNORE INTO `sales_order_status_data_exporter_cl` (`entity_id`) VALUES (NEW.`status`);
+END at /home/shan_03/magento2/vendor/magento/framework/DB/Statement/Pdo/Mysql.php:109)
+[previous exception] [object] (PDOException(code: HY000): SQLSTATE[HY000]: General error: 1419 You do not have the SUPER privilege and binary logging is enabled (you *might* want to use the less safe log_bin_trust_function_creators variable) at /home/shan_03/magento2/vendor/magento/framework/DB/Statement/Pdo/Mysql.php:90)"} []
+[2026-01-25T10:01:54.241401+00:00] main.INFO: {"feed":"undefined","operation":"undefined","status":"Setting mode Update On Schedule for indexer Stores Feed","elapsed":"00:00:00 534 ms","pid":"28296","caller":"bin\/magento setup:install --base-url=http:\/\/localhost\/ --db-host=localhost --db-name=magento_db --db-user=magento_user"} [] []
+[2026-01-25T10:01:54.263481+00:00] main.ERROR: {"feed":"undefined","operation":"undefined","status":"Cannot set indexer to Update On Schedule mode: SQLSTATE[HY000]: General error: 1419 You do not have the SUPER privilege and binary logging is enabled (you *might* want to use the less safe log_bin_trust_function_creators variable), query was: CREATE TRIGGER trg_store_after_insert AFTER INSERT ON store FOR EACH ROW
+BEGIN
+INSERT IGNORE INTO `store_data_exporter_cl` (`entity_id`) VALUES (NEW.`website_id`);
+END","elapsed":"00:00:00 556 ms","pid":"28296","caller":"bin\/magento setup:install --base-url=http:\/\/localhost\/ --db-host=localhost --db-name=magento_db --db-user=magento_user"} {"indexer":"store_data_exporter","exception":"[object] (Zend_Db_Statement_Exception(code: 0): SQLSTATE[HY000]: General error: 1419 You do not have the SUPER privilege and binary logging is enabled (you *might* want to use the less safe log_bin_trust_function_creators variable), query was: CREATE TRIGGER trg_store_after_insert AFTER INSERT ON store FOR EACH ROW
+BEGIN
+INSERT IGNORE INTO `store_data_exporter_cl` (`entity_id`) VALUES (NEW.`website_id`);
+END at /home/shan_03/magento2/vendor/magento/framework/DB/Statement/Pdo/Mysql.php:109)
+[previous exception] [object] (PDOException(code: HY000): SQLSTATE[HY000]: General error: 1419 You do not have the SUPER privilege and binary logging is enabled (you *might* want to use the less safe log_bin_trust_function_creators variable) at /home/shan_03/magento2/vendor/magento/framework/DB/Statement/Pdo/Mysql.php:90)"} []
+[2026-01-25T10:18:43.904988+00:00] main.ERROR: {"feed":"undefined","operation":"undefined","status":"Cannot set indexer to Update On Schedule mode: Missing required argument $data of Magento\\CatalogSearch\\Model\\Indexer\\Fulltext.","elapsed":"00:00:00 357 ms","pid":"35552","caller":"bin\/magento setup:install --base-url=http:\/\/localhost\/ --db-host=localhost --db-name=magento_db --db-user=magento_user"} {"indexer":"catalogsearch_fulltext","exception":"[object] (BadMethodCallException(code: 0): Missing required argument $data of Magento\\CatalogSearch\\Model\\Indexer\\Fulltext. at /home/shan_03/magento2/vendor/magento/framework/ObjectManager/Factory/AbstractFactory.php:264)"} []
+[2026-01-25T10:18:43.928136+00:00] main.INFO: {"feed":"undefined","operation":"undefined","status":"Setting mode Update On Schedule for indexer Sales Order Feed","elapsed":"00:00:00 380 ms","pid":"35552","caller":"bin\/magento setup:install --base-url=http:\/\/localhost\/ --db-host=localhost --db-name=magento_db --db-user=magento_user"} [] []
+[2026-01-25T10:18:43.944980+00:00] main.ERROR: {"feed":"undefined","operation":"undefined","status":"Cannot set indexer to Update On Schedule mode: SQLSTATE[HY000]: General error: 1419 You do not have the SUPER privilege and binary logging is enabled (you *might* want to use the less safe log_bin_trust_function_creators variable), query was: CREATE TRIGGER trg_sales_order_after_insert AFTER INSERT ON sales_order FOR EACH ROW
+BEGIN
+INSERT IGNORE INTO `sales_order_data_exporter_cl` (`entity_id`) VALUES (NEW.`entity_id`);
+END","elapsed":"00:00:00 397 ms","pid":"35552","caller":"bin\/magento setup:install --base-url=http:\/\/localhost\/ --db-host=localhost --db-name=magento_db --db-user=magento_user"} {"indexer":"sales_order_data_exporter","exception":"[object] (Zend_Db_Statement_Exception(code: 0): SQLSTATE[HY000]: General error: 1419 You do not have the SUPER privilege and binary logging is enabled (you *might* want to use the less safe log_bin_trust_function_creators variable), query was: CREATE TRIGGER trg_sales_order_after_insert AFTER INSERT ON sales_order FOR EACH ROW
+BEGIN
+INSERT IGNORE INTO `sales_order_data_exporter_cl` (`entity_id`) VALUES (NEW.`entity_id`);
+END at /home/shan_03/magento2/vendor/magento/framework/DB/Statement/Pdo/Mysql.php:109)
+[previous exception] [object] (PDOException(code: HY000): SQLSTATE[HY000]: General error: 1419 You do not have the SUPER privilege and binary logging is enabled (you *might* want to use the less safe log_bin_trust_function_creators variable) at /home/shan_03/magento2/vendor/magento/framework/DB/Statement/Pdo/Mysql.php:90)"} []
+[2026-01-25T10:18:43.945622+00:00] main.INFO: {"feed":"undefined","operation":"undefined","status":"Setting mode Update On Schedule for indexer Sales Order Statuses Feed","elapsed":"00:00:00 398 ms","pid":"35552","caller":"bin\/magento setup:install --base-url=http:\/\/localhost\/ --db-host=localhost --db-name=magento_db --db-user=magento_user"} [] []
+[2026-01-25T10:18:43.972192+00:00] main.ERROR: {"feed":"undefined","operation":"undefined","status":"Cannot set indexer to Update On Schedule mode: SQLSTATE[HY000]: General error: 1419 You do not have the SUPER privilege and binary logging is enabled (you *might* want to use the less safe log_bin_trust_function_creators variable), query was: CREATE TRIGGER trg_sales_order_status_after_insert AFTER INSERT ON sales_order_status FOR EACH ROW
+BEGIN
+INSERT IGNORE INTO `sales_order_status_data_exporter_cl` (`entity_id`) VALUES (NEW.`status`);
+END","elapsed":"00:00:00 424 ms","pid":"35552","caller":"bin\/magento setup:install --base-url=http:\/\/localhost\/ --db-host=localhost --db-name=magento_db --db-user=magento_user"} {"indexer":"sales_order_status_data_exporter","exception":"[object] (Zend_Db_Statement_Exception(code: 0): SQLSTATE[HY000]: General error: 1419 You do not have the SUPER privilege and binary logging is enabled (you *might* want to use the less safe log_bin_trust_function_creators variable), query was: CREATE TRIGGER trg_sales_order_status_after_insert AFTER INSERT ON sales_order_status FOR EACH ROW
+BEGIN
+INSERT IGNORE INTO `sales_order_status_data_exporter_cl` (`entity_id`) VALUES (NEW.`status`);
+END at /home/shan_03/magento2/vendor/magento/framework/DB/Statement/Pdo/Mysql.php:109)
+[previous exception] [object] (PDOException(code: HY000): SQLSTATE[HY000]: General error: 1419 You do not have the SUPER privilege and binary logging is enabled (you *might* want to use the less safe log_bin_trust_function_creators variable) at /home/shan_03/magento2/vendor/magento/framework/DB/Statement/Pdo/Mysql.php:90)"} []
+[2026-01-25T10:18:43.972770+00:00] main.INFO: {"feed":"undefined","operation":"undefined","status":"Setting mode Update On Schedule for indexer Stores Feed","elapsed":"00:00:00 425 ms","pid":"35552","caller":"bin\/magento setup:install --base-url=http:\/\/localhost\/ --db-host=localhost --db-name=magento_db --db-user=magento_user"} [] []
+[2026-01-25T10:18:43.979862+00:00] main.ERROR: {"feed":"undefined","operation":"undefined","status":"Cannot set indexer to Update On Schedule mode: SQLSTATE[HY000]: General error: 1419 You do not have the SUPER privilege and binary logging is enabled (you *might* want to use the less safe log_bin_trust_function_creators variable), query was: CREATE TRIGGER trg_store_after_insert AFTER INSERT ON store FOR EACH ROW
+BEGIN
+INSERT IGNORE INTO `store_data_exporter_cl` (`entity_id`) VALUES (NEW.`website_id`);
+END","elapsed":"00:00:00 432 ms","pid":"35552","caller":"bin\/magento setup:install --base-url=http:\/\/localhost\/ --db-host=localhost --db-name=magento_db --db-user=magento_user"} {"indexer":"store_data_exporter","exception":"[object] (Zend_Db_Statement_Exception(code: 0): SQLSTATE[HY000]: General error: 1419 You do not have the SUPER privilege and binary logging is enabled (you *might* want to use the less safe log_bin_trust_function_creators variable), query was: CREATE TRIGGER trg_store_after_insert AFTER INSERT ON store FOR EACH ROW
+BEGIN
+INSERT IGNORE INTO `store_data_exporter_cl` (`entity_id`) VALUES (NEW.`website_id`);
+END at /home/shan_03/magento2/vendor/magento/framework/DB/Statement/Pdo/Mysql.php:109)
+[previous exception] [object] (PDOException(code: HY000): SQLSTATE[HY000]: General error: 1419 You do not have the SUPER privilege and binary logging is enabled (you *might* want to use the less safe log_bin_trust_function_creators variable) at /home/shan_03/magento2/vendor/magento/framework/DB/Statement/Pdo/Mysql.php:90)"} []
+[2026-01-25T10:26:30.581224+00:00] main.ERROR: {"feed":"undefined","operation":"undefined","status":"Cannot set indexer to Update On Schedule mode: Missing required argument $data of Magento\\CatalogSearch\\Model\\Indexer\\Fulltext.","elapsed":"780 ms","pid":"38102","caller":"bin\/magento setup:install --base-url=http:\/\/localhost\/ --db-host=localhost --db-name=magento_db --db-user=magento_user"} {"indexer":"catalogsearch_fulltext","exception":"[object] (BadMethodCallException(code: 0): Missing required argument $data of Magento\\CatalogSearch\\Model\\Indexer\\Fulltext. at /home/shan_03/magento2/vendor/magento/framework/ObjectManager/Factory/AbstractFactory.php:264)"} []
+[2026-01-25T10:26:30.609790+00:00] main.INFO: {"feed":"undefined","operation":"undefined","status":"Setting mode Update On Schedule for indexer Sales Order Feed","elapsed":"809 ms","pid":"38102","caller":"bin\/magento setup:install --base-url=http:\/\/localhost\/ --db-host=localhost --db-name=magento_db --db-user=magento_user"} [] []
+[2026-01-25T10:26:30.620503+00:00] main.ERROR: {"feed":"undefined","operation":"undefined","status":"Cannot set indexer to Update On Schedule mode: SQLSTATE[HY000]: General error: 1419 You do not have the SUPER privilege and binary logging is enabled (you *might* want to use the less safe log_bin_trust_function_creators variable), query was: CREATE TRIGGER trg_sales_order_after_insert AFTER INSERT ON sales_order FOR EACH ROW
+BEGIN
+INSERT IGNORE INTO `sales_order_data_exporter_cl` (`entity_id`) VALUES (NEW.`entity_id`);
+END","elapsed":"819 ms","pid":"38102","caller":"bin\/magento setup:install --base-url=http:\/\/localhost\/ --db-host=localhost --db-name=magento_db --db-user=magento_user"} {"indexer":"sales_order_data_exporter","exception":"[object] (Zend_Db_Statement_Exception(code: 0): SQLSTATE[HY000]: General error: 1419 You do not have the SUPER privilege and binary logging is enabled (you *might* want to use the less safe log_bin_trust_function_creators variable), query was: CREATE TRIGGER trg_sales_order_after_insert AFTER INSERT ON sales_order FOR EACH ROW
+BEGIN
+INSERT IGNORE INTO `sales_order_data_exporter_cl` (`entity_id`) VALUES (NEW.`entity_id`);
+END at /home/shan_03/magento2/vendor/magento/framework/DB/Statement/Pdo/Mysql.php:109)
+[previous exception] [object] (PDOException(code: HY000): SQLSTATE[HY000]: General error: 1419 You do not have the SUPER privilege and binary logging is enabled (you *might* want to use the less safe log_bin_trust_function_creators variable) at /home/shan_03/magento2/vendor/magento/framework/DB/Statement/Pdo/Mysql.php:90)"} []
+[2026-01-25T10:26:30.621183+00:00] main.INFO: {"feed":"undefined","operation":"undefined","status":"Setting mode Update On Schedule for indexer Sales Order Statuses Feed","elapsed":"820 ms","pid":"38102","caller":"bin\/magento setup:install --base-url=http:\/\/localhost\/ --db-host=localhost --db-name=magento_db --db-user=magento_user"} [] []
+[2026-01-25T10:26:30.634054+00:00] main.ERROR: {"feed":"undefined","operation":"undefined","status":"Cannot set indexer to Update On Schedule mode: SQLSTATE[HY000]: General error: 1419 You do not have the SUPER privilege and binary logging is enabled (you *might* want to use the less safe log_bin_trust_function_creators variable), query was: CREATE TRIGGER trg_sales_order_status_after_insert AFTER INSERT ON sales_order_status FOR EACH ROW
+BEGIN
+INSERT IGNORE INTO `sales_order_status_data_exporter_cl` (`entity_id`) VALUES (NEW.`status`);
+END","elapsed":"833 ms","pid":"38102","caller":"bin\/magento setup:install --base-url=http:\/\/localhost\/ --db-host=localhost --db-name=magento_db --db-user=magento_user"} {"indexer":"sales_order_status_data_exporter","exception":"[object] (Zend_Db_Statement_Exception(code: 0): SQLSTATE[HY000]: General error: 1419 You do not have the SUPER privilege and binary logging is enabled (you *might* want to use the less safe log_bin_trust_function_creators variable), query was: CREATE TRIGGER trg_sales_order_status_after_insert AFTER INSERT ON sales_order_status FOR EACH ROW
+BEGIN
+INSERT IGNORE INTO `sales_order_status_data_exporter_cl` (`entity_id`) VALUES (NEW.`status`);
+END at /home/shan_03/magento2/vendor/magento/framework/DB/Statement/Pdo/Mysql.php:109)
+[previous exception] [object] (PDOException(code: HY000): SQLSTATE[HY000]: General error: 1419 You do not have the SUPER privilege and binary logging is enabled (you *might* want to use the less safe log_bin_trust_function_creators variable) at /home/shan_03/magento2/vendor/magento/framework/DB/Statement/Pdo/Mysql.php:90)"} []
+[2026-01-25T10:26:30.634575+00:00] main.INFO: {"feed":"undefined","operation":"undefined","status":"Setting mode Update On Schedule for indexer Stores Feed","elapsed":"833 ms","pid":"38102","caller":"bin\/magento setup:install --base-url=http:\/\/localhost\/ --db-host=localhost --db-name=magento_db --db-user=magento_user"} [] []
+[2026-01-25T10:26:30.639583+00:00] main.ERROR: {"feed":"undefined","operation":"undefined","status":"Cannot set indexer to Update On Schedule mode: SQLSTATE[HY000]: General error: 1419 You do not have the SUPER privilege and binary logging is enabled (you *might* want to use the less safe log_bin_trust_function_creators variable), query was: CREATE TRIGGER trg_store_after_insert AFTER INSERT ON store FOR EACH ROW
+BEGIN
+INSERT IGNORE INTO `store_data_exporter_cl` (`entity_id`) VALUES (NEW.`website_id`);
+END","elapsed":"838 ms","pid":"38102","caller":"bin\/magento setup:install --base-url=http:\/\/localhost\/ --db-host=localhost --db-name=magento_db --db-user=magento_user"} {"indexer":"store_data_exporter","exception":"[object] (Zend_Db_Statement_Exception(code: 0): SQLSTATE[HY000]: General error: 1419 You do not have the SUPER privilege and binary logging is enabled (you *might* want to use the less safe log_bin_trust_function_creators variable), query was: CREATE TRIGGER trg_store_after_insert AFTER INSERT ON store FOR EACH ROW
+BEGIN
+INSERT IGNORE INTO `store_data_exporter_cl` (`entity_id`) VALUES (NEW.`website_id`);
+END at /home/shan_03/magento2/vendor/magento/framework/DB/Statement/Pdo/Mysql.php:109)
+[previous exception] [object] (PDOException(code: HY000): SQLSTATE[HY000]: General error: 1419 You do not have the SUPER privilege and binary logging is enabled (you *might* want to use the less safe log_bin_trust_function_creators variable) at /home/shan_03/magento2/vendor/magento/framework/DB/Statement/Pdo/Mysql.php:90)"} []
+[2026-01-25T10:28:52.619490+00:00] main.INFO: {"feed":"salesOrders","operation":"full reindex(legacy)","status":"Initialize","elapsed":"00:00:00 879 ms","pid":"38977","caller":"bin\/magento indexer:reindex"} [] []
+[2026-01-25T10:28:52.682999+00:00] main.INFO: {"feed":"salesOrders","operation":"full reindex(legacy)","status":"Creating batch table `sales_data_exporter_orders_index_batches`. Start position: 0","elapsed":"00:00:01 943 ms","pid":"38977","caller":"bin\/magento indexer:reindex"} [] []
+[2026-01-25T10:28:52.712775+00:00] main.INFO: {"feed":"salesOrders","operation":"full reindex(legacy)","status":"Batch table `sales_data_exporter_orders_index_batches` created. Total Items: 0, batches: ~0","elapsed":"00:00:01 973 ms","pid":"38977","caller":"bin\/magento indexer:reindex"} [] []
+[2026-01-25T10:28:52.712914+00:00] main.INFO: {"feed":"salesOrders","operation":"full reindex(legacy)","status":"nothing to process - no items to sync. Not expected? Are there any items in source table `sales_order`?","elapsed":"00:00:01 973 ms","pid":"38977","caller":"bin\/magento indexer:reindex"} [] []
+[2026-01-25T10:28:52.715289+00:00] main.INFO: {"feed":"salesOrders","operation":"full reindex(legacy)","status":"Complete","elapsed":"00:00:01 975 ms","pid":"38977","caller":"bin\/magento indexer:reindex"} [] []
+[2026-01-25T10:28:52.724410+00:00] main.INFO: {"feed":"salesOrderStatuses","operation":"full reindex(legacy)","status":"Initialize","elapsed":"89 ms","pid":"38977","caller":"bin\/magento indexer:reindex"} [] []
+[2026-01-25T10:28:52.774984+00:00] main.INFO: {"feed":"salesOrderStatuses","operation":"full reindex(legacy)","status":"Creating batch table `sales_data_exporter_order_statuses_index_batches`. Start position: ","elapsed":"140 ms","pid":"38977","caller":"bin\/magento indexer:reindex"} [] []
+[2026-01-25T10:28:52.805225+00:00] main.INFO: {"feed":"salesOrderStatuses","operation":"full reindex(legacy)","status":"Batch table `sales_data_exporter_order_statuses_index_batches` created. Total Items: 12, batches: ~0","elapsed":"170 ms","pid":"38977","caller":"bin\/magento indexer:reindex"} [] []
+[2026-01-25T10:28:52.805380+00:00] main.INFO: {"feed":"salesOrderStatuses","operation":"full reindex(legacy)","status":"start processing `12` items in `1` threads with `100` batch size","elapsed":"170 ms","pid":"38977","caller":"bin\/magento indexer:reindex"} [] []
+[2026-01-25T10:28:52.823823+00:00] main.INFO: {"feed":"salesOrderStatuses","operation":"full reindex(legacy)","status":"Progress 1\/1, processed 12, synced 12","elapsed":"189 ms","pid":"38977","caller":"bin\/magento indexer:reindex"} [] []
+[2026-01-25T10:28:52.827342+00:00] main.INFO: {"feed":"salesOrderStatuses","operation":"full reindex(legacy)","status":"Complete","elapsed":"192 ms","pid":"38977","caller":"bin\/magento indexer:reindex"} [] []
+[2026-01-25T10:28:52.835378+00:00] main.INFO: {"feed":"stores","operation":"full reindex(legacy)","status":"Initialize","elapsed":"311 ms","pid":"38977","caller":"bin\/magento indexer:reindex"} [] []
+[2026-01-25T10:28:52.899465+00:00] main.INFO: {"feed":"stores","operation":"full reindex(legacy)","status":"Creating batch table `stores_data_exporter_index_batches`. Start position: 0","elapsed":"375 ms","pid":"38977","caller":"bin\/magento indexer:reindex"} [] []
+[2026-01-25T10:28:52.935877+00:00] main.INFO: {"feed":"stores","operation":"full reindex(legacy)","status":"Batch table `stores_data_exporter_index_batches` created. Total Items: 1, batches: ~0","elapsed":"412 ms","pid":"38977","caller":"bin\/magento indexer:reindex"} [] []
+[2026-01-25T10:28:52.936050+00:00] main.INFO: {"feed":"stores","operation":"full reindex(legacy)","status":"start processing `1` items in `1` threads with `100` batch size","elapsed":"412 ms","pid":"38977","caller":"bin\/magento indexer:reindex"} [] []
+[2026-01-25T10:28:52.945263+00:00] main.INFO: {"feed":"stores","operation":"full reindex(legacy)","status":"Progress 1\/1, processed 1, synced 1","elapsed":"421 ms","pid":"38977","caller":"bin\/magento indexer:reindex"} [] []
+[2026-01-25T10:28:52.949857+00:00] main.INFO: {"feed":"stores","operation":"full reindex(legacy)","status":"Complete","elapsed":"426 ms","pid":"38977","caller":"bin\/magento indexer:reindex"} [] []
+[2026-01-25T10:59:30.829895+00:00] main.ERROR: {"feed":"undefined","operation":"undefined","status":"Cannot set indexer to Update On Schedule mode: Missing required argument $data of Magento\\CatalogSearch\\Model\\Indexer\\Fulltext.","elapsed":"00:00:00 443 ms","pid":"51278","caller":"bin\/magento setup:upgrade"} {"indexer":"catalogsearch_fulltext","exception":"[object] (BadMethodCallException(code: 0): Missing required argument $data of Magento\\CatalogSearch\\Model\\Indexer\\Fulltext. at /home/shan_03/magento2/vendor/magento/framework/ObjectManager/Factory/AbstractFactory.php:264)"} []
+[2026-01-25T10:59:30.857331+00:00] main.INFO: {"feed":"undefined","operation":"undefined","status":"Setting mode Update On Schedule for indexer Sales Order Feed","elapsed":"00:00:00 470 ms","pid":"51278","caller":"bin\/magento setup:upgrade"} [] []
+[2026-01-25T10:59:30.869063+00:00] main.ERROR: {"feed":"undefined","operation":"undefined","status":"Cannot set indexer to Update On Schedule mode: SQLSTATE[HY000]: General error: 1419 You do not have the SUPER privilege and binary logging is enabled (you *might* want to use the less safe log_bin_trust_function_creators variable), query was: CREATE TRIGGER trg_sales_order_after_insert AFTER INSERT ON sales_order FOR EACH ROW
+BEGIN
+INSERT IGNORE INTO `sales_order_data_exporter_cl` (`entity_id`) VALUES (NEW.`entity_id`);
+END","elapsed":"00:00:00 482 ms","pid":"51278","caller":"bin\/magento setup:upgrade"} {"indexer":"sales_order_data_exporter","exception":"[object] (Zend_Db_Statement_Exception(code: 0): SQLSTATE[HY000]: General error: 1419 You do not have the SUPER privilege and binary logging is enabled (you *might* want to use the less safe log_bin_trust_function_creators variable), query was: CREATE TRIGGER trg_sales_order_after_insert AFTER INSERT ON sales_order FOR EACH ROW
+BEGIN
+INSERT IGNORE INTO `sales_order_data_exporter_cl` (`entity_id`) VALUES (NEW.`entity_id`);
+END at /home/shan_03/magento2/vendor/magento/framework/DB/Statement/Pdo/Mysql.php:109)
+[previous exception] [object] (PDOException(code: HY000): SQLSTATE[HY000]: General error: 1419 You do not have the SUPER privilege and binary logging is enabled (you *might* want to use the less safe log_bin_trust_function_creators variable) at /home/shan_03/magento2/vendor/magento/framework/DB/Statement/Pdo/Mysql.php:90)"} []
+[2026-01-25T10:59:30.869899+00:00] main.INFO: {"feed":"undefined","operation":"undefined","status":"Setting mode Update On Schedule for indexer Sales Order Statuses Feed","elapsed":"00:00:00 483 ms","pid":"51278","caller":"bin\/magento setup:upgrade"} [] []
+[2026-01-25T10:59:30.884611+00:00] main.ERROR: {"feed":"undefined","operation":"undefined","status":"Cannot set indexer to Update On Schedule mode: SQLSTATE[HY000]: General error: 1419 You do not have the SUPER privilege and binary logging is enabled (you *might* want to use the less safe log_bin_trust_function_creators variable), query was: CREATE TRIGGER trg_sales_order_status_after_insert AFTER INSERT ON sales_order_status FOR EACH ROW
+BEGIN
+INSERT IGNORE INTO `sales_order_status_data_exporter_cl` (`entity_id`) VALUES (NEW.`status`);
+END","elapsed":"00:00:00 497 ms","pid":"51278","caller":"bin\/magento setup:upgrade"} {"indexer":"sales_order_status_data_exporter","exception":"[object] (Zend_Db_Statement_Exception(code: 0): SQLSTATE[HY000]: General error: 1419 You do not have the SUPER privilege and binary logging is enabled (you *might* want to use the less safe log_bin_trust_function_creators variable), query was: CREATE TRIGGER trg_sales_order_status_after_insert AFTER INSERT ON sales_order_status FOR EACH ROW
+BEGIN
+INSERT IGNORE INTO `sales_order_status_data_exporter_cl` (`entity_id`) VALUES (NEW.`status`);
+END at /home/shan_03/magento2/vendor/magento/framework/DB/Statement/Pdo/Mysql.php:109)
+[previous exception] [object] (PDOException(code: HY000): SQLSTATE[HY000]: General error: 1419 You do not have the SUPER privilege and binary logging is enabled (you *might* want to use the less safe log_bin_trust_function_creators variable) at /home/shan_03/magento2/vendor/magento/framework/DB/Statement/Pdo/Mysql.php:90)"} []
+[2026-01-25T10:59:30.885050+00:00] main.INFO: {"feed":"undefined","operation":"undefined","status":"Setting mode Update On Schedule for indexer Stores Feed","elapsed":"00:00:00 498 ms","pid":"51278","caller":"bin\/magento setup:upgrade"} [] []
+[2026-01-25T10:59:30.890185+00:00] main.ERROR: {"feed":"undefined","operation":"undefined","status":"Cannot set indexer to Update On Schedule mode: SQLSTATE[HY000]: General error: 1419 You do not have the SUPER privilege and binary logging is enabled (you *might* want to use the less safe log_bin_trust_function_creators variable), query was: CREATE TRIGGER trg_store_after_insert AFTER INSERT ON store FOR EACH ROW
+BEGIN
+INSERT IGNORE INTO `store_data_exporter_cl` (`entity_id`) VALUES (NEW.`website_id`);
+END","elapsed":"00:00:00 503 ms","pid":"51278","caller":"bin\/magento setup:upgrade"} {"indexer":"store_data_exporter","exception":"[object] (Zend_Db_Statement_Exception(code: 0): SQLSTATE[HY000]: General error: 1419 You do not have the SUPER privilege and binary logging is enabled (you *might* want to use the less safe log_bin_trust_function_creators variable), query was: CREATE TRIGGER trg_store_after_insert AFTER INSERT ON store FOR EACH ROW
+BEGIN
+INSERT IGNORE INTO `store_data_exporter_cl` (`entity_id`) VALUES (NEW.`website_id`);
+END at /home/shan_03/magento2/vendor/magento/framework/DB/Statement/Pdo/Mysql.php:109)
+[previous exception] [object] (PDOException(code: HY000): SQLSTATE[HY000]: General error: 1419 You do not have the SUPER privilege and binary logging is enabled (you *might* want to use the less safe log_bin_trust_function_creators variable) at /home/shan_03/magento2/vendor/magento/framework/DB/Statement/Pdo/Mysql.php:90)"} []
+[2026-01-25T11:14:06.836115+00:00] main.INFO: {"feed":"salesOrders","operation":"full reindex(legacy)","status":"Initialize","elapsed":"00:00:00 640 ms","pid":"55078","caller":"bin\/magento indexer:reindex"} [] []
+[2026-01-25T11:14:06.916132+00:00] main.INFO: {"feed":"salesOrders","operation":"full reindex(legacy)","status":"Creating batch table `sales_data_exporter_orders_index_batches`. Start position: 0","elapsed":"00:00:00 720 ms","pid":"55078","caller":"bin\/magento indexer:reindex"} [] []
+[2026-01-25T11:14:06.956378+00:00] main.INFO: {"feed":"salesOrders","operation":"full reindex(legacy)","status":"Batch table `sales_data_exporter_orders_index_batches` created. Total Items: 0, batches: ~0","elapsed":"00:00:00 760 ms","pid":"55078","caller":"bin\/magento indexer:reindex"} [] []
+[2026-01-25T11:14:06.956539+00:00] main.INFO: {"feed":"salesOrders","operation":"full reindex(legacy)","status":"nothing to process - no items to sync. Not expected? Are there any items in source table `sales_order`?","elapsed":"00:00:00 761 ms","pid":"55078","caller":"bin\/magento indexer:reindex"} [] []
+[2026-01-25T11:14:06.959140+00:00] main.INFO: {"feed":"salesOrders","operation":"full reindex(legacy)","status":"Complete","elapsed":"00:00:00 763 ms","pid":"55078","caller":"bin\/magento indexer:reindex"} [] []
+[2026-01-25T11:14:06.970842+00:00] main.INFO: {"feed":"salesOrderStatuses","operation":"full reindex(legacy)","status":"Initialize","elapsed":"00:00:00 910 ms","pid":"55078","caller":"bin\/magento indexer:reindex"} [] []
+[2026-01-25T11:14:07.056489+00:00] main.INFO: {"feed":"salesOrderStatuses","operation":"full reindex(legacy)","status":"Creating batch table `sales_data_exporter_order_statuses_index_batches`. Start position: ","elapsed":"00:00:01 995 ms","pid":"55078","caller":"bin\/magento indexer:reindex"} [] []
+[2026-01-25T11:14:07.090952+00:00] main.INFO: {"feed":"salesOrderStatuses","operation":"full reindex(legacy)","status":"Batch table `sales_data_exporter_order_statuses_index_batches` created. Total Items: 12, batches: ~0","elapsed":"00:00:01 30 ms","pid":"55078","caller":"bin\/magento indexer:reindex"} [] []
+[2026-01-25T11:14:07.091098+00:00] main.INFO: {"feed":"salesOrderStatuses","operation":"full reindex(legacy)","status":"start processing `12` items in `1` threads with `100` batch size","elapsed":"00:00:01 30 ms","pid":"55078","caller":"bin\/magento indexer:reindex"} [] []
+[2026-01-25T11:14:07.107600+00:00] main.INFO: {"feed":"salesOrderStatuses","operation":"full reindex(legacy)","status":"Progress 1\/1, processed 12, synced 12","elapsed":"00:00:01 46 ms","pid":"55078","caller":"bin\/magento indexer:reindex"} [] []
+[2026-01-25T11:14:07.110020+00:00] main.INFO: {"feed":"salesOrderStatuses","operation":"full reindex(legacy)","status":"Complete","elapsed":"00:00:01 49 ms","pid":"55078","caller":"bin\/magento indexer:reindex"} [] []
+[2026-01-25T11:14:07.118416+00:00] main.INFO: {"feed":"stores","operation":"full reindex(legacy)","status":"Initialize","elapsed":"205 ms","pid":"55078","caller":"bin\/magento indexer:reindex"} [] []
+[2026-01-25T11:14:07.171563+00:00] main.INFO: {"feed":"stores","operation":"full reindex(legacy)","status":"Creating batch table `stores_data_exporter_index_batches`. Start position: 0","elapsed":"258 ms","pid":"55078","caller":"bin\/magento indexer:reindex"} [] []
+[2026-01-25T11:14:07.207637+00:00] main.INFO: {"feed":"stores","operation":"full reindex(legacy)","status":"Batch table `stores_data_exporter_index_batches` created. Total Items: 1, batches: ~0","elapsed":"294 ms","pid":"55078","caller":"bin\/magento indexer:reindex"} [] []
+[2026-01-25T11:14:07.207749+00:00] main.INFO: {"feed":"stores","operation":"full reindex(legacy)","status":"start processing `1` items in `1` threads with `100` batch size","elapsed":"294 ms","pid":"55078","caller":"bin\/magento indexer:reindex"} [] []
+[2026-01-25T11:14:07.214750+00:00] main.INFO: {"feed":"stores","operation":"full reindex(legacy)","status":"Progress 1\/1, processed 1, synced 1","elapsed":"301 ms","pid":"55078","caller":"bin\/magento indexer:reindex"} [] []
+[2026-01-25T11:14:07.218697+00:00] main.INFO: {"feed":"stores","operation":"full reindex(legacy)","status":"Complete","elapsed":"305 ms","pid":"55078","caller":"bin\/magento indexer:reindex"} [] []
+[2026-01-25T12:52:16.689593+00:00] main.ERROR: {"feed":"undefined","operation":"undefined","status":"Cannot set indexer to Update On Schedule mode: Missing required argument $data of Magento\\CatalogSearch\\Model\\Indexer\\Fulltext.","elapsed":"00:00:00 166 ms","pid":"75455","caller":"bin\/magento setup:upgrade"} {"indexer":"catalogsearch_fulltext","exception":"[object] (BadMethodCallException(code: 0): Missing required argument $data of Magento\\CatalogSearch\\Model\\Indexer\\Fulltext. at /home/shan_03/magento2/vendor/magento/framework/ObjectManager/Factory/AbstractFactory.php:264)"} []
+[2026-01-25T12:52:16.724912+00:00] main.INFO: {"feed":"undefined","operation":"undefined","status":"Setting mode Update On Schedule for indexer Sales Order Feed","elapsed":"00:00:00 201 ms","pid":"75455","caller":"bin\/magento setup:upgrade"} [] []
+[2026-01-25T12:52:16.736882+00:00] main.ERROR: {"feed":"undefined","operation":"undefined","status":"Cannot set indexer to Update On Schedule mode: SQLSTATE[HY000]: General error: 1419 You do not have the SUPER privilege and binary logging is enabled (you *might* want to use the less safe log_bin_trust_function_creators variable), query was: CREATE TRIGGER trg_sales_order_after_insert AFTER INSERT ON sales_order FOR EACH ROW
+BEGIN
+INSERT IGNORE INTO `sales_order_data_exporter_cl` (`entity_id`) VALUES (NEW.`entity_id`);
+END","elapsed":"00:00:00 213 ms","pid":"75455","caller":"bin\/magento setup:upgrade"} {"indexer":"sales_order_data_exporter","exception":"[object] (Zend_Db_Statement_Exception(code: 0): SQLSTATE[HY000]: General error: 1419 You do not have the SUPER privilege and binary logging is enabled (you *might* want to use the less safe log_bin_trust_function_creators variable), query was: CREATE TRIGGER trg_sales_order_after_insert AFTER INSERT ON sales_order FOR EACH ROW
+BEGIN
+INSERT IGNORE INTO `sales_order_data_exporter_cl` (`entity_id`) VALUES (NEW.`entity_id`);
+END at /home/shan_03/magento2/vendor/magento/framework/DB/Statement/Pdo/Mysql.php:109)
+[previous exception] [object] (PDOException(code: HY000): SQLSTATE[HY000]: General error: 1419 You do not have the SUPER privilege and binary logging is enabled (you *might* want to use the less safe log_bin_trust_function_creators variable) at /home/shan_03/magento2/vendor/magento/framework/DB/Statement/Pdo/Mysql.php:90)"} []
+[2026-01-25T12:52:16.738103+00:00] main.INFO: {"feed":"undefined","operation":"undefined","status":"Setting mode Update On Schedule for indexer Sales Order Statuses Feed","elapsed":"00:00:00 215 ms","pid":"75455","caller":"bin\/magento setup:upgrade"} [] []
+[2026-01-25T12:52:16.762905+00:00] main.ERROR: {"feed":"undefined","operation":"undefined","status":"Cannot set indexer to Update On Schedule mode: SQLSTATE[HY000]: General error: 1419 You do not have the SUPER privilege and binary logging is enabled (you *might* want to use the less safe log_bin_trust_function_creators variable), query was: CREATE TRIGGER trg_sales_order_status_after_insert AFTER INSERT ON sales_order_status FOR EACH ROW
+BEGIN
+INSERT IGNORE INTO `sales_order_status_data_exporter_cl` (`entity_id`) VALUES (NEW.`status`);
+END","elapsed":"00:00:00 239 ms","pid":"75455","caller":"bin\/magento setup:upgrade"} {"indexer":"sales_order_status_data_exporter","exception":"[object] (Zend_Db_Statement_Exception(code: 0): SQLSTATE[HY000]: General error: 1419 You do not have the SUPER privilege and binary logging is enabled (you *might* want to use the less safe log_bin_trust_function_creators variable), query was: CREATE TRIGGER trg_sales_order_status_after_insert AFTER INSERT ON sales_order_status FOR EACH ROW
+BEGIN
+INSERT IGNORE INTO `sales_order_status_data_exporter_cl` (`entity_id`) VALUES (NEW.`status`);
+END at /home/shan_03/magento2/vendor/magento/framework/DB/Statement/Pdo/Mysql.php:109)
+[previous exception] [object] (PDOException(code: HY000): SQLSTATE[HY000]: General error: 1419 You do not have the SUPER privilege and binary logging is enabled (you *might* want to use the less safe log_bin_trust_function_creators variable) at /home/shan_03/magento2/vendor/magento/framework/DB/Statement/Pdo/Mysql.php:90)"} []
+[2026-01-25T12:52:16.763754+00:00] main.INFO: {"feed":"undefined","operation":"undefined","status":"Setting mode Update On Schedule for indexer Stores Feed","elapsed":"00:00:00 240 ms","pid":"75455","caller":"bin\/magento setup:upgrade"} [] []
+[2026-01-25T12:52:16.770380+00:00] main.ERROR: {"feed":"undefined","operation":"undefined","status":"Cannot set indexer to Update On Schedule mode: SQLSTATE[HY000]: General error: 1419 You do not have the SUPER privilege and binary logging is enabled (you *might* want to use the less safe log_bin_trust_function_creators variable), query was: CREATE TRIGGER trg_store_after_insert AFTER INSERT ON store FOR EACH ROW
+BEGIN
+INSERT IGNORE INTO `store_data_exporter_cl` (`entity_id`) VALUES (NEW.`website_id`);
+END","elapsed":"00:00:00 247 ms","pid":"75455","caller":"bin\/magento setup:upgrade"} {"indexer":"store_data_exporter","exception":"[object] (Zend_Db_Statement_Exception(code: 0): SQLSTATE[HY000]: General error: 1419 You do not have the SUPER privilege and binary logging is enabled (you *might* want to use the less safe log_bin_trust_function_creators variable), query was: CREATE TRIGGER trg_store_after_insert AFTER INSERT ON store FOR EACH ROW
+BEGIN
+INSERT IGNORE INTO `store_data_exporter_cl` (`entity_id`) VALUES (NEW.`website_id`);
+END at /home/shan_03/magento2/vendor/magento/framework/DB/Statement/Pdo/Mysql.php:109)
+[previous exception] [object] (PDOException(code: HY000): SQLSTATE[HY000]: General error: 1419 You do not have the SUPER privilege and binary logging is enabled (you *might* want to use the less safe log_bin_trust_function_creators variable) at /home/shan_03/magento2/vendor/magento/framework/DB/Statement/Pdo/Mysql.php:90)"} []
+[2026-01-25T12:53:29.732915+00:00] main.WARNING: {"feed":"undefined","operation":"undefined","status":"Unexpected call: feed \"salesOrders\" is not locked, trace: #0 \/home\/shan_03\/magento2\/vendor\/magento\/module-data-exporter\/Model\/Indexer\/FeedIndexer.php(136): Magento\\DataExporter\\Model\\Indexer\\FeedIndexer->logWarningIfFeedIsNotLocked()
+#1 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/Interception\/Interceptor.php(58): Magento\\DataExporter\\Model\\Indexer\\FeedIndexer->executeList()
+#2 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/Interception\/Interceptor.php(138): Magento\\DataExporter\\Model\\Indexer\\FeedIndexer\\Interceptor->___callParent()
+#3 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/Interception\/Interceptor.php(153): Magento\\DataExporter\\Model\\Indexer\\FeedIndexer\\Interceptor->Magento\\Framework\\Interception\\{closure}()
+#4 \/home\/shan_03\/magento2\/generated\/code\/Magento\/DataExporter\/Model\/Indexer\/FeedIndexer\/Interceptor.php(32): Magento\\DataExporter\\Model\\Indexer\\FeedIndexer\\Interceptor->___callPlugins()
+#5 \/home\/shan_03\/magento2\/vendor\/magento\/module-indexer\/Model\/Indexer.php(547): Magento\\DataExporter\\Model\\Indexer\\FeedIndexer\\Interceptor->executeList()
+#6 \/home\/shan_03\/magento2\/generated\/code\/Magento\/Indexer\/Model\/Indexer\/Interceptor.php(257): Magento\\Indexer\\Model\\Indexer->reindexList()
+#7 \/home\/shan_03\/magento2\/vendor\/magento\/module-indexer\/Model\/Indexer\/DependencyDecorator.php(294): Magento\\Indexer\\Model\\Indexer\\Interceptor->reindexList()
+#8 \/home\/shan_03\/magento2\/generated\/code\/Magento\/Indexer\/Model\/Indexer\/DependencyDecorator\/Interceptor.php(230): Magento\\Indexer\\Model\\Indexer\\DependencyDecorator->reindexList()
+#9 \/home\/shan_03\/magento2\/vendor\/magento\/module-sales-data-exporter\/Observer\/ReindexOrderFeed.php(53): Magento\\Indexer\\Model\\Indexer\\DependencyDecorator\\Interceptor->reindexList()
+#10 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/Event\/Invoker\/InvokerDefault.php(88): Magento\\SalesDataExporter\\Observer\\ReindexOrderFeed->execute()
+#11 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/Event\/Invoker\/InvokerDefault.php(74): Magento\\Framework\\Event\\Invoker\\InvokerDefault->_callObserverMethod()
+#12 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/Event\/Manager.php(65): Magento\\Framework\\Event\\Invoker\\InvokerDefault->dispatch()
+#13 \/home\/shan_03\/magento2\/generated\/code\/Magento\/Framework\/Event\/Manager\/Proxy.php(105): Magento\\Framework\\Event\\Manager->dispatch()
+#14 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/Model\/AbstractModel.php(675): Magento\\Framework\\Event\\Manager\\Proxy->dispatch()
+#15 \/home\/shan_03\/magento2\/generated\/code\/Magento\/Sales\/Model\/Order\/Interceptor.php(3497): Magento\\Framework\\Model\\AbstractModel->afterCommitCallback()
+#16 [internal function]: Magento\\Sales\\Model\\Order\\Interceptor->afterCommitCallback()
+#17 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/Model\/ExecuteCommitCallbacks.php(44): call_user_func()
+#18 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/Interception\/Interceptor.php(146): Magento\\Framework\\Model\\ExecuteCommitCallbacks->afterCommit()
+#19 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/Interception\/Interceptor.php(153): Magento\\Framework\\DB\\Adapter\\Pdo\\Mysql\\Interceptor->Magento\\Framework\\Interception\\{closure}()
+#20 \/home\/shan_03\/magento2\/generated\/code\/Magento\/Framework\/DB\/Adapter\/Pdo\/Mysql\/Interceptor.php(32): Magento\\Framework\\DB\\Adapter\\Pdo\\Mysql\\Interceptor->___callPlugins()
+#21 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/Model\/ResourceModel\/AbstractResource.php(91): Magento\\Framework\\DB\\Adapter\\Pdo\\Mysql\\Interceptor->commit()
+#22 \/home\/shan_03\/magento2\/generated\/code\/Magento\/Sales\/Model\/ResourceModel\/Order\/Interceptor.php(230): Magento\\Framework\\Model\\ResourceModel\\AbstractResource->commit()
+#23 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/Model\/ResourceModel\/Db\/AbstractDb.php(404): Magento\\Sales\\Model\\ResourceModel\\Order\\Interceptor->commit()
+#24 \/home\/shan_03\/magento2\/vendor\/magento\/module-sales\/Model\/ResourceModel\/Order.php(175): Magento\\Framework\\Model\\ResourceModel\\Db\\AbstractDb->save()
+#25 \/home\/shan_03\/magento2\/generated\/code\/Magento\/Sales\/Model\/ResourceModel\/Order\/Interceptor.php(32): Magento\\Sales\\Model\\ResourceModel\\Order->save()
+#26 \/home\/shan_03\/magento2\/vendor\/magento\/module-sales\/Model\/OrderRepository.php(292): Magento\\Sales\\Model\\ResourceModel\\Order\\Interceptor->save()
+#27 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/Interception\/Interceptor.php(58): Magento\\Sales\\Model\\OrderRepository->save()
+#28 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/Interception\/Interceptor.php(138): Magento\\Sales\\Model\\OrderRepository\\Interceptor->___callParent()
+#29 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/Interception\/Interceptor.php(153): Magento\\Sales\\Model\\OrderRepository\\Interceptor->Magento\\Framework\\Interception\\{closure}()
+#30 \/home\/shan_03\/magento2\/generated\/code\/Magento\/Sales\/Model\/OrderRepository\/Interceptor.php(59): Magento\\Sales\\Model\\OrderRepository\\Interceptor->___callPlugins()
+#31 \/home\/shan_03\/magento2\/vendor\/magento\/module-sales\/Model\/Service\/OrderService.php(252): Magento\\Sales\\Model\\OrderRepository\\Interceptor->save()
+#32 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/Interception\/Interceptor.php(58): Magento\\Sales\\Model\\Service\\OrderService->place()
+#33 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/Interception\/Interceptor.php(138): Magento\\Sales\\Model\\Service\\OrderService\\Interceptor->___callParent()
+#34 \/home\/shan_03\/magento2\/vendor\/magento\/module-inventory-sales\/Plugin\/Sales\/OrderManagement\/AppendReservationsAfterOrderPlacementPlugin.php(166): Magento\\Sales\\Model\\Service\\OrderService\\Interceptor->Magento\\Framework\\Interception\\{closure}()
+#35 \/home\/shan_03\/magento2\/vendor\/magento\/module-inventory-sales\/Plugin\/Sales\/OrderManagement\/AppendReservationsAfterOrderPlacementPlugin.php(141): Magento\\InventorySales\\Plugin\\Sales\\OrderManagement\\AppendReservationsAfterOrderPlacementPlugin->createOrder()
+#36 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/Interception\/Interceptor.php(135): Magento\\InventorySales\\Plugin\\Sales\\OrderManagement\\AppendReservationsAfterOrderPlacementPlugin->aroundPlace()
+#37 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/Interception\/Interceptor.php(153): Magento\\Sales\\Model\\Service\\OrderService\\Interceptor->Magento\\Framework\\Interception\\{closure}()
+#38 \/home\/shan_03\/magento2\/generated\/code\/Magento\/Sales\/Model\/Service\/OrderService\/Interceptor.php(86): Magento\\Sales\\Model\\Service\\OrderService\\Interceptor->___callPlugins()
+#39 \/home\/shan_03\/magento2\/vendor\/magento\/module-quote\/Model\/QuoteManagement.php(624): Magento\\Sales\\Model\\Service\\OrderService\\Interceptor->place()
+#40 \/home\/shan_03\/magento2\/vendor\/magento\/module-quote\/Model\/QuoteManagement.php(501): Magento\\Quote\\Model\\QuoteManagement->submitQuote()
+#41 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/Interception\/Interceptor.php(58): Magento\\Quote\\Model\\QuoteManagement->submit()
+#42 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/Interception\/Interceptor.php(138): Magento\\Quote\\Model\\QuoteManagement\\Interceptor->___callParent()
+#43 \/home\/shan_03\/magento2\/vendor\/magento\/module-sales-rule\/Plugin\/CouponUsagesIncrement.php(54): Magento\\Quote\\Model\\QuoteManagement\\Interceptor->Magento\\Framework\\Interception\\{closure}()
+#44 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/Interception\/Interceptor.php(135): Magento\\SalesRule\\Plugin\\CouponUsagesIncrement->aroundSubmit()
+#45 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/Interception\/Interceptor.php(153): Magento\\Quote\\Model\\QuoteManagement\\Interceptor->Magento\\Framework\\Interception\\{closure}()
+#46 \/home\/shan_03\/magento2\/generated\/code\/Magento\/Quote\/Model\/QuoteManagement\/Interceptor.php(68): Magento\\Quote\\Model\\QuoteManagement\\Interceptor->___callPlugins()
+#47 \/home\/shan_03\/magento2\/vendor\/magento\/module-sales\/Model\/AdminOrder\/Create.php(2024): Magento\\Quote\\Model\\QuoteManagement\\Interceptor->submit()
+#48 \/home\/shan_03\/magento2\/generated\/code\/Magento\/Sales\/Model\/AdminOrder\/Create\/Interceptor.php(356): Magento\\Sales\\Model\\AdminOrder\\Create->createOrder()
+#49 \/home\/shan_03\/magento2\/vendor\/magento\/module-sales-sample-data\/Model\/Order\/Processor.php(142): Magento\\Sales\\Model\\AdminOrder\\Create\\Interceptor->createOrder()
+#50 \/home\/shan_03\/magento2\/vendor\/magento\/module-sales-sample-data\/Model\/Order.php(102): Magento\\SalesSampleData\\Model\\Order\\Processor->createOrder()
+#51 \/home\/shan_03\/magento2\/vendor\/magento\/module-sales-sample-data\/Setup\/Installer.php(30): Magento\\SalesSampleData\\Model\\Order->install()
+#52 [internal function]: Magento\\SalesSampleData\\Setup\\Installer->install()
+#53 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/App\/State.php(183): call_user_func_array()
+#54 \/home\/shan_03\/magento2\/generated\/code\/Magento\/Framework\/App\/State\/Interceptor.php(68): Magento\\Framework\\App\\State->emulateAreaCode()
+#55 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/Setup\/SampleData\/Executor.php(54): Magento\\Framework\\App\\State\\Interceptor->emulateAreaCode()
+#56 \/home\/shan_03\/magento2\/vendor\/magento\/module-sales-sample-data\/Setup\/Patch\/Data\/InstallSalesSampleData.php(61): Magento\\Framework\\Setup\\SampleData\\Executor->exec()
+#57 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/Setup\/Patch\/PatchApplier.php(157): Magento\\SalesSampleData\\Setup\\Patch\\Data\\InstallSalesSampleData->apply()
+#58 \/home\/shan_03\/magento2\/setup\/src\/Magento\/Setup\/Model\/Installer.php(1093): Magento\\Framework\\Setup\\Patch\\PatchApplier->applyDataPatch()
+#59 \/home\/shan_03\/magento2\/setup\/src\/Magento\/Setup\/Model\/Installer.php(965): Magento\\Setup\\Model\\Installer->handleDBSchemaData()
+#60 \/home\/shan_03\/magento2\/setup\/src\/Magento\/Setup\/Console\/Command\/UpgradeCommand.php(149): Magento\\Setup\\Model\\Installer->installDataFixtures()
+#61 \/home\/shan_03\/magento2\/vendor\/symfony\/console\/Command\/Command.php(326): Magento\\Setup\\Console\\Command\\UpgradeCommand->execute()
+#62 \/home\/shan_03\/magento2\/vendor\/symfony\/console\/Application.php(1083): Symfony\\Component\\Console\\Command\\Command->run()
+#63 \/home\/shan_03\/magento2\/vendor\/symfony\/console\/Application.php(324): Symfony\\Component\\Console\\Application->doRunCommand()
+#64 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/Console\/Cli.php(118): Symfony\\Component\\Console\\Application->doRun()
+#65 \/home\/shan_03\/magento2\/vendor\/symfony\/console\/Application.php(175): Magento\\Framework\\Console\\Cli->doRun()
+#66 \/home\/shan_03\/magento2\/bin\/magento(23): Symfony\\Component\\Console\\Application->run()
+#67 {main}","elapsed":"00:01:11 310 ms","pid":"75455","caller":"bin\/magento setup:upgrade"} [] []
+[2026-01-25T12:53:29.741577+00:00] main.INFO: {"feed":"undefined","operation":"undefined","status":"processed 1, synced 0","elapsed":"00:01:11 319 ms","pid":"75455","caller":"bin\/magento setup:upgrade"} [] []
+[2026-01-25T12:53:29.861630+00:00] main.WARNING: {"feed":"undefined","operation":"undefined","status":"Unexpected call: feed \"salesOrders\" is not locked, trace: #0 \/home\/shan_03\/magento2\/vendor\/magento\/module-data-exporter\/Model\/Indexer\/FeedIndexer.php(136): Magento\\DataExporter\\Model\\Indexer\\FeedIndexer->logWarningIfFeedIsNotLocked()
+#1 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/Interception\/Interceptor.php(58): Magento\\DataExporter\\Model\\Indexer\\FeedIndexer->executeList()
+#2 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/Interception\/Interceptor.php(138): Magento\\DataExporter\\Model\\Indexer\\FeedIndexer\\Interceptor->___callParent()
+#3 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/Interception\/Interceptor.php(153): Magento\\DataExporter\\Model\\Indexer\\FeedIndexer\\Interceptor->Magento\\Framework\\Interception\\{closure}()
+#4 \/home\/shan_03\/magento2\/generated\/code\/Magento\/DataExporter\/Model\/Indexer\/FeedIndexer\/Interceptor.php(32): Magento\\DataExporter\\Model\\Indexer\\FeedIndexer\\Interceptor->___callPlugins()
+#5 \/home\/shan_03\/magento2\/vendor\/magento\/module-indexer\/Model\/Indexer.php(547): Magento\\DataExporter\\Model\\Indexer\\FeedIndexer\\Interceptor->executeList()
+#6 \/home\/shan_03\/magento2\/generated\/code\/Magento\/Indexer\/Model\/Indexer\/Interceptor.php(257): Magento\\Indexer\\Model\\Indexer->reindexList()
+#7 \/home\/shan_03\/magento2\/vendor\/magento\/module-indexer\/Model\/Indexer\/DependencyDecorator.php(294): Magento\\Indexer\\Model\\Indexer\\Interceptor->reindexList()
+#8 \/home\/shan_03\/magento2\/generated\/code\/Magento\/Indexer\/Model\/Indexer\/DependencyDecorator\/Interceptor.php(230): Magento\\Indexer\\Model\\Indexer\\DependencyDecorator->reindexList()
+#9 \/home\/shan_03\/magento2\/vendor\/magento\/module-sales-data-exporter\/Observer\/ReindexOrderFeed.php(53): Magento\\Indexer\\Model\\Indexer\\DependencyDecorator\\Interceptor->reindexList()
+#10 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/Event\/Invoker\/InvokerDefault.php(88): Magento\\SalesDataExporter\\Observer\\ReindexOrderFeed->execute()
+#11 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/Event\/Invoker\/InvokerDefault.php(74): Magento\\Framework\\Event\\Invoker\\InvokerDefault->_callObserverMethod()
+#12 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/Event\/Manager.php(65): Magento\\Framework\\Event\\Invoker\\InvokerDefault->dispatch()
+#13 \/home\/shan_03\/magento2\/generated\/code\/Magento\/Framework\/Event\/Manager\/Proxy.php(105): Magento\\Framework\\Event\\Manager->dispatch()
+#14 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/Model\/AbstractModel.php(675): Magento\\Framework\\Event\\Manager\\Proxy->dispatch()
+#15 \/home\/shan_03\/magento2\/generated\/code\/Magento\/Sales\/Model\/Order\/Interceptor.php(3497): Magento\\Framework\\Model\\AbstractModel->afterCommitCallback()
+#16 [internal function]: Magento\\Sales\\Model\\Order\\Interceptor->afterCommitCallback()
+#17 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/Model\/ExecuteCommitCallbacks.php(44): call_user_func()
+#18 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/Interception\/Interceptor.php(146): Magento\\Framework\\Model\\ExecuteCommitCallbacks->afterCommit()
+#19 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/Interception\/Interceptor.php(153): Magento\\Framework\\DB\\Adapter\\Pdo\\Mysql\\Interceptor->Magento\\Framework\\Interception\\{closure}()
+#20 \/home\/shan_03\/magento2\/generated\/code\/Magento\/Framework\/DB\/Adapter\/Pdo\/Mysql\/Interceptor.php(32): Magento\\Framework\\DB\\Adapter\\Pdo\\Mysql\\Interceptor->___callPlugins()
+#21 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/Model\/ResourceModel\/AbstractResource.php(91): Magento\\Framework\\DB\\Adapter\\Pdo\\Mysql\\Interceptor->commit()
+#22 \/home\/shan_03\/magento2\/generated\/code\/Magento\/Sales\/Model\/ResourceModel\/Order\/Interceptor.php(230): Magento\\Framework\\Model\\ResourceModel\\AbstractResource->commit()
+#23 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/DB\/Transaction.php(62): Magento\\Sales\\Model\\ResourceModel\\Order\\Interceptor->commit()
+#24 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/DB\/Transaction.php(152): Magento\\Framework\\DB\\Transaction->_commitTransaction()
+#25 \/home\/shan_03\/magento2\/vendor\/magento\/module-sales-sample-data\/Model\/Order\/Processor.php(213): Magento\\Framework\\DB\\Transaction->save()
+#26 \/home\/shan_03\/magento2\/vendor\/magento\/module-sales-sample-data\/Model\/Order\/Processor.php(144): Magento\\SalesSampleData\\Model\\Order\\Processor->invoiceOrder()
+#27 \/home\/shan_03\/magento2\/vendor\/magento\/module-sales-sample-data\/Model\/Order.php(102): Magento\\SalesSampleData\\Model\\Order\\Processor->createOrder()
+#28 \/home\/shan_03\/magento2\/vendor\/magento\/module-sales-sample-data\/Setup\/Installer.php(30): Magento\\SalesSampleData\\Model\\Order->install()
+#29 [internal function]: Magento\\SalesSampleData\\Setup\\Installer->install()
+#30 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/App\/State.php(183): call_user_func_array()
+#31 \/home\/shan_03\/magento2\/generated\/code\/Magento\/Framework\/App\/State\/Interceptor.php(68): Magento\\Framework\\App\\State->emulateAreaCode()
+#32 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/Setup\/SampleData\/Executor.php(54): Magento\\Framework\\App\\State\\Interceptor->emulateAreaCode()
+#33 \/home\/shan_03\/magento2\/vendor\/magento\/module-sales-sample-data\/Setup\/Patch\/Data\/InstallSalesSampleData.php(61): Magento\\Framework\\Setup\\SampleData\\Executor->exec()
+#34 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/Setup\/Patch\/PatchApplier.php(157): Magento\\SalesSampleData\\Setup\\Patch\\Data\\InstallSalesSampleData->apply()
+#35 \/home\/shan_03\/magento2\/setup\/src\/Magento\/Setup\/Model\/Installer.php(1093): Magento\\Framework\\Setup\\Patch\\PatchApplier->applyDataPatch()
+#36 \/home\/shan_03\/magento2\/setup\/src\/Magento\/Setup\/Model\/Installer.php(965): Magento\\Setup\\Model\\Installer->handleDBSchemaData()
+#37 \/home\/shan_03\/magento2\/setup\/src\/Magento\/Setup\/Console\/Command\/UpgradeCommand.php(149): Magento\\Setup\\Model\\Installer->installDataFixtures()
+#38 \/home\/shan_03\/magento2\/vendor\/symfony\/console\/Command\/Command.php(326): Magento\\Setup\\Console\\Command\\UpgradeCommand->execute()
+#39 \/home\/shan_03\/magento2\/vendor\/symfony\/console\/Application.php(1083): Symfony\\Component\\Console\\Command\\Command->run()
+#40 \/home\/shan_03\/magento2\/vendor\/symfony\/console\/Application.php(324): Symfony\\Component\\Console\\Application->doRunCommand()
+#41 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/Console\/Cli.php(118): Symfony\\Component\\Console\\Application->doRun()
+#42 \/home\/shan_03\/magento2\/vendor\/symfony\/console\/Application.php(175): Magento\\Framework\\Console\\Cli->doRun()
+#43 \/home\/shan_03\/magento2\/bin\/magento(23): Symfony\\Component\\Console\\Application->run()
+#44 {main}","elapsed":"00:01:11 439 ms","pid":"75455","caller":"bin\/magento setup:upgrade"} [] []
+[2026-01-25T12:53:29.945238+00:00] main.WARNING: {"feed":"undefined","operation":"undefined","status":"Unexpected call: feed \"salesOrders\" is not locked, trace: #0 \/home\/shan_03\/magento2\/vendor\/magento\/module-data-exporter\/Model\/Indexer\/FeedIndexer.php(136): Magento\\DataExporter\\Model\\Indexer\\FeedIndexer->logWarningIfFeedIsNotLocked()
+#1 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/Interception\/Interceptor.php(58): Magento\\DataExporter\\Model\\Indexer\\FeedIndexer->executeList()
+#2 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/Interception\/Interceptor.php(138): Magento\\DataExporter\\Model\\Indexer\\FeedIndexer\\Interceptor->___callParent()
+#3 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/Interception\/Interceptor.php(153): Magento\\DataExporter\\Model\\Indexer\\FeedIndexer\\Interceptor->Magento\\Framework\\Interception\\{closure}()
+#4 \/home\/shan_03\/magento2\/generated\/code\/Magento\/DataExporter\/Model\/Indexer\/FeedIndexer\/Interceptor.php(32): Magento\\DataExporter\\Model\\Indexer\\FeedIndexer\\Interceptor->___callPlugins()
+#5 \/home\/shan_03\/magento2\/vendor\/magento\/module-indexer\/Model\/Indexer.php(547): Magento\\DataExporter\\Model\\Indexer\\FeedIndexer\\Interceptor->executeList()
+#6 \/home\/shan_03\/magento2\/generated\/code\/Magento\/Indexer\/Model\/Indexer\/Interceptor.php(257): Magento\\Indexer\\Model\\Indexer->reindexList()
+#7 \/home\/shan_03\/magento2\/vendor\/magento\/module-indexer\/Model\/Indexer\/DependencyDecorator.php(294): Magento\\Indexer\\Model\\Indexer\\Interceptor->reindexList()
+#8 \/home\/shan_03\/magento2\/generated\/code\/Magento\/Indexer\/Model\/Indexer\/DependencyDecorator\/Interceptor.php(230): Magento\\Indexer\\Model\\Indexer\\DependencyDecorator->reindexList()
+#9 \/home\/shan_03\/magento2\/vendor\/magento\/module-sales-data-exporter\/Observer\/ReindexOrderFeedOnShipment.php(53): Magento\\Indexer\\Model\\Indexer\\DependencyDecorator\\Interceptor->reindexList()
+#10 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/Event\/Invoker\/InvokerDefault.php(88): Magento\\SalesDataExporter\\Observer\\ReindexOrderFeedOnShipment->execute()
+#11 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/Event\/Invoker\/InvokerDefault.php(74): Magento\\Framework\\Event\\Invoker\\InvokerDefault->_callObserverMethod()
+#12 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/Event\/Manager.php(65): Magento\\Framework\\Event\\Invoker\\InvokerDefault->dispatch()
+#13 \/home\/shan_03\/magento2\/generated\/code\/Magento\/Framework\/Event\/Manager\/Proxy.php(105): Magento\\Framework\\Event\\Manager->dispatch()
+#14 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/Model\/AbstractModel.php(846): Magento\\Framework\\Event\\Manager\\Proxy->dispatch()
+#15 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/Model\/ResourceModel\/Db\/VersionControl\/AbstractDb.php(56): Magento\\Framework\\Model\\AbstractModel->afterSave()
+#16 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/Model\/ResourceModel\/Db\/AbstractDb.php(402): Magento\\Framework\\Model\\ResourceModel\\Db\\VersionControl\\AbstractDb->processAfterSaves()
+#17 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/Interception\/Interceptor.php(58): Magento\\Framework\\Model\\ResourceModel\\Db\\AbstractDb->save()
+#18 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/Interception\/Interceptor.php(138): Magento\\Sales\\Model\\ResourceModel\\Order\\Shipment\\Interceptor->___callParent()
+#19 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/Interception\/Interceptor.php(153): Magento\\Sales\\Model\\ResourceModel\\Order\\Shipment\\Interceptor->Magento\\Framework\\Interception\\{closure}()
+#20 \/home\/shan_03\/magento2\/generated\/code\/Magento\/Sales\/Model\/ResourceModel\/Order\/Shipment\/Interceptor.php(77): Magento\\Sales\\Model\\ResourceModel\\Order\\Shipment\\Interceptor->___callPlugins()
+#21 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/Model\/AbstractModel.php(663): Magento\\Sales\\Model\\ResourceModel\\Order\\Shipment\\Interceptor->save()
+#22 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/DB\/Transaction.php(134): Magento\\Framework\\Model\\AbstractModel->save()
+#23 \/home\/shan_03\/magento2\/vendor\/magento\/module-sales-sample-data\/Model\/Order\/Processor.php(249): Magento\\Framework\\DB\\Transaction->save()
+#24 \/home\/shan_03\/magento2\/vendor\/magento\/module-sales-sample-data\/Model\/Order\/Processor.php(145): Magento\\SalesSampleData\\Model\\Order\\Processor->shipOrder()
+#25 \/home\/shan_03\/magento2\/vendor\/magento\/module-sales-sample-data\/Model\/Order.php(102): Magento\\SalesSampleData\\Model\\Order\\Processor->createOrder()
+#26 \/home\/shan_03\/magento2\/vendor\/magento\/module-sales-sample-data\/Setup\/Installer.php(30): Magento\\SalesSampleData\\Model\\Order->install()
+#27 [internal function]: Magento\\SalesSampleData\\Setup\\Installer->install()
+#28 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/App\/State.php(183): call_user_func_array()
+#29 \/home\/shan_03\/magento2\/generated\/code\/Magento\/Framework\/App\/State\/Interceptor.php(68): Magento\\Framework\\App\\State->emulateAreaCode()
+#30 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/Setup\/SampleData\/Executor.php(54): Magento\\Framework\\App\\State\\Interceptor->emulateAreaCode()
+#31 \/home\/shan_03\/magento2\/vendor\/magento\/module-sales-sample-data\/Setup\/Patch\/Data\/InstallSalesSampleData.php(61): Magento\\Framework\\Setup\\SampleData\\Executor->exec()
+#32 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/Setup\/Patch\/PatchApplier.php(157): Magento\\SalesSampleData\\Setup\\Patch\\Data\\InstallSalesSampleData->apply()
+#33 \/home\/shan_03\/magento2\/setup\/src\/Magento\/Setup\/Model\/Installer.php(1093): Magento\\Framework\\Setup\\Patch\\PatchApplier->applyDataPatch()
+#34 \/home\/shan_03\/magento2\/setup\/src\/Magento\/Setup\/Model\/Installer.php(965): Magento\\Setup\\Model\\Installer->handleDBSchemaData()
+#35 \/home\/shan_03\/magento2\/setup\/src\/Magento\/Setup\/Console\/Command\/UpgradeCommand.php(149): Magento\\Setup\\Model\\Installer->installDataFixtures()
+#36 \/home\/shan_03\/magento2\/vendor\/symfony\/console\/Command\/Command.php(326): Magento\\Setup\\Console\\Command\\UpgradeCommand->execute()
+#37 \/home\/shan_03\/magento2\/vendor\/symfony\/console\/Application.php(1083): Symfony\\Component\\Console\\Command\\Command->run()
+#38 \/home\/shan_03\/magento2\/vendor\/symfony\/console\/Application.php(324): Symfony\\Component\\Console\\Application->doRunCommand()
+#39 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/Console\/Cli.php(118): Symfony\\Component\\Console\\Application->doRun()
+#40 \/home\/shan_03\/magento2\/vendor\/symfony\/console\/Application.php(175): Magento\\Framework\\Console\\Cli->doRun()
+#41 \/home\/shan_03\/magento2\/bin\/magento(23): Symfony\\Component\\Console\\Application->run()
+#42 {main}","elapsed":"00:01:11 523 ms","pid":"75455","caller":"bin\/magento setup:upgrade"} [] []
+[2026-01-25T12:53:29.978188+00:00] main.WARNING: {"feed":"undefined","operation":"undefined","status":"Unexpected call: feed \"salesOrders\" is not locked, trace: #0 \/home\/shan_03\/magento2\/vendor\/magento\/module-data-exporter\/Model\/Indexer\/FeedIndexer.php(136): Magento\\DataExporter\\Model\\Indexer\\FeedIndexer->logWarningIfFeedIsNotLocked()
+#1 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/Interception\/Interceptor.php(58): Magento\\DataExporter\\Model\\Indexer\\FeedIndexer->executeList()
+#2 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/Interception\/Interceptor.php(138): Magento\\DataExporter\\Model\\Indexer\\FeedIndexer\\Interceptor->___callParent()
+#3 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/Interception\/Interceptor.php(153): Magento\\DataExporter\\Model\\Indexer\\FeedIndexer\\Interceptor->Magento\\Framework\\Interception\\{closure}()
+#4 \/home\/shan_03\/magento2\/generated\/code\/Magento\/DataExporter\/Model\/Indexer\/FeedIndexer\/Interceptor.php(32): Magento\\DataExporter\\Model\\Indexer\\FeedIndexer\\Interceptor->___callPlugins()
+#5 \/home\/shan_03\/magento2\/vendor\/magento\/module-indexer\/Model\/Indexer.php(547): Magento\\DataExporter\\Model\\Indexer\\FeedIndexer\\Interceptor->executeList()
+#6 \/home\/shan_03\/magento2\/generated\/code\/Magento\/Indexer\/Model\/Indexer\/Interceptor.php(257): Magento\\Indexer\\Model\\Indexer->reindexList()
+#7 \/home\/shan_03\/magento2\/vendor\/magento\/module-indexer\/Model\/Indexer\/DependencyDecorator.php(294): Magento\\Indexer\\Model\\Indexer\\Interceptor->reindexList()
+#8 \/home\/shan_03\/magento2\/generated\/code\/Magento\/Indexer\/Model\/Indexer\/DependencyDecorator\/Interceptor.php(230): Magento\\Indexer\\Model\\Indexer\\DependencyDecorator->reindexList()
+#9 \/home\/shan_03\/magento2\/vendor\/magento\/module-sales-data-exporter\/Observer\/ReindexOrderFeed.php(53): Magento\\Indexer\\Model\\Indexer\\DependencyDecorator\\Interceptor->reindexList()
+#10 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/Event\/Invoker\/InvokerDefault.php(88): Magento\\SalesDataExporter\\Observer\\ReindexOrderFeed->execute()
+#11 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/Event\/Invoker\/InvokerDefault.php(74): Magento\\Framework\\Event\\Invoker\\InvokerDefault->_callObserverMethod()
+#12 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/Event\/Manager.php(65): Magento\\Framework\\Event\\Invoker\\InvokerDefault->dispatch()
+#13 \/home\/shan_03\/magento2\/generated\/code\/Magento\/Framework\/Event\/Manager\/Proxy.php(105): Magento\\Framework\\Event\\Manager->dispatch()
+#14 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/Model\/AbstractModel.php(675): Magento\\Framework\\Event\\Manager\\Proxy->dispatch()
+#15 \/home\/shan_03\/magento2\/generated\/code\/Magento\/Sales\/Model\/Order\/Interceptor.php(3497): Magento\\Framework\\Model\\AbstractModel->afterCommitCallback()
+#16 [internal function]: Magento\\Sales\\Model\\Order\\Interceptor->afterCommitCallback()
+#17 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/Model\/ExecuteCommitCallbacks.php(44): call_user_func()
+#18 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/Interception\/Interceptor.php(146): Magento\\Framework\\Model\\ExecuteCommitCallbacks->afterCommit()
+#19 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/Interception\/Interceptor.php(153): Magento\\Framework\\DB\\Adapter\\Pdo\\Mysql\\Interceptor->Magento\\Framework\\Interception\\{closure}()
+#20 \/home\/shan_03\/magento2\/generated\/code\/Magento\/Framework\/DB\/Adapter\/Pdo\/Mysql\/Interceptor.php(32): Magento\\Framework\\DB\\Adapter\\Pdo\\Mysql\\Interceptor->___callPlugins()
+#21 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/Model\/ResourceModel\/AbstractResource.php(91): Magento\\Framework\\DB\\Adapter\\Pdo\\Mysql\\Interceptor->commit()
+#22 \/home\/shan_03\/magento2\/generated\/code\/Magento\/Sales\/Model\/ResourceModel\/Order\/Interceptor.php(230): Magento\\Framework\\Model\\ResourceModel\\AbstractResource->commit()
+#23 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/DB\/Transaction.php(62): Magento\\Sales\\Model\\ResourceModel\\Order\\Interceptor->commit()
+#24 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/DB\/Transaction.php(152): Magento\\Framework\\DB\\Transaction->_commitTransaction()
+#25 \/home\/shan_03\/magento2\/vendor\/magento\/module-sales-sample-data\/Model\/Order\/Processor.php(249): Magento\\Framework\\DB\\Transaction->save()
+#26 \/home\/shan_03\/magento2\/vendor\/magento\/module-sales-sample-data\/Model\/Order\/Processor.php(145): Magento\\SalesSampleData\\Model\\Order\\Processor->shipOrder()
+#27 \/home\/shan_03\/magento2\/vendor\/magento\/module-sales-sample-data\/Model\/Order.php(102): Magento\\SalesSampleData\\Model\\Order\\Processor->createOrder()
+#28 \/home\/shan_03\/magento2\/vendor\/magento\/module-sales-sample-data\/Setup\/Installer.php(30): Magento\\SalesSampleData\\Model\\Order->install()
+#29 [internal function]: Magento\\SalesSampleData\\Setup\\Installer->install()
+#30 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/App\/State.php(183): call_user_func_array()
+#31 \/home\/shan_03\/magento2\/generated\/code\/Magento\/Framework\/App\/State\/Interceptor.php(68): Magento\\Framework\\App\\State->emulateAreaCode()
+#32 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/Setup\/SampleData\/Executor.php(54): Magento\\Framework\\App\\State\\Interceptor->emulateAreaCode()
+#33 \/home\/shan_03\/magento2\/vendor\/magento\/module-sales-sample-data\/Setup\/Patch\/Data\/InstallSalesSampleData.php(61): Magento\\Framework\\Setup\\SampleData\\Executor->exec()
+#34 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/Setup\/Patch\/PatchApplier.php(157): Magento\\SalesSampleData\\Setup\\Patch\\Data\\InstallSalesSampleData->apply()
+#35 \/home\/shan_03\/magento2\/setup\/src\/Magento\/Setup\/Model\/Installer.php(1093): Magento\\Framework\\Setup\\Patch\\PatchApplier->applyDataPatch()
+#36 \/home\/shan_03\/magento2\/setup\/src\/Magento\/Setup\/Model\/Installer.php(965): Magento\\Setup\\Model\\Installer->handleDBSchemaData()
+#37 \/home\/shan_03\/magento2\/setup\/src\/Magento\/Setup\/Console\/Command\/UpgradeCommand.php(149): Magento\\Setup\\Model\\Installer->installDataFixtures()
+#38 \/home\/shan_03\/magento2\/vendor\/symfony\/console\/Command\/Command.php(326): Magento\\Setup\\Console\\Command\\UpgradeCommand->execute()
+#39 \/home\/shan_03\/magento2\/vendor\/symfony\/console\/Application.php(1083): Symfony\\Component\\Console\\Command\\Command->run()
+#40 \/home\/shan_03\/magento2\/vendor\/symfony\/console\/Application.php(324): Symfony\\Component\\Console\\Application->doRunCommand()
+#41 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/Console\/Cli.php(118): Symfony\\Component\\Console\\Application->doRun()
+#42 \/home\/shan_03\/magento2\/vendor\/symfony\/console\/Application.php(175): Magento\\Framework\\Console\\Cli->doRun()
+#43 \/home\/shan_03\/magento2\/bin\/magento(23): Symfony\\Component\\Console\\Application->run()
+#44 {main}","elapsed":"00:01:11 555 ms","pid":"75455","caller":"bin\/magento setup:upgrade"} [] []
+[2026-01-25T12:53:30.076197+00:00] main.WARNING: {"feed":"undefined","operation":"undefined","status":"Unexpected call: feed \"salesOrders\" is not locked, trace: #0 \/home\/shan_03\/magento2\/vendor\/magento\/module-data-exporter\/Model\/Indexer\/FeedIndexer.php(136): Magento\\DataExporter\\Model\\Indexer\\FeedIndexer->logWarningIfFeedIsNotLocked()
+#1 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/Interception\/Interceptor.php(58): Magento\\DataExporter\\Model\\Indexer\\FeedIndexer->executeList()
+#2 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/Interception\/Interceptor.php(138): Magento\\DataExporter\\Model\\Indexer\\FeedIndexer\\Interceptor->___callParent()
+#3 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/Interception\/Interceptor.php(153): Magento\\DataExporter\\Model\\Indexer\\FeedIndexer\\Interceptor->Magento\\Framework\\Interception\\{closure}()
+#4 \/home\/shan_03\/magento2\/generated\/code\/Magento\/DataExporter\/Model\/Indexer\/FeedIndexer\/Interceptor.php(32): Magento\\DataExporter\\Model\\Indexer\\FeedIndexer\\Interceptor->___callPlugins()
+#5 \/home\/shan_03\/magento2\/vendor\/magento\/module-indexer\/Model\/Indexer.php(547): Magento\\DataExporter\\Model\\Indexer\\FeedIndexer\\Interceptor->executeList()
+#6 \/home\/shan_03\/magento2\/generated\/code\/Magento\/Indexer\/Model\/Indexer\/Interceptor.php(257): Magento\\Indexer\\Model\\Indexer->reindexList()
+#7 \/home\/shan_03\/magento2\/vendor\/magento\/module-indexer\/Model\/Indexer\/DependencyDecorator.php(294): Magento\\Indexer\\Model\\Indexer\\Interceptor->reindexList()
+#8 \/home\/shan_03\/magento2\/generated\/code\/Magento\/Indexer\/Model\/Indexer\/DependencyDecorator\/Interceptor.php(230): Magento\\Indexer\\Model\\Indexer\\DependencyDecorator->reindexList()
+#9 \/home\/shan_03\/magento2\/vendor\/magento\/module-sales-data-exporter\/Observer\/ReindexOrderFeed.php(53): Magento\\Indexer\\Model\\Indexer\\DependencyDecorator\\Interceptor->reindexList()
+#10 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/Event\/Invoker\/InvokerDefault.php(88): Magento\\SalesDataExporter\\Observer\\ReindexOrderFeed->execute()
+#11 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/Event\/Invoker\/InvokerDefault.php(74): Magento\\Framework\\Event\\Invoker\\InvokerDefault->_callObserverMethod()
+#12 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/Event\/Manager.php(65): Magento\\Framework\\Event\\Invoker\\InvokerDefault->dispatch()
+#13 \/home\/shan_03\/magento2\/generated\/code\/Magento\/Framework\/Event\/Manager\/Proxy.php(105): Magento\\Framework\\Event\\Manager->dispatch()
+#14 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/Model\/AbstractModel.php(675): Magento\\Framework\\Event\\Manager\\Proxy->dispatch()
+#15 \/home\/shan_03\/magento2\/generated\/code\/Magento\/Sales\/Model\/Order\/Interceptor.php(3497): Magento\\Framework\\Model\\AbstractModel->afterCommitCallback()
+#16 [internal function]: Magento\\Sales\\Model\\Order\\Interceptor->afterCommitCallback()
+#17 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/Model\/ExecuteCommitCallbacks.php(44): call_user_func()
+#18 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/Interception\/Interceptor.php(146): Magento\\Framework\\Model\\ExecuteCommitCallbacks->afterCommit()
+#19 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/Interception\/Interceptor.php(153): Magento\\Framework\\DB\\Adapter\\Pdo\\Mysql\\Interceptor->Magento\\Framework\\Interception\\{closure}()
+#20 \/home\/shan_03\/magento2\/generated\/code\/Magento\/Framework\/DB\/Adapter\/Pdo\/Mysql\/Interceptor.php(32): Magento\\Framework\\DB\\Adapter\\Pdo\\Mysql\\Interceptor->___callPlugins()
+#21 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/Model\/ResourceModel\/AbstractResource.php(91): Magento\\Framework\\DB\\Adapter\\Pdo\\Mysql\\Interceptor->commit()
+#22 \/home\/shan_03\/magento2\/generated\/code\/Magento\/Sales\/Model\/ResourceModel\/Order\/Interceptor.php(230): Magento\\Framework\\Model\\ResourceModel\\AbstractResource->commit()
+#23 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/Model\/ResourceModel\/Db\/AbstractDb.php(404): Magento\\Sales\\Model\\ResourceModel\\Order\\Interceptor->commit()
+#24 \/home\/shan_03\/magento2\/vendor\/magento\/module-sales\/Model\/ResourceModel\/Order.php(175): Magento\\Framework\\Model\\ResourceModel\\Db\\AbstractDb->save()
+#25 \/home\/shan_03\/magento2\/generated\/code\/Magento\/Sales\/Model\/ResourceModel\/Order\/Interceptor.php(32): Magento\\Sales\\Model\\ResourceModel\\Order->save()
+#26 \/home\/shan_03\/magento2\/vendor\/magento\/module-sales\/Model\/OrderRepository.php(292): Magento\\Sales\\Model\\ResourceModel\\Order\\Interceptor->save()
+#27 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/Interception\/Interceptor.php(58): Magento\\Sales\\Model\\OrderRepository->save()
+#28 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/Interception\/Interceptor.php(138): Magento\\Sales\\Model\\OrderRepository\\Interceptor->___callParent()
+#29 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/Interception\/Interceptor.php(153): Magento\\Sales\\Model\\OrderRepository\\Interceptor->Magento\\Framework\\Interception\\{closure}()
+#30 \/home\/shan_03\/magento2\/generated\/code\/Magento\/Sales\/Model\/OrderRepository\/Interceptor.php(59): Magento\\Sales\\Model\\OrderRepository\\Interceptor->___callPlugins()
+#31 \/home\/shan_03\/magento2\/vendor\/magento\/module-sales\/Model\/Service\/OrderService.php(252): Magento\\Sales\\Model\\OrderRepository\\Interceptor->save()
+#32 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/Interception\/Interceptor.php(58): Magento\\Sales\\Model\\Service\\OrderService->place()
+#33 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/Interception\/Interceptor.php(138): Magento\\Sales\\Model\\Service\\OrderService\\Interceptor->___callParent()
+#34 \/home\/shan_03\/magento2\/vendor\/magento\/module-inventory-sales\/Plugin\/Sales\/OrderManagement\/AppendReservationsAfterOrderPlacementPlugin.php(166): Magento\\Sales\\Model\\Service\\OrderService\\Interceptor->Magento\\Framework\\Interception\\{closure}()
+#35 \/home\/shan_03\/magento2\/vendor\/magento\/module-inventory-sales\/Plugin\/Sales\/OrderManagement\/AppendReservationsAfterOrderPlacementPlugin.php(141): Magento\\InventorySales\\Plugin\\Sales\\OrderManagement\\AppendReservationsAfterOrderPlacementPlugin->createOrder()
+#36 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/Interception\/Interceptor.php(135): Magento\\InventorySales\\Plugin\\Sales\\OrderManagement\\AppendReservationsAfterOrderPlacementPlugin->aroundPlace()
+#37 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/Interception\/Interceptor.php(153): Magento\\Sales\\Model\\Service\\OrderService\\Interceptor->Magento\\Framework\\Interception\\{closure}()
+#38 \/home\/shan_03\/magento2\/generated\/code\/Magento\/Sales\/Model\/Service\/OrderService\/Interceptor.php(86): Magento\\Sales\\Model\\Service\\OrderService\\Interceptor->___callPlugins()
+#39 \/home\/shan_03\/magento2\/vendor\/magento\/module-quote\/Model\/QuoteManagement.php(624): Magento\\Sales\\Model\\Service\\OrderService\\Interceptor->place()
+#40 \/home\/shan_03\/magento2\/vendor\/magento\/module-quote\/Model\/QuoteManagement.php(501): Magento\\Quote\\Model\\QuoteManagement->submitQuote()
+#41 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/Interception\/Interceptor.php(58): Magento\\Quote\\Model\\QuoteManagement->submit()
+#42 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/Interception\/Interceptor.php(138): Magento\\Quote\\Model\\QuoteManagement\\Interceptor->___callParent()
+#43 \/home\/shan_03\/magento2\/vendor\/magento\/module-sales-rule\/Plugin\/CouponUsagesIncrement.php(54): Magento\\Quote\\Model\\QuoteManagement\\Interceptor->Magento\\Framework\\Interception\\{closure}()
+#44 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/Interception\/Interceptor.php(135): Magento\\SalesRule\\Plugin\\CouponUsagesIncrement->aroundSubmit()
+#45 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/Interception\/Interceptor.php(153): Magento\\Quote\\Model\\QuoteManagement\\Interceptor->Magento\\Framework\\Interception\\{closure}()
+#46 \/home\/shan_03\/magento2\/generated\/code\/Magento\/Quote\/Model\/QuoteManagement\/Interceptor.php(68): Magento\\Quote\\Model\\QuoteManagement\\Interceptor->___callPlugins()
+#47 \/home\/shan_03\/magento2\/vendor\/magento\/module-sales\/Model\/AdminOrder\/Create.php(2024): Magento\\Quote\\Model\\QuoteManagement\\Interceptor->submit()
+#48 \/home\/shan_03\/magento2\/generated\/code\/Magento\/Sales\/Model\/AdminOrder\/Create\/Interceptor.php(356): Magento\\Sales\\Model\\AdminOrder\\Create->createOrder()
+#49 \/home\/shan_03\/magento2\/vendor\/magento\/module-sales-sample-data\/Model\/Order\/Processor.php(142): Magento\\Sales\\Model\\AdminOrder\\Create\\Interceptor->createOrder()
+#50 \/home\/shan_03\/magento2\/vendor\/magento\/module-sales-sample-data\/Model\/Order.php(102): Magento\\SalesSampleData\\Model\\Order\\Processor->createOrder()
+#51 \/home\/shan_03\/magento2\/vendor\/magento\/module-sales-sample-data\/Setup\/Installer.php(30): Magento\\SalesSampleData\\Model\\Order->install()
+#52 [internal function]: Magento\\SalesSampleData\\Setup\\Installer->install()
+#53 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/App\/State.php(183): call_user_func_array()
+#54 \/home\/shan_03\/magento2\/generated\/code\/Magento\/Framework\/App\/State\/Interceptor.php(68): Magento\\Framework\\App\\State->emulateAreaCode()
+#55 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/Setup\/SampleData\/Executor.php(54): Magento\\Framework\\App\\State\\Interceptor->emulateAreaCode()
+#56 \/home\/shan_03\/magento2\/vendor\/magento\/module-sales-sample-data\/Setup\/Patch\/Data\/InstallSalesSampleData.php(61): Magento\\Framework\\Setup\\SampleData\\Executor->exec()
+#57 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/Setup\/Patch\/PatchApplier.php(157): Magento\\SalesSampleData\\Setup\\Patch\\Data\\InstallSalesSampleData->apply()
+#58 \/home\/shan_03\/magento2\/setup\/src\/Magento\/Setup\/Model\/Installer.php(1093): Magento\\Framework\\Setup\\Patch\\PatchApplier->applyDataPatch()
+#59 \/home\/shan_03\/magento2\/setup\/src\/Magento\/Setup\/Model\/Installer.php(965): Magento\\Setup\\Model\\Installer->handleDBSchemaData()
+#60 \/home\/shan_03\/magento2\/setup\/src\/Magento\/Setup\/Console\/Command\/UpgradeCommand.php(149): Magento\\Setup\\Model\\Installer->installDataFixtures()
+#61 \/home\/shan_03\/magento2\/vendor\/symfony\/console\/Command\/Command.php(326): Magento\\Setup\\Console\\Command\\UpgradeCommand->execute()
+#62 \/home\/shan_03\/magento2\/vendor\/symfony\/console\/Application.php(1083): Symfony\\Component\\Console\\Command\\Command->run()
+#63 \/home\/shan_03\/magento2\/vendor\/symfony\/console\/Application.php(324): Symfony\\Component\\Console\\Application->doRunCommand()
+#64 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/Console\/Cli.php(118): Symfony\\Component\\Console\\Application->doRun()
+#65 \/home\/shan_03\/magento2\/vendor\/symfony\/console\/Application.php(175): Magento\\Framework\\Console\\Cli->doRun()
+#66 \/home\/shan_03\/magento2\/bin\/magento(23): Symfony\\Component\\Console\\Application->run()
+#67 {main}","elapsed":"00:01:12 653 ms","pid":"75455","caller":"bin\/magento setup:upgrade"} [] []
+[2026-01-25T12:53:30.135254+00:00] main.WARNING: {"feed":"undefined","operation":"undefined","status":"Unexpected call: feed \"salesOrders\" is not locked, trace: #0 \/home\/shan_03\/magento2\/vendor\/magento\/module-data-exporter\/Model\/Indexer\/FeedIndexer.php(136): Magento\\DataExporter\\Model\\Indexer\\FeedIndexer->logWarningIfFeedIsNotLocked()
+#1 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/Interception\/Interceptor.php(58): Magento\\DataExporter\\Model\\Indexer\\FeedIndexer->executeList()
+#2 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/Interception\/Interceptor.php(138): Magento\\DataExporter\\Model\\Indexer\\FeedIndexer\\Interceptor->___callParent()
+#3 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/Interception\/Interceptor.php(153): Magento\\DataExporter\\Model\\Indexer\\FeedIndexer\\Interceptor->Magento\\Framework\\Interception\\{closure}()
+#4 \/home\/shan_03\/magento2\/generated\/code\/Magento\/DataExporter\/Model\/Indexer\/FeedIndexer\/Interceptor.php(32): Magento\\DataExporter\\Model\\Indexer\\FeedIndexer\\Interceptor->___callPlugins()
+#5 \/home\/shan_03\/magento2\/vendor\/magento\/module-indexer\/Model\/Indexer.php(547): Magento\\DataExporter\\Model\\Indexer\\FeedIndexer\\Interceptor->executeList()
+#6 \/home\/shan_03\/magento2\/generated\/code\/Magento\/Indexer\/Model\/Indexer\/Interceptor.php(257): Magento\\Indexer\\Model\\Indexer->reindexList()
+#7 \/home\/shan_03\/magento2\/vendor\/magento\/module-indexer\/Model\/Indexer\/DependencyDecorator.php(294): Magento\\Indexer\\Model\\Indexer\\Interceptor->reindexList()
+#8 \/home\/shan_03\/magento2\/generated\/code\/Magento\/Indexer\/Model\/Indexer\/DependencyDecorator\/Interceptor.php(230): Magento\\Indexer\\Model\\Indexer\\DependencyDecorator->reindexList()
+#9 \/home\/shan_03\/magento2\/vendor\/magento\/module-sales-data-exporter\/Observer\/ReindexOrderFeed.php(53): Magento\\Indexer\\Model\\Indexer\\DependencyDecorator\\Interceptor->reindexList()
+#10 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/Event\/Invoker\/InvokerDefault.php(88): Magento\\SalesDataExporter\\Observer\\ReindexOrderFeed->execute()
+#11 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/Event\/Invoker\/InvokerDefault.php(74): Magento\\Framework\\Event\\Invoker\\InvokerDefault->_callObserverMethod()
+#12 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/Event\/Manager.php(65): Magento\\Framework\\Event\\Invoker\\InvokerDefault->dispatch()
+#13 \/home\/shan_03\/magento2\/generated\/code\/Magento\/Framework\/Event\/Manager\/Proxy.php(105): Magento\\Framework\\Event\\Manager->dispatch()
+#14 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/Model\/AbstractModel.php(675): Magento\\Framework\\Event\\Manager\\Proxy->dispatch()
+#15 \/home\/shan_03\/magento2\/generated\/code\/Magento\/Sales\/Model\/Order\/Interceptor.php(3497): Magento\\Framework\\Model\\AbstractModel->afterCommitCallback()
+#16 [internal function]: Magento\\Sales\\Model\\Order\\Interceptor->afterCommitCallback()
+#17 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/Model\/ExecuteCommitCallbacks.php(44): call_user_func()
+#18 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/Interception\/Interceptor.php(146): Magento\\Framework\\Model\\ExecuteCommitCallbacks->afterCommit()
+#19 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/Interception\/Interceptor.php(153): Magento\\Framework\\DB\\Adapter\\Pdo\\Mysql\\Interceptor->Magento\\Framework\\Interception\\{closure}()
+#20 \/home\/shan_03\/magento2\/generated\/code\/Magento\/Framework\/DB\/Adapter\/Pdo\/Mysql\/Interceptor.php(32): Magento\\Framework\\DB\\Adapter\\Pdo\\Mysql\\Interceptor->___callPlugins()
+#21 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/Model\/ResourceModel\/AbstractResource.php(91): Magento\\Framework\\DB\\Adapter\\Pdo\\Mysql\\Interceptor->commit()
+#22 \/home\/shan_03\/magento2\/generated\/code\/Magento\/Sales\/Model\/ResourceModel\/Order\/Interceptor.php(230): Magento\\Framework\\Model\\ResourceModel\\AbstractResource->commit()
+#23 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/DB\/Transaction.php(62): Magento\\Sales\\Model\\ResourceModel\\Order\\Interceptor->commit()
+#24 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/DB\/Transaction.php(152): Magento\\Framework\\DB\\Transaction->_commitTransaction()
+#25 \/home\/shan_03\/magento2\/vendor\/magento\/module-sales-sample-data\/Model\/Order\/Processor.php(213): Magento\\Framework\\DB\\Transaction->save()
+#26 \/home\/shan_03\/magento2\/vendor\/magento\/module-sales-sample-data\/Model\/Order\/Processor.php(144): Magento\\SalesSampleData\\Model\\Order\\Processor->invoiceOrder()
+#27 \/home\/shan_03\/magento2\/vendor\/magento\/module-sales-sample-data\/Model\/Order.php(102): Magento\\SalesSampleData\\Model\\Order\\Processor->createOrder()
+#28 \/home\/shan_03\/magento2\/vendor\/magento\/module-sales-sample-data\/Setup\/Installer.php(30): Magento\\SalesSampleData\\Model\\Order->install()
+#29 [internal function]: Magento\\SalesSampleData\\Setup\\Installer->install()
+#30 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/App\/State.php(183): call_user_func_array()
+#31 \/home\/shan_03\/magento2\/generated\/code\/Magento\/Framework\/App\/State\/Interceptor.php(68): Magento\\Framework\\App\\State->emulateAreaCode()
+#32 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/Setup\/SampleData\/Executor.php(54): Magento\\Framework\\App\\State\\Interceptor->emulateAreaCode()
+#33 \/home\/shan_03\/magento2\/vendor\/magento\/module-sales-sample-data\/Setup\/Patch\/Data\/InstallSalesSampleData.php(61): Magento\\Framework\\Setup\\SampleData\\Executor->exec()
+#34 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/Setup\/Patch\/PatchApplier.php(157): Magento\\SalesSampleData\\Setup\\Patch\\Data\\InstallSalesSampleData->apply()
+#35 \/home\/shan_03\/magento2\/setup\/src\/Magento\/Setup\/Model\/Installer.php(1093): Magento\\Framework\\Setup\\Patch\\PatchApplier->applyDataPatch()
+#36 \/home\/shan_03\/magento2\/setup\/src\/Magento\/Setup\/Model\/Installer.php(965): Magento\\Setup\\Model\\Installer->handleDBSchemaData()
+#37 \/home\/shan_03\/magento2\/setup\/src\/Magento\/Setup\/Console\/Command\/UpgradeCommand.php(149): Magento\\Setup\\Model\\Installer->installDataFixtures()
+#38 \/home\/shan_03\/magento2\/vendor\/symfony\/console\/Command\/Command.php(326): Magento\\Setup\\Console\\Command\\UpgradeCommand->execute()
+#39 \/home\/shan_03\/magento2\/vendor\/symfony\/console\/Application.php(1083): Symfony\\Component\\Console\\Command\\Command->run()
+#40 \/home\/shan_03\/magento2\/vendor\/symfony\/console\/Application.php(324): Symfony\\Component\\Console\\Application->doRunCommand()
+#41 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/Console\/Cli.php(118): Symfony\\Component\\Console\\Application->doRun()
+#42 \/home\/shan_03\/magento2\/vendor\/symfony\/console\/Application.php(175): Magento\\Framework\\Console\\Cli->doRun()
+#43 \/home\/shan_03\/magento2\/bin\/magento(23): Symfony\\Component\\Console\\Application->run()
+#44 {main}","elapsed":"00:01:12 713 ms","pid":"75455","caller":"bin\/magento setup:upgrade"} [] []
+[2026-01-25T12:53:30.174995+00:00] main.WARNING: {"feed":"undefined","operation":"undefined","status":"Unexpected call: feed \"salesOrders\" is not locked, trace: #0 \/home\/shan_03\/magento2\/vendor\/magento\/module-data-exporter\/Model\/Indexer\/FeedIndexer.php(136): Magento\\DataExporter\\Model\\Indexer\\FeedIndexer->logWarningIfFeedIsNotLocked()
+#1 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/Interception\/Interceptor.php(58): Magento\\DataExporter\\Model\\Indexer\\FeedIndexer->executeList()
+#2 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/Interception\/Interceptor.php(138): Magento\\DataExporter\\Model\\Indexer\\FeedIndexer\\Interceptor->___callParent()
+#3 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/Interception\/Interceptor.php(153): Magento\\DataExporter\\Model\\Indexer\\FeedIndexer\\Interceptor->Magento\\Framework\\Interception\\{closure}()
+#4 \/home\/shan_03\/magento2\/generated\/code\/Magento\/DataExporter\/Model\/Indexer\/FeedIndexer\/Interceptor.php(32): Magento\\DataExporter\\Model\\Indexer\\FeedIndexer\\Interceptor->___callPlugins()
+#5 \/home\/shan_03\/magento2\/vendor\/magento\/module-indexer\/Model\/Indexer.php(547): Magento\\DataExporter\\Model\\Indexer\\FeedIndexer\\Interceptor->executeList()
+#6 \/home\/shan_03\/magento2\/generated\/code\/Magento\/Indexer\/Model\/Indexer\/Interceptor.php(257): Magento\\Indexer\\Model\\Indexer->reindexList()
+#7 \/home\/shan_03\/magento2\/vendor\/magento\/module-indexer\/Model\/Indexer\/DependencyDecorator.php(294): Magento\\Indexer\\Model\\Indexer\\Interceptor->reindexList()
+#8 \/home\/shan_03\/magento2\/generated\/code\/Magento\/Indexer\/Model\/Indexer\/DependencyDecorator\/Interceptor.php(230): Magento\\Indexer\\Model\\Indexer\\DependencyDecorator->reindexList()
+#9 \/home\/shan_03\/magento2\/vendor\/magento\/module-sales-data-exporter\/Observer\/ReindexOrderFeedOnShipment.php(53): Magento\\Indexer\\Model\\Indexer\\DependencyDecorator\\Interceptor->reindexList()
+#10 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/Event\/Invoker\/InvokerDefault.php(88): Magento\\SalesDataExporter\\Observer\\ReindexOrderFeedOnShipment->execute()
+#11 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/Event\/Invoker\/InvokerDefault.php(74): Magento\\Framework\\Event\\Invoker\\InvokerDefault->_callObserverMethod()
+#12 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/Event\/Manager.php(65): Magento\\Framework\\Event\\Invoker\\InvokerDefault->dispatch()
+#13 \/home\/shan_03\/magento2\/generated\/code\/Magento\/Framework\/Event\/Manager\/Proxy.php(105): Magento\\Framework\\Event\\Manager->dispatch()
+#14 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/Model\/AbstractModel.php(846): Magento\\Framework\\Event\\Manager\\Proxy->dispatch()
+#15 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/Model\/ResourceModel\/Db\/VersionControl\/AbstractDb.php(56): Magento\\Framework\\Model\\AbstractModel->afterSave()
+#16 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/Model\/ResourceModel\/Db\/AbstractDb.php(402): Magento\\Framework\\Model\\ResourceModel\\Db\\VersionControl\\AbstractDb->processAfterSaves()
+#17 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/Interception\/Interceptor.php(58): Magento\\Framework\\Model\\ResourceModel\\Db\\AbstractDb->save()
+#18 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/Interception\/Interceptor.php(138): Magento\\Sales\\Model\\ResourceModel\\Order\\Shipment\\Interceptor->___callParent()
+#19 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/Interception\/Interceptor.php(153): Magento\\Sales\\Model\\ResourceModel\\Order\\Shipment\\Interceptor->Magento\\Framework\\Interception\\{closure}()
+#20 \/home\/shan_03\/magento2\/generated\/code\/Magento\/Sales\/Model\/ResourceModel\/Order\/Shipment\/Interceptor.php(77): Magento\\Sales\\Model\\ResourceModel\\Order\\Shipment\\Interceptor->___callPlugins()
+#21 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/Model\/AbstractModel.php(663): Magento\\Sales\\Model\\ResourceModel\\Order\\Shipment\\Interceptor->save()
+#22 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/DB\/Transaction.php(134): Magento\\Framework\\Model\\AbstractModel->save()
+#23 \/home\/shan_03\/magento2\/vendor\/magento\/module-sales-sample-data\/Model\/Order\/Processor.php(249): Magento\\Framework\\DB\\Transaction->save()
+#24 \/home\/shan_03\/magento2\/vendor\/magento\/module-sales-sample-data\/Model\/Order\/Processor.php(145): Magento\\SalesSampleData\\Model\\Order\\Processor->shipOrder()
+#25 \/home\/shan_03\/magento2\/vendor\/magento\/module-sales-sample-data\/Model\/Order.php(102): Magento\\SalesSampleData\\Model\\Order\\Processor->createOrder()
+#26 \/home\/shan_03\/magento2\/vendor\/magento\/module-sales-sample-data\/Setup\/Installer.php(30): Magento\\SalesSampleData\\Model\\Order->install()
+#27 [internal function]: Magento\\SalesSampleData\\Setup\\Installer->install()
+#28 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/App\/State.php(183): call_user_func_array()
+#29 \/home\/shan_03\/magento2\/generated\/code\/Magento\/Framework\/App\/State\/Interceptor.php(68): Magento\\Framework\\App\\State->emulateAreaCode()
+#30 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/Setup\/SampleData\/Executor.php(54): Magento\\Framework\\App\\State\\Interceptor->emulateAreaCode()
+#31 \/home\/shan_03\/magento2\/vendor\/magento\/module-sales-sample-data\/Setup\/Patch\/Data\/InstallSalesSampleData.php(61): Magento\\Framework\\Setup\\SampleData\\Executor->exec()
+#32 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/Setup\/Patch\/PatchApplier.php(157): Magento\\SalesSampleData\\Setup\\Patch\\Data\\InstallSalesSampleData->apply()
+#33 \/home\/shan_03\/magento2\/setup\/src\/Magento\/Setup\/Model\/Installer.php(1093): Magento\\Framework\\Setup\\Patch\\PatchApplier->applyDataPatch()
+#34 \/home\/shan_03\/magento2\/setup\/src\/Magento\/Setup\/Model\/Installer.php(965): Magento\\Setup\\Model\\Installer->handleDBSchemaData()
+#35 \/home\/shan_03\/magento2\/setup\/src\/Magento\/Setup\/Console\/Command\/UpgradeCommand.php(149): Magento\\Setup\\Model\\Installer->installDataFixtures()
+#36 \/home\/shan_03\/magento2\/vendor\/symfony\/console\/Command\/Command.php(326): Magento\\Setup\\Console\\Command\\UpgradeCommand->execute()
+#37 \/home\/shan_03\/magento2\/vendor\/symfony\/console\/Application.php(1083): Symfony\\Component\\Console\\Command\\Command->run()
+#38 \/home\/shan_03\/magento2\/vendor\/symfony\/console\/Application.php(324): Symfony\\Component\\Console\\Application->doRunCommand()
+#39 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/Console\/Cli.php(118): Symfony\\Component\\Console\\Application->doRun()
+#40 \/home\/shan_03\/magento2\/vendor\/symfony\/console\/Application.php(175): Magento\\Framework\\Console\\Cli->doRun()
+#41 \/home\/shan_03\/magento2\/bin\/magento(23): Symfony\\Component\\Console\\Application->run()
+#42 {main}","elapsed":"00:01:12 752 ms","pid":"75455","caller":"bin\/magento setup:upgrade"} [] []
+[2026-01-25T12:53:30.190841+00:00] main.WARNING: {"feed":"undefined","operation":"undefined","status":"Unexpected call: feed \"salesOrders\" is not locked, trace: #0 \/home\/shan_03\/magento2\/vendor\/magento\/module-data-exporter\/Model\/Indexer\/FeedIndexer.php(136): Magento\\DataExporter\\Model\\Indexer\\FeedIndexer->logWarningIfFeedIsNotLocked()
+#1 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/Interception\/Interceptor.php(58): Magento\\DataExporter\\Model\\Indexer\\FeedIndexer->executeList()
+#2 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/Interception\/Interceptor.php(138): Magento\\DataExporter\\Model\\Indexer\\FeedIndexer\\Interceptor->___callParent()
+#3 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/Interception\/Interceptor.php(153): Magento\\DataExporter\\Model\\Indexer\\FeedIndexer\\Interceptor->Magento\\Framework\\Interception\\{closure}()
+#4 \/home\/shan_03\/magento2\/generated\/code\/Magento\/DataExporter\/Model\/Indexer\/FeedIndexer\/Interceptor.php(32): Magento\\DataExporter\\Model\\Indexer\\FeedIndexer\\Interceptor->___callPlugins()
+#5 \/home\/shan_03\/magento2\/vendor\/magento\/module-indexer\/Model\/Indexer.php(547): Magento\\DataExporter\\Model\\Indexer\\FeedIndexer\\Interceptor->executeList()
+#6 \/home\/shan_03\/magento2\/generated\/code\/Magento\/Indexer\/Model\/Indexer\/Interceptor.php(257): Magento\\Indexer\\Model\\Indexer->reindexList()
+#7 \/home\/shan_03\/magento2\/vendor\/magento\/module-indexer\/Model\/Indexer\/DependencyDecorator.php(294): Magento\\Indexer\\Model\\Indexer\\Interceptor->reindexList()
+#8 \/home\/shan_03\/magento2\/generated\/code\/Magento\/Indexer\/Model\/Indexer\/DependencyDecorator\/Interceptor.php(230): Magento\\Indexer\\Model\\Indexer\\DependencyDecorator->reindexList()
+#9 \/home\/shan_03\/magento2\/vendor\/magento\/module-sales-data-exporter\/Observer\/ReindexOrderFeed.php(53): Magento\\Indexer\\Model\\Indexer\\DependencyDecorator\\Interceptor->reindexList()
+#10 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/Event\/Invoker\/InvokerDefault.php(88): Magento\\SalesDataExporter\\Observer\\ReindexOrderFeed->execute()
+#11 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/Event\/Invoker\/InvokerDefault.php(74): Magento\\Framework\\Event\\Invoker\\InvokerDefault->_callObserverMethod()
+#12 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/Event\/Manager.php(65): Magento\\Framework\\Event\\Invoker\\InvokerDefault->dispatch()
+#13 \/home\/shan_03\/magento2\/generated\/code\/Magento\/Framework\/Event\/Manager\/Proxy.php(105): Magento\\Framework\\Event\\Manager->dispatch()
+#14 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/Model\/AbstractModel.php(675): Magento\\Framework\\Event\\Manager\\Proxy->dispatch()
+#15 \/home\/shan_03\/magento2\/generated\/code\/Magento\/Sales\/Model\/Order\/Interceptor.php(3497): Magento\\Framework\\Model\\AbstractModel->afterCommitCallback()
+#16 [internal function]: Magento\\Sales\\Model\\Order\\Interceptor->afterCommitCallback()
+#17 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/Model\/ExecuteCommitCallbacks.php(44): call_user_func()
+#18 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/Interception\/Interceptor.php(146): Magento\\Framework\\Model\\ExecuteCommitCallbacks->afterCommit()
+#19 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/Interception\/Interceptor.php(153): Magento\\Framework\\DB\\Adapter\\Pdo\\Mysql\\Interceptor->Magento\\Framework\\Interception\\{closure}()
+#20 \/home\/shan_03\/magento2\/generated\/code\/Magento\/Framework\/DB\/Adapter\/Pdo\/Mysql\/Interceptor.php(32): Magento\\Framework\\DB\\Adapter\\Pdo\\Mysql\\Interceptor->___callPlugins()
+#21 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/Model\/ResourceModel\/AbstractResource.php(91): Magento\\Framework\\DB\\Adapter\\Pdo\\Mysql\\Interceptor->commit()
+#22 \/home\/shan_03\/magento2\/generated\/code\/Magento\/Sales\/Model\/ResourceModel\/Order\/Interceptor.php(230): Magento\\Framework\\Model\\ResourceModel\\AbstractResource->commit()
+#23 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/DB\/Transaction.php(62): Magento\\Sales\\Model\\ResourceModel\\Order\\Interceptor->commit()
+#24 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/DB\/Transaction.php(152): Magento\\Framework\\DB\\Transaction->_commitTransaction()
+#25 \/home\/shan_03\/magento2\/vendor\/magento\/module-sales-sample-data\/Model\/Order\/Processor.php(249): Magento\\Framework\\DB\\Transaction->save()
+#26 \/home\/shan_03\/magento2\/vendor\/magento\/module-sales-sample-data\/Model\/Order\/Processor.php(145): Magento\\SalesSampleData\\Model\\Order\\Processor->shipOrder()
+#27 \/home\/shan_03\/magento2\/vendor\/magento\/module-sales-sample-data\/Model\/Order.php(102): Magento\\SalesSampleData\\Model\\Order\\Processor->createOrder()
+#28 \/home\/shan_03\/magento2\/vendor\/magento\/module-sales-sample-data\/Setup\/Installer.php(30): Magento\\SalesSampleData\\Model\\Order->install()
+#29 [internal function]: Magento\\SalesSampleData\\Setup\\Installer->install()
+#30 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/App\/State.php(183): call_user_func_array()
+#31 \/home\/shan_03\/magento2\/generated\/code\/Magento\/Framework\/App\/State\/Interceptor.php(68): Magento\\Framework\\App\\State->emulateAreaCode()
+#32 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/Setup\/SampleData\/Executor.php(54): Magento\\Framework\\App\\State\\Interceptor->emulateAreaCode()
+#33 \/home\/shan_03\/magento2\/vendor\/magento\/module-sales-sample-data\/Setup\/Patch\/Data\/InstallSalesSampleData.php(61): Magento\\Framework\\Setup\\SampleData\\Executor->exec()
+#34 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/Setup\/Patch\/PatchApplier.php(157): Magento\\SalesSampleData\\Setup\\Patch\\Data\\InstallSalesSampleData->apply()
+#35 \/home\/shan_03\/magento2\/setup\/src\/Magento\/Setup\/Model\/Installer.php(1093): Magento\\Framework\\Setup\\Patch\\PatchApplier->applyDataPatch()
+#36 \/home\/shan_03\/magento2\/setup\/src\/Magento\/Setup\/Model\/Installer.php(965): Magento\\Setup\\Model\\Installer->handleDBSchemaData()
+#37 \/home\/shan_03\/magento2\/setup\/src\/Magento\/Setup\/Console\/Command\/UpgradeCommand.php(149): Magento\\Setup\\Model\\Installer->installDataFixtures()
+#38 \/home\/shan_03\/magento2\/vendor\/symfony\/console\/Command\/Command.php(326): Magento\\Setup\\Console\\Command\\UpgradeCommand->execute()
+#39 \/home\/shan_03\/magento2\/vendor\/symfony\/console\/Application.php(1083): Symfony\\Component\\Console\\Command\\Command->run()
+#40 \/home\/shan_03\/magento2\/vendor\/symfony\/console\/Application.php(324): Symfony\\Component\\Console\\Application->doRunCommand()
+#41 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/Console\/Cli.php(118): Symfony\\Component\\Console\\Application->doRun()
+#42 \/home\/shan_03\/magento2\/vendor\/symfony\/console\/Application.php(175): Magento\\Framework\\Console\\Cli->doRun()
+#43 \/home\/shan_03\/magento2\/bin\/magento(23): Symfony\\Component\\Console\\Application->run()
+#44 {main}","elapsed":"00:01:12 768 ms","pid":"75455","caller":"bin\/magento setup:upgrade"} [] []
+[2026-01-25T12:53:30.294830+00:00] main.WARNING: {"feed":"undefined","operation":"undefined","status":"Unexpected call: feed \"salesOrders\" is not locked, trace: #0 \/home\/shan_03\/magento2\/vendor\/magento\/module-data-exporter\/Model\/Indexer\/FeedIndexer.php(136): Magento\\DataExporter\\Model\\Indexer\\FeedIndexer->logWarningIfFeedIsNotLocked()
+#1 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/Interception\/Interceptor.php(58): Magento\\DataExporter\\Model\\Indexer\\FeedIndexer->executeList()
+#2 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/Interception\/Interceptor.php(138): Magento\\DataExporter\\Model\\Indexer\\FeedIndexer\\Interceptor->___callParent()
+#3 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/Interception\/Interceptor.php(153): Magento\\DataExporter\\Model\\Indexer\\FeedIndexer\\Interceptor->Magento\\Framework\\Interception\\{closure}()
+#4 \/home\/shan_03\/magento2\/generated\/code\/Magento\/DataExporter\/Model\/Indexer\/FeedIndexer\/Interceptor.php(32): Magento\\DataExporter\\Model\\Indexer\\FeedIndexer\\Interceptor->___callPlugins()
+#5 \/home\/shan_03\/magento2\/vendor\/magento\/module-indexer\/Model\/Indexer.php(547): Magento\\DataExporter\\Model\\Indexer\\FeedIndexer\\Interceptor->executeList()
+#6 \/home\/shan_03\/magento2\/generated\/code\/Magento\/Indexer\/Model\/Indexer\/Interceptor.php(257): Magento\\Indexer\\Model\\Indexer->reindexList()
+#7 \/home\/shan_03\/magento2\/vendor\/magento\/module-indexer\/Model\/Indexer\/DependencyDecorator.php(294): Magento\\Indexer\\Model\\Indexer\\Interceptor->reindexList()
+#8 \/home\/shan_03\/magento2\/generated\/code\/Magento\/Indexer\/Model\/Indexer\/DependencyDecorator\/Interceptor.php(230): Magento\\Indexer\\Model\\Indexer\\DependencyDecorator->reindexList()
+#9 \/home\/shan_03\/magento2\/vendor\/magento\/module-sales-data-exporter\/Observer\/ReindexOrderFeed.php(53): Magento\\Indexer\\Model\\Indexer\\DependencyDecorator\\Interceptor->reindexList()
+#10 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/Event\/Invoker\/InvokerDefault.php(88): Magento\\SalesDataExporter\\Observer\\ReindexOrderFeed->execute()
+#11 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/Event\/Invoker\/InvokerDefault.php(74): Magento\\Framework\\Event\\Invoker\\InvokerDefault->_callObserverMethod()
+#12 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/Event\/Manager.php(65): Magento\\Framework\\Event\\Invoker\\InvokerDefault->dispatch()
+#13 \/home\/shan_03\/magento2\/generated\/code\/Magento\/Framework\/Event\/Manager\/Proxy.php(105): Magento\\Framework\\Event\\Manager->dispatch()
+#14 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/Model\/AbstractModel.php(675): Magento\\Framework\\Event\\Manager\\Proxy->dispatch()
+#15 \/home\/shan_03\/magento2\/generated\/code\/Magento\/Sales\/Model\/Order\/Interceptor.php(3497): Magento\\Framework\\Model\\AbstractModel->afterCommitCallback()
+#16 [internal function]: Magento\\Sales\\Model\\Order\\Interceptor->afterCommitCallback()
+#17 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/Model\/ExecuteCommitCallbacks.php(44): call_user_func()
+#18 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/Interception\/Interceptor.php(146): Magento\\Framework\\Model\\ExecuteCommitCallbacks->afterCommit()
+#19 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/Interception\/Interceptor.php(153): Magento\\Framework\\DB\\Adapter\\Pdo\\Mysql\\Interceptor->Magento\\Framework\\Interception\\{closure}()
+#20 \/home\/shan_03\/magento2\/generated\/code\/Magento\/Framework\/DB\/Adapter\/Pdo\/Mysql\/Interceptor.php(32): Magento\\Framework\\DB\\Adapter\\Pdo\\Mysql\\Interceptor->___callPlugins()
+#21 \/home\/shan_03\/magento2\/vendor\/magento\/module-sales\/Model\/Service\/CreditmemoService.php(173): Magento\\Framework\\DB\\Adapter\\Pdo\\Mysql\\Interceptor->commit()
+#22 \/home\/shan_03\/magento2\/vendor\/magento\/module-sales-sample-data\/Model\/Order\/Processor.php(265): Magento\\Sales\\Model\\Service\\CreditmemoService->refund()
+#23 \/home\/shan_03\/magento2\/vendor\/magento\/module-sales-sample-data\/Model\/Order\/Processor.php(147): Magento\\SalesSampleData\\Model\\Order\\Processor->refundOrder()
+#24 \/home\/shan_03\/magento2\/vendor\/magento\/module-sales-sample-data\/Model\/Order.php(102): Magento\\SalesSampleData\\Model\\Order\\Processor->createOrder()
+#25 \/home\/shan_03\/magento2\/vendor\/magento\/module-sales-sample-data\/Setup\/Installer.php(30): Magento\\SalesSampleData\\Model\\Order->install()
+#26 [internal function]: Magento\\SalesSampleData\\Setup\\Installer->install()
+#27 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/App\/State.php(183): call_user_func_array()
+#28 \/home\/shan_03\/magento2\/generated\/code\/Magento\/Framework\/App\/State\/Interceptor.php(68): Magento\\Framework\\App\\State->emulateAreaCode()
+#29 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/Setup\/SampleData\/Executor.php(54): Magento\\Framework\\App\\State\\Interceptor->emulateAreaCode()
+#30 \/home\/shan_03\/magento2\/vendor\/magento\/module-sales-sample-data\/Setup\/Patch\/Data\/InstallSalesSampleData.php(61): Magento\\Framework\\Setup\\SampleData\\Executor->exec()
+#31 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/Setup\/Patch\/PatchApplier.php(157): Magento\\SalesSampleData\\Setup\\Patch\\Data\\InstallSalesSampleData->apply()
+#32 \/home\/shan_03\/magento2\/setup\/src\/Magento\/Setup\/Model\/Installer.php(1093): Magento\\Framework\\Setup\\Patch\\PatchApplier->applyDataPatch()
+#33 \/home\/shan_03\/magento2\/setup\/src\/Magento\/Setup\/Model\/Installer.php(965): Magento\\Setup\\Model\\Installer->handleDBSchemaData()
+#34 \/home\/shan_03\/magento2\/setup\/src\/Magento\/Setup\/Console\/Command\/UpgradeCommand.php(149): Magento\\Setup\\Model\\Installer->installDataFixtures()
+#35 \/home\/shan_03\/magento2\/vendor\/symfony\/console\/Command\/Command.php(326): Magento\\Setup\\Console\\Command\\UpgradeCommand->execute()
+#36 \/home\/shan_03\/magento2\/vendor\/symfony\/console\/Application.php(1083): Symfony\\Component\\Console\\Command\\Command->run()
+#37 \/home\/shan_03\/magento2\/vendor\/symfony\/console\/Application.php(324): Symfony\\Component\\Console\\Application->doRunCommand()
+#38 \/home\/shan_03\/magento2\/vendor\/magento\/framework\/Console\/Cli.php(118): Symfony\\Component\\Console\\Application->doRun()
+#39 \/home\/shan_03\/magento2\/vendor\/symfony\/console\/Application.php(175): Magento\\Framework\\Console\\Cli->doRun()
+#40 \/home\/shan_03\/magento2\/bin\/magento(23): Symfony\\Component\\Console\\Application->run()
+#41 {main}","elapsed":"00:01:12 872 ms","pid":"75455","caller":"bin\/magento setup:upgrade"} [] []
+[2026-01-25T12:53:38.319600+00:00] main.INFO: {"feed":"salesOrders","operation":"full reindex(legacy)","status":"Initialize","elapsed":"628 ms","pid":"75455","caller":"bin\/magento setup:upgrade"} [] []
+[2026-01-25T12:53:38.380340+00:00] main.INFO: {"feed":"salesOrders","operation":"full reindex(legacy)","status":"Creating batch table `sales_data_exporter_orders_index_batches`. Start position: 0","elapsed":"688 ms","pid":"75455","caller":"bin\/magento setup:upgrade"} [] []
+[2026-01-25T12:53:38.414088+00:00] main.INFO: {"feed":"salesOrders","operation":"full reindex(legacy)","status":"Batch table `sales_data_exporter_orders_index_batches` created. Total Items: 2, batches: ~0","elapsed":"722 ms","pid":"75455","caller":"bin\/magento setup:upgrade"} [] []
+[2026-01-25T12:53:38.414261+00:00] main.INFO: {"feed":"salesOrders","operation":"full reindex(legacy)","status":"start processing `2` items in `1` threads with `100` batch size","elapsed":"722 ms","pid":"75455","caller":"bin\/magento setup:upgrade"} [] []
+[2026-01-25T12:53:38.420259+00:00] main.INFO: {"feed":"salesOrders","operation":"full reindex(legacy)","status":"Progress 1\/1, processed 2, synced 0","elapsed":"728 ms","pid":"75455","caller":"bin\/magento setup:upgrade"} [] []
+[2026-01-25T12:53:38.422932+00:00] main.INFO: {"feed":"salesOrders","operation":"full reindex(legacy)","status":"Complete","elapsed":"731 ms","pid":"75455","caller":"bin\/magento setup:upgrade"} [] []
+[2026-01-25T12:53:38.429307+00:00] main.INFO: {"feed":"salesOrderStatuses","operation":"full reindex(legacy)","status":"Initialize","elapsed":"847 ms","pid":"75455","caller":"bin\/magento setup:upgrade"} [] []
+[2026-01-25T12:53:38.475871+00:00] main.INFO: {"feed":"salesOrderStatuses","operation":"full reindex(legacy)","status":"Creating batch table `sales_data_exporter_order_statuses_index_batches`. Start position: ","elapsed":"894 ms","pid":"75455","caller":"bin\/magento setup:upgrade"} [] []
+[2026-01-25T12:53:38.503354+00:00] main.INFO: {"feed":"salesOrderStatuses","operation":"full reindex(legacy)","status":"Batch table `sales_data_exporter_order_statuses_index_batches` created. Total Items: 12, batches: ~0","elapsed":"921 ms","pid":"75455","caller":"bin\/magento setup:upgrade"} [] []
+[2026-01-25T12:53:38.503475+00:00] main.INFO: {"feed":"salesOrderStatuses","operation":"full reindex(legacy)","status":"start processing `12` items in `1` threads with `100` batch size","elapsed":"921 ms","pid":"75455","caller":"bin\/magento setup:upgrade"} [] []
+[2026-01-25T12:53:38.510683+00:00] main.INFO: {"feed":"salesOrderStatuses","operation":"full reindex(legacy)","status":"Progress 1\/1, processed 12, synced 12","elapsed":"929 ms","pid":"75455","caller":"bin\/magento setup:upgrade"} [] []
+[2026-01-25T12:53:38.512833+00:00] main.INFO: {"feed":"salesOrderStatuses","operation":"full reindex(legacy)","status":"Complete","elapsed":"931 ms","pid":"75455","caller":"bin\/magento setup:upgrade"} [] []
+[2026-01-25T12:53:38.518813+00:00] main.INFO: {"feed":"stores","operation":"full reindex(legacy)","status":"Initialize","elapsed":"00:00:00 26 ms","pid":"75455","caller":"bin\/magento setup:upgrade"} [] []
+[2026-01-25T12:53:38.574735+00:00] main.INFO: {"feed":"stores","operation":"full reindex(legacy)","status":"Creating batch table `stores_data_exporter_index_batches`. Start position: 0","elapsed":"00:00:00 82 ms","pid":"75455","caller":"bin\/magento setup:upgrade"} [] []
+[2026-01-25T12:53:38.610747+00:00] main.INFO: {"feed":"stores","operation":"full reindex(legacy)","status":"Batch table `stores_data_exporter_index_batches` created. Total Items: 1, batches: ~0","elapsed":"00:00:00 118 ms","pid":"75455","caller":"bin\/magento setup:upgrade"} [] []
+[2026-01-25T12:53:38.610857+00:00] main.INFO: {"feed":"stores","operation":"full reindex(legacy)","status":"start processing `1` items in `1` threads with `100` batch size","elapsed":"00:00:00 118 ms","pid":"75455","caller":"bin\/magento setup:upgrade"} [] []
+[2026-01-25T12:53:38.619079+00:00] main.INFO: {"feed":"stores","operation":"full reindex(legacy)","status":"Progress 1\/1, processed 1, synced 1","elapsed":"00:00:00 126 ms","pid":"75455","caller":"bin\/magento setup:upgrade"} [] []
+[2026-01-25T12:53:38.623356+00:00] main.INFO: {"feed":"stores","operation":"full reindex(legacy)","status":"Complete","elapsed":"00:00:00 131 ms","pid":"75455","caller":"bin\/magento setup:upgrade"} [] []
