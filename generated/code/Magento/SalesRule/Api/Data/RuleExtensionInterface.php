@@ -6,4 +6,14 @@ namespace Magento\SalesRule\Api\Data;
  */
 interface RuleExtensionInterface extends \Magento\Framework\Api\ExtensionAttributesInterface
 {
+    /**
+     * @return \StripeIntegration\Payments\Api\Data\CouponInterface|null
+     */
+    public function getCoupon();
+
+    /**
+     * @param \StripeIntegration\Payments\Api\Data\CouponInterface $coupon
+     * @return $this
+     */
+    public function setCoupon(\StripeIntegration\Payments\Api\Data\CouponInterface $coupon);
 }

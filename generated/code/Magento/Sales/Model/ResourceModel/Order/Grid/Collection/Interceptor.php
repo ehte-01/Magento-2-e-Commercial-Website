@@ -26,15 +26,6 @@ class Interceptor extends \Magento\Sales\Model\ResourceModel\Order\Grid\Collecti
     /**
      * {@inheritdoc}
      */
-    public function load($printQuery = false, $logQuery = false)
-    {
-        $pluginInfo = $this->pluginList->getNext($this->subjectType, 'load');
-        return $pluginInfo ? $this->___callPlugins('load', func_get_args(), $pluginInfo) : parent::load($printQuery, $logQuery);
-    }
-
-    /**
-     * {@inheritdoc}
-     */
     public function getCurPage($displacement = 0)
     {
         $pluginInfo = $this->pluginList->getNext($this->subjectType, 'getCurPage');

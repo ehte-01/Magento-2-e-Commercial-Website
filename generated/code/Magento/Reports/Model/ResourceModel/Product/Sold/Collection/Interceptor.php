@@ -22,4 +22,13 @@ class Interceptor extends \Magento\Reports\Model\ResourceModel\Product\Sold\Coll
         $pluginInfo = $this->pluginList->getNext($this->subjectType, 'getCurPage');
         return $pluginInfo ? $this->___callPlugins('getCurPage', func_get_args(), $pluginInfo) : parent::getCurPage($displacement);
     }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getItems()
+    {
+        $pluginInfo = $this->pluginList->getNext($this->subjectType, 'getItems');
+        return $pluginInfo ? $this->___callPlugins('getItems', func_get_args(), $pluginInfo) : parent::getItems();
+    }
 }

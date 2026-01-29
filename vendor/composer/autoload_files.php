@@ -429,6 +429,8 @@ return array(
     '7102f9cf0d2c08bc731a7e185c1c8bfc' => $vendorDir . '/magento/theme-frontend-luma/registration.php',
     'aa75ea0761a2f40c1f3b32ad314f86c4' => $vendorDir . '/phpseclib/mcrypt_compat/lib/mcrypt.php',
     '38143a9afc50997d55e4815db8489d1c' => $vendorDir . '/rector/rector/bootstrap.php',
+    '6afbb3ece6b14bcedd88522ddc6978f5' => $vendorDir . '/stripe/module-payments/registration.php',
+    '04ebb6592eabd034916b56c6f08846d0' => $vendorDir . '/stripe/module-tax/registration.php',
     '940abd8fb01ee76a36b44f35dcf9783b' => $vendorDir . '/weew/helpers-array/src/array.php',
     'eda65932675b68b5aee4503e0762d64d' => $vendorDir . '/magento/magento2-functional-testing-framework/src/Magento/FunctionalTestingFramework/_bootstrap.php',
     'efb1c0737b9e14915954f7954ea42462' => $vendorDir . '/magento/module-bundle-sample-data/registration.php',

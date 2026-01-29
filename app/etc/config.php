@@ -373,12 +373,15 @@ return [
         'Magento_WishlistAnalytics' => 1,
         'Magento_WishlistGraphQl' => 1,
         'Magento_WishlistSampleData' => 1,
-        'PayPal_Braintree' => 1,
-        'PayPal_BraintreeCustomerBalance' => 1,
-        'PayPal_BraintreeGiftCard' => 1,
-        'PayPal_BraintreeGiftCardAccount' => 1,
-        'PayPal_BraintreeGiftWrapping' => 1,
-        'PayPal_BraintreeGraphQl' => 1,
-        'PayPal_BraintreeReward' => 1
+        'PayPal_Braintree' => 0,
+        'PayPal_BraintreeCustomerBalance' => 0,
+        'PayPal_BraintreeGiftCard' => 0,
+        'PayPal_BraintreeGiftCardAccount' => 0,
+        'PayPal_BraintreeGiftWrapping' => 0,
+        'PayPal_BraintreeGraphQl' => 0,
+        'PayPal_BraintreeReward' => 0,
+        'Razorpay_Magento' => 1,
+        'StripeIntegration_Tax' => 1,
+        'StripeIntegration_Payments' => 1
     ]
 ];

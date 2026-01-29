@@ -17,6 +17,33 @@ class Interceptor extends \Magento\Sales\Model\Order\Invoice implements \Magento
     /**
      * {@inheritdoc}
      */
+    public function canCapture()
+    {
+        $pluginInfo = $this->pluginList->getNext($this->subjectType, 'canCapture');
+        return $pluginInfo ? $this->___callPlugins('canCapture', func_get_args(), $pluginInfo) : parent::canCapture();
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function canVoid()
+    {
+        $pluginInfo = $this->pluginList->getNext($this->subjectType, 'canVoid');
+        return $pluginInfo ? $this->___callPlugins('canVoid', func_get_args(), $pluginInfo) : parent::canVoid();
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function canCancel()
+    {
+        $pluginInfo = $this->pluginList->getNext($this->subjectType, 'canCancel');
+        return $pluginInfo ? $this->___callPlugins('canCancel', func_get_args(), $pluginInfo) : parent::canCancel();
+    }
+
+    /**
+     * {@inheritdoc}
+     */
     public function setTotalQty($qty)
     {
         $pluginInfo = $this->pluginList->getNext($this->subjectType, 'setTotalQty');

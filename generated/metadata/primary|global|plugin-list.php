@@ -742,6 +742,11 @@
         'sortOrder' => 0,
         'instance' => 'Magento\\GiftMessage\\Model\\Plugin\\QuoteItem',
       ),
+      'addInitalFeeToOrderItem' => 
+      array (
+        'sortOrder' => 30,
+        'instance' => 'StripeIntegration\\Payments\\Plugin\\Quote\\QuoteItemToOrderItem',
+      ),
     ),
     'Magento\\Catalog\\Controller\\Adminhtml\\Product\\Initialization\\Helper' => 
     array (
@@ -1030,6 +1035,11 @@
         'sortOrder' => 100,
         'instance' => 'Magento\\Bundle\\Model\\Sales\\Order\\Plugin\\Item',
       ),
+      'stripe_order_item' => 
+      array (
+        'sortOrder' => 10,
+        'instance' => 'StripeIntegration\\Payments\\Plugin\\Sales\\Model\\Order\\Item',
+      ),
     ),
     'Magento\\Quote\\Model\\QuoteManagement' => 
     array (
@@ -1037,6 +1047,16 @@
       array (
         'sortOrder' => 10,
         'instance' => 'Magento\\Bundle\\Plugin\\Quote\\UpdateBundleQuoteItemOptions',
+      ),
+      'stripe_tax_quote_management' => 
+      array (
+        'sortOrder' => 0,
+        'instance' => 'StripeIntegration\\Tax\\Plugin\\Quote\\Model\\QuoteManagement',
+      ),
+      'stripe_payments_quote_management' => 
+      array (
+        'sortOrder' => 0,
+        'instance' => 'StripeIntegration\\Payments\\Plugin\\Quote\\QuoteManagement',
       ),
       'validate_purchase_order_number' => 
       array (
@@ -1169,6 +1189,19 @@
       array (
         'sortOrder' => 0,
         'instance' => 'Magento\\InventoryShipping\\Plugin\\Sales\\ResourceModel\\Order\\Shipment\\DeleteSourceForShipmentPlugin',
+      ),
+    ),
+    'Magento\\Sales\\Model\\OrderRepository' => 
+    array (
+      'stripeIntegration_save_order' => 
+      array (
+        'sortOrder' => 30,
+        'instance' => 'StripeIntegration\\Tax\\Plugin\\Sales\\Model\\OrderRepository',
+      ),
+      'getInitialFeeExtensionBeforeSave' => 
+      array (
+        'sortOrder' => 30,
+        'instance' => 'StripeIntegration\\Payments\\Plugin\\Order\\SaveInitialFee',
       ),
     ),
     'Magento\\Sales\\Model\\ResourceModel\\Order\\Handler\\Address' => 
@@ -1334,6 +1367,14 @@
         'instance' => 'Magento\\InventoryConfigurableProduct\\Plugin\\CatalogInventory\\UpdateLegacyStockStatusForConfigurableProduct',
       ),
     ),
+    'Magento\\Tax\\Helper\\Data' => 
+    array (
+      'stripeIntegration_model_helper_dataPlugin' => 
+      array (
+        'sortOrder' => 0,
+        'instance' => 'StripeIntegration\\Tax\\Plugin\\Tax\\Helper\\DataPlugin',
+      ),
+    ),
     'Magento\\Quote\\Model\\Quote\\Address\\ToOrder' => 
     array (
       'add_tax_to_order' => 
@@ -1345,6 +1386,16 @@
       array (
         'sortOrder' => 20,
         'instance' => 'Magento\\InventoryInStorePickupQuote\\Plugin\\Quote\\SetPickupLocationToOrder',
+      ),
+      'stripeIntegration_quote_to_order' => 
+      array (
+        'sortOrder' => 30,
+        'instance' => 'StripeIntegration\\Tax\\Plugin\\Quote\\Model\\Quote\\Address\\ToOrder',
+      ),
+      'addInitialFeeToOrder' => 
+      array (
+        'sortOrder' => 30,
+        'instance' => 'StripeIntegration\\Payments\\Plugin\\Quote\\InitialFeeToOrder',
       ),
     ),
     'Magento\\Quote\\Model\\Cart\\TotalsConverter' => 
@@ -2557,6 +2608,11 @@
         'sortOrder' => 0,
         'instance' => 'Magento\\InventoryInStorePickupMultishipping\\Plugin\\Quote\\RemoveInStorePickupDataInMultishippingModePlugin',
       ),
+      'stripeBeforeCartRepositorySave' => 
+      array (
+        'sortOrder' => 7,
+        'instance' => 'StripeIntegration\\Payments\\Plugin\\CartRepository\\BeforeSave',
+      ),
     ),
     'Magento\\Framework\\App\\Http' => 
     array (
@@ -2604,6 +2660,12 @@
       array (
         'sortOrder' => 0,
         'instance' => 'Magento\\SalesRule\\Plugin\\CouponUsagesDecrement',
+      ),
+      'stripePaymentsOrderService' => 
+      array (
+        'sortOrder' => 1,
+        'disabled' => false,
+        'instance' => 'StripeIntegration\\Payments\\Plugin\\Sales\\Model\\Service\\OrderService',
       ),
     ),
     'Magento\\Framework\\View\\Page\\Config' => 
@@ -2666,16 +2728,6 @@
         'sortOrder' => 50,
         'instance' => 'Magento\\Captcha\\Model\\Cart\\ConfigPlugin',
       ),
-      'addAgreementsToMiniCartConfig' => 
-      array (
-        'sortOrder' => 0,
-        'instance' => 'PayPal\\Braintree\\Plugin\\AddAgreementsToMiniCartConfig',
-      ),
-      'addPayLaterMessageConfig' => 
-      array (
-        'sortOrder' => 0,
-        'instance' => 'PayPal\\Braintree\\Plugin\\PayLaterMessageConfig',
-      ),
     ),
     'Magento\\Payment\\Model\\Checks\\Composite' => 
     array (
@@ -2691,6 +2743,16 @@
       array (
         'sortOrder' => 0,
         'instance' => 'Magento\\Paypal\\Plugin\\OrderCanInvoice',
+      ),
+      'setInitialFeeExtensionAfterLoad' => 
+      array (
+        'sortOrder' => 30,
+        'instance' => 'StripeIntegration\\Payments\\Plugin\\Order\\LoadInitialFee',
+      ),
+      'stripe_magento_sales_model_order' => 
+      array (
+        'sortOrder' => 30,
+        'instance' => 'StripeIntegration\\Payments\\Plugin\\Sales\\Model\\Order',
       ),
     ),
     'Magento\\Sales\\Model\\Order\\Validation\\CanInvoice' => 
@@ -2967,7 +3029,7 @@
       'order_cancellation' => 
       array (
         'sortOrder' => 0,
-        'instance' => 'PayPal\\Braintree\\Plugin\\OrderCancellation',
+        'instance' => 'Magento\\PaymentServicesPaypal\\Plugin\\OrderCancellation',
       ),
       'order_update' => 
       array (
@@ -3063,63 +3125,255 @@
         'instance' => 'Magento\\Wishlist\\Controller\\Index\\Plugin',
       ),
     ),
-    'Magento\\Framework\\View\\Asset\\Minification' => 
+    'Magento\\Sales\\Model\\Order\\Email\\Container\\OrderIdentity' => 
     array (
-      'braintreeExcludeFromMinification' => 
+      'change_is_enable_method' => 
       array (
         'sortOrder' => 0,
-        'instance' => 'PayPal\\Braintree\\Plugin\\ExcludeFromMinification',
+        'disabled' => false,
+        'instance' => 'Razorpay\\Magento\\Plugin\\Sales\\Order\\Email\\Container\\OrderIdentityPlugin',
       ),
     ),
-    'Magento\\Checkout\\CustomerData\\AbstractItem' => 
+    'Magento\\Framework\\App\\Request\\CsrfValidator' => 
     array (
-      'braintreeAddFlagForVirtualProducts' => 
+      'csrf_validator_skip' => 
       array (
         'sortOrder' => 0,
-        'instance' => 'PayPal\\Braintree\\Plugin\\AddFlagForVirtualProducts',
+        'instance' => 'Razorpay\\Magento\\Plugin\\CsrfValidatorSkip',
+      ),
+    ),
+    'Magento\\Tax\\Model\\Sales\\Total\\Quote\\Tax' => 
+    array (
+      'stripeIntegration_model_sales_total_quote_tax' => 
+      array (
+        'sortOrder' => 0,
+        'instance' => 'StripeIntegration\\Tax\\Plugin\\Tax\\Model\\Sales\\Total\\Quote\\TaxPlugin',
+      ),
+    ),
+    'Magento\\Tax\\Model\\Config' => 
+    array (
+      'stripeIntegration_model_config' => 
+      array (
+        'sortOrder' => 25,
+        'instance' => 'StripeIntegration\\Tax\\Plugin\\Tax\\Model\\ConfigPlugin',
+      ),
+      'stripeSubscriptionsTaxCalculation' => 
+      array (
+        'sortOrder' => 30,
+        'instance' => 'StripeIntegration\\Payments\\Plugin\\Tax\\Config',
+      ),
+    ),
+    'Magento\\Tax\\Model\\Calculation\\AbstractCalculator' => 
+    array (
+      'stripeIntegration_model_tax_calculation_abstractCalculator' => 
+      array (
+        'sortOrder' => 0,
+        'instance' => 'StripeIntegration\\Tax\\Plugin\\Tax\\Model\\Calculation\\AbstractCalculatorPlugin',
+      ),
+    ),
+    'Magento\\Sales\\Model\\Order\\Invoice\\Total\\Tax' => 
+    array (
+      'stripeIntegration_invoice_tax' => 
+      array (
+        'sortOrder' => 30,
+        'instance' => 'StripeIntegration\\Tax\\Plugin\\Sales\\Model\\Order\\Invoice\\Total\\Tax',
+      ),
+    ),
+    'Magento\\GiftWrapping\\Model\\Total\\Invoice\\Tax\\Giftwrapping' => 
+    array (
+      'stripeIntegration_giftwrapping_invoice_tax' => 
+      array (
+        'sortOrder' => 0,
+        'instance' => 'StripeIntegration\\Tax\\Plugin\\GiftWrapping\\Model\\Total\\Invoice\\Tax\\GiftwrappingPlugin',
+      ),
+    ),
+    'Magento\\GiftWrapping\\Model\\Total\\Creditmemo\\Tax\\Giftwrapping' => 
+    array (
+      'stripeIntegration_giftwrapping_creditmemo_tax' => 
+      array (
+        'sortOrder' => 0,
+        'instance' => 'StripeIntegration\\Tax\\Plugin\\GiftWrapping\\Model\\Total\\Creditmemo\\Tax\\GiftwrappingPlugin',
+      ),
+    ),
+    'Magento\\SalesRule\\Model\\Rule\\DataProvider' => 
+    array (
+      'StripeIntegration_Payments::Form_Data_Provider' => 
+      array (
+        'sortOrder' => 0,
+        'instance' => 'StripeIntegration\\Payments\\Plugin\\SalesRule\\Model\\DataProviderPlugin',
+      ),
+    ),
+    'Magento\\Quote\\Model\\Quote\\Address\\Total\\Shipping' => 
+    array (
+      'stripe_payments_trial_subscription_shipping_total' => 
+      array (
+        'sortOrder' => 0,
+        'instance' => 'StripeIntegration\\Payments\\Plugin\\Quote\\AddressShippingTotal',
+      ),
+    ),
+    'Magento\\Payment\\Model\\Checks\\ZeroTotal' => 
+    array (
+      'stripe_payments_zero_total_check' => 
+      array (
+        'sortOrder' => 0,
+        'instance' => 'StripeIntegration\\Payments\\Plugin\\Validations\\ZeroTotalCheck',
+      ),
+    ),
+    'Magento\\Sales\\Block\\Adminhtml\\Order\\View' => 
+    array (
+      'stripe_dispute_review_order_buttons' => 
+      array (
+        'sortOrder' => 100,
+        'instance' => 'StripeIntegration\\Payments\\Plugin\\Sales\\Block\\Adminhtml\\Order\\ViewPlugin',
+      ),
+    ),
+    'Magento\\Sales\\Model\\Order\\Creditmemo' => 
+    array (
+      'creditmemoPlugin' => 
+      array (
+        'sortOrder' => 0,
+        'instance' => 'StripeIntegration\\Payments\\Plugin\\Sales\\Model\\Order\\Creditmemo',
+      ),
+    ),
+    'Magento\\Sales\\Block\\Order\\Totals' => 
+    array (
+      'addInitialFeeTotal' => 
+      array (
+        'sortOrder' => 30,
+        'instance' => 'StripeIntegration\\Payments\\Plugin\\Order\\AddInitialFeeToTotalsBlock',
+      ),
+    ),
+    'Magento\\Sales\\Model\\ResourceModel\\Order\\Collection' => 
+    array (
+      'setInitialFeeExtensionAfterLoad' => 
+      array (
+        'sortOrder' => 30,
+        'instance' => 'StripeIntegration\\Payments\\Plugin\\Order\\LoadInitialFeeOnCollection',
+      ),
+    ),
+    'Magento\\Sales\\Model\\Order\\Invoice' => 
+    array (
+      'invoicePlugin' => 
+      array (
+        'sortOrder' => 30,
+        'instance' => 'StripeIntegration\\Payments\\Plugin\\Sales\\Model\\Invoice',
+      ),
+    ),
+    'Magento\\Sales\\Model\\ResourceModel\\Collection\\ExpiredQuotesCollection' => 
+    array (
+      'stripeSubscriptionsExpiredQuoted' => 
+      array (
+        'sortOrder' => 30,
+        'instance' => 'StripeIntegration\\Payments\\Plugin\\Quote\\ExpiredQuotesCollection',
+      ),
+    ),
+    'Magento\\SalesRule\\Model\\Utility' => 
+    array (
+      'stripeRuleValidator' => 
+      array (
+        'sortOrder' => 30,
+        'instance' => 'StripeIntegration\\Payments\\Plugin\\SalesRule\\Model\\Utility',
+      ),
+    ),
+    'Magento\\Sales\\Model\\Order\\Payment\\State\\OrderCommand' => 
+    array (
+      'stripe_order_payment_order_command' => 
+      array (
+        'sortOrder' => 10,
+        'instance' => 'StripeIntegration\\Payments\\Plugin\\Sales\\Model\\Order\\Payment\\State\\OrderCommand',
+      ),
+    ),
+    'Magento\\Sales\\Model\\Order\\Payment\\State\\AuthorizeCommand' => 
+    array (
+      'stripe_order_payment_authorize_command' => 
+      array (
+        'sortOrder' => 10,
+        'instance' => 'StripeIntegration\\Payments\\Plugin\\Sales\\Model\\Order\\Payment\\State\\AuthorizeCaptureCommand',
+      ),
+    ),
+    'Magento\\Sales\\Model\\Order\\Payment\\State\\CaptureCommand' => 
+    array (
+      'stripe_order_payment_capture_command' => 
+      array (
+        'sortOrder' => 10,
+        'instance' => 'StripeIntegration\\Payments\\Plugin\\Sales\\Model\\Order\\Payment\\State\\AuthorizeCaptureCommand',
+      ),
+    ),
+    'Magento\\Sales\\Model\\CronJob\\CleanExpiredOrders' => 
+    array (
+      'stripe_pending_payment_order_lifetime' => 
+      array (
+        'sortOrder' => 10,
+        'instance' => 'StripeIntegration\\Payments\\Plugin\\Sales\\Model\\CronJob\\CleanExpiredOrders',
+      ),
+    ),
+    'Magento\\QuoteGraphQl\\Model\\Cart\\SetPaymentMethodOnCart' => 
+    array (
+      'stripe_payments_set_payment_method_on_cart' => 
+      array (
+        'sortOrder' => 0,
+        'instance' => 'StripeIntegration\\Payments\\Plugin\\QuoteGraphQl\\Model\\Cart\\SetPaymentMethodOnCart',
+      ),
+    ),
+    'Magento\\QuoteGraphQl\\Model\\Resolver\\PlaceOrder' => 
+    array (
+      'stripe_payments_place_order' => 
+      array (
+        'sortOrder' => 0,
+        'instance' => 'StripeIntegration\\Payments\\Plugin\\QuoteGraphQl\\Model\\Resolver\\PlaceOrder',
+      ),
+    ),
+    'Magento\\Multishipping\\Helper\\Data' => 
+    array (
+      'disableMultishippingSubscriptions' => 
+      array (
+        'sortOrder' => 7,
+        'instance' => 'StripeIntegration\\Payments\\Plugin\\Multishipping\\Helper',
+      ),
+    ),
+    'Magento\\Quote\\Model\\Quote' => 
+    array (
+      'stripeBeforeAddToCartValidations' => 
+      array (
+        'sortOrder' => 7,
+        'instance' => 'StripeIntegration\\Payments\\Plugin\\Cart\\BeforeAddToCart',
+      ),
+      'stripeBeforeQuoteSave' => 
+      array (
+        'sortOrder' => 7,
+        'instance' => 'StripeIntegration\\Payments\\Plugin\\Quote\\BeforeSave',
+      ),
+    ),
+    'Magento\\GiftCardAccount\\Model\\Service\\GiftCardAccountManagement' => 
+    array (
+      'stripeFutureSubscriptionsGiftCards' => 
+      array (
+        'sortOrder' => 10,
+        'instance' => 'StripeIntegration\\Payments\\Plugin\\Cart\\FutureSubscriptionsGiftcards',
+      ),
+    ),
+    'Magento\\Reward\\Model\\RewardManagement' => 
+    array (
+      'stripeFutureSubscriptionsRewards' => 
+      array (
+        'sortOrder' => 10,
+        'instance' => 'StripeIntegration\\Payments\\Plugin\\Cart\\FutureSubscriptionsRewards',
+      ),
+    ),
+    'Magento\\CustomerBalance\\Model\\BalanceManagement' => 
+    array (
+      'stripeFutureSubscriptionsStoreCredit' => 
+      array (
+        'sortOrder' => 10,
+        'instance' => 'StripeIntegration\\Payments\\Plugin\\Cart\\FutureSubscriptionsStoreCredit',
       ),
     ),
     'Magento\\Checkout\\CustomerData\\Cart' => 
     array (
-      'braintreeAddMaskedIdToCartData' => 
+      'vendor_module_add_cart_data' => 
       array (
         'sortOrder' => 0,
-        'instance' => 'PayPal\\Braintree\\Plugin\\AddMaskedIdToCartData',
-      ),
-    ),
-    'PayPal\\Braintree\\Gateway\\Request\\PayPal\\Level23ProcessingDataBuilder' => 
-    array (
-      'AddCustomerBalanceAsLineItemForPayPal' => 
-      array (
-        'sortOrder' => 1,
-        'disabled' => false,
-        'instance' => '\\PayPal\\BraintreeCustomerBalance\\Plugin\\Level23Processing\\PayPal\\AddCustomerBalancePlugin',
-      ),
-      'AddGiftCardAccountAsLineItemForPayPal' => 
-      array (
-        'sortOrder' => 2,
-        'disabled' => false,
-        'instance' => '\\PayPal\\BraintreeGiftCardAccount\\Plugin\\Level23Processing\\PayPal\\AddGiftCardAccountPlugin',
-      ),
-      'AddGiftWrappingAsLineItemForPayPal' => 
-      array (
-        'sortOrder' => 3,
-        'disabled' => false,
-        'instance' => '\\PayPal\\BraintreeGiftWrapping\\Plugin\\Level23Processing\\PayPal\\AddGiftWrappingPlugin',
-      ),
-      'AddRewardAsLineItemForPayPal' => 
-      array (
-        'sortOrder' => 1,
-        'disabled' => false,
-        'instance' => '\\PayPal\\BraintreeReward\\Plugin\\Level23Processing\\PayPal\\AddRewardPlugin',
-      ),
-    ),
-    'PayPal\\Braintree\\Block\\Paypal\\ProductPage' => 
-    array (
-      'GetGiftCardProductPrice' => 
-      array (
-        'sortOrder' => 0,
-        'instance' => '\\PayPal\\BraintreeGiftCard\\Plugin\\ProductPageGiftCard',
+        'instance' => 'StripeIntegration\\Payments\\Plugin\\Checkout\\CustomerData\\Cart',
       ),
     ),
   ),
@@ -3243,8 +3497,22 @@
     'Magento\\Framework\\MessageQueue\\PublisherPool' => NULL,
     'Magento\\Framework\\MessageQueue\\Bulk\\PublisherPool' => NULL,
     'Magento\\Framework\\App\\Request\\ValidatorInterface' => NULL,
-    'Magento\\Framework\\App\\Request\\CsrfValidator' => NULL,
-    'CsrfRequestValidator' => NULL,
+    'Magento\\Framework\\App\\Request\\CsrfValidator' => 
+    array (
+      'csrf_validator_skip' => 
+      array (
+        'sortOrder' => 0,
+        'instance' => 'Razorpay\\Magento\\Plugin\\CsrfValidatorSkip',
+      ),
+    ),
+    'CsrfRequestValidator' => 
+    array (
+      'csrf_validator_skip' => 
+      array (
+        'sortOrder' => 0,
+        'instance' => 'Razorpay\\Magento\\Plugin\\CsrfValidatorSkip',
+      ),
+    ),
     'Magento\\Framework\\App\\Request\\CompositeValidator' => NULL,
     'RequestValidator' => NULL,
     'Magento\\Framework\\App\\CacheInterface' => NULL,
@@ -4562,9 +4830,8 @@
     'Magento\\WebapiAsync\\Controller\\Rest\\VirtualType\\AsynchronousBulkSchemaRequestProcessor' => NULL,
     'Magento\\Catalog\\Block\\Product\\Context' => NULL,
     'Magento\\Wishlist\\Block\\Context' => NULL,
-    'Magento\\Framework\\ForeignKey\\Migration\\TableNameArrayIterator' => NULL,
-    'OmsTableNameArrayIterator' => NULL,
-    'BraintreeFacade' => 
+    'RazorpayLogger' => NULL,
+    'StripeIntegration\\Payments\\Model\\PaymentMethod' => 
     array (
       'magpay_payments_model_adapter' => 
       array (
@@ -4572,7 +4839,7 @@
         'instance' => 'Magento\\PaymentServicesPaypal\\Plugin\\Config\\Adapter',
       ),
     ),
-    'BraintreePayPalFacade' => 
+    'StripePaymentsFacade' => 
     array (
       'magpay_payments_model_adapter' => 
       array (
@@ -4580,7 +4847,7 @@
         'instance' => 'Magento\\PaymentServicesPaypal\\Plugin\\Config\\Adapter',
       ),
     ),
-    'BraintreePayPalCreditFacade' => 
+    'StripeIntegration\\Payments\\Model\\Method\\Invoice' => 
     array (
       'magpay_payments_model_adapter' => 
       array (
@@ -4588,7 +4855,7 @@
         'instance' => 'Magento\\PaymentServicesPaypal\\Plugin\\Config\\Adapter',
       ),
     ),
-    'BraintreePayPalPayLaterFacade' => 
+    'StripePaymentsInvoiceFacade' => 
     array (
       'magpay_payments_model_adapter' => 
       array (
@@ -4596,86 +4863,59 @@
         'instance' => 'Magento\\PaymentServicesPaypal\\Plugin\\Config\\Adapter',
       ),
     ),
-    'BraintreeVaultPaymentConfig' => NULL,
-    'BraintreeVaultPaymentValueHandler' => NULL,
-    'BraintreeVaultPaymentValueHandlerPool' => NULL,
-    'BraintreeCreditCardVaultFacade' => 
+    'StripeIntegration\\Payments\\Model\\Method\\Subscriptions' => 
     array (
-      'magpay_payments_vault_method' => 
+      'magpay_payments_model_adapter' => 
       array (
         'sortOrder' => 0,
-        'instance' => 'Magento\\PaymentServicesPaypal\\Plugin\\Vault\\Method',
+        'instance' => 'Magento\\PaymentServicesPaypal\\Plugin\\Config\\Adapter',
       ),
     ),
-    'BraintreePayPalVaultPaymentConfig' => NULL,
-    'BraintreePayPalVaultPaymentValueHandler' => NULL,
-    'BraintreePayPalVaultPaymentValueHandlerPool' => NULL,
-    'BraintreePayPalVaultFacade' => 
+    'StripeSubscriptionsFacade' => 
     array (
-      'magpay_payments_vault_method' => 
+      'magpay_payments_model_adapter' => 
       array (
         'sortOrder' => 0,
-        'instance' => 'Magento\\PaymentServicesPaypal\\Plugin\\Vault\\Method',
+        'instance' => 'Magento\\PaymentServicesPaypal\\Plugin\\Config\\Adapter',
       ),
     ),
-    'BraintreeLoggerForTransactionSale' => NULL,
-    'BraintreeCommandPool' => NULL,
-    'BraintreePayPalCommandPool' => NULL,
-    'PayPal\\Braintree\\Gateway\\Command\\CaptureStrategyCommand' => NULL,
-    'BraintreeCaptureStrategyCommand' => NULL,
-    'BraintreePayPalCaptureStrategyCommand' => NULL,
-    'BraintreeCommandManager' => NULL,
-    'BraintreePayPalCommandManager' => NULL,
-    'PayPal\\Braintree\\Gateway\\Command\\GatewayCommand' => NULL,
-    'BraintreeAuthorizeCommand' => NULL,
-    'BraintreeAuthorizeRequest' => NULL,
-    'BraintreeSaleCommand' => NULL,
-    'BraintreeSaleRequest' => NULL,
-    'BraintreeCaptureCommand' => NULL,
-    'BraintreePartialCaptureCommand' => NULL,
-    'BraintreeCaptureRequest' => NULL,
-    'BraintreeVaultAuthorizeCommand' => NULL,
-    'BraintreeVaultAuthorizeRequest' => NULL,
-    'BraintreeVaultSaleCommand' => NULL,
-    'BraintreeVaultSaleRequest' => NULL,
-    'BraintreeVaultCaptureCommand' => NULL,
-    'BraintreeVaultCaptureRequest' => NULL,
-    'BraintreePayPalAuthorizeCommand' => NULL,
-    'BraintreePayPalAuthorizeRequest' => NULL,
-    'BraintreePayPalSaleCommand' => NULL,
-    'BraintreePayPalSaleRequest' => NULL,
-    'BraintreePayPalVaultAuthorizeCommand' => NULL,
-    'BraintreePayPalVaultAuthorizeRequest' => NULL,
-    'BraintreePayPalVaultSaleCommand' => NULL,
-    'BraintreePayPalVaultSaleRequest' => NULL,
-    'BraintreeValueHandlerPool' => NULL,
-    'BraintreeConfigValueHandler' => NULL,
-    'BraintreeAuthorizationHandler' => NULL,
-    'BraintreeVaultResponseHandler' => NULL,
-    'BraintreePayPalValueHandlerPool' => NULL,
-    'BraintreePayPalConfigValueHandler' => NULL,
-    'BraintreePayPalResponseHandler' => NULL,
-    'BraintreePayPalVaultResponseHandler' => NULL,
-    'BraintreeVoidCommand' => NULL,
-    'BraintreeRefundCommand' => NULL,
+    'StripeIntegration\\Payments\\Model\\Method\\Express' => 
+    array (
+      'magpay_payments_model_adapter' => 
+      array (
+        'sortOrder' => 0,
+        'instance' => 'Magento\\PaymentServicesPaypal\\Plugin\\Config\\Adapter',
+      ),
+    ),
+    'StripeExpressFacade' => 
+    array (
+      'magpay_payments_model_adapter' => 
+      array (
+        'sortOrder' => 0,
+        'instance' => 'Magento\\PaymentServicesPaypal\\Plugin\\Config\\Adapter',
+      ),
+    ),
+    'StripePaymentsConfig' => NULL,
+    'StripePaymentsExpressConfig' => NULL,
+    'StripePaymentsInvoiceConfig' => NULL,
+    'StripePaymentsLogger' => NULL,
     'Magento\\Payment\\Gateway\\Validator\\ValidatorInterface' => NULL,
     'Magento\\Payment\\Gateway\\Validator\\AbstractValidator' => NULL,
     'Magento\\Payment\\Gateway\\Validator\\CountryValidator' => NULL,
-    'BraintreeCountryValidator' => NULL,
+    'StripePaymentsCountryValidator' => NULL,
     'Magento\\Payment\\Gateway\\Validator\\ValidatorPoolInterface' => NULL,
     'Magento\\Payment\\Gateway\\Validator\\ValidatorPool' => NULL,
-    'BraintreeValidatorPool' => NULL,
-    'BraintreePayPalCountryValidator' => NULL,
-    'BraintreePayPalValidatorPool' => NULL,
-    'PayPal\\Braintree\\Block\\Info' => NULL,
-    'BraintreePayPalInfo' => NULL,
-    'Magento\\Framework\\View\\Element\\UiComponent\\DataProvider\\CollectionFactory' => NULL,
-    'BraintreeTransactionsCollectionFactoryForReporting' => NULL,
-    'Magento\\Framework\\Api\\Search\\ReportingInterface' => NULL,
-    'Magento\\Framework\\View\\Element\\UiComponent\\DataProvider\\Reporting' => NULL,
-    'BraintreeTransactionsReporting' => NULL,
-    'BraintreeTransactionsDataProvider' => NULL,
-    'BraintreeApplePay' => 
+    'StripePaymentsValidatorPool' => NULL,
+    'StripePaymentsValueHandlerPool' => NULL,
+    'StripePaymentsExpressValueHandlerPool' => NULL,
+    'StripePaymentsConfigValueHandler' => NULL,
+    'StripePaymentsExpressConfigValueHandler' => NULL,
+    'StripePaymentsInvoiceValueHandlerPool' => NULL,
+    'StripePaymentsInvoiceConfigValueHandler' => NULL,
+    'Magento\\Payment\\Model\\Method\\SpecificationInterface' => NULL,
+    'Magento\\Payment\\Model\\Method\\Specification\\Composite' => NULL,
+    'multishippingPaymentSpecification' => NULL,
+    'StripeIntegration\\Payments\\Model\\Method\\BankTransfers' => 
     array (
       'magpay_payments_model_adapter' => 
       array (
@@ -4683,35 +4923,7 @@
         'instance' => 'Magento\\PaymentServicesPaypal\\Plugin\\Config\\Adapter',
       ),
     ),
-    'BraintreeApplePayValueHandlerPool' => NULL,
-    'BraintreeApplePayConfigValueHandler' => NULL,
-    'BraintreeApplePayConfig' => NULL,
-    'BraintreeApplePayValidatorPool' => NULL,
-    'BraintreeApplePayCommandPool' => NULL,
-    'BraintreeApplePaySaleCommand' => NULL,
-    'BraintreeApplePayAuthorizeCommand' => NULL,
-    'BraintreeApplePayAuthorizationHandler' => NULL,
-    'BraintreeApplePayVaultResponseHandler' => NULL,
-    'BraintreeApplePayAuthorizeRequest' => NULL,
-    'BraintreeApplePaySaleRequest' => NULL,
-    'BraintreeApplePayCaptureStrategyCommand' => NULL,
-    'BraintreeApplePayVaultPaymentConfig' => NULL,
-    'BraintreeApplePayVaultPaymentValueHandler' => NULL,
-    'BraintreeApplePayVaultPaymentValueHandlerPool' => NULL,
-    'BraintreeApplePayVaultFacade' => 
-    array (
-      'magpay_payments_vault_method' => 
-      array (
-        'sortOrder' => 0,
-        'instance' => 'Magento\\PaymentServicesPaypal\\Plugin\\Vault\\Method',
-      ),
-    ),
-    'BraintreeApplePayVaultAuthorizeCommand' => NULL,
-    'BraintreeApplePayVaultAuthorizeRequest' => NULL,
-    'BraintreeApplePayCommandManager' => NULL,
-    'BraintreeApplePayVaultSaleCommand' => NULL,
-    'BraintreeApplePayVaultSaleRequest' => NULL,
-    'BraintreeGooglePay' => 
+    'StripeBankTransfersFacade' => 
     array (
       'magpay_payments_model_adapter' => 
       array (
@@ -4719,35 +4931,16 @@
         'instance' => 'Magento\\PaymentServicesPaypal\\Plugin\\Config\\Adapter',
       ),
     ),
-    'BraintreeGooglePayValueHandlerPool' => NULL,
-    'BraintreeGooglePayConfigValueHandler' => NULL,
-    'BraintreeGooglePayConfig' => NULL,
-    'BraintreeGooglePayValidatorPool' => NULL,
-    'BraintreeGooglePayCommandPool' => NULL,
-    'BraintreeGooglePaySaleCommand' => NULL,
-    'BraintreeGooglePayAuthorizeCommand' => NULL,
-    'BraintreeGooglePayAuthorizationHandler' => NULL,
-    'BraintreeGooglePayAuthorizeRequest' => NULL,
-    'BraintreeGooglePaySaleRequest' => NULL,
-    'BraintreeGooglePayCaptureStrategyCommand' => NULL,
-    'BraintreeGooglePayVaultPaymentConfig' => NULL,
-    'BraintreeGooglePayVaultPaymentValueHandler' => NULL,
-    'BraintreeGooglePayVaultPaymentValueHandlerPool' => NULL,
-    'BraintreeGooglePayVaultFacade' => 
-    array (
-      'magpay_payments_vault_method' => 
-      array (
-        'sortOrder' => 0,
-        'instance' => 'Magento\\PaymentServicesPaypal\\Plugin\\Vault\\Method',
-      ),
-    ),
-    'BraintreeGooglePayVaultResponseHandler' => NULL,
-    'BraintreeGooglePayVaultAuthorizeCommand' => NULL,
-    'BraintreeGooglePayVaultAuthorizeRequest' => NULL,
-    'BraintreeGooglePayCommandManager' => NULL,
-    'BraintreeGooglePayVaultSaleCommand' => NULL,
-    'BraintreeGooglePayVaultSaleRequest' => NULL,
-    'BraintreeVenmo' => 
+    'StripeBankTransfersValueHandlerPool' => NULL,
+    'StripeBankTransfersConfigValueHandler' => NULL,
+    'StripeBankTransfersValidatorPool' => NULL,
+    'StripeBankTransfersConfig' => NULL,
+    'StripeBankTransfersCommandPool' => NULL,
+    'StripeIntegration\\Payments\\Gateway\\Command\\BankTransfers\\OrderCommand' => NULL,
+    'StripeBankTransfersOrderCommand' => NULL,
+    'StripeIntegration\\Payments\\Gateway\\Command\\BankTransfers\\RefundCommand' => NULL,
+    'StripeBankTransfersRefundCommand' => NULL,
+    'StripeIntegration\\Payments\\Model\\Method\\Checkout' => 
     array (
       'magpay_payments_model_adapter' => 
       array (
@@ -4755,35 +4948,7 @@
         'instance' => 'Magento\\PaymentServicesPaypal\\Plugin\\Config\\Adapter',
       ),
     ),
-    'BraintreeVenmoVaultFacade' => 
-    array (
-      'magpay_payments_vault_method' => 
-      array (
-        'sortOrder' => 0,
-        'instance' => 'Magento\\PaymentServicesPaypal\\Plugin\\Vault\\Method',
-      ),
-    ),
-    'BraintreeVenmoVaultPaymentConfig' => NULL,
-    'BraintreeVenmoVaultPaymentValueHandlerPool' => NULL,
-    'BraintreeVenmoVaultPaymentValueHandler' => NULL,
-    'BraintreeVenmoCommandManager' => NULL,
-    'BraintreeVenmoVaultAuthorizeCommand' => NULL,
-    'BraintreeVenmoVaultSaleCommand' => NULL,
-    'BraintreeVenmoVaultAuthorizeRequest' => NULL,
-    'BraintreeVenmoVaultResponseHandler' => NULL,
-    'BraintreeVenmoVaultSaleRequest' => NULL,
-    'BraintreeVenmoValueHandlerPool' => NULL,
-    'BraintreeVenmoConfigValueHandler' => NULL,
-    'BraintreeVenmoConfig' => NULL,
-    'BraintreeVenmoValidatorPool' => NULL,
-    'BraintreeVenmoCommandPool' => NULL,
-    'BraintreeVenmoAuthorizeCommand' => NULL,
-    'BraintreeVenmoSaleCommand' => NULL,
-    'BraintreeVenmoCaptureStrategyCommand' => NULL,
-    'BraintreeVenmoAuthorizeRequest' => NULL,
-    'BraintreeVenmoAuthorizationHandler' => NULL,
-    'BraintreeVenmoSaleRequest' => NULL,
-    'BraintreeAch' => 
+    'RedirectFlowFacade' => 
     array (
       'magpay_payments_model_adapter' => 
       array (
@@ -4791,54 +4956,17 @@
         'instance' => 'Magento\\PaymentServicesPaypal\\Plugin\\Config\\Adapter',
       ),
     ),
-    'BraintreeAchValueHandlerPool' => NULL,
-    'BraintreeAchConfigValueHandler' => NULL,
-    'BraintreeAchConfig' => NULL,
-    'BraintreeAchValidatorPool' => NULL,
-    'BraintreeAchCommandPool' => NULL,
-    'BraintreeAchAuthorizeCommand' => NULL,
-    'BraintreeAchSaleCommand' => NULL,
-    'BraintreeAchCaptureStrategyCommand' => NULL,
-    'BraintreeAchAuthorizeRequest' => NULL,
-    'BraintreeAchAuthorizationHandler' => NULL,
-    'BraintreeAchSaleRequest' => NULL,
-    'BraintreeAchVaultFacade' => 
-    array (
-      'magpay_payments_vault_method' => 
-      array (
-        'sortOrder' => 0,
-        'instance' => 'Magento\\PaymentServicesPaypal\\Plugin\\Vault\\Method',
-      ),
-    ),
-    'BraintreeAchVaultPaymentConfig' => NULL,
-    'BraintreeAchVaultPaymentValueHandlerPool' => NULL,
-    'BraintreeAchVaultPaymentValueHandler' => NULL,
-    'BraintreeAchCommandManager' => NULL,
-    'BraintreeAchVaultAuthorizeCommand' => NULL,
-    'BraintreeAchVaultSaleCommand' => NULL,
-    'BraintreeAchVaultAuthorizeRequest' => NULL,
-    'BraintreeAchVaultResponseHandler' => NULL,
-    'BraintreeAchVaultSaleRequest' => NULL,
-    'BraintreeLpmInfo' => NULL,
-    'BraintreeLpm' => 
-    array (
-      'magpay_payments_model_adapter' => 
-      array (
-        'sortOrder' => 0,
-        'instance' => 'Magento\\PaymentServicesPaypal\\Plugin\\Config\\Adapter',
-      ),
-    ),
-    'BraintreeLpmValueHandlerPool' => NULL,
-    'BraintreeLpmConfigValueHandler' => NULL,
-    'BraintreeLpmConfig' => NULL,
-    'BraintreeLpmValidatorPool' => NULL,
-    'BraintreeLpmCommandPool' => NULL,
-    'BraintreeLpmAuthorizeCommand' => NULL,
-    'BraintreeLpmSaleCommand' => NULL,
-    'BraintreeLpmCaptureStrategyCommand' => NULL,
-    'BraintreeLpmAuthorizeRequest' => NULL,
-    'BraintreeLpmAuthorizationHandler' => NULL,
-    'BraintreeLpmSaleRequest' => NULL,
+    'RedirectFlowValueHandlerPool' => NULL,
+    'RedirectFlowConfigValueHandler' => NULL,
+    'RedirectFlowValidatorPool' => NULL,
+    'RedirectFlowConfig' => NULL,
+    'RedirectFlowCommandPool' => NULL,
+    'StripeIntegration\\Payments\\Gateway\\Command\\RedirectFlow\\OrderCommand' => NULL,
+    'RedirectFlowOrderCommand' => NULL,
+    'StripeIntegration\\Payments\\Gateway\\Command\\RedirectFlow\\RefundCommand' => NULL,
+    'RedirectFlowRefundCommand' => NULL,
+    'StripeIntegration\\Payments\\Gateway\\Command\\RedirectFlow\\CaptureCommand' => NULL,
+    'RedirectFlowCaptureCommand' => NULL,
     'Magento\\Framework\\DB\\Adapter\\AdapterInterface' => 
     array (
       'execute_commit_callbacks' => 
@@ -5825,6 +5953,11 @@
         'sortOrder' => 0,
         'instance' => 'Magento\\GiftMessage\\Model\\Plugin\\QuoteItem',
       ),
+      'addInitalFeeToOrderItem' => 
+      array (
+        'sortOrder' => 30,
+        'instance' => 'StripeIntegration\\Payments\\Plugin\\Quote\\QuoteItemToOrderItem',
+      ),
     ),
     'Magento\\Catalog\\Controller\\Adminhtml\\Product\\Initialization\\Helper' => 
     array (
@@ -6161,6 +6294,11 @@
         'sortOrder' => 0,
         'instance' => 'Magento\\InventoryInStorePickupMultishipping\\Plugin\\Quote\\RemoveInStorePickupDataInMultishippingModePlugin',
       ),
+      'stripeBeforeCartRepositorySave' => 
+      array (
+        'sortOrder' => 7,
+        'instance' => 'StripeIntegration\\Payments\\Plugin\\CartRepository\\BeforeSave',
+      ),
     ),
     'Magento\\Quote\\Model\\QuoteRepository' => 
     array (
@@ -6173,6 +6311,11 @@
       array (
         'sortOrder' => 0,
         'instance' => 'Magento\\Multishipping\\Plugin\\MultishippingQuoteRepository',
+      ),
+      'stripeBeforeCartRepositorySave' => 
+      array (
+        'sortOrder' => 7,
+        'instance' => 'StripeIntegration\\Payments\\Plugin\\CartRepository\\BeforeSave',
       ),
     ),
     'Magento\\Customer\\Model\\Address\\AddressModelInterface' => NULL,
@@ -6230,6 +6373,11 @@
     'Magento\\Sales\\Api\\Data\\OrderItemInterface' => NULL,
     'Magento\\Sales\\Model\\Order\\Item' => 
     array (
+      'stripe_order_item' => 
+      array (
+        'sortOrder' => 10,
+        'instance' => 'StripeIntegration\\Payments\\Plugin\\Sales\\Model\\Order\\Item',
+      ),
       'bundle' => 
       array (
         'sortOrder' => 100,
@@ -6241,7 +6389,7 @@
       'order_cancellation' => 
       array (
         'sortOrder' => 0,
-        'instance' => 'PayPal\\Braintree\\Plugin\\OrderCancellation',
+        'instance' => 'Magento\\PaymentServicesPaypal\\Plugin\\OrderCancellation',
       ),
       'order_update' => 
       array (
@@ -6254,12 +6402,22 @@
       'order_cancellation' => 
       array (
         'sortOrder' => 0,
-        'instance' => 'PayPal\\Braintree\\Plugin\\OrderCancellation',
+        'instance' => 'Magento\\PaymentServicesPaypal\\Plugin\\OrderCancellation',
       ),
       'order_update' => 
       array (
         'sortOrder' => 0,
         'instance' => 'Magento\\PaymentServicesPaypal\\Plugin\\OrderUpdate',
+      ),
+      'stripe_tax_quote_management' => 
+      array (
+        'sortOrder' => 0,
+        'instance' => 'StripeIntegration\\Tax\\Plugin\\Quote\\Model\\QuoteManagement',
+      ),
+      'stripe_payments_quote_management' => 
+      array (
+        'sortOrder' => 0,
+        'instance' => 'StripeIntegration\\Payments\\Plugin\\Quote\\QuoteManagement',
       ),
       'validate_purchase_order_number' => 
       array (
@@ -6737,6 +6895,72 @@
         'instance' => 'Magento\\InventoryShipping\\Plugin\\Sales\\ResourceModel\\Order\\Shipment\\DeleteSourceForShipmentPlugin',
       ),
     ),
+    'Magento\\Sales\\Api\\OrderRepositoryInterface' => 
+    array (
+      'add_taxes_extension_attributes' => 
+      array (
+        'sortOrder' => 0,
+        'instance' => 'Magento\\Tax\\Model\\Plugin\\AddTaxesExtensionAttribute',
+      ),
+      'save_gift_message' => 
+      array (
+        'sortOrder' => 0,
+        'instance' => 'Magento\\GiftMessage\\Model\\Plugin\\OrderSave',
+      ),
+      'get_gift_message' => 
+      array (
+        'sortOrder' => 0,
+        'instance' => 'Magento\\GiftMessage\\Model\\Plugin\\OrderGet',
+      ),
+      'get_pickup_location_for_order' => 
+      array (
+        'sortOrder' => 0,
+        'instance' => 'Magento\\InventoryInStorePickupSales\\Plugin\\Sales\\Order\\GetPickupLocationForOrderPlugin',
+      ),
+      'save_pickup_location_for_order' => 
+      array (
+        'sortOrder' => 0,
+        'instance' => 'Magento\\InventoryInStorePickupSales\\Plugin\\Sales\\Order\\SavePickupLocationForOrderPlugin',
+      ),
+    ),
+    'Magento\\Sales\\Model\\OrderRepository' => 
+    array (
+      'add_taxes_extension_attributes' => 
+      array (
+        'sortOrder' => 0,
+        'instance' => 'Magento\\Tax\\Model\\Plugin\\AddTaxesExtensionAttribute',
+      ),
+      'save_gift_message' => 
+      array (
+        'sortOrder' => 0,
+        'instance' => 'Magento\\GiftMessage\\Model\\Plugin\\OrderSave',
+      ),
+      'get_gift_message' => 
+      array (
+        'sortOrder' => 0,
+        'instance' => 'Magento\\GiftMessage\\Model\\Plugin\\OrderGet',
+      ),
+      'get_pickup_location_for_order' => 
+      array (
+        'sortOrder' => 0,
+        'instance' => 'Magento\\InventoryInStorePickupSales\\Plugin\\Sales\\Order\\GetPickupLocationForOrderPlugin',
+      ),
+      'save_pickup_location_for_order' => 
+      array (
+        'sortOrder' => 0,
+        'instance' => 'Magento\\InventoryInStorePickupSales\\Plugin\\Sales\\Order\\SavePickupLocationForOrderPlugin',
+      ),
+      'stripeIntegration_save_order' => 
+      array (
+        'sortOrder' => 30,
+        'instance' => 'StripeIntegration\\Tax\\Plugin\\Sales\\Model\\OrderRepository',
+      ),
+      'getInitialFeeExtensionBeforeSave' => 
+      array (
+        'sortOrder' => 30,
+        'instance' => 'StripeIntegration\\Payments\\Plugin\\Order\\SaveInitialFee',
+      ),
+    ),
     'Magento\\Sales\\Model\\ResourceModel\\Order\\Handler\\Address' => 
     array (
       'addressUpdate' => 
@@ -6931,6 +7155,14 @@
         'instance' => 'Magento\\InventoryConfigurableProduct\\Plugin\\CatalogInventory\\UpdateLegacyStockStatusForConfigurableProduct',
       ),
     ),
+    'Magento\\Tax\\Helper\\Data' => 
+    array (
+      'stripeIntegration_model_helper_dataPlugin' => 
+      array (
+        'sortOrder' => 0,
+        'instance' => 'StripeIntegration\\Tax\\Plugin\\Tax\\Helper\\DataPlugin',
+      ),
+    ),
     'Magento\\Quote\\Model\\Quote\\Address\\ToOrder' => 
     array (
       'add_tax_to_order' => 
@@ -6943,6 +7175,16 @@
         'sortOrder' => 20,
         'instance' => 'Magento\\InventoryInStorePickupQuote\\Plugin\\Quote\\SetPickupLocationToOrder',
       ),
+      'stripeIntegration_quote_to_order' => 
+      array (
+        'sortOrder' => 30,
+        'instance' => 'StripeIntegration\\Tax\\Plugin\\Quote\\Model\\Quote\\Address\\ToOrder',
+      ),
+      'addInitialFeeToOrder' => 
+      array (
+        'sortOrder' => 30,
+        'instance' => 'StripeIntegration\\Payments\\Plugin\\Quote\\InitialFeeToOrder',
+      ),
     ),
     'Magento\\Quote\\Model\\Cart\\TotalsConverter' => 
     array (
@@ -6950,34 +7192,6 @@
       array (
         'sortOrder' => 0,
         'instance' => 'Magento\\Tax\\Model\\Quote\\GrandTotalDetailsPlugin',
-      ),
-    ),
-    'Magento\\Sales\\Api\\OrderRepositoryInterface' => 
-    array (
-      'add_taxes_extension_attributes' => 
-      array (
-        'sortOrder' => 0,
-        'instance' => 'Magento\\Tax\\Model\\Plugin\\AddTaxesExtensionAttribute',
-      ),
-      'save_gift_message' => 
-      array (
-        'sortOrder' => 0,
-        'instance' => 'Magento\\GiftMessage\\Model\\Plugin\\OrderSave',
-      ),
-      'get_gift_message' => 
-      array (
-        'sortOrder' => 0,
-        'instance' => 'Magento\\GiftMessage\\Model\\Plugin\\OrderGet',
-      ),
-      'get_pickup_location_for_order' => 
-      array (
-        'sortOrder' => 0,
-        'instance' => 'Magento\\InventoryInStorePickupSales\\Plugin\\Sales\\Order\\GetPickupLocationForOrderPlugin',
-      ),
-      'save_pickup_location_for_order' => 
-      array (
-        'sortOrder' => 0,
-        'instance' => 'Magento\\InventoryInStorePickupSales\\Plugin\\Sales\\Order\\SavePickupLocationForOrderPlugin',
       ),
     ),
     'Magento\\Catalog\\Ui\\DataProvider\\Product\\Listing\\DataProvider' => 
@@ -8308,6 +8522,12 @@
         'sortOrder' => 0,
         'instance' => 'Magento\\SalesRule\\Plugin\\CouponUsagesDecrement',
       ),
+      'stripePaymentsOrderService' => 
+      array (
+        'sortOrder' => 1,
+        'disabled' => false,
+        'instance' => 'StripeIntegration\\Payments\\Plugin\\Sales\\Model\\Service\\OrderService',
+      ),
     ),
     'Magento\\Framework\\View\\Page\\Config' => 
     array (
@@ -8372,16 +8592,6 @@
     'Magento\\Checkout\\Block\\Cart\\AbstractCart' => NULL,
     'Magento\\Checkout\\Block\\Cart\\Sidebar' => 
     array (
-      'addAgreementsToMiniCartConfig' => 
-      array (
-        'sortOrder' => 0,
-        'instance' => 'PayPal\\Braintree\\Plugin\\AddAgreementsToMiniCartConfig',
-      ),
-      'addPayLaterMessageConfig' => 
-      array (
-        'sortOrder' => 0,
-        'instance' => 'PayPal\\Braintree\\Plugin\\PayLaterMessageConfig',
-      ),
       'login_captcha' => 
       array (
         'sortOrder' => 50,
@@ -8405,6 +8615,16 @@
       array (
         'sortOrder' => 0,
         'instance' => 'Magento\\Paypal\\Plugin\\OrderCanInvoice',
+      ),
+      'setInitialFeeExtensionAfterLoad' => 
+      array (
+        'sortOrder' => 30,
+        'instance' => 'StripeIntegration\\Payments\\Plugin\\Order\\LoadInitialFee',
+      ),
+      'stripe_magento_sales_model_order' => 
+      array (
+        'sortOrder' => 30,
+        'instance' => 'StripeIntegration\\Payments\\Plugin\\Sales\\Model\\Order',
       ),
     ),
     'Magento\\Sales\\Model\\ValidatorInterface' => NULL,
@@ -8778,70 +8998,297 @@
         'instance' => 'Magento\\Wishlist\\Controller\\Index\\Plugin',
       ),
     ),
-    'Magento\\Framework\\View\\Asset\\Minification' => 
+    'Magento\\Sales\\Model\\Order\\Email\\Container\\IdentityInterface' => NULL,
+    'Magento\\Sales\\Model\\Order\\Email\\Container\\Container' => NULL,
+    'Magento\\Sales\\Model\\Order\\Email\\Container\\OrderIdentity' => 
     array (
-      'braintreeExcludeFromMinification' => 
+      'change_is_enable_method' => 
       array (
         'sortOrder' => 0,
-        'instance' => 'PayPal\\Braintree\\Plugin\\ExcludeFromMinification',
+        'disabled' => false,
+        'instance' => 'Razorpay\\Magento\\Plugin\\Sales\\Order\\Email\\Container\\OrderIdentityPlugin',
       ),
     ),
-    'Magento\\Checkout\\CustomerData\\ItemInterface' => NULL,
-    'Magento\\Checkout\\CustomerData\\AbstractItem' => 
+    'Magento\\Tax\\Model\\Sales\\Total\\Quote\\Tax' => 
     array (
-      'braintreeAddFlagForVirtualProducts' => 
+      'apply_tax_class_id' => 
       array (
         'sortOrder' => 0,
-        'instance' => 'PayPal\\Braintree\\Plugin\\AddFlagForVirtualProducts',
+        'instance' => 'Magento\\ConfigurableProduct\\Plugin\\Tax\\Model\\Sales\\Total\\Quote\\CommonTaxCollector',
+      ),
+      'stripeIntegration_model_sales_total_quote_tax' => 
+      array (
+        'sortOrder' => 0,
+        'instance' => 'StripeIntegration\\Tax\\Plugin\\Tax\\Model\\Sales\\Total\\Quote\\TaxPlugin',
+      ),
+    ),
+    'Magento\\Tax\\Model\\Config' => 
+    array (
+      'stripeIntegration_model_config' => 
+      array (
+        'sortOrder' => 25,
+        'instance' => 'StripeIntegration\\Tax\\Plugin\\Tax\\Model\\ConfigPlugin',
+      ),
+      'stripeSubscriptionsTaxCalculation' => 
+      array (
+        'sortOrder' => 30,
+        'instance' => 'StripeIntegration\\Payments\\Plugin\\Tax\\Config',
+      ),
+    ),
+    'Magento\\Tax\\Model\\Calculation\\AbstractCalculator' => 
+    array (
+      'stripeIntegration_model_tax_calculation_abstractCalculator' => 
+      array (
+        'sortOrder' => 0,
+        'instance' => 'StripeIntegration\\Tax\\Plugin\\Tax\\Model\\Calculation\\AbstractCalculatorPlugin',
+      ),
+    ),
+    'Magento\\Sales\\Model\\Order\\Total\\AbstractTotal' => NULL,
+    'Magento\\Sales\\Model\\Order\\Invoice\\Total\\AbstractTotal' => NULL,
+    'Magento\\Sales\\Model\\Order\\Invoice\\Total\\Tax' => 
+    array (
+      'stripeIntegration_invoice_tax' => 
+      array (
+        'sortOrder' => 30,
+        'instance' => 'StripeIntegration\\Tax\\Plugin\\Sales\\Model\\Order\\Invoice\\Total\\Tax',
+      ),
+    ),
+    'Magento\\GiftWrapping\\Model\\Total\\Invoice\\Tax\\Giftwrapping' => 
+    array (
+      'stripeIntegration_giftwrapping_invoice_tax' => 
+      array (
+        'sortOrder' => 0,
+        'instance' => 'StripeIntegration\\Tax\\Plugin\\GiftWrapping\\Model\\Total\\Invoice\\Tax\\GiftwrappingPlugin',
+      ),
+    ),
+    'Magento\\GiftWrapping\\Model\\Total\\Creditmemo\\Tax\\Giftwrapping' => 
+    array (
+      'stripeIntegration_giftwrapping_creditmemo_tax' => 
+      array (
+        'sortOrder' => 0,
+        'instance' => 'StripeIntegration\\Tax\\Plugin\\GiftWrapping\\Model\\Total\\Creditmemo\\Tax\\GiftwrappingPlugin',
+      ),
+    ),
+    'Magento\\SalesRule\\Model\\Rule\\DataProvider' => 
+    array (
+      'StripeIntegration_Payments::Form_Data_Provider' => 
+      array (
+        'sortOrder' => 0,
+        'instance' => 'StripeIntegration\\Payments\\Plugin\\SalesRule\\Model\\DataProviderPlugin',
+      ),
+    ),
+    'Magento\\Quote\\Model\\Quote\\Address\\Total\\Shipping' => 
+    array (
+      'stripe_payments_trial_subscription_shipping_total' => 
+      array (
+        'sortOrder' => 0,
+        'instance' => 'StripeIntegration\\Payments\\Plugin\\Quote\\AddressShippingTotal',
+      ),
+    ),
+    'Magento\\Payment\\Model\\Checks\\ZeroTotal' => 
+    array (
+      'stripe_payments_zero_total_check' => 
+      array (
+        'sortOrder' => 0,
+        'instance' => 'StripeIntegration\\Payments\\Plugin\\Validations\\ZeroTotalCheck',
+      ),
+    ),
+    'Magento\\Backend\\Block\\Template' => NULL,
+    'Magento\\Backend\\Block\\Widget\\ContainerInterface' => NULL,
+    'Magento\\Backend\\Block\\Widget\\Button\\ContextInterface' => NULL,
+    'Magento\\Backend\\Block\\Widget\\Container' => NULL,
+    'Magento\\Backend\\Block\\Widget\\Form\\Container' => NULL,
+    'Magento\\Sales\\Block\\Adminhtml\\Order\\View' => 
+    array (
+      'stripe_dispute_review_order_buttons' => 
+      array (
+        'sortOrder' => 100,
+        'instance' => 'StripeIntegration\\Payments\\Plugin\\Sales\\Block\\Adminhtml\\Order\\ViewPlugin',
+      ),
+    ),
+    'Magento\\Sales\\Api\\Data\\CreditmemoInterface' => NULL,
+    'Magento\\Sales\\Model\\Order\\Creditmemo' => 
+    array (
+      'creditmemoPlugin' => 
+      array (
+        'sortOrder' => 0,
+        'instance' => 'StripeIntegration\\Payments\\Plugin\\Sales\\Model\\Order\\Creditmemo',
+      ),
+    ),
+    'Magento\\Sales\\Block\\Order\\Totals' => 
+    array (
+      'addInitialFeeTotal' => 
+      array (
+        'sortOrder' => 30,
+        'instance' => 'StripeIntegration\\Payments\\Plugin\\Order\\AddInitialFeeToTotalsBlock',
+      ),
+    ),
+    'Magento\\Sales\\Model\\ResourceModel\\Collection\\AbstractCollection' => 
+    array (
+      'currentPageDetection' => 
+      array (
+        'sortOrder' => 0,
+        'instance' => 'Magento\\Theme\\Plugin\\Data\\Collection',
+      ),
+    ),
+    'Magento\\Sales\\Api\\Data\\OrderSearchResultInterface' => NULL,
+    'Magento\\Sales\\Model\\ResourceModel\\Order\\Collection' => 
+    array (
+      'currentPageDetection' => 
+      array (
+        'sortOrder' => 0,
+        'instance' => 'Magento\\Theme\\Plugin\\Data\\Collection',
+      ),
+      'setInitialFeeExtensionAfterLoad' => 
+      array (
+        'sortOrder' => 30,
+        'instance' => 'StripeIntegration\\Payments\\Plugin\\Order\\LoadInitialFeeOnCollection',
+      ),
+    ),
+    'Magento\\Sales\\Api\\Data\\InvoiceInterface' => NULL,
+    'Magento\\Sales\\Model\\Order\\Invoice' => 
+    array (
+      'invoicePlugin' => 
+      array (
+        'sortOrder' => 30,
+        'instance' => 'StripeIntegration\\Payments\\Plugin\\Sales\\Model\\Invoice',
+      ),
+    ),
+    'Magento\\Sales\\Model\\ResourceModel\\Collection\\ExpiredQuotesCollection' => 
+    array (
+      'stripeSubscriptionsExpiredQuoted' => 
+      array (
+        'sortOrder' => 30,
+        'instance' => 'StripeIntegration\\Payments\\Plugin\\Quote\\ExpiredQuotesCollection',
+      ),
+    ),
+    'Magento\\SalesRule\\Model\\Utility' => 
+    array (
+      'stripeRuleValidator' => 
+      array (
+        'sortOrder' => 30,
+        'instance' => 'StripeIntegration\\Payments\\Plugin\\SalesRule\\Model\\Utility',
+      ),
+    ),
+    'Magento\\Sales\\Model\\Order\\Payment\\State\\CommandInterface' => NULL,
+    'Magento\\Sales\\Model\\Order\\Payment\\State\\OrderCommand' => 
+    array (
+      'stripe_order_payment_order_command' => 
+      array (
+        'sortOrder' => 10,
+        'instance' => 'StripeIntegration\\Payments\\Plugin\\Sales\\Model\\Order\\Payment\\State\\OrderCommand',
+      ),
+    ),
+    'Magento\\Sales\\Model\\Order\\Payment\\State\\AuthorizeCommand' => 
+    array (
+      'stripe_order_payment_authorize_command' => 
+      array (
+        'sortOrder' => 10,
+        'instance' => 'StripeIntegration\\Payments\\Plugin\\Sales\\Model\\Order\\Payment\\State\\AuthorizeCaptureCommand',
+      ),
+    ),
+    'Magento\\Sales\\Model\\Order\\Payment\\State\\CaptureCommand' => 
+    array (
+      'stripe_order_payment_capture_command' => 
+      array (
+        'sortOrder' => 10,
+        'instance' => 'StripeIntegration\\Payments\\Plugin\\Sales\\Model\\Order\\Payment\\State\\AuthorizeCaptureCommand',
+      ),
+    ),
+    'Magento\\Sales\\Model\\CronJob\\CleanExpiredOrders' => 
+    array (
+      'stripe_pending_payment_order_lifetime' => 
+      array (
+        'sortOrder' => 10,
+        'instance' => 'StripeIntegration\\Payments\\Plugin\\Sales\\Model\\CronJob\\CleanExpiredOrders',
+      ),
+    ),
+    'Magento\\QuoteGraphQl\\Model\\Cart\\SetPaymentMethodOnCart' => 
+    array (
+      'stripe_payments_set_payment_method_on_cart' => 
+      array (
+        'sortOrder' => 0,
+        'instance' => 'StripeIntegration\\Payments\\Plugin\\QuoteGraphQl\\Model\\Cart\\SetPaymentMethodOnCart',
+      ),
+    ),
+    'Magento\\QuoteGraphQl\\Model\\Resolver\\PlaceOrder' => 
+    array (
+      'graphql_recaptcha_validation' => 
+      array (
+        'sortOrder' => 0,
+        'instance' => 'Magento\\ReCaptchaWebapiGraphQl\\Plugin\\GraphQlValidator',
+      ),
+      'stripe_payments_place_order' => 
+      array (
+        'sortOrder' => 0,
+        'instance' => 'StripeIntegration\\Payments\\Plugin\\QuoteGraphQl\\Model\\Resolver\\PlaceOrder',
+      ),
+    ),
+    'Magento\\Multishipping\\Helper\\Data' => 
+    array (
+      'disableMultishippingSubscriptions' => 
+      array (
+        'sortOrder' => 7,
+        'instance' => 'StripeIntegration\\Payments\\Plugin\\Multishipping\\Helper',
+      ),
+    ),
+    'Magento\\Quote\\Api\\Data\\CartInterface' => NULL,
+    'Magento\\Quote\\Model\\Quote' => 
+    array (
+      'stripeBeforeAddToCartValidations' => 
+      array (
+        'sortOrder' => 7,
+        'instance' => 'StripeIntegration\\Payments\\Plugin\\Cart\\BeforeAddToCart',
+      ),
+      'stripeBeforeQuoteSave' => 
+      array (
+        'sortOrder' => 7,
+        'instance' => 'StripeIntegration\\Payments\\Plugin\\Quote\\BeforeSave',
+      ),
+    ),
+    'Magento\\GiftCardAccount\\Model\\Service\\GiftCardAccountManagement' => 
+    array (
+      'stripeFutureSubscriptionsGiftCards' => 
+      array (
+        'sortOrder' => 10,
+        'instance' => 'StripeIntegration\\Payments\\Plugin\\Cart\\FutureSubscriptionsGiftcards',
+      ),
+    ),
+    'Magento\\Reward\\Model\\RewardManagement' => 
+    array (
+      'stripeFutureSubscriptionsRewards' => 
+      array (
+        'sortOrder' => 10,
+        'instance' => 'StripeIntegration\\Payments\\Plugin\\Cart\\FutureSubscriptionsRewards',
+      ),
+    ),
+    'Magento\\CustomerBalance\\Model\\BalanceManagement' => 
+    array (
+      'stripeFutureSubscriptionsStoreCredit' => 
+      array (
+        'sortOrder' => 10,
+        'instance' => 'StripeIntegration\\Payments\\Plugin\\Cart\\FutureSubscriptionsStoreCredit',
       ),
     ),
     'Magento\\Checkout\\CustomerData\\Cart' => 
     array (
-      'braintreeAddMaskedIdToCartData' => 
+      'vendor_module_add_cart_data' => 
       array (
         'sortOrder' => 0,
-        'instance' => 'PayPal\\Braintree\\Plugin\\AddMaskedIdToCartData',
-      ),
-    ),
-    'PayPal\\Braintree\\Gateway\\Request\\PayPal\\Level23ProcessingDataBuilder' => 
-    array (
-      'AddCustomerBalanceAsLineItemForPayPal' => 
-      array (
-        'sortOrder' => 1,
-        'disabled' => false,
-        'instance' => 'PayPal\\BraintreeCustomerBalance\\Plugin\\Level23Processing\\PayPal\\AddCustomerBalancePlugin',
-      ),
-      'AddRewardAsLineItemForPayPal' => 
-      array (
-        'sortOrder' => 1,
-        'disabled' => false,
-        'instance' => 'PayPal\\BraintreeReward\\Plugin\\Level23Processing\\PayPal\\AddRewardPlugin',
-      ),
-      'AddGiftCardAccountAsLineItemForPayPal' => 
-      array (
-        'sortOrder' => 2,
-        'disabled' => false,
-        'instance' => 'PayPal\\BraintreeGiftCardAccount\\Plugin\\Level23Processing\\PayPal\\AddGiftCardAccountPlugin',
-      ),
-      'AddGiftWrappingAsLineItemForPayPal' => 
-      array (
-        'sortOrder' => 3,
-        'disabled' => false,
-        'instance' => 'PayPal\\BraintreeGiftWrapping\\Plugin\\Level23Processing\\PayPal\\AddGiftWrappingPlugin',
-      ),
-    ),
-    'PayPal\\Braintree\\Block\\Paypal\\Button' => NULL,
-    'PayPal\\Braintree\\Block\\Paypal\\ProductPage' => 
-    array (
-      'GetGiftCardProductPrice' => 
-      array (
-        'sortOrder' => 0,
-        'instance' => 'PayPal\\BraintreeGiftCard\\Plugin\\ProductPageGiftCard',
+        'instance' => 'StripeIntegration\\Payments\\Plugin\\Checkout\\CustomerData\\Cart',
       ),
     ),
   ),
   2 => 
   array (
+    'Magento\\Framework\\App\\Request\\CsrfValidator_validate___self' => 
+    array (
+      2 => 'csrf_validator_skip',
+    ),
+    'CsrfRequestValidator_validate___self' => 
+    array (
+      2 => 'csrf_validator_skip',
+    ),
     'Magento\\Config\\App\\Config\\Source\\DumpConfigSourceAggregated_get___self' => 
     array (
       4 => 
@@ -9537,273 +9984,252 @@
         0 => 'anonymousAsyncCustomerRequest',
       ),
     ),
-    'BraintreeFacade_isActive___self' => 
+    'StripeIntegration\\Payments\\Model\\PaymentMethod_isActive___self' => 
     array (
       4 => 
       array (
         0 => 'magpay_payments_model_adapter',
       ),
     ),
-    'BraintreeFacade_canCapture___self' => 
+    'StripeIntegration\\Payments\\Model\\PaymentMethod_canCapture___self' => 
     array (
       4 => 
       array (
         0 => 'magpay_payments_model_adapter',
       ),
     ),
-    'BraintreeFacade_canReviewPayment___self' => 
+    'StripeIntegration\\Payments\\Model\\PaymentMethod_canReviewPayment___self' => 
     array (
       4 => 
       array (
         0 => 'magpay_payments_model_adapter',
       ),
     ),
-    'BraintreePayPalFacade_isActive___self' => 
+    'StripePaymentsFacade_isActive___self' => 
     array (
       4 => 
       array (
         0 => 'magpay_payments_model_adapter',
       ),
     ),
-    'BraintreePayPalFacade_canCapture___self' => 
+    'StripePaymentsFacade_canCapture___self' => 
     array (
       4 => 
       array (
         0 => 'magpay_payments_model_adapter',
       ),
     ),
-    'BraintreePayPalFacade_canReviewPayment___self' => 
+    'StripePaymentsFacade_canReviewPayment___self' => 
     array (
       4 => 
       array (
         0 => 'magpay_payments_model_adapter',
       ),
     ),
-    'BraintreePayPalCreditFacade_isActive___self' => 
+    'StripeIntegration\\Payments\\Model\\Method\\Invoice_isActive___self' => 
     array (
       4 => 
       array (
         0 => 'magpay_payments_model_adapter',
       ),
     ),
-    'BraintreePayPalCreditFacade_canCapture___self' => 
+    'StripeIntegration\\Payments\\Model\\Method\\Invoice_canCapture___self' => 
     array (
       4 => 
       array (
         0 => 'magpay_payments_model_adapter',
       ),
     ),
-    'BraintreePayPalCreditFacade_canReviewPayment___self' => 
+    'StripeIntegration\\Payments\\Model\\Method\\Invoice_canReviewPayment___self' => 
     array (
       4 => 
       array (
         0 => 'magpay_payments_model_adapter',
       ),
     ),
-    'BraintreePayPalPayLaterFacade_isActive___self' => 
+    'StripePaymentsInvoiceFacade_isActive___self' => 
     array (
       4 => 
       array (
         0 => 'magpay_payments_model_adapter',
       ),
     ),
-    'BraintreePayPalPayLaterFacade_canCapture___self' => 
+    'StripePaymentsInvoiceFacade_canCapture___self' => 
     array (
       4 => 
       array (
         0 => 'magpay_payments_model_adapter',
       ),
     ),
-    'BraintreePayPalPayLaterFacade_canReviewPayment___self' => 
+    'StripePaymentsInvoiceFacade_canReviewPayment___self' => 
     array (
       4 => 
       array (
         0 => 'magpay_payments_model_adapter',
       ),
     ),
-    'BraintreeCreditCardVaultFacade_canUseInternal___self' => 
-    array (
-      4 => 
-      array (
-        0 => 'magpay_payments_vault_method',
-      ),
-    ),
-    'BraintreeCreditCardVaultFacade_isAvailable___self' => 
-    array (
-      4 => 
-      array (
-        0 => 'magpay_payments_vault_method',
-      ),
-    ),
-    'BraintreePayPalVaultFacade_canUseInternal___self' => 
-    array (
-      4 => 
-      array (
-        0 => 'magpay_payments_vault_method',
-      ),
-    ),
-    'BraintreePayPalVaultFacade_isAvailable___self' => 
-    array (
-      4 => 
-      array (
-        0 => 'magpay_payments_vault_method',
-      ),
-    ),
-    'BraintreeApplePay_isActive___self' => 
+    'StripeIntegration\\Payments\\Model\\Method\\Subscriptions_isActive___self' => 
     array (
       4 => 
       array (
         0 => 'magpay_payments_model_adapter',
       ),
     ),
-    'BraintreeApplePay_canCapture___self' => 
+    'StripeIntegration\\Payments\\Model\\Method\\Subscriptions_canCapture___self' => 
     array (
       4 => 
       array (
         0 => 'magpay_payments_model_adapter',
       ),
     ),
-    'BraintreeApplePay_canReviewPayment___self' => 
+    'StripeIntegration\\Payments\\Model\\Method\\Subscriptions_canReviewPayment___self' => 
     array (
       4 => 
       array (
         0 => 'magpay_payments_model_adapter',
       ),
     ),
-    'BraintreeApplePayVaultFacade_canUseInternal___self' => 
-    array (
-      4 => 
-      array (
-        0 => 'magpay_payments_vault_method',
-      ),
-    ),
-    'BraintreeApplePayVaultFacade_isAvailable___self' => 
-    array (
-      4 => 
-      array (
-        0 => 'magpay_payments_vault_method',
-      ),
-    ),
-    'BraintreeGooglePay_isActive___self' => 
+    'StripeSubscriptionsFacade_isActive___self' => 
     array (
       4 => 
       array (
         0 => 'magpay_payments_model_adapter',
       ),
     ),
-    'BraintreeGooglePay_canCapture___self' => 
+    'StripeSubscriptionsFacade_canCapture___self' => 
     array (
       4 => 
       array (
         0 => 'magpay_payments_model_adapter',
       ),
     ),
-    'BraintreeGooglePay_canReviewPayment___self' => 
+    'StripeSubscriptionsFacade_canReviewPayment___self' => 
     array (
       4 => 
       array (
         0 => 'magpay_payments_model_adapter',
       ),
     ),
-    'BraintreeGooglePayVaultFacade_canUseInternal___self' => 
-    array (
-      4 => 
-      array (
-        0 => 'magpay_payments_vault_method',
-      ),
-    ),
-    'BraintreeGooglePayVaultFacade_isAvailable___self' => 
-    array (
-      4 => 
-      array (
-        0 => 'magpay_payments_vault_method',
-      ),
-    ),
-    'BraintreeVenmo_isActive___self' => 
+    'StripeIntegration\\Payments\\Model\\Method\\Express_isActive___self' => 
     array (
       4 => 
       array (
         0 => 'magpay_payments_model_adapter',
       ),
     ),
-    'BraintreeVenmo_canCapture___self' => 
+    'StripeIntegration\\Payments\\Model\\Method\\Express_canCapture___self' => 
     array (
       4 => 
       array (
         0 => 'magpay_payments_model_adapter',
       ),
     ),
-    'BraintreeVenmo_canReviewPayment___self' => 
+    'StripeIntegration\\Payments\\Model\\Method\\Express_canReviewPayment___self' => 
     array (
       4 => 
       array (
         0 => 'magpay_payments_model_adapter',
       ),
     ),
-    'BraintreeVenmoVaultFacade_canUseInternal___self' => 
-    array (
-      4 => 
-      array (
-        0 => 'magpay_payments_vault_method',
-      ),
-    ),
-    'BraintreeVenmoVaultFacade_isAvailable___self' => 
-    array (
-      4 => 
-      array (
-        0 => 'magpay_payments_vault_method',
-      ),
-    ),
-    'BraintreeAch_isActive___self' => 
+    'StripeExpressFacade_isActive___self' => 
     array (
       4 => 
       array (
         0 => 'magpay_payments_model_adapter',
       ),
     ),
-    'BraintreeAch_canCapture___self' => 
+    'StripeExpressFacade_canCapture___self' => 
     array (
       4 => 
       array (
         0 => 'magpay_payments_model_adapter',
       ),
     ),
-    'BraintreeAch_canReviewPayment___self' => 
+    'StripeExpressFacade_canReviewPayment___self' => 
     array (
       4 => 
       array (
         0 => 'magpay_payments_model_adapter',
       ),
     ),
-    'BraintreeAchVaultFacade_canUseInternal___self' => 
-    array (
-      4 => 
-      array (
-        0 => 'magpay_payments_vault_method',
-      ),
-    ),
-    'BraintreeAchVaultFacade_isAvailable___self' => 
-    array (
-      4 => 
-      array (
-        0 => 'magpay_payments_vault_method',
-      ),
-    ),
-    'BraintreeLpm_isActive___self' => 
+    'StripeIntegration\\Payments\\Model\\Method\\BankTransfers_isActive___self' => 
     array (
       4 => 
       array (
         0 => 'magpay_payments_model_adapter',
       ),
     ),
-    'BraintreeLpm_canCapture___self' => 
+    'StripeIntegration\\Payments\\Model\\Method\\BankTransfers_canCapture___self' => 
     array (
       4 => 
       array (
         0 => 'magpay_payments_model_adapter',
       ),
     ),
-    'BraintreeLpm_canReviewPayment___self' => 
+    'StripeIntegration\\Payments\\Model\\Method\\BankTransfers_canReviewPayment___self' => 
+    array (
+      4 => 
+      array (
+        0 => 'magpay_payments_model_adapter',
+      ),
+    ),
+    'StripeBankTransfersFacade_isActive___self' => 
+    array (
+      4 => 
+      array (
+        0 => 'magpay_payments_model_adapter',
+      ),
+    ),
+    'StripeBankTransfersFacade_canCapture___self' => 
+    array (
+      4 => 
+      array (
+        0 => 'magpay_payments_model_adapter',
+      ),
+    ),
+    'StripeBankTransfersFacade_canReviewPayment___self' => 
+    array (
+      4 => 
+      array (
+        0 => 'magpay_payments_model_adapter',
+      ),
+    ),
+    'StripeIntegration\\Payments\\Model\\Method\\Checkout_isActive___self' => 
+    array (
+      4 => 
+      array (
+        0 => 'magpay_payments_model_adapter',
+      ),
+    ),
+    'StripeIntegration\\Payments\\Model\\Method\\Checkout_canCapture___self' => 
+    array (
+      4 => 
+      array (
+        0 => 'magpay_payments_model_adapter',
+      ),
+    ),
+    'StripeIntegration\\Payments\\Model\\Method\\Checkout_canReviewPayment___self' => 
+    array (
+      4 => 
+      array (
+        0 => 'magpay_payments_model_adapter',
+      ),
+    ),
+    'RedirectFlowFacade_isActive___self' => 
+    array (
+      4 => 
+      array (
+        0 => 'magpay_payments_model_adapter',
+      ),
+    ),
+    'RedirectFlowFacade_canCapture___self' => 
+    array (
+      4 => 
+      array (
+        0 => 'magpay_payments_model_adapter',
+      ),
+    ),
+    'RedirectFlowFacade_canReviewPayment___self' => 
     array (
       4 => 
       array (
@@ -10575,6 +11001,7 @@
       array (
         0 => 'append_bundle_data_to_order',
         1 => 'gift_message_quote_item_conversion',
+        2 => 'addInitalFeeToOrderItem',
       ),
     ),
     'Magento\\Catalog\\Controller\\Adminhtml\\Product\\Initialization\\Helper_initializeFromData___self' => 
@@ -10901,6 +11328,7 @@
       1 => 
       array (
         0 => 'remove_in_store_pickup_data',
+        1 => 'stripeBeforeCartRepositorySave',
       ),
     ),
     'Magento\\Quote\\Model\\QuoteRepository_save___self' => 
@@ -10909,6 +11337,7 @@
       array (
         0 => 'remove_in_store_pickup_data',
         1 => 'multishipping_quote_repository',
+        2 => 'stripeBeforeCartRepositorySave',
       ),
     ),
     'Magento\\Quote\\Model\\QuoteRepository_get___self' => 
@@ -10962,6 +11391,13 @@
     array (
       2 => 'configurable',
     ),
+    'Magento\\Sales\\Model\\Order\\Item_getStatusId___self' => 
+    array (
+      4 => 
+      array (
+        0 => 'stripe_order_item',
+      ),
+    ),
     'Magento\\Sales\\Model\\Order\\Item_getQtyToCancel___self' => 
     array (
       4 => 
@@ -10996,14 +11432,24 @@
       1 => 
       array (
         0 => 'order_update',
+        1 => 'stripe_tax_quote_management',
+      ),
+      4 => 
+      array (
+        0 => 'stripe_tax_quote_management',
       ),
     ),
     'Magento\\Quote\\Model\\QuoteManagement_submit___self' => 
     array (
       1 => 
       array (
-        0 => 'validate_purchase_order_number',
-        1 => 'update_bundle_quote_item_options',
+        0 => 'stripe_payments_quote_management',
+        1 => 'validate_purchase_order_number',
+        2 => 'update_bundle_quote_item_options',
+      ),
+      4 => 
+      array (
+        0 => 'stripe_payments_quote_management',
       ),
       2 => 'coupon_uses_increment_plugin',
     ),
@@ -11340,6 +11786,61 @@
         0 => 'DeleteSourceForShipment',
       ),
     ),
+    'Magento\\Sales\\Api\\OrderRepositoryInterface_get___self' => 
+    array (
+      4 => 
+      array (
+        0 => 'add_taxes_extension_attributes',
+        1 => 'get_gift_message',
+        2 => 'get_pickup_location_for_order',
+      ),
+    ),
+    'Magento\\Sales\\Api\\OrderRepositoryInterface_getList___self' => 
+    array (
+      4 => 
+      array (
+        0 => 'add_taxes_extension_attributes',
+        1 => 'get_gift_message',
+      ),
+    ),
+    'Magento\\Sales\\Api\\OrderRepositoryInterface_save___self' => 
+    array (
+      4 => 
+      array (
+        0 => 'save_gift_message',
+        1 => 'save_pickup_location_for_order',
+      ),
+    ),
+    'Magento\\Sales\\Model\\OrderRepository_get___self' => 
+    array (
+      4 => 
+      array (
+        0 => 'add_taxes_extension_attributes',
+        1 => 'get_gift_message',
+        2 => 'get_pickup_location_for_order',
+      ),
+    ),
+    'Magento\\Sales\\Model\\OrderRepository_getList___self' => 
+    array (
+      4 => 
+      array (
+        0 => 'add_taxes_extension_attributes',
+        1 => 'get_gift_message',
+      ),
+    ),
+    'Magento\\Sales\\Model\\OrderRepository_save___self' => 
+    array (
+      4 => 
+      array (
+        0 => 'save_gift_message',
+        1 => 'save_pickup_location_for_order',
+      ),
+      1 => 
+      array (
+        0 => 'stripeIntegration_save_order',
+        1 => 'getInitialFeeExtensionBeforeSave',
+      ),
+    ),
     'Magento\\Sales\\Model\\ResourceModel\\Order\\Handler\\Address_process___self' => 
     array (
       4 => 
@@ -11495,6 +11996,20 @@
         1 => 'update_source_stock_for_configurable_product',
       ),
     ),
+    'Magento\\Tax\\Helper\\Data_applyTaxOnCustomPrice___self' => 
+    array (
+      4 => 
+      array (
+        0 => 'stripeIntegration_model_helper_dataPlugin',
+      ),
+    ),
+    'Magento\\Tax\\Helper\\Data_applyTaxOnOriginalPrice___self' => 
+    array (
+      4 => 
+      array (
+        0 => 'stripeIntegration_model_helper_dataPlugin',
+      ),
+    ),
     'Magento\\Quote\\Model\\Quote\\Address\\ToOrder_convert___self' => 
     array (
       1 => 
@@ -11505,6 +12020,8 @@
       4 => 
       array (
         0 => 'add_tax_to_order',
+        1 => 'stripeIntegration_quote_to_order',
+        2 => 'addInitialFeeToOrder',
       ),
     ),
     'Magento\\Quote\\Model\\Cart\\TotalsConverter_process___self' => 
@@ -11512,31 +12029,6 @@
       4 => 
       array (
         0 => 'add_tax_details',
-      ),
-    ),
-    'Magento\\Sales\\Api\\OrderRepositoryInterface_get___self' => 
-    array (
-      4 => 
-      array (
-        0 => 'add_taxes_extension_attributes',
-        1 => 'get_gift_message',
-        2 => 'get_pickup_location_for_order',
-      ),
-    ),
-    'Magento\\Sales\\Api\\OrderRepositoryInterface_getList___self' => 
-    array (
-      4 => 
-      array (
-        0 => 'add_taxes_extension_attributes',
-        1 => 'get_gift_message',
-      ),
-    ),
-    'Magento\\Sales\\Api\\OrderRepositoryInterface_save___self' => 
-    array (
-      4 => 
-      array (
-        0 => 'save_gift_message',
-        1 => 'save_pickup_location_for_order',
       ),
     ),
     'Magento\\Catalog\\Ui\\DataProvider\\Product\\Listing\\DataProvider_getData___self' => 
@@ -12582,6 +13074,10 @@
         0 => 'coupon_uses_decrement_plugin',
       ),
     ),
+    'Magento\\Sales\\Model\\Service\\OrderService_place_inventory_reservations_placement' => 
+    array (
+      2 => 'stripePaymentsOrderService',
+    ),
     'Magento\\Framework\\View\\Page\\Config_getIncludes___self' => 
     array (
       4 => 
@@ -12631,9 +13127,7 @@
     array (
       4 => 
       array (
-        0 => 'addAgreementsToMiniCartConfig',
-        1 => 'addPayLaterMessageConfig',
-        2 => 'login_captcha',
+        0 => 'login_captcha',
       ),
     ),
     'Magento\\Payment\\Model\\Checks\\Composite_isApplicable___self' => 
@@ -12648,6 +13142,98 @@
       4 => 
       array (
         0 => 'express_order_invoice',
+        1 => 'stripe_magento_sales_model_order',
+      ),
+    ),
+    'Magento\\Sales\\Model\\Order_load___self' => 
+    array (
+      4 => 
+      array (
+        0 => 'setInitialFeeExtensionAfterLoad',
+      ),
+    ),
+    'Magento\\Sales\\Model\\Order_canCancel___self' => 
+    array (
+      4 => 
+      array (
+        0 => 'stripe_magento_sales_model_order',
+      ),
+    ),
+    'Magento\\Sales\\Model\\Order_cancel___self' => 
+    array (
+      1 => 
+      array (
+        0 => 'stripe_magento_sales_model_order',
+      ),
+    ),
+    'Magento\\Sales\\Model\\Order_canShip___self' => 
+    array (
+      4 => 
+      array (
+        0 => 'stripe_magento_sales_model_order',
+      ),
+    ),
+    'Magento\\Sales\\Model\\Order_canEdit___self' => 
+    array (
+      4 => 
+      array (
+        0 => 'stripe_magento_sales_model_order',
+      ),
+    ),
+    'Magento\\Sales\\Model\\Order_canCreditmemo___self' => 
+    array (
+      4 => 
+      array (
+        0 => 'stripe_magento_sales_model_order',
+      ),
+    ),
+    'Magento\\Sales\\Model\\Order_canVoidPayment___self' => 
+    array (
+      4 => 
+      array (
+        0 => 'stripe_magento_sales_model_order',
+      ),
+    ),
+    'Magento\\Sales\\Model\\Order_canHold___self' => 
+    array (
+      4 => 
+      array (
+        0 => 'stripe_magento_sales_model_order',
+      ),
+    ),
+    'Magento\\Sales\\Model\\Order_canUnHold___self' => 
+    array (
+      4 => 
+      array (
+        0 => 'stripe_magento_sales_model_order',
+      ),
+    ),
+    'Magento\\Sales\\Model\\Order_canReviewPayment___self' => 
+    array (
+      4 => 
+      array (
+        0 => 'stripe_magento_sales_model_order',
+      ),
+    ),
+    'Magento\\Sales\\Model\\Order_canFetchPaymentReviewUpdate___self' => 
+    array (
+      4 => 
+      array (
+        0 => 'stripe_magento_sales_model_order',
+      ),
+    ),
+    'Magento\\Sales\\Model\\Order_canReorderIgnoreSalable___self' => 
+    array (
+      4 => 
+      array (
+        0 => 'stripe_magento_sales_model_order',
+      ),
+    ),
+    'Magento\\Sales\\Model\\Order_canReorder___self' => 
+    array (
+      4 => 
+      array (
+        0 => 'stripe_magento_sales_model_order',
       ),
     ),
     'Magento\\Sales\\Model\\Order\\Validation\\CanInvoice_validate___self' => 
@@ -13025,42 +13611,311 @@
         0 => 'authentication',
       ),
     ),
-    'Magento\\Framework\\View\\Asset\\Minification_getExcludes___self' => 
+    'Magento\\Sales\\Model\\Order\\Email\\Container\\OrderIdentity_isEnabled___self' => 
+    array (
+      2 => 'change_is_enable_method',
+    ),
+    'Magento\\Tax\\Model\\Sales\\Total\\Quote\\Tax_mapItem___self' => 
     array (
       4 => 
       array (
-        0 => 'braintreeExcludeFromMinification',
+        0 => 'apply_tax_class_id',
+        1 => 'stripeIntegration_model_sales_total_quote_tax',
       ),
     ),
-    'Magento\\Checkout\\CustomerData\\AbstractItem_getItemData___self' => 
+    'Magento\\Tax\\Model\\Sales\\Total\\Quote\\Tax_collect___self' => 
+    array (
+      1 => 
+      array (
+        0 => 'stripeIntegration_model_sales_total_quote_tax',
+      ),
+      4 => 
+      array (
+        0 => 'stripeIntegration_model_sales_total_quote_tax',
+      ),
+    ),
+    'Magento\\Tax\\Model\\Sales\\Total\\Quote\\Tax_getShippingDataObject___self' => 
     array (
       4 => 
       array (
-        0 => 'braintreeAddFlagForVirtualProducts',
+        0 => 'stripeIntegration_model_sales_total_quote_tax',
+      ),
+    ),
+    'Magento\\Tax\\Model\\Sales\\Total\\Quote\\Tax_mapItemExtraTaxables___self' => 
+    array (
+      4 => 
+      array (
+        0 => 'stripeIntegration_model_sales_total_quote_tax',
+      ),
+    ),
+    'Magento\\Tax\\Model\\Sales\\Total\\Quote\\Tax_mapQuoteExtraTaxables___self' => 
+    array (
+      4 => 
+      array (
+        0 => 'stripeIntegration_model_sales_total_quote_tax',
+      ),
+    ),
+    'Magento\\Tax\\Model\\Config_getAlgorithm___self' => 
+    array (
+      4 => 
+      array (
+        0 => 'stripeIntegration_model_config',
+        1 => 'stripeSubscriptionsTaxCalculation',
+      ),
+    ),
+    'Magento\\Tax\\Model\\Config_priceIncludesTax___self' => 
+    array (
+      4 => 
+      array (
+        0 => 'stripeIntegration_model_config',
+      ),
+    ),
+    'Magento\\Tax\\Model\\Config_shippingPriceIncludesTax___self' => 
+    array (
+      4 => 
+      array (
+        0 => 'stripeIntegration_model_config',
+      ),
+    ),
+    'Magento\\Tax\\Model\\Config_getShippingTaxClass___self' => 
+    array (
+      4 => 
+      array (
+        0 => 'stripeIntegration_model_config',
+      ),
+    ),
+    'Magento\\Tax\\Model\\Config_crossBorderTradeEnabled___self' => 
+    array (
+      4 => 
+      array (
+        0 => 'stripeIntegration_model_config',
+      ),
+    ),
+    'Magento\\Tax\\Model\\Config_getPriceDisplayType___self' => 
+    array (
+      4 => 
+      array (
+        0 => 'stripeIntegration_model_config',
+      ),
+    ),
+    'Magento\\Tax\\Model\\Config_getShippingPriceDisplayType___self' => 
+    array (
+      4 => 
+      array (
+        0 => 'stripeIntegration_model_config',
+      ),
+    ),
+    'Magento\\Tax\\Model\\Config_discountTax___self' => 
+    array (
+      4 => 
+      array (
+        0 => 'stripeIntegration_model_config',
+      ),
+    ),
+    'Magento\\Tax\\Model\\Calculation\\AbstractCalculator_calculate___self' => 
+    array (
+      2 => 'stripeIntegration_model_tax_calculation_abstractCalculator',
+    ),
+    'Magento\\Sales\\Model\\Order\\Invoice\\Total\\Tax_collect___self' => 
+    array (
+      2 => 'stripeIntegration_invoice_tax',
+    ),
+    'Magento\\GiftWrapping\\Model\\Total\\Invoice\\Tax\\Giftwrapping_collect___self' => 
+    array (
+      2 => 'stripeIntegration_giftwrapping_invoice_tax',
+    ),
+    'Magento\\GiftWrapping\\Model\\Total\\Creditmemo\\Tax\\Giftwrapping_collect___self' => 
+    array (
+      1 => 
+      array (
+        0 => 'stripeIntegration_giftwrapping_creditmemo_tax',
+      ),
+    ),
+    'Magento\\SalesRule\\Model\\Rule\\DataProvider_getData___self' => 
+    array (
+      4 => 
+      array (
+        0 => 'StripeIntegration_Payments::Form_Data_Provider',
+      ),
+    ),
+    'Magento\\Quote\\Model\\Quote\\Address\\Total\\Shipping_collect___self' => 
+    array (
+      2 => 'stripe_payments_trial_subscription_shipping_total',
+    ),
+    'Magento\\Payment\\Model\\Checks\\ZeroTotal_isApplicable___self' => 
+    array (
+      4 => 
+      array (
+        0 => 'stripe_payments_zero_total_check',
+      ),
+    ),
+    'Magento\\Sales\\Block\\Adminhtml\\Order\\View_setLayout___self' => 
+    array (
+      1 => 
+      array (
+        0 => 'stripe_dispute_review_order_buttons',
+      ),
+    ),
+    'Magento\\Sales\\Model\\Order\\Creditmemo_canRefund___self' => 
+    array (
+      4 => 
+      array (
+        0 => 'creditmemoPlugin',
+      ),
+    ),
+    'Magento\\Sales\\Block\\Order\\Totals_getOrder___self' => 
+    array (
+      4 => 
+      array (
+        0 => 'addInitialFeeTotal',
+      ),
+    ),
+    'Magento\\Sales\\Model\\ResourceModel\\Collection\\AbstractCollection_getCurPage___self' => 
+    array (
+      4 => 
+      array (
+        0 => 'currentPageDetection',
+      ),
+    ),
+    'Magento\\Sales\\Model\\ResourceModel\\Order\\Collection_getCurPage___self' => 
+    array (
+      4 => 
+      array (
+        0 => 'currentPageDetection',
+      ),
+    ),
+    'Magento\\Sales\\Model\\ResourceModel\\Order\\Collection_getItems___self' => 
+    array (
+      4 => 
+      array (
+        0 => 'setInitialFeeExtensionAfterLoad',
+      ),
+    ),
+    'Magento\\Sales\\Model\\Order\\Invoice_canCancel___self' => 
+    array (
+      4 => 
+      array (
+        0 => 'invoicePlugin',
+      ),
+    ),
+    'Magento\\Sales\\Model\\Order\\Invoice_canCapture___self' => 
+    array (
+      4 => 
+      array (
+        0 => 'invoicePlugin',
+      ),
+    ),
+    'Magento\\Sales\\Model\\Order\\Invoice_canVoid___self' => 
+    array (
+      4 => 
+      array (
+        0 => 'invoicePlugin',
+      ),
+    ),
+    'Magento\\Sales\\Model\\ResourceModel\\Collection\\ExpiredQuotesCollection_getExpiredQuotes___self' => 
+    array (
+      4 => 
+      array (
+        0 => 'stripeSubscriptionsExpiredQuoted',
+      ),
+    ),
+    'Magento\\SalesRule\\Model\\Utility_canProcessRule___self' => 
+    array (
+      4 => 
+      array (
+        0 => 'stripeRuleValidator',
+      ),
+    ),
+    'Magento\\Sales\\Model\\Order\\Payment\\State\\OrderCommand_execute___self' => 
+    array (
+      4 => 
+      array (
+        0 => 'stripe_order_payment_order_command',
+      ),
+    ),
+    'Magento\\Sales\\Model\\Order\\Payment\\State\\AuthorizeCommand_execute___self' => 
+    array (
+      4 => 
+      array (
+        0 => 'stripe_order_payment_authorize_command',
+      ),
+    ),
+    'Magento\\Sales\\Model\\Order\\Payment\\State\\CaptureCommand_execute___self' => 
+    array (
+      4 => 
+      array (
+        0 => 'stripe_order_payment_capture_command',
+      ),
+    ),
+    'Magento\\Sales\\Model\\CronJob\\CleanExpiredOrders_execute___self' => 
+    array (
+      1 => 
+      array (
+        0 => 'stripe_pending_payment_order_lifetime',
+      ),
+    ),
+    'Magento\\QuoteGraphQl\\Model\\Cart\\SetPaymentMethodOnCart_execute___self' => 
+    array (
+      4 => 
+      array (
+        0 => 'stripe_payments_set_payment_method_on_cart',
+      ),
+    ),
+    'Magento\\QuoteGraphQl\\Model\\Resolver\\PlaceOrder_resolve___self' => 
+    array (
+      1 => 
+      array (
+        0 => 'graphql_recaptcha_validation',
+      ),
+      4 => 
+      array (
+        0 => 'stripe_payments_place_order',
+      ),
+    ),
+    'Magento\\Multishipping\\Helper\\Data_isMultishippingCheckoutAvailable___self' => 
+    array (
+      2 => 'disableMultishippingSubscriptions',
+    ),
+    'Magento\\Quote\\Model\\Quote_addProduct___self' => 
+    array (
+      1 => 
+      array (
+        0 => 'stripeBeforeAddToCartValidations',
+      ),
+    ),
+    'Magento\\Quote\\Model\\Quote_save___self' => 
+    array (
+      1 => 
+      array (
+        0 => 'stripeBeforeQuoteSave',
+      ),
+    ),
+    'Magento\\GiftCardAccount\\Model\\Service\\GiftCardAccountManagement_saveByQuoteId___self' => 
+    array (
+      1 => 
+      array (
+        0 => 'stripeFutureSubscriptionsGiftCards',
+      ),
+    ),
+    'Magento\\Reward\\Model\\RewardManagement_set___self' => 
+    array (
+      1 => 
+      array (
+        0 => 'stripeFutureSubscriptionsRewards',
+      ),
+    ),
+    'Magento\\CustomerBalance\\Model\\BalanceManagement_apply___self' => 
+    array (
+      1 => 
+      array (
+        0 => 'stripeFutureSubscriptionsStoreCredit',
       ),
     ),
     'Magento\\Checkout\\CustomerData\\Cart_getSectionData___self' => 
     array (
       4 => 
       array (
-        0 => 'braintreeAddMaskedIdToCartData',
-      ),
-    ),
-    'PayPal\\Braintree\\Gateway\\Request\\PayPal\\Level23ProcessingDataBuilder_build___self' => 
-    array (
-      4 => 
-      array (
-        0 => 'AddCustomerBalanceAsLineItemForPayPal',
-        1 => 'AddRewardAsLineItemForPayPal',
-        2 => 'AddGiftCardAccountAsLineItemForPayPal',
-        3 => 'AddGiftWrappingAsLineItemForPayPal',
-      ),
-    ),
-    'PayPal\\Braintree\\Block\\Paypal\\ProductPage_getAmount___self' => 
-    array (
-      4 => 
-      array (
-        0 => 'GetGiftCardProductPrice',
+        0 => 'vendor_module_add_cart_data',
       ),
     ),
   ),

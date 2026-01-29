@@ -22,4 +22,13 @@ class Interceptor extends \Magento\Sales\Block\Adminhtml\Order\View implements \
         $pluginInfo = $this->pluginList->getNext($this->subjectType, 'addButton');
         return $pluginInfo ? $this->___callPlugins('addButton', func_get_args(), $pluginInfo) : parent::addButton($buttonId, $data, $level, $sortOrder, $region);
     }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function setLayout(\Magento\Framework\View\LayoutInterface $layout)
+    {
+        $pluginInfo = $this->pluginList->getNext($this->subjectType, 'setLayout');
+        return $pluginInfo ? $this->___callPlugins('setLayout', func_get_args(), $pluginInfo) : parent::setLayout($layout);
+    }
 }

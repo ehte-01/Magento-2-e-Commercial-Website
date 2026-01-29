@@ -17,9 +17,45 @@ class Interceptor extends \Magento\Tax\Model\Sales\Total\Quote\Tax implements \M
     /**
      * {@inheritdoc}
      */
+    public function collect(\Magento\Quote\Model\Quote $quote, \Magento\Quote\Api\Data\ShippingAssignmentInterface $shippingAssignment, \Magento\Quote\Model\Quote\Address\Total $total)
+    {
+        $pluginInfo = $this->pluginList->getNext($this->subjectType, 'collect');
+        return $pluginInfo ? $this->___callPlugins('collect', func_get_args(), $pluginInfo) : parent::collect($quote, $shippingAssignment, $total);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function mapQuoteExtraTaxables(\Magento\Tax\Api\Data\QuoteDetailsItemInterfaceFactory $itemDataObjectFactory, \Magento\Quote\Model\Quote\Address $address, $useBaseCurrency)
+    {
+        $pluginInfo = $this->pluginList->getNext($this->subjectType, 'mapQuoteExtraTaxables');
+        return $pluginInfo ? $this->___callPlugins('mapQuoteExtraTaxables', func_get_args(), $pluginInfo) : parent::mapQuoteExtraTaxables($itemDataObjectFactory, $address, $useBaseCurrency);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
     public function mapItem(\Magento\Tax\Api\Data\QuoteDetailsItemInterfaceFactory $itemDataObjectFactory, \Magento\Quote\Model\Quote\Item\AbstractItem $item, $priceIncludesTax, $useBaseCurrency, $parentCode = null)
     {
         $pluginInfo = $this->pluginList->getNext($this->subjectType, 'mapItem');
         return $pluginInfo ? $this->___callPlugins('mapItem', func_get_args(), $pluginInfo) : parent::mapItem($itemDataObjectFactory, $item, $priceIncludesTax, $useBaseCurrency, $parentCode);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function mapItemExtraTaxables(\Magento\Tax\Api\Data\QuoteDetailsItemInterfaceFactory $itemDataObjectFactory, \Magento\Quote\Model\Quote\Item\AbstractItem $item, $priceIncludesTax, $useBaseCurrency)
+    {
+        $pluginInfo = $this->pluginList->getNext($this->subjectType, 'mapItemExtraTaxables');
+        return $pluginInfo ? $this->___callPlugins('mapItemExtraTaxables', func_get_args(), $pluginInfo) : parent::mapItemExtraTaxables($itemDataObjectFactory, $item, $priceIncludesTax, $useBaseCurrency);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getShippingDataObject(\Magento\Quote\Api\Data\ShippingAssignmentInterface $shippingAssignment, \Magento\Quote\Model\Quote\Address\Total $total, $useBaseCurrency)
+    {
+        $pluginInfo = $this->pluginList->getNext($this->subjectType, 'getShippingDataObject');
+        return $pluginInfo ? $this->___callPlugins('getShippingDataObject', func_get_args(), $pluginInfo) : parent::getShippingDataObject($shippingAssignment, $total, $useBaseCurrency);
     }
 }

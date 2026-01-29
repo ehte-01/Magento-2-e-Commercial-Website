@@ -17,15 +17,6 @@ class Interceptor extends \Magento\Catalog\Block\Product\ProductList\Promotion i
     /**
      * {@inheritdoc}
      */
-    public function getProductDetailsHtml(\Magento\Catalog\Model\Product $product)
-    {
-        $pluginInfo = $this->pluginList->getNext($this->subjectType, 'getProductDetailsHtml');
-        return $pluginInfo ? $this->___callPlugins('getProductDetailsHtml', func_get_args(), $pluginInfo) : parent::getProductDetailsHtml($product);
-    }
-
-    /**
-     * {@inheritdoc}
-     */
     public function getImage($product, $imageId, $attributes = [])
     {
         $pluginInfo = $this->pluginList->getNext($this->subjectType, 'getImage');

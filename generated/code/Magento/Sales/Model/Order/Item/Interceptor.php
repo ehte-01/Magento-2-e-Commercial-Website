@@ -26,6 +26,15 @@ class Interceptor extends \Magento\Sales\Model\Order\Item implements \Magento\Fr
     /**
      * {@inheritdoc}
      */
+    public function getStatusId()
+    {
+        $pluginInfo = $this->pluginList->getNext($this->subjectType, 'getStatusId');
+        return $pluginInfo ? $this->___callPlugins('getStatusId', func_get_args(), $pluginInfo) : parent::getStatusId();
+    }
+
+    /**
+     * {@inheritdoc}
+     */
     public function isProcessingAvailable()
     {
         $pluginInfo = $this->pluginList->getNext($this->subjectType, 'isProcessingAvailable');

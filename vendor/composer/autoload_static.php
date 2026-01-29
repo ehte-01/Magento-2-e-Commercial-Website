@@ -430,6 +430,8 @@ class ComposerStaticInitba764dd07a4a7d44cfdcf0720e18d56b
         '7102f9cf0d2c08bc731a7e185c1c8bfc' => __DIR__ . '/..' . '/magento/theme-frontend-luma/registration.php',
         'aa75ea0761a2f40c1f3b32ad314f86c4' => __DIR__ . '/..' . '/phpseclib/mcrypt_compat/lib/mcrypt.php',
         '38143a9afc50997d55e4815db8489d1c' => __DIR__ . '/..' . '/rector/rector/bootstrap.php',
+        '6afbb3ece6b14bcedd88522ddc6978f5' => __DIR__ . '/..' . '/stripe/module-payments/registration.php',
+        '04ebb6592eabd034916b56c6f08846d0' => __DIR__ . '/..' . '/stripe/module-tax/registration.php',
         '940abd8fb01ee76a36b44f35dcf9783b' => __DIR__ . '/..' . '/weew/helpers-array/src/array.php',
         'eda65932675b68b5aee4503e0762d64d' => __DIR__ . '/..' . '/magento/magento2-functional-testing-framework/src/Magento/FunctionalTestingFramework/_bootstrap.php',
         'efb1c0737b9e14915954f7954ea42462' => __DIR__ . '/..' . '/magento/module-bundle-sample-data/registration.php',
@@ -512,6 +514,9 @@ class ComposerStaticInitba764dd07a4a7d44cfdcf0720e18d56b
             'Symfony\\Component\\CssSelector\\' => 30,
             'Symfony\\Component\\Console\\' => 26,
             'Symfony\\Component\\Config\\' => 25,
+            'Stripe\\' => 7,
+            'StripeIntegration\\Tax\\' => 22,
+            'StripeIntegration\\Payments\\' => 27,
             'SpomkyLabs\\Pki\\' => 15,
             'Seld\\Signal\\' => 12,
             'Seld\\PharUtils\\' => 15,
@@ -1250,6 +1255,18 @@ class ComposerStaticInitba764dd07a4a7d44cfdcf0720e18d56b
         'Symfony\\Component\\Config\\' =>
         array (
             0 => __DIR__ . '/..' . '/symfony/config',
+        ),
+        'Stripe\\' =>
+        array (
+            0 => __DIR__ . '/..' . '/stripe/stripe-php/lib',
+        ),
+        'StripeIntegration\\Tax\\' =>
+        array (
+            0 => __DIR__ . '/..' . '/stripe/module-tax',
+        ),
+        'StripeIntegration\\Payments\\' =>
+        array (
+            0 => __DIR__ . '/..' . '/stripe/module-payments',
         ),
         'SpomkyLabs\\Pki\\' =>
         array (

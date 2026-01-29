@@ -62,9 +62,27 @@ class Interceptor extends \Magento\Quote\Model\Quote implements \Magento\Framewo
     /**
      * {@inheritdoc}
      */
+    public function addProduct(\Magento\Catalog\Model\Product $product, $request = null, $processMode = 'full')
+    {
+        $pluginInfo = $this->pluginList->getNext($this->subjectType, 'addProduct');
+        return $pluginInfo ? $this->___callPlugins('addProduct', func_get_args(), $pluginInfo) : parent::addProduct($product, $request, $processMode);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
     public function updateItem($itemId, $buyRequest, $params = null)
     {
         $pluginInfo = $this->pluginList->getNext($this->subjectType, 'updateItem');
         return $pluginInfo ? $this->___callPlugins('updateItem', func_get_args(), $pluginInfo) : parent::updateItem($itemId, $buyRequest, $params);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function save()
+    {
+        $pluginInfo = $this->pluginList->getNext($this->subjectType, 'save');
+        return $pluginInfo ? $this->___callPlugins('save', func_get_args(), $pluginInfo) : parent::save();
     }
 }

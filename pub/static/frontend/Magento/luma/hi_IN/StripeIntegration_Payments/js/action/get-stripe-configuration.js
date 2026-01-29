@@ -1,0 +1,1 @@
+/home/shan_03/magento2/vendor/stripe/module-payments/view/frontend/web/js/action/get-stripe-configuration.js
