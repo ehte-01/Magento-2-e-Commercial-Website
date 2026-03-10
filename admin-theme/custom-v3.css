@@ -1,0 +1,641 @@
+/**
+ * Thrift Admin Theme — Split Layout Login + Admin Styles
+ * Fashion-forward design with illustration panel
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap');
+
+/* ============================================
+   CSS Variables
+   ============================================ */
+:root {
+    --th-primary: #7c3aed;
+    --th-primary-hover: #6d28d9;
+    --th-primary-dark: #5b21b6;
+    --th-primary-light: #8b5cf6;
+    --th-primary-glow: rgba(124, 58, 237, 0.35);
+    --th-primary-subtle: rgba(124, 58, 237, 0.08);
+    --th-bg-dark: #0f0b1a;
+    --th-text: #1a1a2e;
+    --th-text-muted: #6b7280;
+    --th-border: #e5e7eb;
+    --th-border-light: #f3f4f6;
+    --th-surface: #fafafa;
+    --th-radius: 12px;
+    --th-shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+    --th-shadow-md: 0 4px 16px rgba(0,0,0,0.08);
+    --th-transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ============================================
+   Base Typography
+   ============================================ */
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* ============================================
+   Admin Side Menu
+   ============================================ */
+.admin__menu,
+.menu-wrapper {
+    background: linear-gradient(180deg, #0f0b1a 0%, #1a1133 100%) !important;
+}
+
+.admin__menu .item-title,
+.menu-wrapper .level-0 > a span {
+    font-family: 'Inter', sans-serif !important;
+    font-weight: 500 !important;
+}
+
+.admin__menu .level-0 > a:hover,
+.admin__menu .level-0._active > a,
+.menu-wrapper .level-0 > a:hover,
+.menu-wrapper .level-0._active > a {
+    background-color: rgba(124, 58, 237, 0.12) !important;
+    border-left: 3px solid var(--th-primary) !important;
+}
+
+.admin__menu .level-0 .submenu,
+.menu-wrapper .submenu {
+    background: #130e21 !important;
+}
+
+.admin__menu .level-0 .submenu a:hover,
+.menu-wrapper .submenu a:hover {
+    background-color: rgba(124, 58, 237, 0.08) !important;
+}
+
+.admin__menu .level-0 .submenu ._active > a,
+.menu-wrapper .submenu ._active > a {
+    color: #a78bfa !important;
+}
+
+/* ============================================
+   Page Header
+   ============================================ */
+.page-header {
+    background-color: #ffffff !important;
+    border-bottom: 1px solid var(--th-border-light) !important;
+    box-shadow: var(--th-shadow-sm) !important;
+}
+
+.logo._role { background: none !important; }
+
+.page-title {
+    font-family: 'Playfair Display', Georgia, serif !important;
+    font-weight: 700 !important;
+    color: var(--th-text) !important;
+}
+
+/* ============================================
+   Buttons
+   ============================================ */
+.action-primary,
+button.primary,
+.action-default.primary,
+button.action-primary {
+    background: linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%) !important;
+    border: none !important;
+    color: #fff !important;
+    border-radius: 10px !important;
+    font-weight: 600 !important;
+    font-family: 'Inter', sans-serif !important;
+    text-transform: none !important;
+    transition: all var(--th-transition) !important;
+    box-shadow: 0 2px 8px rgba(124, 58, 237, 0.25) !important;
+}
+
+.action-primary:hover, button.primary:hover,
+.action-default.primary:hover, button.action-primary:hover {
+    background: linear-gradient(135deg, #6d28d9 0%, #5b21b6 100%) !important;
+    box-shadow: 0 6px 20px rgba(124, 58, 237, 0.4) !important;
+    transform: translateY(-1px) !important;
+}
+
+.action-secondary, button.secondary, .action-default:not(.primary) {
+    border-radius: 10px !important;
+    font-family: 'Inter', sans-serif !important;
+    font-weight: 500 !important;
+}
+
+button, .action-default { border-radius: 8px; font-family: 'Inter', sans-serif; }
+
+/* ============================================
+   Forms
+   ============================================ */
+.admin__control-text, .admin__control-textarea, .admin__control-select,
+input[type="text"], input[type="password"], input[type="email"],
+input[type="number"], input[type="search"], textarea, select {
+    border: 1.5px solid var(--th-border) !important;
+    border-radius: 10px !important;
+    font-family: 'Inter', sans-serif !important;
+    font-size: 14px !important;
+    padding: 10px 14px !important;
+    transition: all var(--th-transition) !important;
+    background-color: #fff !important;
+}
+
+.admin__control-text:focus, .admin__control-textarea:focus,
+input[type="text"]:focus, input[type="password"]:focus,
+input[type="email"]:focus, textarea:focus, select:focus {
+    border-color: var(--th-primary) !important;
+    box-shadow: 0 0 0 4px var(--th-primary-subtle) !important;
+    outline: none !important;
+}
+
+.admin__field-label span {
+    font-weight: 500 !important;
+    font-size: 13px !important;
+    color: #4b5563 !important;
+}
+
+/* ============================================
+   Data Grid
+   ============================================ */
+.admin__data-grid-wrap {
+    border-radius: var(--th-radius);
+    overflow: hidden;
+    border: 1px solid var(--th-border-light);
+    box-shadow: var(--th-shadow-sm);
+}
+
+.data-grid th {
+    background-color: #f9fafb !important;
+    font-weight: 600 !important;
+    font-size: 11px !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.06em !important;
+    color: #6b7280 !important;
+    font-family: 'Inter', sans-serif !important;
+}
+
+.data-grid td {
+    font-size: 14px !important;
+    font-family: 'Inter', sans-serif !important;
+    color: #1f2937 !important;
+}
+
+.data-grid tr:hover td { background-color: #faf5ff !important; }
+.data-grid tr._selected td { background-color: #f5f3ff !important; }
+.data-grid .action-menu-item { color: var(--th-primary) !important; }
+.data-grid .action-menu-item:hover { background: #faf5ff !important; }
+
+/* ============================================
+   Dashboard
+   ============================================ */
+.dashboard-item {
+    border-radius: 16px !important;
+    border: 1px solid var(--th-border-light) !important;
+    box-shadow: var(--th-shadow-sm) !important;
+}
+
+/* ============================================
+   Tabs
+   ============================================ */
+.admin__page-nav-item._active { border-color: var(--th-primary) !important; }
+.admin__page-nav-item._active a { color: var(--th-primary) !important; }
+.admin__page-nav-item a:hover { color: var(--th-primary) !important; }
+.ui-tabs-nav li.ui-tabs-active { border-bottom-color: var(--th-primary) !important; }
+.ui-tabs-nav li.ui-tabs-active a { color: var(--th-primary) !important; }
+
+/* ============================================
+   Messages
+   ============================================ */
+.message-success {
+    background: #f0fdf4 !important; border: 1px solid #bbf7d0 !important;
+    color: #166534 !important; border-radius: 10px !important;
+}
+.message-error {
+    background: #fef2f2 !important; border: 1px solid #fecaca !important;
+    color: #991b1b !important; border-radius: 10px !important;
+}
+.message-warning {
+    background: #fffbeb !important; border: 1px solid #fde68a !important;
+    color: #92400e !important; border-radius: 10px !important;
+}
+.message-notice, .message-info {
+    background: #faf5ff !important; border: 1px solid #ddd6fe !important;
+    color: #5b21b6 !important; border-radius: 10px !important;
+}
+
+/* ============================================
+   Modals
+   ============================================ */
+.modal-inner-wrap { border-radius: 16px !important; overflow: hidden; }
+.modal-header { background: #fff !important; border-bottom: 1px solid var(--th-border-light) !important; }
+.modal-header .modal-title { font-family: 'Inter', sans-serif !important; font-weight: 600 !important; }
+
+/* ============================================
+   Tags
+   ============================================ */
+.grid-severity-notice, .grid-severity-minor {
+    background: #f5f3ff !important; color: var(--th-primary) !important;
+    border: 1px solid #ddd6fe !important; border-radius: 9999px !important;
+    font-family: 'Inter', sans-serif !important; font-weight: 500 !important; font-size: 12px !important;
+}
+.grid-severity-critical, .grid-severity-major {
+    background: #fef2f2 !important; color: #dc2626 !important;
+    border: 1px solid #fecaca !important; border-radius: 9999px !important;
+}
+
+/* ============================================
+   Links, Toggle, Content, Footer, Scrollbar
+   ============================================ */
+a { color: var(--th-primary); }
+a:hover { color: var(--th-primary-hover); }
+
+.admin__actions-switch-checkbox:checked + .admin__actions-switch-label:before {
+    background-color: var(--th-primary) !important;
+}
+
+.page-content { background: var(--th-surface) !important; }
+.page-main-actions {
+    background: #fff !important; border-bottom: 1px solid var(--th-border-light) !important;
+}
+.page-wrapper { background: var(--th-surface) !important; }
+
+.admin__fieldset-wrapper-title { border-bottom: 2px solid var(--th-border-light) !important; }
+.admin__fieldset-wrapper-title strong {
+    font-family: 'Inter', sans-serif !important; font-weight: 600 !important;
+    font-size: 16px !important; color: var(--th-text) !important;
+}
+
+.page-footer {
+    background: #0f0b1a !important; color: rgba(255,255,255,0.4) !important;
+    font-family: 'Inter', sans-serif !important; border-top: none !important;
+}
+
+.page-breadcrumbs { font-family: 'Inter', sans-serif !important; }
+.page-breadcrumbs a { color: var(--th-primary) !important; }
+
+.admin__action-dropdown-menu {
+    border-radius: 12px !important; box-shadow: 0 12px 40px rgba(0,0,0,0.14) !important;
+    border: 1px solid var(--th-border-light) !important; overflow: hidden;
+}
+.admin__action-dropdown-menu > li > a:hover { background-color: #faf5ff !important; color: var(--th-primary) !important; }
+
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #d1d5db; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #9ca3af; }
+
+
+/* ================================================================
+   ================================================================
+   LOGIN PAGE — SPLIT LAYOUT PREMIUM DESIGN
+   ================================================================
+   ================================================================ */
+
+/* ---- Page Background ---- */
+.adminhtml-auth-login,
+.page-layout-admin-login {
+    background: linear-gradient(135deg, #7c3aed 0%, #6d28d9 30%, #5b21b6 60%, #4c1d95 100%) !important;
+    min-height: 100vh;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 32px 20px !important;
+}
+
+/* ---- Main Card Container — Grid Split ---- */
+.adminhtml-auth-login .page-wrapper {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    grid-template-rows: auto 1fr auto !important;
+    max-width: 820px !important;
+    min-height: 480px !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+    background: #ffffff !important;
+    border-radius: 24px !important;
+    overflow: hidden !important;
+    box-shadow:
+        0 40px 100px -20px rgba(0, 0, 0, 0.4),
+        0 0 0 1px rgba(255, 255, 255, 0.1) !important;
+    position: relative;
+}
+
+/* ---- LEFT PANEL — Illustration Side ---- */
+.adminhtml-auth-login .page-wrapper::before {
+    content: '';
+    grid-column: 1;
+    grid-row: 1 / -1;
+    background:
+        linear-gradient(
+            180deg,
+            rgba(15, 11, 26, 0.3) 0%,
+            rgba(91, 33, 182, 0.5) 40%,
+            rgba(124, 58, 237, 0.6) 70%,
+            rgba(15, 11, 26, 0.85) 100%
+        ),
+        url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&q=80') center/cover no-repeat;
+    position: relative;
+    display: block;
+    min-height: 100%;
+}
+
+/* Text overlay on left panel */
+.adminhtml-auth-login .page-wrapper::after {
+    content: 'Thrift\AAdmin Portal\A\AManage your store,\Acurate collections\A& delight customers.';
+    white-space: pre-line;
+    grid-column: 1;
+    grid-row: 1 / -1;
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: flex-end;
+    padding: 32px 28px;
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.75);
+    pointer-events: none;
+    /* Overlay the ::before */
+    margin-left: -100%;
+    width: 100%;
+}
+
+/* ---- RIGHT PANEL — Login Header (Logo) ---- */
+.login-header {
+    grid-column: 2 !important;
+    grid-row: 1 !important;
+    text-align: left !important;
+    padding: 32px 40px 0 !important;
+    background: transparent !important;
+    border: none !important;
+    margin: 0 !important;
+}
+
+.login-header .logo {
+    display: inline-flex !important;
+    align-items: center !important;
+    background: transparent !important;
+    text-decoration: none !important;
+}
+
+.login-header .logo-img {
+    display: none !important;
+}
+
+.login-header .logo::after {
+    content: 'Thrift';
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    color: #1a1a2e;
+}
+
+/* ---- RIGHT PANEL — Login Content (Form) ---- */
+.login-content {
+    grid-column: 2 !important;
+    grid-row: 2 !important;
+    background: transparent !important;
+    border-radius: 0 !important;
+    padding: 20px 40px 16px !important;
+    box-shadow: none !important;
+    border: none !important;
+    max-width: none !important;
+    width: auto !important;
+    margin: 0 !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* ---- Greeting text (injected via CSS) ---- */
+.login-content .admin__fieldset::before {
+    content: 'Welcome Back!';
+    display: block;
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 14px;
+    font-weight: 500;
+    font-style: italic;
+    color: var(--th-primary);
+    margin-bottom: 4px;
+    letter-spacing: 0.02em;
+}
+
+/* ---- Form Legend / Title ---- */
+.login-content .admin__legend {
+    font-family: 'Inter', sans-serif !important;
+    font-size: 22px !important;
+    font-weight: 800 !important;
+    color: #111827 !important;
+    text-align: left !important;
+    margin-bottom: 24px !important;
+    display: block !important;
+    width: 100% !important;
+    padding: 0 !important;
+    border: none !important;
+    letter-spacing: -0.03em !important;
+    line-height: 1.2 !important;
+}
+
+/* Hide original legend text, replace */
+.login-content .admin__legend span {
+    font-size: 0 !important;
+    color: transparent !important;
+}
+
+.login-content .admin__legend span::before {
+    content: 'Sign in to your account';
+    font-size: 22px;
+    font-weight: 800;
+    color: #111827;
+    letter-spacing: -0.03em;
+}
+
+/* ---- Fieldset ---- */
+.login-content .admin__fieldset {
+    border: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+/* ---- Fields ---- */
+.login-content .admin__field {
+    margin-bottom: 18px !important;
+}
+
+/* ---- Labels ---- */
+.login-content .admin__field-label {
+    font-weight: 600 !important;
+    font-size: 13px !important;
+    color: #374151 !important;
+    margin-bottom: 8px !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.05em !important;
+}
+
+.login-content .admin__field-label span {
+    font-weight: 600 !important;
+    font-size: 12px !important;
+    color: #6b7280 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.08em !important;
+}
+
+/* ---- Input Fields ---- */
+.login-content .admin__control-text,
+.login-content input[type="text"],
+.login-content input[type="password"] {
+    border: none !important;
+    border-bottom: 2px solid #e5e7eb !important;
+    border-radius: 0 !important;
+    padding: 12px 4px !important;
+    font-size: 15px !important;
+    font-family: 'Inter', sans-serif !important;
+    background-color: transparent !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    color: #111827 !important;
+    line-height: 1.5 !important;
+}
+
+.login-content .admin__control-text:hover,
+.login-content input[type="text"]:hover,
+.login-content input[type="password"]:hover {
+    border-bottom-color: #9ca3af !important;
+}
+
+.login-content .admin__control-text:focus,
+.login-content input[type="text"]:focus,
+.login-content input[type="password"]:focus {
+    border-bottom-color: #7c3aed !important;
+    background-color: transparent !important;
+    box-shadow: 0 2px 0 0 #7c3aed !important;
+    outline: none !important;
+}
+
+/* ---- Sign In Button ---- */
+.login-content .action-login,
+.login-content .action-primary {
+    background: linear-gradient(135deg, #7c3aed 0%, #5b21b6 100%) !important;
+    border: none !important;
+    border-radius: 12px !important;
+    padding: 14px 28px !important;
+    font-size: 14px !important;
+    font-weight: 700 !important;
+    font-family: 'Inter', sans-serif !important;
+    color: #ffffff !important;
+    cursor: pointer !important;
+    width: 100% !important;
+    letter-spacing: 0.04em !important;
+    text-transform: uppercase !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    margin-top: 8px !important;
+    box-shadow:
+        0 4px 16px rgba(124, 58, 237, 0.35),
+        inset 0 1px 0 rgba(255,255,255,0.15) !important;
+    position: relative;
+    overflow: hidden;
+}
+
+.login-content .action-login:hover,
+.login-content .action-primary:hover {
+    background: linear-gradient(135deg, #6d28d9 0%, #4c1d95 100%) !important;
+    box-shadow:
+        0 8px 30px rgba(124, 58, 237, 0.5),
+        inset 0 1px 0 rgba(255,255,255,0.15) !important;
+    transform: translateY(-2px) !important;
+}
+
+.login-content .action-login:active,
+.login-content .action-primary:active {
+    transform: translateY(0) !important;
+    box-shadow: 0 2px 8px rgba(124, 58, 237, 0.3) !important;
+}
+
+/* ---- Form Actions ---- */
+.login-content .form-actions {
+    margin-top: 20px !important;
+}
+
+/* ---- Forgot Password ---- */
+.login-content .links {
+    text-align: right !important;
+    margin-top: 0 !important;
+    margin-bottom: 8px !important;
+    padding: 0 !important;
+    border: none !important;
+    /* Move above the button */
+    order: -1;
+}
+
+.login-content .action-forgotpassword {
+    color: #7c3aed !important;
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    text-decoration: none !important;
+    letter-spacing: 0.01em;
+}
+
+.login-content .action-forgotpassword:hover {
+    color: #5b21b6 !important;
+    text-decoration: underline !important;
+}
+
+/* ---- Login Footer ---- */
+.login-footer {
+    grid-column: 2 !important;
+    grid-row: 3 !important;
+    color: #9ca3af !important;
+    font-family: 'Inter', sans-serif !important;
+    font-size: 11px !important;
+    text-align: left !important;
+    background: transparent !important;
+    border: none !important;
+    padding: 0 40px 24px !important;
+    margin: 0 !important;
+}
+
+.login-footer a { color: #7c3aed !important; text-decoration: none !important; }
+.login-footer a:hover { color: #5b21b6 !important; }
+.login-footer span { color: #9ca3af !important; }
+.login-footer img {
+    filter: none !important;
+    opacity: 0.4 !important;
+    max-height: 16px !important;
+}
+
+/* Hide the inline-styled footer div (Thrift logo duplicate) */
+.login-footer > div[style] {
+    float: none !important;
+    display: none !important;
+}
+
+/* ---- Error Messages ---- */
+.login-content .message-error,
+.login-content .message {
+    border-radius: 10px !important;
+    margin-bottom: 16px !important;
+    font-family: 'Inter', sans-serif !important;
+    font-size: 13px !important;
+}
+
+/* ---- Responsive: Stack on small screens ---- */
+@media (max-width: 768px) {
+    .adminhtml-auth-login .page-wrapper {
+        grid-template-columns: 1fr !important;
+        max-width: 440px !important;
+        min-height: auto !important;
+        top: auto;
+        transform: none;
+        margin: 40px auto !important;
+    }
+
+    .adminhtml-auth-login .page-wrapper::before,
+    .adminhtml-auth-login .page-wrapper::after {
+        display: none !important;
+    }
+
+    .login-header { padding: 32px 32px 0 !important; }
+    .login-content { padding: 24px 32px 20px !important; }
+    .login-footer { padding: 0 32px 24px !important; }
+}

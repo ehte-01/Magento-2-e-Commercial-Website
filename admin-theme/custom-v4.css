@@ -1,0 +1,2177 @@
+/**
+ * Thrift Admin Theme v4 — Warm & Modern Professional Design
+ * Matches storefront: warm earthy tones + purple brand accents
+ * Font: Inter (UI) + Playfair Display (headings/brand)
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap');
+
+/* ============================================
+   CSS Variables — Storefront-Matched Palette
+   ============================================ */
+:root {
+    /* Brand Purple */
+    --th-brand-50: #faf5ff;
+    --th-brand-100: #f3e8ff;
+    --th-brand-200: #e9d5ff;
+    --th-brand-300: #d8b4fe;
+    --th-brand-400: #c084fc;
+    --th-brand-500: #a855f7;
+    --th-brand-600: #9333ea;
+    --th-brand-700: #7e22ce;
+    --th-brand-900: #581c87;
+
+    /* Warm Palette */
+    --th-warm-50: #fdfcfb;
+    --th-warm-100: #f5f0eb;
+    --th-warm-200: #e8ddd3;
+    --th-warm-300: #d4c4b5;
+    --th-warm-400: #b8a08a;
+    --th-warm-500: #9a8070;
+    --th-warm-600: #7d6456;
+    --th-warm-700: #5e4a3e;
+    --th-warm-800: #3d2e1f;
+    --th-warm-900: #2a1f14;
+
+    /* Functional */
+    --th-radius: 6px;
+    --th-radius-lg: 8px;
+    --th-radius-xl: 14px;
+    --th-shadow-xs: 0 1px 2px rgba(42, 31, 20, 0.04);
+    --th-shadow-sm: 0 1px 3px rgba(42, 31, 20, 0.06), 0 1px 2px rgba(42, 31, 20, 0.04);
+    --th-shadow-md: 0 4px 12px rgba(42, 31, 20, 0.06), 0 2px 4px rgba(42, 31, 20, 0.03);
+    --th-shadow-lg: 0 10px 30px rgba(42, 31, 20, 0.08), 0 4px 8px rgba(42, 31, 20, 0.04);
+    --th-transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ============================================
+   Base Typography & Body
+   ============================================ */
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: var(--th-warm-900) !important;
+}
+
+::selection {
+    background: var(--th-brand-200);
+    color: var(--th-brand-900);
+}
+
+/* ============================================
+   Admin Side Menu — Warm Dark Sidebar
+   ============================================ */
+.admin__menu,
+.menu-wrapper {
+    background: linear-gradient(180deg, var(--th-warm-900) 0%, #1e160d 100%) !important;
+}
+
+/* Logo in sidebar */
+.admin__menu-header,
+.menu-wrapper .logo {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06) !important;
+}
+
+/* Menu items */
+.admin__menu .item-title,
+.menu-wrapper .level-0 > a span {
+    font-family: 'Inter', sans-serif !important;
+    font-weight: 500 !important;
+    font-size: 11px !important;
+    letter-spacing: 0.01em !important;
+    text-transform: uppercase !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+}
+
+.admin__menu .level-0 > a,
+.menu-wrapper .level-0 > a {
+    transition: all var(--th-transition) !important;
+    border-left: 3px solid transparent !important;
+    overflow: hidden !important;
+}
+
+.admin__menu .level-0 > a:hover,
+.menu-wrapper .level-0 > a:hover {
+    background-color: rgba(147, 51, 234, 0.1) !important;
+    border-left: 3px solid var(--th-brand-400) !important;
+}
+
+.admin__menu .level-0._active > a,
+.menu-wrapper .level-0._active > a {
+    background-color: rgba(147, 51, 234, 0.15) !important;
+    border-left: 3px solid var(--th-brand-500) !important;
+}
+
+.admin__menu .level-0._active > a .item-title,
+.menu-wrapper .level-0._active > a span {
+    color: #ffffff !important;
+    font-weight: 600 !important;
+}
+
+/* Submenu */
+.admin__menu .level-0 .submenu,
+.menu-wrapper .submenu {
+    background: #1a120a !important;
+    border-left: 1px solid rgba(255, 255, 255, 0.04) !important;
+}
+
+.admin__menu .level-0 .submenu a,
+.menu-wrapper .submenu a {
+    font-family: 'Inter', sans-serif !important;
+    font-size: 13px !important;
+    font-weight: 400 !important;
+    color: rgba(255, 255, 255, 0.6) !important;
+    transition: all var(--th-transition) !important;
+    padding: 10px 18px 10px 24px !important;
+}
+
+.admin__menu .level-0 .submenu a:hover,
+.menu-wrapper .submenu a:hover {
+    background-color: rgba(147, 51, 234, 0.08) !important;
+    color: #ffffff !important;
+}
+
+.admin__menu .level-0 .submenu ._active > a,
+.menu-wrapper .submenu ._active > a {
+    color: var(--th-brand-300) !important;
+    font-weight: 500 !important;
+    background-color: rgba(147, 51, 234, 0.06) !important;
+}
+
+/* Sidebar menu item text container */
+.admin__menu .level-0 > a,
+.menu-wrapper .level-0 > a {
+    overflow: hidden !important;
+    text-align: center !important;
+    padding: 10px 4px !important;
+    line-height: 1.3 !important;
+}
+
+/* Sidebar icons */
+.admin__menu .level-0 > a:before,
+.menu-wrapper .level-0 > a:before {
+    opacity: 0.65;
+    transition: opacity var(--th-transition);
+}
+
+.admin__menu .level-0 > a:hover:before,
+.admin__menu .level-0._active > a:before,
+.menu-wrapper .level-0 > a:hover:before,
+.menu-wrapper .level-0._active > a:before {
+    opacity: 1;
+}
+
+/* Sidebar Thrift branding — injected via JS */
+#thrift-sidebar-logo {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 10px !important;
+    height: 56px !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+    flex-shrink: 0 !important;
+    cursor: default !important;
+}
+
+#thrift-sidebar-logo .thrift-t-icon {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 34px !important;
+    height: 34px !important;
+    background: linear-gradient(135deg, #a855f7, #9333ea) !important;
+    border-radius: 8px !important;
+    font-family: 'Georgia', serif !important;
+    font-size: 20px !important;
+    font-weight: 700 !important;
+    color: #ffffff !important;
+    line-height: 1 !important;
+}
+
+#thrift-sidebar-logo .thrift-t-label {
+    font-family: 'Playfair Display', Georgia, serif !important;
+    font-size: 20px !important;
+    font-weight: 700 !important;
+    color: #ffffff !important;
+    letter-spacing: -0.02em !important;
+}
+
+/* When sidebar is collapsed, hide label */
+.admin__menu._collapsed #thrift-sidebar-logo .thrift-t-label,
+._collapsed .admin__menu #thrift-sidebar-logo .thrift-t-label {
+    display: none !important;
+}
+
+.admin__menu._collapsed #thrift-sidebar-logo,
+._collapsed .admin__menu #thrift-sidebar-logo {
+    gap: 0 !important;
+}
+
+/* ============================================
+   Page Header — Clean with Thrift Branding
+   ============================================ */
+.page-header {
+    background-color: #ffffff !important;
+    border-bottom: 1px solid var(--th-warm-200) !important;
+    box-shadow: var(--th-shadow-xs) !important;
+    min-height: 56px !important;
+}
+
+/* Replace admin logo with Thrift text */
+.logo._role,
+.page-header .logo {
+    background: none !important;
+    display: flex !important;
+    align-items: center !important;
+}
+
+.logo._role img,
+.page-header .logo img,
+.page-header .logo svg {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+    visibility: hidden !important;
+}
+
+.logo._role::after,
+.page-header .logo::after {
+    content: 'Thrift';
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    color: var(--th-warm-900);
+    display: inline-block !important;
+    visibility: visible !important;
+}
+
+/* Hide all logo images globally */
+.logo img,
+.logo .logo-img {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+    visibility: hidden !important;
+}
+
+/* Admin user section */
+.admin-user .admin__action-dropdown {
+    font-family: 'Inter', sans-serif !important;
+    font-weight: 500 !important;
+    color: var(--th-warm-700) !important;
+}
+
+/* Global search icon */
+.page-header .search-global-field {
+    border-radius: 6px !important;
+}
+
+/* Notification badge */
+.notifications-wrapper .notifications-action .notifications-counter {
+    background: var(--th-brand-600) !important;
+    border-radius: 9999px !important;
+    font-family: 'Inter', sans-serif !important;
+    font-weight: 600 !important;
+    font-size: 11px !important;
+}
+
+/* ============================================
+   Page Title
+   ============================================ */
+.page-title {
+    font-family: 'Playfair Display', Georgia, serif !important;
+    font-weight: 700 !important;
+    color: var(--th-warm-900) !important;
+    letter-spacing: -0.02em !important;
+    font-size: 26px !important;
+}
+
+/* ============================================
+   Content Area Background
+   ============================================ */
+.page-content,
+.page-wrapper > .page-content {
+    background: var(--th-warm-50) !important;
+}
+
+.page-wrapper {
+    background: var(--th-warm-50) !important;
+}
+
+/* ============================================
+   Top Toolbar / Action Bar
+   ============================================ */
+.page-main-actions {
+    background: #ffffff !important;
+    border-bottom: 1px solid var(--th-warm-200) !important;
+    box-shadow: var(--th-shadow-xs) !important;
+    padding: 12px 24px !important;
+}
+
+/* ============================================
+   System Notification Bar
+   ============================================ */
+.message.message-system-inner,
+.message-system-inner {
+    background: var(--th-brand-50) !important;
+    border: 1px solid var(--th-brand-200) !important;
+    border-radius: 6px !important;
+    color: var(--th-brand-700) !important;
+    font-family: 'Inter', sans-serif !important;
+    font-size: 13px !important;
+    margin: 12px !important;
+}
+
+/* Notification bar at very top */
+.page-header ~ .notifications,
+.message-system-short {
+    background: var(--th-brand-50) !important;
+    border-bottom: 1px solid var(--th-brand-100) !important;
+}
+
+/* ============================================
+   Buttons — Refined Purple
+   ============================================ */
+.action-primary,
+button.primary,
+.action-default.primary,
+button.action-primary,
+.page-actions .action-primary {
+    background: linear-gradient(135deg, var(--th-brand-600) 0%, var(--th-brand-700) 100%) !important;
+    border: none !important;
+    color: #fff !important;
+    border-radius: 6px !important;
+    font-weight: 600 !important;
+    font-family: 'Inter', sans-serif !important;
+    font-size: 13.5px !important;
+    text-transform: none !important;
+    transition: all var(--th-transition) !important;
+    box-shadow: 0 2px 8px rgba(147, 51, 234, 0.2) !important;
+    padding: 10px 20px !important;
+    letter-spacing: 0.01em !important;
+}
+
+.action-primary:hover,
+button.primary:hover,
+.action-default.primary:hover,
+button.action-primary:hover {
+    background: linear-gradient(135deg, var(--th-brand-700) 0%, var(--th-brand-900) 100%) !important;
+    box-shadow: 0 6px 20px rgba(147, 51, 234, 0.3) !important;
+    transform: translateY(-1px) !important;
+}
+
+.action-primary:active,
+button.primary:active {
+    transform: translateY(0) !important;
+    box-shadow: 0 2px 6px rgba(147, 51, 234, 0.2) !important;
+}
+
+/* Secondary buttons */
+.action-secondary,
+button.secondary,
+.action-default:not(.primary):not(.action-menu-item):not(.action-select):not(.action-next):not(.action-previous):not(.action-close):not(.admin__action-dropdown):not(.action-multicheck-toggle):not(.action-submenu) {
+    border: 1.5px solid var(--th-warm-200) !important;
+    border-radius: 6px !important;
+    font-family: 'Inter', sans-serif !important;
+    font-weight: 500 !important;
+    font-size: 13px !important;
+    color: var(--th-warm-700) !important;
+    background: #ffffff !important;
+    transition: all var(--th-transition) !important;
+}
+
+.action-secondary:hover,
+button.secondary:hover {
+    border-color: var(--th-brand-300) !important;
+    color: var(--th-brand-700) !important;
+    background: var(--th-brand-50) !important;
+}
+
+/* Button groups - dropdown arrow */
+.actions-split .action-toggle.action-primary {
+    border-left: 1px solid rgba(255, 255, 255, 0.2) !important;
+    border-radius: 0 6px 6px 0 !important;
+}
+
+.actions-split .action-default.action-primary {
+    border-radius: 6px 0 0 6px !important;
+}
+
+/* ============================================
+   Forms — Clean & Warm
+   ============================================ */
+.admin__control-text,
+.admin__control-textarea,
+.admin__control-select,
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="number"],
+input[type="search"],
+textarea,
+select {
+    border: 1.5px solid var(--th-warm-200) !important;
+    border-radius: 5px !important;
+    font-family: 'Inter', sans-serif !important;
+    font-size: 13.5px !important;
+    padding: 9px 14px !important;
+    transition: all var(--th-transition) !important;
+    background-color: #fff !important;
+    color: var(--th-warm-900) !important;
+}
+
+.admin__control-text:focus,
+.admin__control-textarea:focus,
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="email"]:focus,
+textarea:focus,
+select:focus {
+    border-color: var(--th-brand-400) !important;
+    box-shadow: 0 0 0 3px rgba(147, 51, 234, 0.08) !important;
+    outline: none !important;
+}
+
+.admin__control-text::placeholder,
+input::placeholder {
+    color: var(--th-warm-400) !important;
+    font-style: italic;
+}
+
+.admin__field-label span {
+    font-weight: 500 !important;
+    font-size: 13px !important;
+    color: var(--th-warm-700) !important;
+    font-family: 'Inter', sans-serif !important;
+}
+
+/* Search by keyword input */
+.data-grid-search-control {
+    border: 1.5px solid var(--th-warm-200) !important;
+    border-radius: 5px !important;
+    font-family: 'Inter', sans-serif !important;
+    padding: 9px 14px !important;
+    font-size: 13.5px !important;
+    background: #fff !important;
+    transition: all var(--th-transition) !important;
+}
+
+.data-grid-search-control:focus {
+    border-color: var(--th-brand-400) !important;
+    box-shadow: 0 0 0 3px rgba(147, 51, 234, 0.08) !important;
+}
+
+/* ============================================
+   Data Grid — Modern & Clean
+   ============================================ */
+.admin__data-grid-wrap {
+    border-radius: 8px !important;
+    overflow: visible !important;
+    border: 1px solid var(--th-warm-200) !important;
+    box-shadow: var(--th-shadow-sm) !important;
+    background: #fff !important;
+}
+
+.data-grid {
+    border: none !important;
+}
+
+.data-grid th {
+    background-color: var(--th-warm-100) !important;
+    font-weight: 600 !important;
+    font-size: 11px !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.06em !important;
+    color: var(--th-warm-500) !important;
+    font-family: 'Inter', sans-serif !important;
+    border-bottom: 2px solid var(--th-warm-200) !important;
+    padding: 14px 16px !important;
+}
+
+.data-grid td {
+    font-size: 13.5px !important;
+    font-family: 'Inter', sans-serif !important;
+    color: var(--th-warm-800) !important;
+    padding: 14px 16px !important;
+    border-bottom: 1px solid var(--th-warm-100) !important;
+}
+
+.data-grid tr:last-child td {
+    border-bottom: none !important;
+}
+
+.data-grid tr:hover td {
+    background-color: var(--th-brand-50) !important;
+}
+
+.data-grid tr._selected td {
+    background-color: var(--th-brand-50) !important;
+}
+
+.data-grid .action-menu-item {
+    color: var(--th-brand-600) !important;
+    font-family: 'Inter', sans-serif !important;
+    font-weight: 500 !important;
+}
+
+.data-grid .action-menu-item:hover {
+    background: var(--th-brand-50) !important;
+    color: var(--th-brand-700) !important;
+}
+
+/* Grid toolbar — Filters, Default View, Columns */
+.admin__data-grid-header {
+    background: #ffffff !important;
+    padding: 16px !important;
+    border-bottom: 1px solid var(--th-warm-100) !important;
+}
+
+.admin__data-grid-header-row .action-default,
+.admin__data-grid-filters-current .action-clear {
+    font-family: 'Inter', sans-serif !important;
+    font-size: 13px !important;
+    font-weight: 500 !important;
+}
+
+/* Grid pager */
+.admin__data-grid-pager {
+    font-family: 'Inter', sans-serif !important;
+}
+
+.admin__data-grid-pager .admin__control-text {
+    border-radius: 4px !important;
+    width: 48px !important;
+    text-align: center !important;
+    padding: 6px 8px !important;
+}
+
+/* Actions dropdown in grid */
+.action-select-wrap .action-select {
+    border: 1.5px solid var(--th-warm-200) !important;
+    border-radius: 4px !important;
+    font-family: 'Inter', sans-serif !important;
+    font-size: 13px !important;
+    font-weight: 500 !important;
+    background: #fff !important;
+    color: var(--th-warm-700) !important;
+}
+
+/* "0 records found" text */
+.admin__data-grid-header .data-grid-info {
+    font-family: 'Inter', sans-serif !important;
+    color: var(--th-warm-500) !important;
+    font-size: 13px !important;
+}
+
+/* No records message */
+.data-grid .data-grid-tr-no-data td {
+    font-family: 'Inter', sans-serif !important;
+    color: var(--th-warm-400) !important;
+    font-size: 14px !important;
+    padding: 40px 20px !important;
+    text-align: center !important;
+}
+
+/* ============================================
+   Admin Fieldset Wrappers (Sections)
+   ============================================ */
+.admin__fieldset-wrapper-title {
+    border-bottom: 2px solid var(--th-warm-200) !important;
+    padding-bottom: 12px !important;
+    margin-bottom: 20px !important;
+}
+
+.admin__fieldset-wrapper-title strong {
+    font-family: 'Playfair Display', Georgia, serif !important;
+    font-weight: 600 !important;
+    font-size: 17px !important;
+    color: var(--th-warm-900) !important;
+    letter-spacing: -0.01em !important;
+}
+
+/* ============================================
+   Dashboard — Professional Layout & Spacing
+   ============================================ */
+
+/* Dashboard container overall spacing */
+.dashboard-container {
+    padding: 24px !important;
+    gap: 24px !important;
+}
+
+/* ── Advanced Reporting Banner ── */
+.dashboard-advanced-reports {
+    background: linear-gradient(135deg, #ffffff 0%, var(--th-brand-50) 100%) !important;
+    border-radius: 10px !important;
+    border: 1px solid var(--th-warm-200) !important;
+    box-shadow: var(--th-shadow-sm) !important;
+    padding: 28px 32px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    margin-bottom: 24px !important;
+}
+
+.dashboard-advanced-reports-description {
+    flex: 1 !important;
+    padding-right: 24px !important;
+}
+
+.dashboard-advanced-reports-title {
+    font-family: 'Inter', sans-serif !important;
+    font-weight: 700 !important;
+    font-size: 18px !important;
+    color: var(--th-warm-900) !important;
+    margin-bottom: 6px !important;
+}
+
+.dashboard-advanced-reports-content {
+    font-family: 'Inter', sans-serif !important;
+    font-size: 13.5px !important;
+    color: var(--th-warm-500) !important;
+    line-height: 1.6 !important;
+}
+
+.dashboard-advanced-reports-actions .action-advanced-reports,
+.dashboard-advanced-reports-actions .action {
+    background: linear-gradient(135deg, var(--th-brand-600) 0%, var(--th-brand-700) 100%) !important;
+    color: #ffffff !important;
+    border: none !important;
+    border-radius: 8px !important;
+    padding: 12px 24px !important;
+    font-family: 'Inter', sans-serif !important;
+    font-weight: 600 !important;
+    font-size: 13.5px !important;
+    white-space: nowrap !important;
+    text-decoration: none !important;
+    box-shadow: 0 2px 8px rgba(147, 51, 234, 0.2) !important;
+    transition: all var(--th-transition) !important;
+}
+
+.dashboard-advanced-reports-actions .action-advanced-reports:hover,
+.dashboard-advanced-reports-actions .action:hover {
+    background: linear-gradient(135deg, var(--th-brand-700) 0%, var(--th-brand-900) 100%) !important;
+    box-shadow: 0 6px 20px rgba(147, 51, 234, 0.3) !important;
+    transform: translateY(-1px) !important;
+    color: #ffffff !important;
+}
+
+/* ── Dashboard Cards (Sales, Last Orders, etc.) ── */
+.dashboard-item {
+    border-radius: 10px !important;
+    border: 1px solid var(--th-warm-200) !important;
+    box-shadow: var(--th-shadow-sm) !important;
+    background: #ffffff !important;
+    overflow: hidden !important;
+    margin-bottom: 20px !important;
+}
+
+.dashboard-item .dashboard-item-title {
+    font-family: 'Inter', sans-serif !important;
+    font-weight: 600 !important;
+    font-size: 15px !important;
+    color: var(--th-warm-800) !important;
+    border-bottom: 1px solid var(--th-warm-100) !important;
+    padding: 16px 20px !important;
+    background: var(--th-warm-50) !important;
+    margin: 0 !important;
+}
+
+/* ── Dashboard Primary Sales Items (Lifetime Sales, Average Order) ── */
+.dashboard-item-primary {
+    border-radius: 10px !important;
+    border: 1px solid var(--th-warm-200) !important;
+    box-shadow: var(--th-shadow-sm) !important;
+    background: #ffffff !important;
+    overflow: hidden !important;
+    margin-bottom: 16px !important;
+    text-align: center !important;
+}
+
+.dashboard-item-primary .dashboard-item-title {
+    font-family: 'Inter', sans-serif !important;
+    font-weight: 600 !important;
+    font-size: 11px !important;
+    color: var(--th-warm-400) !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.06em !important;
+    padding: 18px 20px 0 20px !important;
+    border-bottom: none !important;
+    background: transparent !important;
+}
+
+.dashboard-item-primary .dashboard-item-content {
+    padding: 6px 20px 20px 20px !important;
+}
+
+.dashboard-sales-value {
+    font-family: 'Inter', sans-serif !important;
+    font-weight: 700 !important;
+    font-size: 22px !important;
+    color: var(--th-warm-900) !important;
+}
+
+.dashboard-sales-decimals {
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    color: var(--th-warm-400) !important;
+}
+
+/* ── Dashboard Tables (Last Orders, Search Terms) ── */
+.dashboard-item .dashboard-item-content {
+    padding: 0 !important;
+}
+
+.dashboard-item .admin__table-primary,
+.dashboard-item table.dashboard-data {
+    width: 100% !important;
+    border-collapse: collapse !important;
+}
+
+.dashboard-item .admin__table-primary thead th,
+.dashboard-item table.dashboard-data thead th {
+    font-family: 'Inter', sans-serif !important;
+    font-weight: 600 !important;
+    font-size: 11px !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.06em !important;
+    color: var(--th-warm-500) !important;
+    padding: 12px 16px !important;
+    border-bottom: 1px solid var(--th-warm-100) !important;
+    background: var(--th-warm-50) !important;
+    text-align: left !important;
+}
+
+.dashboard-item .admin__table-primary tbody td,
+.dashboard-item table.dashboard-data tbody td {
+    font-family: 'Inter', sans-serif !important;
+    font-size: 13.5px !important;
+    color: var(--th-warm-700) !important;
+    padding: 12px 16px !important;
+    border-bottom: 1px solid var(--th-warm-100) !important;
+    vertical-align: middle !important;
+}
+
+.dashboard-item .admin__table-primary tbody tr:last-child td,
+.dashboard-item table.dashboard-data tbody tr:last-child td {
+    border-bottom: none !important;
+}
+
+.dashboard-item .admin__table-primary tbody tr:hover td,
+.dashboard-item table.dashboard-data tbody tr:hover td {
+    background: var(--th-brand-50) !important;
+}
+
+/* Empty text inside dashboard items */
+.dashboard-item .empty-text,
+.dashboard-item .dashboard-item-content > div:not(.admin__table-primary):not(table) {
+    padding: 20px !important;
+    font-family: 'Inter', sans-serif !important;
+    font-size: 13px !important;
+    color: var(--th-warm-400) !important;
+    font-style: italic !important;
+}
+
+/* ── Dashboard Totals Bar (Revenue, Tax, Shipping, Quantity) ── */
+.dashboard-totals {
+    margin-bottom: 24px !important;
+    padding: 0 !important;
+}
+
+.dashboard-totals-list {
+    display: flex !important;
+    gap: 16px !important;
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.dashboard-totals-item {
+    flex: 1 !important;
+    background: #ffffff !important;
+    border: 1px solid var(--th-warm-200) !important;
+    border-radius: 10px !important;
+    padding: 18px 20px !important;
+    text-align: center !important;
+    box-shadow: var(--th-shadow-xs) !important;
+}
+
+.dashboard-totals-label {
+    font-family: 'Inter', sans-serif !important;
+    font-size: 11px !important;
+    font-weight: 600 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.06em !important;
+    color: var(--th-warm-400) !important;
+    display: block !important;
+    margin-bottom: 6px !important;
+}
+
+.dashboard-totals-value {
+    font-family: 'Inter', sans-serif !important;
+    font-weight: 700 !important;
+    font-size: 20px !important;
+    color: var(--th-warm-900) !important;
+    display: block !important;
+}
+
+.dashboard-totals-decimals {
+    font-size: 13px !important;
+    font-weight: 500 !important;
+    color: var(--th-warm-400) !important;
+}
+
+/* Legacy fallback for .amount/.label */
+.dashboard-totals .amount {
+    font-family: 'Inter', sans-serif !important;
+    font-weight: 700 !important;
+    font-size: 20px !important;
+    color: var(--th-warm-900) !important;
+}
+
+.dashboard-totals .label {
+    font-family: 'Inter', sans-serif !important;
+    font-size: 11px !important;
+    font-weight: 600 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.06em !important;
+    color: var(--th-warm-400) !important;
+}
+
+/* ── Dashboard Chart Area ── */
+.dashboard-diagram-container {
+    background: #ffffff !important;
+    border: 1px solid var(--th-warm-200) !important;
+    border-radius: 10px !important;
+    box-shadow: var(--th-shadow-sm) !important;
+    padding: 20px !important;
+    margin-bottom: 24px !important;
+}
+
+.dashboard-diagram-tab-content {
+    padding: 16px 0 0 0 !important;
+}
+
+/* ── Dashboard Store Stats (Bestsellers etc.) ── */
+.dashboard-store-stats {
+    background: #ffffff !important;
+    border: 1px solid var(--th-warm-200) !important;
+    border-radius: 10px !important;
+    box-shadow: var(--th-shadow-sm) !important;
+    overflow: hidden !important;
+    margin-bottom: 24px !important;
+}
+
+.dashboard-store-stats .ui-tabs-nav {
+    padding: 0 20px !important;
+    background: var(--th-warm-50) !important;
+    border-bottom: 1px solid var(--th-warm-100) !important;
+}
+
+.dashboard-store-stats .ui-tabs-nav li a {
+    font-family: 'Inter', sans-serif !important;
+    font-size: 13px !important;
+    font-weight: 500 !important;
+    padding: 14px 16px !important;
+    color: var(--th-warm-500) !important;
+}
+
+.dashboard-store-stats .ui-tabs-nav li.ui-tabs-active a {
+    color: var(--th-brand-600) !important;
+    font-weight: 600 !important;
+}
+
+.dashboard-store-stats-content {
+    padding: 16px 20px !important;
+}
+
+/* Chart disabled message styling */
+.dashboard-diagram-container .message,
+.dashboard-container .message {
+    font-family: 'Inter', sans-serif !important;
+    font-size: 14px !important;
+    color: var(--th-warm-500) !important;
+    padding: 24px 20px !important;
+}
+
+/* ============================================
+   Tabs
+   ============================================ */
+.admin__page-nav-item {
+    font-family: 'Inter', sans-serif !important;
+    transition: all var(--th-transition) !important;
+}
+
+.admin__page-nav-item._active {
+    border-color: var(--th-brand-600) !important;
+}
+
+.admin__page-nav-item._active a {
+    color: var(--th-brand-600) !important;
+    font-weight: 600 !important;
+}
+
+.admin__page-nav-item a {
+    color: var(--th-warm-600) !important;
+    font-weight: 500 !important;
+}
+
+.admin__page-nav-item a:hover {
+    color: var(--th-brand-600) !important;
+}
+
+.ui-tabs-nav li.ui-tabs-active {
+    border-bottom-color: var(--th-brand-600) !important;
+}
+
+.ui-tabs-nav li.ui-tabs-active a {
+    color: var(--th-brand-600) !important;
+    font-weight: 600 !important;
+}
+
+.ui-tabs-nav li a {
+    font-family: 'Inter', sans-serif !important;
+    font-size: 13.5px !important;
+}
+
+/* ============================================
+   Messages / Alerts
+   ============================================ */
+.message-success {
+    background: #f0fdf4 !important;
+    border: 1px solid #bbf7d0 !important;
+    color: #166534 !important;
+    border-radius: 6px !important;
+    font-family: 'Inter', sans-serif !important;
+    font-size: 13.5px !important;
+}
+
+.message-error {
+    background: #fef2f2 !important;
+    border: 1px solid #fecaca !important;
+    color: #991b1b !important;
+    border-radius: 6px !important;
+    font-family: 'Inter', sans-serif !important;
+}
+
+.message-warning {
+    background: #fffbeb !important;
+    border: 1px solid #fde68a !important;
+    color: #92400e !important;
+    border-radius: 6px !important;
+    font-family: 'Inter', sans-serif !important;
+}
+
+.message-notice,
+.message-info {
+    background: var(--th-brand-50) !important;
+    border: 1px solid var(--th-brand-200) !important;
+    color: var(--th-brand-700) !important;
+    border-radius: 6px !important;
+    font-family: 'Inter', sans-serif !important;
+}
+
+/* System messages at top of page */
+.message.message-notice,
+.message.message-info {
+    background-color: var(--th-brand-50) !important;
+    color: var(--th-brand-700) !important;
+    border: none !important;
+    border-bottom: 1px solid var(--th-brand-100) !important;
+    font-family: 'Inter', sans-serif !important;
+    font-size: 13px !important;
+    padding: 10px 20px !important;
+}
+
+.message.message-notice a,
+.message.message-info a {
+    color: var(--th-brand-600) !important;
+    font-weight: 600 !important;
+}
+
+/* ============================================
+   Modals
+   ============================================ */
+.modal-inner-wrap {
+    border-radius: 10px !important;
+    overflow: hidden !important;
+    box-shadow: var(--th-shadow-lg), 0 0 0 1px rgba(42, 31, 20, 0.04) !important;
+}
+
+.modal-header {
+    background: #fff !important;
+    border-bottom: 1px solid var(--th-warm-100) !important;
+    padding: 20px 24px !important;
+}
+
+.modal-header .modal-title {
+    font-family: 'Playfair Display', Georgia, serif !important;
+    font-weight: 600 !important;
+    font-size: 18px !important;
+    color: var(--th-warm-900) !important;
+}
+
+.modal-content {
+    font-family: 'Inter', sans-serif !important;
+}
+
+.modal-footer {
+    background: var(--th-warm-50) !important;
+    border-top: 1px solid var(--th-warm-100) !important;
+}
+
+/* Modal overlay */
+.modals-overlay {
+    background-color: rgba(42, 31, 20, 0.5) !important;
+    backdrop-filter: blur(4px) !important;
+}
+
+/* ============================================
+   Tags / Severity Badges
+   ============================================ */
+.grid-severity-notice,
+.grid-severity-minor {
+    background: var(--th-brand-50) !important;
+    color: var(--th-brand-600) !important;
+    border: 1px solid var(--th-brand-200) !important;
+    border-radius: 9999px !important;
+    font-family: 'Inter', sans-serif !important;
+    font-weight: 500 !important;
+    font-size: 12px !important;
+    padding: 4px 12px !important;
+}
+
+.grid-severity-critical,
+.grid-severity-major {
+    background: #fef2f2 !important;
+    color: #dc2626 !important;
+    border: 1px solid #fecaca !important;
+    border-radius: 9999px !important;
+    font-family: 'Inter', sans-serif !important;
+    font-weight: 500 !important;
+    font-size: 12px !important;
+    padding: 4px 12px !important;
+}
+
+/* Enabled/Disabled status chips */
+.data-grid .grid-severity-notice {
+    display: inline-block !important;
+}
+
+/* ============================================
+   Links
+   ============================================ */
+a {
+    color: var(--th-brand-600);
+    transition: color var(--th-transition);
+}
+
+a:hover {
+    color: var(--th-brand-700);
+}
+
+/* ============================================
+   Toggle Switch
+   ============================================ */
+.admin__actions-switch-checkbox:checked + .admin__actions-switch-label:before {
+    background-color: var(--th-brand-600) !important;
+}
+
+/* ============================================
+   Breadcrumbs
+   ============================================ */
+.page-breadcrumbs {
+    font-family: 'Inter', sans-serif !important;
+    font-size: 12.5px !important;
+    color: var(--th-warm-500) !important;
+}
+
+.page-breadcrumbs a {
+    color: var(--th-brand-600) !important;
+    font-weight: 500 !important;
+}
+
+.page-breadcrumbs a:hover {
+    color: var(--th-brand-700) !important;
+}
+
+/* ============================================
+   Dropdowns
+   ============================================ */
+.admin__action-dropdown-menu {
+    border-radius: 6px !important;
+    box-shadow: var(--th-shadow-lg) !important;
+    border: 1px solid var(--th-warm-200) !important;
+    overflow: hidden !important;
+    animation: thrift-dropdown 0.15s ease-out;
+}
+
+@keyframes thrift-dropdown {
+    from { opacity: 0; transform: translateY(-4px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.admin__action-dropdown-menu > li > a {
+    font-family: 'Inter', sans-serif !important;
+    font-size: 13px !important;
+    color: var(--th-warm-700) !important;
+    padding: 10px 16px !important;
+    transition: all var(--th-transition) !important;
+}
+
+.admin__action-dropdown-menu > li > a:hover {
+    background-color: var(--th-brand-50) !important;
+    color: var(--th-brand-700) !important;
+}
+
+/* ============================================
+   Admin footer
+   ============================================ */
+.page-footer {
+    background: var(--th-warm-900) !important;
+    color: rgba(255, 255, 255, 0.4) !important;
+    font-family: 'Inter', sans-serif !important;
+    border-top: none !important;
+    font-size: 12px !important;
+    padding: 16px 24px !important;
+}
+
+.page-footer a {
+    color: var(--th-brand-300) !important;
+}
+
+.page-footer a:hover {
+    color: var(--th-brand-200) !important;
+}
+
+/* Footer Thrift branding */
+.page-footer .magento-version {
+    font-family: 'Inter', sans-serif !important;
+    color: rgba(255, 255, 255, 0.35) !important;
+}
+
+.thrift-footer-brand {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+    font-weight: 600 !important;
+    color: rgba(255, 255, 255, 0.7) !important;
+}
+
+.thrift-footer-t {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 20px !important;
+    height: 20px !important;
+    background: linear-gradient(135deg, #a855f7, #9333ea) !important;
+    border-radius: 4px !important;
+    font-family: 'Georgia', serif !important;
+    font-size: 12px !important;
+    font-weight: 700 !important;
+    color: #ffffff !important;
+    line-height: 1 !important;
+}
+
+/* ============================================
+   Marketplace Page — Thrift Store Hub
+   ============================================ */
+#thrift-marketplace {
+    padding: 40px 32px !important;
+    max-width: 1100px !important;
+    margin: 0 auto !important;
+}
+
+.thrift-mp-header {
+    display: flex !important;
+    align-items: center !important;
+    gap: 20px !important;
+    margin-bottom: 40px !important;
+}
+
+.thrift-mp-t-badge {
+    width: 56px !important;
+    height: 56px !important;
+    background: linear-gradient(135deg, #a855f7, #9333ea) !important;
+    border-radius: 14px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-family: 'Georgia', serif !important;
+    font-size: 28px !important;
+    font-weight: 700 !important;
+    color: #fff !important;
+    flex-shrink: 0 !important;
+    box-shadow: 0 4px 16px rgba(147, 51, 234, 0.25) !important;
+}
+
+.thrift-mp-header h2 {
+    font-family: 'Playfair Display', Georgia, serif !important;
+    font-size: 28px !important;
+    font-weight: 700 !important;
+    color: var(--th-warm-900) !important;
+    margin: 0 0 4px 0 !important;
+    letter-spacing: -0.02em !important;
+}
+
+.thrift-mp-header p {
+    font-family: 'Inter', sans-serif !important;
+    font-size: 15px !important;
+    color: var(--th-warm-500) !important;
+    margin: 0 !important;
+}
+
+.thrift-mp-grid {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 20px !important;
+}
+
+.thrift-mp-card {
+    background: #ffffff !important;
+    border: 1px solid var(--th-warm-200) !important;
+    border-radius: 10px !important;
+    padding: 28px 24px !important;
+    transition: all 0.2s ease !important;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04) !important;
+}
+
+.thrift-mp-card:hover {
+    border-color: var(--th-brand-300) !important;
+    box-shadow: 0 8px 24px rgba(147, 51, 234, 0.1) !important;
+    transform: translateY(-2px) !important;
+}
+
+.thrift-mp-card-icon {
+    font-size: 32px !important;
+    margin-bottom: 14px !important;
+    line-height: 1 !important;
+}
+
+.thrift-mp-card h3 {
+    font-family: 'Inter', sans-serif !important;
+    font-weight: 600 !important;
+    font-size: 16px !important;
+    color: var(--th-warm-900) !important;
+    margin: 0 0 8px 0 !important;
+}
+
+.thrift-mp-card p {
+    font-family: 'Inter', sans-serif !important;
+    font-size: 13.5px !important;
+    color: var(--th-warm-500) !important;
+    line-height: 1.6 !important;
+    margin: 0 !important;
+}
+
+@media (max-width: 900px) {
+    .thrift-mp-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+}
+
+/* ============================================
+   Scrollbar — Minimal & Warm
+   ============================================ */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--th-warm-300);
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--th-warm-400);
+}
+
+/* ============================================
+   Loading Indicator
+   ============================================ */
+.loading-mask .loader img {
+    display: none !important;
+}
+
+.loading-mask .loader::after {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 40px;
+    border: 3px solid var(--th-warm-200);
+    border-top-color: var(--th-brand-600);
+    border-radius: 50%;
+    animation: spin 0.7s linear infinite;
+    margin: 0 auto;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* ============================================
+   Admin Cards / Panels
+   ============================================ */
+.admin__fieldset-wrapper,
+.admin__scope-old fieldset,
+.entry-edit {
+    background: #ffffff !important;
+    border: 1px solid var(--th-warm-200) !important;
+    border-radius: 6px !important;
+    box-shadow: var(--th-shadow-xs) !important;
+    margin-bottom: 16px !important;
+}
+
+/* ============================================
+   Pager / Pagination
+   ============================================ */
+.admin__data-grid-pager-wrap {
+    font-family: 'Inter', sans-serif !important;
+}
+
+.admin__data-grid-pager .action-previous,
+.admin__data-grid-pager .action-next {
+    border: 1.5px solid var(--th-warm-200) !important;
+    border-radius: 4px !important;
+    transition: all var(--th-transition) !important;
+    background: #fff !important;
+}
+
+.admin__data-grid-pager .action-previous:hover,
+.admin__data-grid-pager .action-next:hover {
+    border-color: var(--th-brand-300) !important;
+    background: var(--th-brand-50) !important;
+}
+
+/* Per page selector */
+.admin__data-grid-pager .selectmenu {
+    border: 1.5px solid var(--th-warm-200) !important;
+    border-radius: 4px !important;
+    font-family: 'Inter', sans-serif !important;
+}
+
+.admin__data-grid-pager .selectmenu .selectmenu-toggle {
+    border-radius: 4px !important;
+}
+
+.selectmenu .selectmenu-toggle {
+    border-radius: 4px !important;
+}
+
+/* ============================================
+   Collapsible Sections / Fieldset Wrappers
+   ============================================ */
+.admin__collapsible-block-wrapper {
+    background: #ffffff !important;
+    border-radius: 6px !important;
+    border: 1px solid var(--th-warm-200) !important;
+    margin-bottom: 12px !important;
+}
+
+.admin__collapsible-block-wrapper .admin__collapsible-title {
+    font-family: 'Inter', sans-serif !important;
+    font-weight: 600 !important;
+    color: var(--th-warm-800) !important;
+}
+
+/* ============================================
+   Multiselect / Checkboxes
+   ============================================ */
+.admin__control-checkbox + label::before,
+.admin__control-radio + label::before {
+    border: 2px solid var(--th-warm-300) !important;
+    border-radius: 4px !important;
+}
+
+.admin__control-checkbox:checked + label::before {
+    background-color: var(--th-brand-600) !important;
+    border-color: var(--th-brand-600) !important;
+}
+
+.admin__control-radio:checked + label::before {
+    border-color: var(--th-brand-600) !important;
+}
+
+.admin__control-radio:checked + label::after {
+    background-color: var(--th-brand-600) !important;
+}
+
+/* ============================================
+   Tooltip
+   ============================================ */
+.admin__field-tooltip .admin__field-tooltip-content {
+    background: var(--th-warm-900) !important;
+    color: #fff !important;
+    font-family: 'Inter', sans-serif !important;
+    font-size: 12.5px !important;
+    border-radius: 6px !important;
+    box-shadow: var(--th-shadow-lg) !important;
+}
+
+/* ============================================
+   Product Grid Image Thumbnails
+   ============================================ */
+.data-grid .data-grid-thumbnail-cell img {
+    border-radius: 8px !important;
+    border: 1px solid var(--th-warm-200) !important;
+}
+
+/* ============================================
+   Admin Filters Panel
+   ============================================ */
+.admin__data-grid-filters-wrap {
+    background: #ffffff !important;
+    border: 1px solid var(--th-warm-200) !important;
+    border-radius: 6px !important;
+    box-shadow: var(--th-shadow-md) !important;
+}
+
+.admin__data-grid-filters .admin__form-field-label {
+    font-family: 'Inter', sans-serif !important;
+    font-weight: 600 !important;
+    font-size: 11px !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.06em !important;
+    color: var(--th-warm-500) !important;
+}
+
+/* ============================================
+   Mass Actions Toolbar
+   ============================================ */
+.admin__data-grid-header .admin__data-grid-actions-wrap {
+    font-family: 'Inter', sans-serif !important;
+}
+
+/* Columns selector dropdown */
+.admin__data-grid-action-columns {
+    border-radius: 6px !important;
+    box-shadow: var(--th-shadow-lg) !important;
+    border: 1px solid var(--th-warm-200) !important;
+}
+
+/* ============================================
+   Product Edit Page Sections
+   ============================================ */
+.product-edit-form .admin__fieldset-wrapper {
+    margin-bottom: 20px !important;
+}
+
+.product-edit-form .admin__fieldset-wrapper-title {
+    background: var(--th-warm-50) !important;
+    padding: 16px 20px !important;
+    border-radius: 8px 8px 0 0 !important;
+    border-bottom: 1px solid var(--th-warm-200) !important;
+    margin-bottom: 0 !important;
+}
+
+/* ============================================
+   System Configuration Page
+   ============================================ */
+.config-nav {
+    background: #ffffff !important;
+    border: 1px solid var(--th-warm-200) !important;
+    border-radius: 8px !important;
+    box-shadow: var(--th-shadow-sm) !important;
+    overflow: hidden !important;
+}
+
+.config-nav .admin__page-nav-item {
+    border-bottom: 1px solid var(--th-warm-100) !important;
+}
+
+.config-nav .admin__page-nav-item a {
+    padding: 12px 16px !important;
+    font-family: 'Inter', sans-serif !important;
+    font-size: 13px !important;
+}
+
+.config-nav .admin__page-nav-item._active {
+    background: var(--th-brand-50) !important;
+    border-left: 3px solid var(--th-brand-600) !important;
+}
+
+.config-nav .admin__page-nav-item._active a {
+    color: var(--th-brand-700) !important;
+    font-weight: 600 !important;
+}
+
+/* ============================================
+   Admin Page Sections (global)
+   ============================================ */
+.admin__page-section {
+    background: #ffffff !important;
+    border: 1px solid var(--th-warm-200) !important;
+    border-radius: 10px !important;
+    box-shadow: var(--th-shadow-sm) !important;
+    overflow: hidden !important;
+    margin-bottom: 20px !important;
+}
+
+.admin__page-section-title {
+    font-family: 'Inter', sans-serif !important;
+    font-weight: 600 !important;
+    font-size: 15px !important;
+    color: var(--th-warm-800) !important;
+    padding: 16px 24px !important;
+    background: var(--th-warm-50) !important;
+    border-bottom: 1px solid var(--th-warm-100) !important;
+    margin: 0 !important;
+}
+
+.admin__page-section-title .title {
+    font-family: 'Inter', sans-serif !important;
+    font-weight: 600 !important;
+    font-size: 15px !important;
+    color: var(--th-warm-800) !important;
+}
+
+.admin__page-section-content {
+    padding: 20px 24px !important;
+}
+
+.admin__page-section-item-content {
+    padding: 16px 24px !important;
+}
+
+/* ============================================
+   Order / Invoice / Shipment Detail Pages
+   ============================================ */
+.order-view-billing-shipping .admin__page-section {
+    margin-bottom: 16px !important;
+}
+
+.order-information table td,
+.order-information table th {
+    font-family: 'Inter', sans-serif !important;
+    font-size: 13.5px !important;
+    padding: 8px 12px !important;
+    color: var(--th-warm-700) !important;
+}
+
+.order-information table th {
+    color: var(--th-warm-500) !important;
+    font-weight: 600 !important;
+    text-transform: uppercase !important;
+    font-size: 11px !important;
+    letter-spacing: 0.05em !important;
+}
+
+.order-totals {
+    background: var(--th-warm-50) !important;
+    border-radius: 8px !important;
+    padding: 16px 20px !important;
+}
+
+.order-totals table td {
+    font-family: 'Inter', sans-serif !important;
+    font-size: 14px !important;
+    padding: 6px 12px !important;
+}
+
+.order-totals table tr:last-child td {
+    font-weight: 700 !important;
+    font-size: 16px !important;
+    color: var(--th-warm-900) !important;
+    border-top: 2px solid var(--th-warm-200) !important;
+    padding-top: 12px !important;
+}
+
+/* Order status badge */
+.order-status {
+    display: inline-block !important;
+    padding: 4px 14px !important;
+    border-radius: 9999px !important;
+    font-family: 'Inter', sans-serif !important;
+    font-size: 12px !important;
+    font-weight: 600 !important;
+}
+
+/* ============================================
+   Sales Grid / Any Index Page Grid
+   ============================================ */
+.admin__data-grid-outer-wrap {
+    background: #ffffff !important;
+    border: 1px solid var(--th-warm-200) !important;
+    border-radius: 10px !important;
+    box-shadow: var(--th-shadow-sm) !important;
+    overflow: hidden !important;
+}
+
+/* ============================================
+   Customer / Product Edit Forms
+   ============================================ */
+.admin__page-nav {
+    background: #ffffff !important;
+    border: 1px solid var(--th-warm-200) !important;
+    border-radius: 8px !important;
+    box-shadow: var(--th-shadow-sm) !important;
+    overflow: hidden !important;
+}
+
+.admin__page-nav ._active {
+    background: var(--th-brand-50) !important;
+    border-left: 3px solid var(--th-brand-600) !important;
+}
+
+.admin__page-nav ._active a {
+    color: var(--th-brand-700) !important;
+    font-weight: 600 !important;
+}
+
+/* ============================================
+   Scope label (Website/Store View)
+   ============================================ */
+.admin__field .admin__field-label,
+.admin__field-label span {
+    font-family: 'Inter', sans-serif !important;
+}
+
+.admin__field .admin__field-tooltip-action::before {
+    color: var(--th-warm-400) !important;
+}
+
+/* ============================================
+   CMS / Content Pages
+   ============================================ */
+.cms-page-edit .admin__fieldset-wrapper,
+.cms-block-edit .admin__fieldset-wrapper {
+    border-radius: 8px !important;
+    overflow: hidden !important;
+}
+
+/* ============================================
+   Reports Page
+   ============================================ */
+.report-container {
+    background: #ffffff !important;
+    border: 1px solid var(--th-warm-200) !important;
+    border-radius: 10px !important;
+    box-shadow: var(--th-shadow-sm) !important;
+    padding: 24px !important;
+}
+
+/* ============================================
+   Marketing — Promotions / Cart Price Rules
+   ============================================ */
+.rule-tree {
+    font-family: 'Inter', sans-serif !important;
+    font-size: 13px !important;
+}
+
+.rule-tree li {
+    padding: 6px 0 !important;
+}
+
+/* ============================================
+   Admin Action Bar / Page Actions
+   ============================================ */
+.page-actions-buttons {
+    display: flex !important;
+    gap: 8px !important;
+    align-items: center !important;
+}
+
+/* Active filters chips */
+.admin__current-filters-list .action-remove {
+    font-family: 'Inter', sans-serif !important;
+    font-size: 12px !important;
+    background: var(--th-warm-100) !important;
+    border: 1px solid var(--th-warm-200) !important;
+    border-radius: 9999px !important;
+    padding: 4px 12px !important;
+    color: var(--th-warm-700) !important;
+    transition: all var(--th-transition) !important;
+}
+
+.admin__current-filters-list .action-remove:hover {
+    background: #fef2f2 !important;
+    border-color: #fecaca !important;
+    color: #991b1b !important;
+}
+
+/* ============================================
+   Index Management / Cache Management
+   ============================================ */
+.indexer-status,
+.cache-status {
+    display: inline-block !important;
+    padding: 3px 10px !important;
+    border-radius: 9999px !important;
+    font-family: 'Inter', sans-serif !important;
+    font-size: 11px !important;
+    font-weight: 600 !important;
+}
+
+/* ============================================
+   Notification Popup
+   ============================================ */
+.notifications-wrapper .notifications-entry {
+    font-family: 'Inter', sans-serif !important;
+    font-size: 13px !important;
+    border-bottom: 1px solid var(--th-warm-100) !important;
+    padding: 12px 16px !important;
+}
+
+.notifications-wrapper .notifications-entry:hover {
+    background: var(--th-brand-50) !important;
+}
+
+/* ============================================
+   Scope / Store View Switcher Bar
+   ============================================ */
+.page-main-actions .store-switcher {
+    font-family: 'Inter', sans-serif !important;
+}
+
+.page-main-actions .store-switcher .admin__action-dropdown {
+    border: 1.5px solid var(--th-warm-200) !important;
+    border-radius: 6px !important;
+    font-size: 13px !important;
+    padding: 8px 14px !important;
+    background: #fff !important;
+}
+
+/* ============================================
+   Attribute Set / Attribute Edit
+   ============================================ */
+.attribute-set-edit .admin__page-section {
+    margin-bottom: 16px !important;
+}
+
+/* ============================================
+   Import / Export Pages
+   ============================================ */
+.import-container .admin__fieldset,
+.export-container .admin__fieldset {
+    border-radius: 8px !important;
+}
+
+/* ============================================
+   Wysiwyg Editor Wrapper
+   ============================================ */
+.admin__control-wysiwig {
+    border: 1px solid var(--th-warm-200) !important;
+    border-radius: 6px !important;
+    overflow: hidden !important;
+}
+
+/* ============================================
+   Media Gallery
+   ============================================ */
+.media-gallery-modal .media-gallery-frame {
+    border-radius: 8px !important;
+    border: 1px solid var(--th-warm-200) !important;
+}
+
+/* ============================================
+   URL Rewrite / SEO Pages
+   ============================================ */
+.url-rewrite-grid .admin__data-grid-wrap {
+    border-radius: 10px !important;
+}
+
+/* ============================================
+   Multiline placeholder for empty states
+   ============================================ */
+.empty-text,
+.data-grid .data-grid-tr-no-data td,
+.grid-empty-text {
+    font-family: 'Inter', sans-serif !important;
+    color: var(--th-warm-400) !important;
+    font-style: italic !important;
+}
+
+/* ============================================
+   View Switcher (Store / Website scope)
+   ============================================ */
+.store-switcher {
+    font-family: 'Inter', sans-serif !important;
+}
+
+.store-switcher .admin__action-dropdown {
+    border: 1.5px solid var(--th-warm-200) !important;
+    border-radius: 5px !important;
+}
+
+/* ============================================
+   Admin Grid Massaction Checkbox Column
+   ============================================ */
+.data-grid .data-grid-multicheck-cell {
+    border-right: 1px solid var(--th-warm-100) !important;
+}
+
+/* ============================================
+   Smooth animations for panel transitions
+   ============================================ */
+.admin__collapsible-block-wrapper .fieldset-wrapper-content,
+.admin__data-grid-filters-wrap,
+._show {
+    animation: thrift-slideDown 0.2s ease-out;
+}
+
+@keyframes thrift-slideDown {
+    from { opacity: 0; transform: translateY(-8px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+
+/* ================================================================
+   ================================================================
+   LOGIN PAGE — SPLIT LAYOUT PREMIUM DESIGN
+   ================================================================
+   ================================================================ */
+
+/* ---- Page Background ---- */
+.adminhtml-auth-login,
+.page-layout-admin-login {
+    background: linear-gradient(135deg, var(--th-warm-900) 0%, #1a120a 30%, var(--th-warm-800) 60%, #2f2218 100%) !important;
+    min-height: 100vh;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 32px 20px !important;
+}
+
+/* ---- Main Card Container — Grid Split ---- */
+.adminhtml-auth-login .page-wrapper {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    grid-template-rows: auto 1fr auto !important;
+    max-width: 820px !important;
+    min-height: 480px !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+    background: #ffffff !important;
+    border-radius: 24px !important;
+    overflow: hidden !important;
+    box-shadow:
+        0 40px 100px -20px rgba(0, 0, 0, 0.4),
+        0 0 0 1px rgba(255, 255, 255, 0.05) !important;
+    position: relative;
+}
+
+/* ---- LEFT PANEL — Illustration Side ---- */
+.adminhtml-auth-login .page-wrapper::before {
+    content: '';
+    grid-column: 1;
+    grid-row: 1 / -1;
+    background:
+        linear-gradient(
+            180deg,
+            rgba(42, 31, 20, 0.3) 0%,
+            rgba(93, 74, 62, 0.4) 40%,
+            rgba(147, 51, 234, 0.35) 70%,
+            rgba(42, 31, 20, 0.85) 100%
+        ),
+        url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&q=80') center/cover no-repeat;
+    position: relative;
+    display: block;
+    min-height: 100%;
+}
+
+/* Text overlay on left panel */
+.adminhtml-auth-login .page-wrapper::after {
+    content: 'Thrift\AAdmin Portal\A\AManage your store,\Acurate collections\A& delight customers.';
+    white-space: pre-line;
+    grid-column: 1;
+    grid-row: 1 / -1;
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: flex-end;
+    padding: 32px 28px;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.75);
+    pointer-events: none;
+    margin-left: -100%;
+    width: 100%;
+}
+
+/* ---- RIGHT PANEL — Login Header (Logo) ---- */
+.login-header {
+    grid-column: 2 !important;
+    grid-row: 1 !important;
+    text-align: left !important;
+    padding: 32px 40px 0 !important;
+    background: transparent !important;
+    border: none !important;
+    margin: 0 !important;
+}
+
+.login-header .logo {
+    display: inline-flex !important;
+    align-items: center !important;
+    background: transparent !important;
+    text-decoration: none !important;
+}
+
+.login-header .logo-img {
+    display: none !important;
+}
+
+.login-header .logo::after {
+    content: 'Thrift';
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    color: var(--th-warm-900);
+}
+
+/* ---- RIGHT PANEL — Login Content (Form) ---- */
+.login-content {
+    grid-column: 2 !important;
+    grid-row: 2 !important;
+    background: transparent !important;
+    border-radius: 0 !important;
+    padding: 20px 40px 16px !important;
+    box-shadow: none !important;
+    border: none !important;
+    max-width: none !important;
+    width: auto !important;
+    margin: 0 !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* ---- Greeting text (injected via CSS) ---- */
+.login-content .admin__fieldset::before {
+    content: 'Welcome Back!';
+    display: block;
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 14px;
+    font-weight: 500;
+    font-style: italic;
+    color: var(--th-brand-600);
+    margin-bottom: 4px;
+    letter-spacing: 0.02em;
+}
+
+/* ---- Form Legend / Title ---- */
+.login-content .admin__legend {
+    font-family: 'Inter', sans-serif !important;
+    font-size: 22px !important;
+    font-weight: 800 !important;
+    color: var(--th-warm-900) !important;
+    text-align: left !important;
+    margin-bottom: 24px !important;
+    display: block !important;
+    width: 100% !important;
+    padding: 0 !important;
+    border: none !important;
+    letter-spacing: -0.03em !important;
+    line-height: 1.2 !important;
+}
+
+/* Hide original legend text, replace */
+.login-content .admin__legend span {
+    font-size: 0 !important;
+    color: transparent !important;
+}
+
+.login-content .admin__legend span::before {
+    content: 'Sign in to your account';
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--th-warm-900);
+    letter-spacing: -0.03em;
+}
+
+/* ---- Login Fieldset ---- */
+.login-content .admin__fieldset {
+    border: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+/* ---- Login Fields ---- */
+.login-content .admin__field {
+    margin-bottom: 18px !important;
+}
+
+/* ---- Login Labels ---- */
+.login-content .admin__field-label {
+    font-weight: 600 !important;
+    font-size: 13px !important;
+    color: var(--th-warm-600) !important;
+    margin-bottom: 8px !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.05em !important;
+}
+
+.login-content .admin__field-label span {
+    font-weight: 600 !important;
+    font-size: 12px !important;
+    color: var(--th-warm-500) !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.08em !important;
+}
+
+/* ---- Login Input Fields ---- */
+.login-content .admin__control-text,
+.login-content input[type="text"],
+.login-content input[type="password"] {
+    border: none !important;
+    border-bottom: 2px solid var(--th-warm-200) !important;
+    border-radius: 0 !important;
+    padding: 12px 4px !important;
+    font-size: 15px !important;
+    font-family: 'Inter', sans-serif !important;
+    background-color: transparent !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    color: var(--th-warm-900) !important;
+    line-height: 1.5 !important;
+}
+
+.login-content .admin__control-text:hover,
+.login-content input[type="text"]:hover,
+.login-content input[type="password"]:hover {
+    border-bottom-color: var(--th-warm-400) !important;
+}
+
+.login-content .admin__control-text:focus,
+.login-content input[type="text"]:focus,
+.login-content input[type="password"]:focus {
+    border-bottom-color: var(--th-brand-600) !important;
+    background-color: transparent !important;
+    box-shadow: 0 2px 0 0 var(--th-brand-600) !important;
+    outline: none !important;
+}
+
+/* ---- Sign In Button ---- */
+.login-content .action-login,
+.login-content .action-primary {
+    background: linear-gradient(135deg, var(--th-brand-600) 0%, var(--th-brand-700) 100%) !important;
+    border: none !important;
+    border-radius: 12px !important;
+    padding: 14px 28px !important;
+    font-size: 14px !important;
+    font-weight: 700 !important;
+    font-family: 'Inter', sans-serif !important;
+    color: #ffffff !important;
+    cursor: pointer !important;
+    width: 100% !important;
+    letter-spacing: 0.04em !important;
+    text-transform: uppercase !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    margin-top: 8px !important;
+    box-shadow:
+        0 4px 16px rgba(147, 51, 234, 0.3),
+        inset 0 1px 0 rgba(255,255,255,0.15) !important;
+    position: relative;
+    overflow: hidden;
+}
+
+.login-content .action-login:hover,
+.login-content .action-primary:hover {
+    background: linear-gradient(135deg, var(--th-brand-700) 0%, var(--th-brand-900) 100%) !important;
+    box-shadow:
+        0 8px 30px rgba(147, 51, 234, 0.45),
+        inset 0 1px 0 rgba(255,255,255,0.15) !important;
+    transform: translateY(-2px) !important;
+}
+
+.login-content .action-login:active,
+.login-content .action-primary:active {
+    transform: translateY(0) !important;
+    box-shadow: 0 2px 8px rgba(147, 51, 234, 0.25) !important;
+}
+
+/* ---- Login Form Actions ---- */
+.login-content .form-actions {
+    margin-top: 20px !important;
+}
+
+/* ---- Forgot Password ---- */
+.login-content .links {
+    text-align: right !important;
+    margin-top: 0 !important;
+    margin-bottom: 8px !important;
+    padding: 0 !important;
+    border: none !important;
+    order: -1;
+}
+
+.login-content .action-forgotpassword {
+    color: var(--th-brand-600) !important;
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    text-decoration: none !important;
+    letter-spacing: 0.01em;
+}
+
+.login-content .action-forgotpassword:hover {
+    color: var(--th-brand-700) !important;
+    text-decoration: underline !important;
+}
+
+/* ---- Login Footer ---- */
+.login-footer {
+    grid-column: 2 !important;
+    grid-row: 3 !important;
+    color: var(--th-warm-400) !important;
+    font-family: 'Inter', sans-serif !important;
+    font-size: 11px !important;
+    text-align: left !important;
+    background: transparent !important;
+    border: none !important;
+    padding: 0 40px 24px !important;
+    margin: 0 !important;
+}
+
+.login-footer a { color: var(--th-brand-600) !important; text-decoration: none !important; }
+.login-footer a:hover { color: var(--th-brand-700) !important; }
+.login-footer span { color: var(--th-warm-400) !important; }
+.login-footer img {
+    filter: none !important;
+    opacity: 0.4 !important;
+    max-height: 16px !important;
+}
+
+.login-footer > div[style] {
+    float: none !important;
+    display: none !important;
+}
+
+/* ---- Login Error Messages ---- */
+.login-content .message-error,
+.login-content .message {
+    border-radius: 6px !important;
+    margin-bottom: 16px !important;
+    font-family: 'Inter', sans-serif !important;
+    font-size: 13px !important;
+}
+
+/* ---- Responsive: Stack on small screens ---- */
+@media (max-width: 768px) {
+    .adminhtml-auth-login .page-wrapper {
+        grid-template-columns: 1fr !important;
+        max-width: 440px !important;
+        min-height: auto !important;
+        margin: 40px auto !important;
+    }
+
+    .adminhtml-auth-login .page-wrapper::before,
+    .adminhtml-auth-login .page-wrapper::after {
+        display: none !important;
+    }
+
+    .login-header { padding: 32px 32px 0 !important; }
+    .login-content { padding: 24px 32px 20px !important; }
+    .login-footer { padding: 0 32px 24px !important; }
+}

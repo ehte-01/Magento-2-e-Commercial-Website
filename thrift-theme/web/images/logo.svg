@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 50" width="200" height="50">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&amp;display=swap');
+    </style>
+  </defs>
+  <text x="0" y="38" font-family="'Playfair Display', Georgia, serif" font-size="36" font-weight="700" fill="#7c3aed" letter-spacing="-1">Thrift</text>
+</svg>

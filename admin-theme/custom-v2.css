@@ -1,0 +1,839 @@
+/**
+ * Thrift Admin Theme — Professional Custom Styles
+ * Deep purple/violet brand + Inter font + premium feel
+ */
+
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap');
+
+/* ============================================
+   CSS Variables
+   ============================================ */
+:root {
+    --th-primary: #7c3aed;
+    --th-primary-hover: #6d28d9;
+    --th-primary-dark: #5b21b6;
+    --th-primary-light: #8b5cf6;
+    --th-primary-glow: rgba(124, 58, 237, 0.35);
+    --th-primary-subtle: rgba(124, 58, 237, 0.08);
+    --th-bg-dark: #0f0b1a;
+    --th-bg-card: #ffffff;
+    --th-text: #1a1a2e;
+    --th-text-muted: #6b7280;
+    --th-text-light: #9ca3af;
+    --th-border: #e5e7eb;
+    --th-border-light: #f3f4f6;
+    --th-surface: #fafafa;
+    --th-radius: 12px;
+    --th-radius-lg: 20px;
+    --th-shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+    --th-shadow-md: 0 4px 16px rgba(0,0,0,0.08);
+    --th-shadow-lg: 0 20px 60px rgba(0,0,0,0.15);
+    --th-shadow-xl: 0 32px 80px rgba(0,0,0,0.25);
+    --th-transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ============================================
+   Base Typography
+   ============================================ */
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: var(--th-text);
+}
+
+/* ============================================
+   Admin Side Menu
+   ============================================ */
+.admin__menu,
+.menu-wrapper {
+    background: linear-gradient(180deg, #0f0b1a 0%, #1a1133 100%) !important;
+}
+
+.admin__menu .item-title,
+.menu-wrapper .level-0 > a span {
+    font-family: 'Inter', sans-serif !important;
+    font-weight: 500 !important;
+    letter-spacing: 0.01em;
+}
+
+.admin__menu .level-0 > a:hover,
+.admin__menu .level-0._active > a,
+.menu-wrapper .level-0 > a:hover,
+.menu-wrapper .level-0._active > a {
+    background-color: rgba(124, 58, 237, 0.12) !important;
+    border-left: 3px solid var(--th-primary) !important;
+}
+
+.admin__menu .level-0 .submenu,
+.menu-wrapper .submenu {
+    background: #130e21 !important;
+}
+
+.admin__menu .level-0 .submenu a:hover,
+.menu-wrapper .submenu a:hover {
+    background-color: rgba(124, 58, 237, 0.08) !important;
+}
+
+.admin__menu .level-0 .submenu ._active > a,
+.menu-wrapper .submenu ._active > a {
+    color: #a78bfa !important;
+}
+
+/* ============================================
+   Page Header
+   ============================================ */
+.page-header {
+    background-color: #ffffff !important;
+    border-bottom: 1px solid var(--th-border-light) !important;
+    box-shadow: var(--th-shadow-sm) !important;
+}
+
+.page-header .admin-user .admin__action-dropdown:before {
+    color: #525252 !important;
+}
+
+.logo._role {
+    background: none !important;
+}
+
+.page-title {
+    font-family: 'Playfair Display', Georgia, serif !important;
+    font-weight: 700 !important;
+    color: var(--th-text) !important;
+    letter-spacing: -0.01em;
+}
+
+/* ============================================
+   Primary Buttons
+   ============================================ */
+.action-primary,
+button.primary,
+.action-default.primary,
+button.action-primary {
+    background: linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%) !important;
+    border: none !important;
+    color: #fff !important;
+    border-radius: 10px !important;
+    font-weight: 600 !important;
+    font-family: 'Inter', sans-serif !important;
+    text-transform: none !important;
+    letter-spacing: 0.01em !important;
+    transition: all var(--th-transition) !important;
+    box-shadow: 0 2px 8px rgba(124, 58, 237, 0.25) !important;
+}
+
+.action-primary:hover,
+.action-primary:focus,
+button.primary:hover,
+button.primary:focus,
+.action-default.primary:hover,
+.action-default.primary:focus,
+button.action-primary:hover,
+button.action-primary:focus {
+    background: linear-gradient(135deg, #6d28d9 0%, #5b21b6 100%) !important;
+    box-shadow: 0 6px 20px rgba(124, 58, 237, 0.4) !important;
+    transform: translateY(-1px) !important;
+}
+
+.action-primary:active,
+button.primary:active,
+.action-default.primary:active,
+button.action-primary:active {
+    background: linear-gradient(135deg, #5b21b6 0%, #4c1d95 100%) !important;
+    transform: translateY(0) !important;
+}
+
+/* Secondary buttons */
+.action-secondary,
+button.secondary,
+.action-default:not(.primary) {
+    border-radius: 10px !important;
+    font-family: 'Inter', sans-serif !important;
+    font-weight: 500 !important;
+    transition: all var(--th-transition) !important;
+}
+
+button,
+.action-default,
+.abs-action-button-as-link {
+    border-radius: 8px;
+    font-family: 'Inter', sans-serif;
+}
+
+/* ============================================
+   Forms
+   ============================================ */
+.admin__control-text,
+.admin__control-textarea,
+.admin__control-select,
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="number"],
+input[type="search"],
+textarea,
+select {
+    border: 1.5px solid var(--th-border) !important;
+    border-radius: 10px !important;
+    font-family: 'Inter', sans-serif !important;
+    font-size: 14px !important;
+    padding: 10px 14px !important;
+    transition: all var(--th-transition) !important;
+    background-color: #fff !important;
+}
+
+.admin__control-text:focus,
+.admin__control-textarea:focus,
+.admin__control-select:focus,
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="email"]:focus,
+input[type="number"]:focus,
+input[type="search"]:focus,
+textarea:focus,
+select:focus {
+    border-color: var(--th-primary) !important;
+    box-shadow: 0 0 0 4px var(--th-primary-subtle) !important;
+    outline: none !important;
+}
+
+.admin__field-label span {
+    font-weight: 500 !important;
+    font-size: 13px !important;
+    color: #4b5563 !important;
+}
+
+/* ============================================
+   Data Grid / Tables
+   ============================================ */
+.admin__data-grid-wrap {
+    border-radius: var(--th-radius);
+    overflow: hidden;
+    border: 1px solid var(--th-border-light);
+    box-shadow: var(--th-shadow-sm);
+}
+
+.data-grid th {
+    background-color: #f9fafb !important;
+    font-weight: 600 !important;
+    font-size: 11px !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.06em !important;
+    color: #6b7280 !important;
+    font-family: 'Inter', sans-serif !important;
+    border-bottom: 1px solid var(--th-border) !important;
+}
+
+.data-grid td {
+    font-size: 14px !important;
+    font-family: 'Inter', sans-serif !important;
+    color: #1f2937 !important;
+}
+
+.data-grid tr:hover td {
+    background-color: #faf5ff !important;
+}
+
+.data-grid tr._selected td {
+    background-color: #f5f3ff !important;
+}
+
+.data-grid .action-menu-item {
+    color: var(--th-primary) !important;
+}
+
+.data-grid .action-menu-item:hover {
+    background: #faf5ff !important;
+}
+
+/* ============================================
+   Dashboard Cards
+   ============================================ */
+.dashboard-item {
+    border-radius: 16px !important;
+    border: 1px solid var(--th-border-light) !important;
+    box-shadow: var(--th-shadow-sm) !important;
+    transition: box-shadow var(--th-transition) !important;
+}
+
+.dashboard-item:hover {
+    box-shadow: var(--th-shadow-md) !important;
+}
+
+/* ============================================
+   Tabs
+   ============================================ */
+.admin__page-nav-item._active {
+    border-color: var(--th-primary) !important;
+}
+
+.admin__page-nav-item._active a {
+    color: var(--th-primary) !important;
+    font-weight: 600 !important;
+}
+
+.admin__page-nav-item a:hover {
+    color: var(--th-primary) !important;
+}
+
+.ui-tabs-nav li.ui-tabs-active {
+    border-bottom-color: var(--th-primary) !important;
+}
+
+.ui-tabs-nav li.ui-tabs-active a {
+    color: var(--th-primary) !important;
+}
+
+/* ============================================
+   Messages / Notifications
+   ============================================ */
+.message-success {
+    background: #f0fdf4 !important;
+    border: 1px solid #bbf7d0 !important;
+    color: #166534 !important;
+    border-radius: 10px !important;
+    font-family: 'Inter', sans-serif !important;
+}
+
+.message-error {
+    background: #fef2f2 !important;
+    border: 1px solid #fecaca !important;
+    color: #991b1b !important;
+    border-radius: 10px !important;
+    font-family: 'Inter', sans-serif !important;
+}
+
+.message-warning {
+    background: #fffbeb !important;
+    border: 1px solid #fde68a !important;
+    color: #92400e !important;
+    border-radius: 10px !important;
+    font-family: 'Inter', sans-serif !important;
+}
+
+.message-notice,
+.message-info {
+    background: #faf5ff !important;
+    border: 1px solid #ddd6fe !important;
+    color: #5b21b6 !important;
+    border-radius: 10px !important;
+    font-family: 'Inter', sans-serif !important;
+}
+
+/* ============================================
+   Modal / Slideout
+   ============================================ */
+.modal-inner-wrap {
+    border-radius: 16px !important;
+    overflow: hidden;
+    box-shadow: var(--th-shadow-xl) !important;
+}
+
+.modal-header {
+    background: #fff !important;
+    border-bottom: 1px solid var(--th-border-light) !important;
+}
+
+.modal-header .modal-title {
+    font-family: 'Inter', sans-serif !important;
+    font-weight: 600 !important;
+}
+
+/* ============================================
+   Tags / Badges
+   ============================================ */
+.grid-severity-notice,
+.grid-severity-minor {
+    background: #f5f3ff !important;
+    color: var(--th-primary) !important;
+    border: 1px solid #ddd6fe !important;
+    border-radius: 9999px !important;
+    font-family: 'Inter', sans-serif !important;
+    font-weight: 500 !important;
+    font-size: 12px !important;
+}
+
+.grid-severity-critical,
+.grid-severity-major {
+    background: #fef2f2 !important;
+    color: #dc2626 !important;
+    border: 1px solid #fecaca !important;
+    border-radius: 9999px !important;
+    font-family: 'Inter', sans-serif !important;
+    font-weight: 500 !important;
+    font-size: 12px !important;
+}
+
+/* ============================================
+   Links
+   ============================================ */
+a {
+    color: var(--th-primary);
+    transition: color var(--th-transition);
+}
+
+a:hover {
+    color: var(--th-primary-hover);
+}
+
+/* ============================================
+   Spinner / Loading
+   ============================================ */
+.spinner {
+    border-top-color: var(--th-primary) !important;
+}
+
+/* ============================================
+   Fieldsets / Sections
+   ============================================ */
+.admin__fieldset-wrapper-title {
+    border-bottom: 2px solid var(--th-border-light) !important;
+    padding-bottom: 12px !important;
+}
+
+.admin__fieldset-wrapper-title strong {
+    font-family: 'Inter', sans-serif !important;
+    font-weight: 600 !important;
+    font-size: 16px !important;
+    color: var(--th-text) !important;
+}
+
+/* ============================================
+   Switches / Toggles
+   ============================================ */
+.admin__actions-switch-checkbox:checked + .admin__actions-switch-label:before {
+    background-color: var(--th-primary) !important;
+}
+
+/* ============================================
+   Pagination
+   ============================================ */
+.admin__data-grid-pager .action-next,
+.admin__data-grid-pager .action-previous {
+    border-radius: 8px !important;
+}
+
+/* ============================================
+   Content Area
+   ============================================ */
+.page-content {
+    background: var(--th-surface) !important;
+}
+
+.page-main-actions {
+    background: #fff !important;
+    border-bottom: 1px solid var(--th-border-light) !important;
+    padding: 16px 30px !important;
+}
+
+.store-switcher .admin__action-dropdown {
+    border-radius: 8px !important;
+}
+
+/* ============================================
+   Tooltip
+   ============================================ */
+.admin__field-tooltip .admin__field-tooltip-content {
+    border-radius: 10px !important;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12) !important;
+}
+
+/* ============================================
+   Footer
+   ============================================ */
+.page-footer {
+    background: #0f0b1a !important;
+    color: rgba(255,255,255,0.4) !important;
+    font-family: 'Inter', sans-serif !important;
+    border-top: none !important;
+}
+
+/* ============================================
+   Breadcrumbs
+   ============================================ */
+.page-breadcrumbs {
+    font-family: 'Inter', sans-serif !important;
+}
+
+.page-breadcrumbs a {
+    color: var(--th-primary) !important;
+}
+
+/* ============================================
+   Dropdown menus
+   ============================================ */
+.admin__action-dropdown-menu {
+    border-radius: 12px !important;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.14) !important;
+    border: 1px solid var(--th-border-light) !important;
+    overflow: hidden;
+}
+
+.admin__action-dropdown-menu > li > a:hover {
+    background-color: #faf5ff !important;
+    color: var(--th-primary) !important;
+}
+
+/* ============================================
+   Progress bar
+   ============================================ */
+.admin__progress-bar .admin__progress-bar-item._active {
+    background-color: var(--th-primary) !important;
+}
+
+/* ============================================
+   Page wrapper
+   ============================================ */
+.page-wrapper {
+    background: var(--th-surface) !important;
+}
+
+/* ============================================
+   Scrollbar
+   ============================================ */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #d1d5db;
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #9ca3af;
+}
+
+/* ============================================================
+   LOGIN PAGE — Premium Redesign
+   ============================================================ */
+
+/* Full page gradient background with noise texture */
+.adminhtml-auth-login,
+.page-layout-admin-login {
+    background: 
+        radial-gradient(ellipse at 20% 50%, rgba(124, 58, 237, 0.15) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 20%, rgba(139, 92, 246, 0.1) 0%, transparent 50%),
+        radial-gradient(ellipse at 50% 100%, rgba(109, 40, 217, 0.08) 0%, transparent 50%),
+        linear-gradient(160deg, #0a0612 0%, #110b20 25%, #1a1035 50%, #0f0920 75%, #080510 100%) !important;
+    min-height: 100vh;
+}
+
+/* Animated gradient orbs (using pseudo-elements) */
+.adminhtml-auth-login .page-wrapper::before {
+    content: '';
+    position: fixed;
+    top: -20%;
+    right: -10%;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(124, 58, 237, 0.12) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+    animation: floatOrb1 20s ease-in-out infinite;
+}
+
+.adminhtml-auth-login .page-wrapper::after {
+    content: '';
+    position: fixed;
+    bottom: -15%;
+    left: -5%;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(167, 139, 250, 0.08) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+    animation: floatOrb2 25s ease-in-out infinite;
+}
+
+@keyframes floatOrb1 {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    33% { transform: translate(-30px, 40px) scale(1.05); }
+    66% { transform: translate(20px, -20px) scale(0.95); }
+}
+
+@keyframes floatOrb2 {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    33% { transform: translate(40px, -30px) scale(1.08); }
+    66% { transform: translate(-20px, 30px) scale(0.92); }
+}
+
+/* Center the page wrapper */
+.adminhtml-auth-login .page-wrapper {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    min-height: 100vh !important;
+    background: transparent !important;
+    padding: 40px 20px !important;
+    position: relative;
+    z-index: 1;
+}
+
+/* ---- Login Header / Logo ---- */
+.login-header {
+    text-align: center !important;
+    margin-bottom: 32px !important;
+    background: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+}
+
+.login-header .logo {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent !important;
+}
+
+.login-header .logo-img {
+    max-height: 44px !important;
+    filter: brightness(0) invert(1) !important;
+    opacity: 0.9;
+    transition: opacity 0.3s;
+}
+
+.login-header .logo-img:hover {
+    opacity: 1;
+}
+
+/* ---- Login Content Card ---- */
+.login-content {
+    background: rgba(255, 255, 255, 0.97) !important;
+    backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(20px) !important;
+    border-radius: 24px !important;
+    padding: 48px 44px 40px !important;
+    box-shadow:
+        0 0 0 1px rgba(255,255,255,0.08),
+        0 32px 80px -12px rgba(0, 0, 0, 0.5),
+        0 0 120px -40px rgba(124, 58, 237, 0.2) !important;
+    max-width: 440px !important;
+    width: 100% !important;
+    border: 1px solid rgba(255, 255, 255, 0.12) !important;
+    margin: 0 auto !important;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Subtle top accent line on card */
+.login-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, #7c3aed, #a78bfa, #7c3aed, transparent);
+    border-radius: 0 0 4px 4px;
+}
+
+/* ---- Form Title ---- */
+.login-content .admin__legend {
+    font-family: 'Inter', sans-serif !important;
+    font-size: 24px !important;
+    font-weight: 700 !important;
+    color: #1a1a2e !important;
+    text-align: center !important;
+    margin-bottom: 4px !important;
+    display: block !important;
+    width: 100% !important;
+    padding: 0 !important;
+    border: none !important;
+    letter-spacing: -0.02em !important;
+    line-height: 1.3 !important;
+}
+
+/* ---- Form Fields ---- */
+.login-content .admin__fieldset {
+    border: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.login-content .admin__field {
+    margin-bottom: 20px !important;
+}
+
+.login-content .admin__field-label {
+    font-weight: 600 !important;
+    font-size: 13px !important;
+    color: #374151 !important;
+    margin-bottom: 8px !important;
+    letter-spacing: 0.01em;
+}
+
+.login-content .admin__field-label span {
+    font-weight: 600 !important;
+    font-size: 13px !important;
+    color: #374151 !important;
+}
+
+/* ---- Input Fields ---- */
+.login-content .admin__control-text,
+.login-content input[type="text"],
+.login-content input[type="password"] {
+    border: 1.5px solid #e5e7eb !important;
+    border-radius: 12px !important;
+    padding: 14px 16px !important;
+    font-size: 15px !important;
+    font-family: 'Inter', sans-serif !important;
+    background-color: #f9fafb !important;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    color: #1f2937 !important;
+    line-height: 1.5 !important;
+}
+
+.login-content .admin__control-text:hover,
+.login-content input[type="text"]:hover,
+.login-content input[type="password"]:hover {
+    border-color: #d1d5db !important;
+    background-color: #fff !important;
+}
+
+.login-content .admin__control-text:focus,
+.login-content input[type="text"]:focus,
+.login-content input[type="password"]:focus {
+    border-color: #7c3aed !important;
+    background-color: #fff !important;
+    box-shadow: 0 0 0 4px rgba(124, 58, 237, 0.08),
+                0 1px 3px rgba(0, 0, 0, 0.04) !important;
+    outline: none !important;
+}
+
+/* Required asterisk */
+.login-content .admin__field._required > .admin__field-label > span::after {
+    color: #ef4444 !important;
+}
+
+/* ---- Sign In Button ---- */
+.login-content .action-login,
+.login-content .action-primary {
+    background: linear-gradient(135deg, #7c3aed 0%, #6d28d9 50%, #5b21b6 100%) !important;
+    border: none !important;
+    border-radius: 12px !important;
+    padding: 15px 28px !important;
+    font-size: 15px !important;
+    font-weight: 600 !important;
+    font-family: 'Inter', sans-serif !important;
+    color: #ffffff !important;
+    cursor: pointer !important;
+    width: 100% !important;
+    letter-spacing: 0.03em !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    margin-top: 4px !important;
+    box-shadow: 0 4px 16px rgba(124, 58, 237, 0.3),
+                inset 0 1px 0 rgba(255,255,255,0.1) !important;
+    position: relative;
+    overflow: hidden;
+    text-transform: none !important;
+}
+
+.login-content .action-login:hover,
+.login-content .action-primary:hover {
+    background: linear-gradient(135deg, #6d28d9 0%, #5b21b6 50%, #4c1d95 100%) !important;
+    box-shadow: 0 8px 28px rgba(124, 58, 237, 0.45),
+                inset 0 1px 0 rgba(255,255,255,0.1) !important;
+    transform: translateY(-1px) !important;
+}
+
+.login-content .action-login:active,
+.login-content .action-primary:active {
+    transform: translateY(0) !important;
+    box-shadow: 0 2px 8px rgba(124, 58, 237, 0.3) !important;
+}
+
+/* ---- Form Actions ---- */
+.login-content .form-actions {
+    margin-top: 24px !important;
+}
+
+.login-content .actions {
+    text-align: center !important;
+}
+
+/* ---- Forgot Password Link ---- */
+.login-content .links {
+    text-align: center !important;
+    margin-top: 20px !important;
+    padding-top: 20px !important;
+    border-top: 1px solid #f3f4f6 !important;
+}
+
+.login-content .action-forgotpassword {
+    color: #7c3aed !important;
+    font-size: 13px !important;
+    font-weight: 500 !important;
+    text-decoration: none !important;
+    transition: color 0.2s !important;
+    letter-spacing: 0.01em;
+}
+
+.login-content .action-forgotpassword:hover {
+    color: #5b21b6 !important;
+    text-decoration: underline !important;
+}
+
+/* ---- Login Footer ---- */
+.login-footer {
+    color: rgba(255, 255, 255, 0.3) !important;
+    font-family: 'Inter', sans-serif !important;
+    font-size: 12px !important;
+    text-align: center !important;
+    background: transparent !important;
+    border: none !important;
+    margin-top: 32px !important;
+    padding: 0 !important;
+}
+
+.login-footer a {
+    color: rgba(255, 255, 255, 0.45) !important;
+    text-decoration: none !important;
+}
+
+.login-footer a:hover {
+    color: rgba(255, 255, 255, 0.7) !important;
+}
+
+.login-footer span {
+    color: rgba(255, 255, 255, 0.3) !important;
+}
+
+.login-footer img {
+    filter: brightness(0) invert(1) !important;
+    opacity: 0.3 !important;
+}
+
+/* ---- Login Error Messages ---- */
+.login-content .message-error,
+.login-content .message {
+    border-radius: 12px !important;
+    margin-bottom: 20px !important;
+    font-family: 'Inter', sans-serif !important;
+    font-size: 13px !important;
+    padding: 14px 18px !important;
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 480px) {
+    .login-content {
+        padding: 36px 28px 32px !important;
+        border-radius: 20px !important;
+        margin: 0 16px !important;
+    }
+    
+    .login-content .admin__legend {
+        font-size: 22px !important;
+    }
+}

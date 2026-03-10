@@ -1,0 +1,638 @@
+/**
+ * Thrift Admin Theme - Custom Styles
+ * Purple brand (#7c3aed) + Inter font + modern UI
+ * Matches the storefront aesthetic
+ */
+
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap');
+
+/* ============================================
+   Base Typography
+   ============================================ */
+body {
+    font-family: 'Inter', 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif !important;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* ============================================
+   Admin Side Menu
+   ============================================ */
+.admin__menu,
+.menu-wrapper {
+    background: linear-gradient(180deg, #1e1b2e 0%, #1a1730 100%) !important;
+}
+
+.admin__menu .item-title,
+.menu-wrapper .level-0 > a span {
+    font-family: 'Inter', sans-serif !important;
+    font-weight: 500 !important;
+}
+
+.admin__menu .level-0 > a:hover,
+.admin__menu .level-0._active > a,
+.menu-wrapper .level-0 > a:hover,
+.menu-wrapper .level-0._active > a {
+    background-color: rgba(124, 58, 237, 0.15) !important;
+    border-left-color: #7c3aed !important;
+}
+
+.admin__menu .level-0 .submenu,
+.menu-wrapper .submenu {
+    background: #1e1b2e !important;
+}
+
+.admin__menu .level-0 .submenu a:hover,
+.menu-wrapper .submenu a:hover {
+    background-color: rgba(124, 58, 237, 0.1) !important;
+}
+
+.admin__menu .level-0 .submenu ._active > a,
+.menu-wrapper .submenu ._active > a {
+    color: #a78bfa !important;
+}
+
+/* ============================================
+   Page Header
+   ============================================ */
+.page-header {
+    background-color: #ffffff !important;
+    border-bottom: 1px solid #f0f0f0 !important;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04) !important;
+}
+
+.page-header .admin-user .admin__action-dropdown:before {
+    color: #525252 !important;
+}
+
+.logo._role {
+    background: none !important;
+}
+
+.page-title {
+    font-family: 'Playfair Display', 'Open Sans', sans-serif !important;
+    font-weight: 700 !important;
+    color: #1a1a1a !important;
+}
+
+/* ============================================
+   Primary Buttons - Purple
+   ============================================ */
+.action-primary,
+button.primary,
+.action-default.primary,
+button.action-primary {
+    background-color: #7c3aed !important;
+    border-color: #7c3aed !important;
+    color: #fff !important;
+    border-radius: 8px !important;
+    font-weight: 600 !important;
+    font-family: 'Inter', sans-serif !important;
+    text-transform: none !important;
+    letter-spacing: 0.01em !important;
+    transition: all 0.2s ease !important;
+}
+
+.action-primary:hover,
+.action-primary:focus,
+button.primary:hover,
+button.primary:focus,
+.action-default.primary:hover,
+.action-default.primary:focus,
+button.action-primary:hover,
+button.action-primary:focus {
+    background-color: #6d28d9 !important;
+    border-color: #6d28d9 !important;
+    box-shadow: 0 4px 12px rgba(124, 58, 237, 0.3) !important;
+}
+
+.action-primary:active,
+button.primary:active,
+.action-default.primary:active,
+button.action-primary:active {
+    background-color: #5b21b6 !important;
+    border-color: #5b21b6 !important;
+}
+
+/* Secondary buttons */
+.action-secondary,
+button.secondary,
+.action-default:not(.primary) {
+    border-radius: 8px !important;
+    font-family: 'Inter', sans-serif !important;
+    font-weight: 500 !important;
+    transition: all 0.2s ease !important;
+}
+
+button,
+.action-default,
+.abs-action-button-as-link {
+    border-radius: 6px;
+    font-family: 'Inter', sans-serif;
+}
+
+/* ============================================
+   Forms - Modern Inputs
+   ============================================ */
+.admin__control-text,
+.admin__control-textarea,
+.admin__control-select,
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="number"],
+input[type="search"],
+textarea,
+select {
+    border: 1px solid #e5e5e5 !important;
+    border-radius: 6px !important;
+    font-family: 'Inter', sans-serif !important;
+    font-size: 14px !important;
+    padding: 8px 12px !important;
+    transition: border-color 0.2s, box-shadow 0.2s !important;
+    background-color: #ffffff !important;
+}
+
+.admin__control-text:focus,
+.admin__control-textarea:focus,
+.admin__control-select:focus,
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="email"]:focus,
+input[type="number"]:focus,
+input[type="search"]:focus,
+textarea:focus,
+select:focus {
+    border-color: #7c3aed !important;
+    box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.1) !important;
+    outline: none !important;
+}
+
+.admin__field-label span {
+    font-weight: 500 !important;
+    font-size: 13px !important;
+    color: #404040 !important;
+}
+
+/* ============================================
+   Data Grid / Tables
+   ============================================ */
+.admin__data-grid-wrap {
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid #f0f0f0;
+}
+
+.data-grid th {
+    background-color: #fafafa !important;
+    font-weight: 600 !important;
+    font-size: 12px !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.05em !important;
+    color: #737373 !important;
+    font-family: 'Inter', sans-serif !important;
+    border-bottom: 2px solid #e5e5e5 !important;
+}
+
+.data-grid td {
+    font-size: 14px !important;
+    font-family: 'Inter', sans-serif !important;
+    color: #262626 !important;
+}
+
+.data-grid tr:hover td {
+    background-color: #faf5ff !important;
+}
+
+.data-grid tr._selected td {
+    background-color: #f5f3ff !important;
+}
+
+.data-grid .action-menu-item {
+    color: #7c3aed !important;
+}
+
+.data-grid .action-menu-item:hover {
+    background: #faf5ff !important;
+}
+
+/* ============================================
+   Dashboard Cards
+   ============================================ */
+.dashboard-item {
+    border-radius: 12px !important;
+    border: 1px solid #f0f0f0 !important;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04) !important;
+}
+
+/* ============================================
+   Tabs
+   ============================================ */
+.admin__page-nav-item._active {
+    border-color: #7c3aed !important;
+}
+
+.admin__page-nav-item._active a {
+    color: #7c3aed !important;
+}
+
+.admin__page-nav-item a:hover {
+    color: #7c3aed !important;
+}
+
+.ui-tabs-nav li.ui-tabs-active {
+    border-bottom-color: #7c3aed !important;
+}
+
+.ui-tabs-nav li.ui-tabs-active a {
+    color: #7c3aed !important;
+}
+
+/* ============================================
+   Messages / Notifications
+   ============================================ */
+.message-success {
+    background: #f0fdf4 !important;
+    border-color: #86efac !important;
+    color: #166534 !important;
+    border-radius: 8px !important;
+}
+
+.message-error {
+    background: #fef2f2 !important;
+    border-color: #fca5a5 !important;
+    color: #991b1b !important;
+    border-radius: 8px !important;
+}
+
+.message-warning {
+    background: #fffbeb !important;
+    border-color: #fde68a !important;
+    color: #92400e !important;
+    border-radius: 8px !important;
+}
+
+.message-notice,
+.message-info {
+    background: #faf5ff !important;
+    border-color: #c4b5fd !important;
+    color: #5b21b6 !important;
+    border-radius: 8px !important;
+}
+
+/* ============================================
+   Modal / Slideout
+   ============================================ */
+.modal-inner-wrap {
+    border-radius: 12px !important;
+    overflow: hidden;
+}
+
+.modal-header {
+    background: #ffffff !important;
+    border-bottom: 1px solid #f0f0f0 !important;
+}
+
+.modal-header .modal-title {
+    font-family: 'Inter', sans-serif !important;
+    font-weight: 600 !important;
+}
+
+.modal-footer .action-primary {
+    background-color: #7c3aed !important;
+    border-color: #7c3aed !important;
+    border-radius: 8px !important;
+}
+
+/* ============================================
+   Tags / Badges
+   ============================================ */
+.grid-severity-notice,
+.grid-severity-minor {
+    background: #f5f3ff !important;
+    color: #7c3aed !important;
+    border: 1px solid #c4b5fd !important;
+    border-radius: 9999px !important;
+    font-family: 'Inter', sans-serif !important;
+    font-weight: 500 !important;
+    font-size: 12px !important;
+}
+
+.grid-severity-critical,
+.grid-severity-major {
+    background: #fef2f2 !important;
+    color: #dc2626 !important;
+    border: 1px solid #fca5a5 !important;
+    border-radius: 9999px !important;
+    font-family: 'Inter', sans-serif !important;
+    font-weight: 500 !important;
+    font-size: 12px !important;
+}
+
+/* ============================================
+   Links
+   ============================================ */
+a {
+    color: #7c3aed;
+}
+
+a:hover {
+    color: #6d28d9;
+}
+
+/* ============================================
+   Spinner / Loading
+   ============================================ */
+.spinner {
+    border-top-color: #7c3aed !important;
+}
+
+/* ============================================
+   Fieldsets / Sections
+   ============================================ */
+.admin__fieldset-wrapper-title {
+    border-bottom: 2px solid #f0f0f0 !important;
+    padding-bottom: 12px !important;
+}
+
+.admin__fieldset-wrapper-title strong {
+    font-family: 'Inter', sans-serif !important;
+    font-weight: 600 !important;
+    font-size: 16px !important;
+    color: #262626 !important;
+}
+
+/* ============================================
+   Switches / Toggles
+   ============================================ */
+.admin__actions-switch-checkbox:checked + .admin__actions-switch-label:before {
+    background-color: #7c3aed !important;
+}
+
+/* ============================================
+   Pagination
+   ============================================ */
+.admin__data-grid-pager .action-next,
+.admin__data-grid-pager .action-previous {
+    border-radius: 6px !important;
+}
+
+/* ============================================
+   Content Area
+   ============================================ */
+.page-content {
+    background: #fafafa !important;
+}
+
+.page-main-actions {
+    background: #ffffff !important;
+    border-bottom: 1px solid #f0f0f0 !important;
+    padding: 16px 30px !important;
+}
+
+.store-switcher .admin__action-dropdown {
+    border-radius: 6px !important;
+}
+
+/* ============================================
+   Tooltip
+   ============================================ */
+.admin__field-tooltip .admin__field-tooltip-content {
+    border-radius: 8px !important;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* ============================================
+   Footer
+   ============================================ */
+.page-footer {
+    background: #1f1f1f !important;
+    color: #a3a3a3 !important;
+    font-family: 'Inter', sans-serif !important;
+    border-top: none !important;
+}
+
+/* ============================================
+   LOGIN PAGE - Complete Redesign
+   ============================================ */
+
+/* Login page body background */
+.adminhtml-auth-login,
+.page-layout-admin-login {
+    background: linear-gradient(135deg, #1e1b2e 0%, #2d1b69 50%, #1e1b2e 100%) !important;
+}
+
+.adminhtml-auth-login .page-wrapper,
+.page-layout-admin-login .page-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: transparent !important;
+}
+
+/* Login header & logo */
+.login-header {
+    text-align: center !important;
+    margin-bottom: 16px !important;
+    background: transparent !important;
+    border: none !important;
+}
+
+.login-header .logo {
+    display: flex;
+    justify-content: center;
+}
+
+.login-header .logo-img {
+    max-height: 48px !important;
+    filter: brightness(0) invert(1);
+}
+
+/* Login content card */
+.login-content {
+    background: #ffffff !important;
+    border-radius: 16px !important;
+    padding: 48px 40px !important;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.3) !important;
+    max-width: 420px !important;
+    width: 100% !important;
+    border: none !important;
+    margin: 0 auto !important;
+}
+
+/* Login form title */
+.login-content .admin__legend {
+    font-family: 'Playfair Display', serif !important;
+    font-size: 28px !important;
+    font-weight: 700 !important;
+    color: #1a1a1a !important;
+    text-align: center !important;
+    margin-bottom: 8px !important;
+    display: block !important;
+    width: 100% !important;
+    padding: 0 !important;
+    border: none !important;
+}
+
+/* Login form note text */
+.login-content .note {
+    text-align: center !important;
+    color: #737373 !important;
+    font-size: 14px !important;
+    margin-bottom: 32px !important;
+    display: block !important;
+}
+
+/* Login form inputs */
+.login-content .admin__control-text {
+    border: 2px solid #e5e5e5 !important;
+    border-radius: 10px !important;
+    padding: 12px 16px !important;
+    font-size: 15px !important;
+    background-color: #fafafa !important;
+    transition: all 0.2s ease !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+}
+
+.login-content .admin__control-text:focus {
+    border-color: #7c3aed !important;
+    background-color: #ffffff !important;
+    box-shadow: 0 0 0 4px rgba(124, 58, 237, 0.1) !important;
+    outline: none !important;
+}
+
+/* Login labels */
+.login-content .admin__field-label {
+    font-weight: 500 !important;
+    font-size: 14px !important;
+    color: #404040 !important;
+    margin-bottom: 6px !important;
+}
+
+/* Login button */
+.login-content .action-login {
+    background: linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%) !important;
+    border: none !important;
+    border-radius: 10px !important;
+    padding: 14px 24px !important;
+    font-size: 16px !important;
+    font-weight: 600 !important;
+    font-family: 'Inter', sans-serif !important;
+    color: #ffffff !important;
+    cursor: pointer !important;
+    width: 100% !important;
+    letter-spacing: 0.02em !important;
+    transition: all 0.3s ease !important;
+    margin-top: 8px !important;
+}
+
+.login-content .action-login:hover {
+    background: linear-gradient(135deg, #6d28d9 0%, #5b21b6 100%) !important;
+    box-shadow: 0 8px 24px rgba(124, 58, 237, 0.4) !important;
+    transform: translateY(-1px) !important;
+}
+
+/* Login forgot password link */
+.login-content .action-forgotpassword {
+    color: #7c3aed !important;
+    font-size: 13px !important;
+    font-weight: 500 !important;
+    text-decoration: none !important;
+}
+
+.login-content .action-forgotpassword:hover {
+    color: #6d28d9 !important;
+    text-decoration: underline !important;
+}
+
+/* Login footer */
+.login-footer {
+    color: rgba(255, 255, 255, 0.4) !important;
+    font-family: 'Inter', sans-serif !important;
+    font-size: 12px !important;
+    text-align: center !important;
+    background: transparent !important;
+    border: none !important;
+    margin-top: 24px !important;
+}
+
+.login-footer a {
+    color: rgba(255, 255, 255, 0.6) !important;
+}
+
+/* Login links section */
+.login-content .links {
+    text-align: center !important;
+    margin-top: 16px !important;
+}
+
+/* Login error messages */
+.login-content .message-error {
+    border-radius: 10px !important;
+    margin-bottom: 20px !important;
+}
+
+/* ============================================
+   Scrollbar Styling
+   ============================================ */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f5f5f5;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #d4d4d4;
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #a3a3a3;
+}
+
+/* ============================================
+   Breadcrumbs
+   ============================================ */
+.page-breadcrumbs {
+    font-family: 'Inter', sans-serif !important;
+}
+
+.page-breadcrumbs a {
+    color: #7c3aed !important;
+}
+
+/* ============================================
+   Dropdown menus
+   ============================================ */
+.admin__action-dropdown-menu {
+    border-radius: 8px !important;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.12) !important;
+    border: 1px solid #f0f0f0 !important;
+    overflow: hidden;
+}
+
+.admin__action-dropdown-menu > li > a:hover {
+    background-color: #faf5ff !important;
+    color: #7c3aed !important;
+}
+
+/* ============================================
+   Progress bar
+   ============================================ */
+.admin__progress-bar .admin__progress-bar-item._active {
+    background-color: #7c3aed !important;
+}
+
+/* ============================================
+   Generic utility overrides
+   ============================================ */
+.page-wrapper {
+    background: #fafafa !important;
+}

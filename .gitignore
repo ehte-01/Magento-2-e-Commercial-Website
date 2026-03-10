@@ -1,0 +1,38 @@
+# === Magento 2 ===
+magento2/vendor/
+magento2/generated/
+magento2/pub/static/
+magento2/pub/media/catalog/product/cache/
+magento2/pub/media/tmp/
+magento2/var/
+magento2/dev/
+magento2/app/etc/env.php
+
+# === Node / Frontend ===
+node_modules/
+thrift-frontend/dist/
+thrift-frontend/node_modules/
+
+# === Server / System files ===
+.cache/
+.config/
+.dotnet/
+.landscape/
+.local/
+.ssh/
+.vscode-server/
+.vscode-remote-containers/
+
+# === Misc ===
+*.log
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+debug.html
+test_gql.py
+
+# === Large / Sensitive deploy artifacts ===
+deploy/magento2.tar.gz
+deploy/magento_db_dump.sql
