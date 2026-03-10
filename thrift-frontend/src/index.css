@@ -41,5 +41,7 @@ body {
   color: var(--color-brand-900);
 }
 
-img { max-width: 100%; height: auto; }
+@layer base {
+  img { max-width: 100%; height: auto; }
+}
 .font-display { font-family: var(--font-display); }

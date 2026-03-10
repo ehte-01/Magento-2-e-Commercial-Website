@@ -22,42 +22,8 @@
         link.href = 'data:image/svg+xml,' + svg;
     }
 
-    /* ── Sidebar T Logo (injected DOM element) ── */
-    function injectSidebarLogo() {
-        if (document.getElementById('thrift-sidebar-logo')) return;
-        var nav = document.querySelector('.admin__menu');
-        if (!nav) return;
-
-        var logo = document.createElement('div');
-        logo.id = 'thrift-sidebar-logo';
-        logo.innerHTML = '<span class="thrift-t-icon">T</span><span class="thrift-t-label">Thrift</span>';
-        nav.insertBefore(logo, nav.firstChild);
-    }
-
-    /* ── Footer Branding ── */
-    function updateFooter() {
-        if (document.getElementById('thrift-footer-done')) return;
-
-        /* Replace copyright text */
-        var copyright = document.querySelector('.page-footer .copyright');
-        if (copyright) {
-            copyright.innerHTML = '<span class="thrift-footer-brand"><span class="thrift-footer-t">T</span> Thrift</span> &copy; ' + new Date().getFullYear() + ' All rights reserved.';
-        }
-
-        /* Replace legal system links (privacy policy, report bug, version) */
-        var legalSys = document.querySelector('.footer-legal-system');
-        if (legalSys) {
-            legalSys.innerHTML = '<span style="opacity:.5">Thrift Commerce Platform v1.0</span>';
-        }
-
-        /* Mark done so we don't re-run */
-        if (copyright || legalSys) {
-            var marker = document.createElement('span');
-            marker.id = 'thrift-footer-done';
-            marker.style.display = 'none';
-            document.body.appendChild(marker);
-        }
-    }
+    /* ── Sidebar T Logo — handled via CSS ::before (immune to KnockoutJS re-renders) ── */
+    /* No JS injection needed — see custom-v4.css .admin__menu::before */
 
     /* ── Marketplace Page Override ── */
     function fixMarketplacePage() {
@@ -120,8 +86,6 @@
     function initAll() {
         updateTitle();
         updateFavicon();
-        injectSidebarLogo();
-        updateFooter();
         fixMarketplacePage();
     }
 
@@ -137,8 +101,6 @@
     /* Re-check periodically for dynamically loaded content */
     setInterval(function() {
         updateTitle();
-        injectSidebarLogo();
-        updateFooter();
         fixMarketplacePage();
     }, 1500);
 })();

@@ -164,50 +164,16 @@ body {
     opacity: 1;
 }
 
-/* Sidebar Thrift branding — injected via JS */
-#thrift-sidebar-logo {
+/* Sidebar Thrift T logo — pure CSS, immune to KnockoutJS re-renders */
+.admin__menu {
     display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    gap: 10px !important;
-    height: 56px !important;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
-    flex-shrink: 0 !important;
-    cursor: default !important;
+    flex-direction: column !important;
+    position: relative !important;
+    z-index: 700 !important;
 }
 
-#thrift-sidebar-logo .thrift-t-icon {
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    width: 34px !important;
-    height: 34px !important;
-    background: linear-gradient(135deg, #a855f7, #9333ea) !important;
-    border-radius: 8px !important;
-    font-family: 'Georgia', serif !important;
-    font-size: 20px !important;
-    font-weight: 700 !important;
-    color: #ffffff !important;
-    line-height: 1 !important;
-}
-
-#thrift-sidebar-logo .thrift-t-label {
-    font-family: 'Playfair Display', Georgia, serif !important;
-    font-size: 20px !important;
-    font-weight: 700 !important;
-    color: #ffffff !important;
-    letter-spacing: -0.02em !important;
-}
-
-/* When sidebar is collapsed, hide label */
-.admin__menu._collapsed #thrift-sidebar-logo .thrift-t-label,
-._collapsed .admin__menu #thrift-sidebar-logo .thrift-t-label {
+.admin__menu::before {
     display: none !important;
-}
-
-.admin__menu._collapsed #thrift-sidebar-logo,
-._collapsed .admin__menu #thrift-sidebar-logo {
-    gap: 0 !important;
 }
 
 /* ============================================
@@ -226,6 +192,7 @@ body {
     background: none !important;
     display: flex !important;
     align-items: center !important;
+    gap: 8px !important;
 }
 
 .logo._role img,
@@ -237,16 +204,66 @@ body {
     visibility: hidden !important;
 }
 
+.logo._role::before,
+.page-header .logo::before {
+    content: 'T' !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 28px !important;
+    height: 28px !important;
+    background: linear-gradient(135deg, #a855f7, #9333ea) !important;
+    border-radius: 7px !important;
+    font-family: 'Georgia', serif !important;
+    font-size: 16px !important;
+    font-weight: 700 !important;
+    color: #ffffff !important;
+    flex-shrink: 0 !important;
+    visibility: visible !important;
+}
+
 .logo._role::after,
 .page-header .logo::after {
-    content: 'Thrift';
-    font-family: 'Playfair Display', Georgia, serif;
-    font-size: 22px;
-    font-weight: 700;
-    letter-spacing: -0.025em;
-    color: var(--th-warm-900);
+    content: 'Thrift' !important;
+    font-family: 'Playfair Display', Georgia, serif !important;
+    font-size: 22px !important;
+    font-weight: 700 !important;
+    letter-spacing: -0.025em !important;
+    color: var(--th-warm-900) !important;
     display: inline-block !important;
     visibility: visible !important;
+}
+
+/* Sidebar logo area — show T badge */
+.menu-wrapper .logo {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    position: relative !important;
+    z-index: 700 !important;
+    height: auto !important;
+    padding: 14px 0 6px !important;
+}
+
+.menu-wrapper .logo::before {
+    content: 'T' !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 38px !important;
+    height: 38px !important;
+    background: linear-gradient(135deg, #a855f7, #9333ea) !important;
+    border-radius: 9px !important;
+    font-family: 'Georgia', serif !important;
+    font-size: 22px !important;
+    font-weight: 700 !important;
+    color: #ffffff !important;
+    box-shadow: 0 2px 8px rgba(147, 51, 234, 0.3) !important;
+    visibility: visible !important;
+}
+
+.menu-wrapper .logo::after {
+    display: none !important;
 }
 
 /* Hide all logo images globally */
@@ -315,6 +332,12 @@ body {
 /* ============================================
    System Notification Bar
    ============================================ */
+#system_messages {
+    overflow: visible !important;
+    position: relative !important;
+    z-index: 100 !important;
+}
+
 .message.message-system-inner,
 .message-system-inner {
     background: var(--th-brand-50) !important;
@@ -324,6 +347,7 @@ body {
     font-family: 'Inter', sans-serif !important;
     font-size: 13px !important;
     margin: 12px !important;
+    overflow: visible !important;
 }
 
 /* Notification bar at very top */
@@ -331,6 +355,59 @@ body {
 .message-system-short {
     background: var(--th-brand-50) !important;
     border-bottom: 1px solid var(--th-brand-100) !important;
+    cursor: pointer !important;
+}
+
+/* System messages — expanded list */
+#system_messages .message-system-list {
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    display: block !important;
+    overflow: visible !important;
+}
+
+#system_messages .message-system-list li {
+    padding: 10px 16px !important;
+    font-family: 'Inter', sans-serif !important;
+    font-size: 13px !important;
+    border-bottom: 1px solid var(--th-brand-100) !important;
+    line-height: 1.5 !important;
+}
+
+/* System messages modal popup — ensure visibility */
+.modal-popup.modal-system-messages,
+.ui-popup-message {
+    z-index: 9000 !important;
+    overflow: visible !important;
+}
+
+.modal-popup.modal-system-messages .modal-inner-wrap {
+    max-width: 600px !important;
+    margin: 5vh auto !important;
+}
+
+.modal-popup.modal-system-messages .modal-content .message-system-list {
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.modal-popup.modal-system-messages .modal-content .message-system-list li {
+    padding: 14px 20px !important;
+    border-bottom: 1px solid var(--th-warm-100) !important;
+    font-family: 'Inter', sans-serif !important;
+    font-size: 13px !important;
+    line-height: 1.5 !important;
+    color: var(--th-warm-700) !important;
+}
+
+.modal-popup.modal-system-messages .modal-content .message-system-list li.error {
+    border-left: 3px solid #ef4444 !important;
+}
+
+.modal-popup.modal-system-messages .modal-content .message-system-list li.warning {
+    border-left: 3px solid #f59e0b !important;
 }
 
 /* ============================================
@@ -1132,49 +1209,21 @@ a:hover {
    Admin footer
    ============================================ */
 .page-footer {
-    background: var(--th-warm-900) !important;
-    color: rgba(255, 255, 255, 0.4) !important;
+    background: #ffffff !important;
+    border-top: 1px solid var(--th-warm-200) !important;
+    color: var(--th-warm-400) !important;
     font-family: 'Inter', sans-serif !important;
-    border-top: none !important;
     font-size: 12px !important;
-    padding: 16px 24px !important;
+    padding: 12px 20px !important;
 }
 
 .page-footer a {
-    color: var(--th-brand-300) !important;
+    color: var(--th-brand-500) !important;
+    text-decoration: none !important;
 }
 
 .page-footer a:hover {
-    color: var(--th-brand-200) !important;
-}
-
-/* Footer Thrift branding */
-.page-footer .magento-version {
-    font-family: 'Inter', sans-serif !important;
-    color: rgba(255, 255, 255, 0.35) !important;
-}
-
-.thrift-footer-brand {
-    display: inline-flex !important;
-    align-items: center !important;
-    gap: 6px !important;
-    font-weight: 600 !important;
-    color: rgba(255, 255, 255, 0.7) !important;
-}
-
-.thrift-footer-t {
-    display: inline-flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    width: 20px !important;
-    height: 20px !important;
-    background: linear-gradient(135deg, #a855f7, #9333ea) !important;
-    border-radius: 4px !important;
-    font-family: 'Georgia', serif !important;
-    font-size: 12px !important;
-    font-weight: 700 !important;
-    color: #ffffff !important;
-    line-height: 1 !important;
+    color: var(--th-brand-600) !important;
 }
 
 /* ============================================
@@ -2138,14 +2187,14 @@ a:hover {
 .login-footer a:hover { color: var(--th-brand-700) !important; }
 .login-footer span { color: var(--th-warm-400) !important; }
 .login-footer img {
-    filter: none !important;
-    opacity: 0.4 !important;
-    max-height: 16px !important;
+    display: none !important;
 }
 
 .login-footer > div[style] {
     float: none !important;
-    display: none !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 6px !important;
 }
 
 /* ---- Login Error Messages ---- */
