@@ -330,49 +330,13 @@ body {
 }
 
 /* ============================================
-   System Notification Bar
+   System Notification Bar — Hidden (purple outer box removed)
    ============================================ */
-#system_messages {
-    overflow: visible !important;
-    position: relative !important;
-    z-index: 100 !important;
-}
-
-.message.message-system-inner,
-.message-system-inner {
-    background: var(--th-brand-50) !important;
-    border: 1px solid var(--th-brand-200) !important;
-    border-radius: 6px !important;
-    color: var(--th-brand-700) !important;
-    font-family: 'Inter', sans-serif !important;
-    font-size: 13px !important;
-    margin: 12px !important;
-    overflow: visible !important;
-}
-
-/* Notification bar at very top */
-.page-header ~ .notifications,
-.message-system-short {
-    background: var(--th-brand-50) !important;
-    border-bottom: 1px solid var(--th-brand-100) !important;
-    cursor: pointer !important;
-}
-
-/* System messages — expanded list */
-#system_messages .message-system-list {
-    list-style: none !important;
-    padding: 0 !important;
-    margin: 0 !important;
-    display: block !important;
-    overflow: visible !important;
-}
-
-#system_messages .message-system-list li {
-    padding: 10px 16px !important;
-    font-family: 'Inter', sans-serif !important;
-    font-size: 13px !important;
-    border-bottom: 1px solid var(--th-brand-100) !important;
-    line-height: 1.5 !important;
+#system_messages,
+.message-system-short,
+.message-system-inner,
+.message.message-system-inner {
+    display: none !important;
 }
 
 /* System messages modal popup — ensure visibility */
