@@ -43,7 +43,6 @@ export default function Cart() {
         </div>
 
         <div className="grid lg:grid-cols-3 gap-10 lg:gap-14">
-          {/* Cart items */}
           <div className="lg:col-span-2 space-y-1">
             <AnimatePresence mode="popLayout">
               {cart.map(item => (
@@ -121,7 +120,6 @@ export default function Cart() {
             </AnimatePresence>
           </div>
 
-          {/* Order summary */}
           <div>
             <div className="bg-warm-50 rounded-2xl p-6 lg:p-8 sticky top-28">
               <h2 className="font-semibold text-warm-900 mb-5">Order Summary</h2>
@@ -149,7 +147,10 @@ export default function Cart() {
                 <span>{formatPriceValue(totalPrice + (totalPrice >= 999 ? 0 : 99))}</span>
               </div>
 
-              <button className="w-full py-3.5 bg-brand-600 hover:bg-brand-500 text-white font-medium rounded-full transition-colors cursor-pointer">
+              <button
+                onClick={() => window.location.href = 'https://thriftfashion.me/checkout'}
+                className="w-full py-3.5 bg-brand-600 hover:bg-brand-500 text-white font-medium rounded-full transition-colors cursor-pointer"
+              >
                 Proceed to Checkout
               </button>
 
