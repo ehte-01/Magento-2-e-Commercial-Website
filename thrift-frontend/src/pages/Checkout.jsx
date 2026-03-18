@@ -245,9 +245,8 @@ export default function Checkout() {
       const magentoOrderId = orderData?.placeOrder?.order?.order_number
 
       if (!magentoOrderId) {
-        localStorage.removeItem('mage_cart_id')
-        setError('Cart expired. Please add items again.')
-        navigate('/cart')
+        setError('Order placement failed. Please try again.')
+        setLoading(false)
         return
       }
 
