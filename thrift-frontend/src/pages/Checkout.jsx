@@ -58,7 +58,7 @@ async function gql(query, variables = {}) {
 }
 
 const SET_SHIPPING_ADDRESS = `
-  mutation SetShipping($cartId: String!, $firstname: String!, $lastname: String!, $street: String!, $city: String!, $postcode: String!, $phone: String!, $region: String!) {
+  mutation SetShipping($cartId: String!, $firstname: String!, $lastname: String!, $street: String!, $city: String!, $postcode: String!, $phone: String!, $regionCode: String!) {
     setShippingAddressesOnCart(input: {
       cart_id: $cartId
       shipping_addresses: [{
@@ -67,7 +67,7 @@ const SET_SHIPPING_ADDRESS = `
           lastname: $lastname
           street: [$street]
           city: $city
-          region: { region_code: $region }
+          region: { region_code: $regionCode }
           country_code: "IN"
           postcode: $postcode
           telephone: $phone
@@ -207,7 +207,7 @@ export default function Checkout() {
         city: form.city,
         postcode: form.pincode,
         phone: form.phone,
-        region: form.state,
+        regionCode: form.state,
       })
 
       const methods = data.setShippingAddressesOnCart.cart.shipping_addresses[0]?.available_shipping_methods || []
