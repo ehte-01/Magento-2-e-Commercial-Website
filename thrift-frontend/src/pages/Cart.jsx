@@ -3,18 +3,11 @@ import { Minus, Plus, Trash2, ShoppingBag, ArrowRight } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useCart } from '../context/CartContext'
 import { formatPriceValue } from '../lib/graphql'
+import { useNavigate } from 'react-router-dom'
 
 export default function Cart() {
   const { items: cart, totalItems, totalPrice, updateQty, removeItem, clearCart } = useCart()
-
-  const handleCheckout = () => {
-    const cartId = localStorage.getItem('mage_cart_id')
-    if (cartId) {
-      window.location.href = `https://thriftfashion.me/checkout?guest_cart_id=${cartId}`
-    } else {
-      window.location.href = 'https://thriftfashion.me/checkout'
-    }
-  }
+  const navigate = useNavigate()
 
   if (cart.length === 0) {
     return (
@@ -157,7 +150,7 @@ export default function Cart() {
               </div>
 
               <button
-                onClick={handleCheckout}
+                onClick={() => navigate('/checkout')}
                 className="w-full py-3.5 bg-brand-600 hover:bg-brand-500 text-white font-medium rounded-full transition-colors cursor-pointer"
               >
                 Proceed to Checkout

@@ -6,6 +6,7 @@ import Shop from './pages/Shop'
 import ProductDetail from './pages/ProductDetail'
 import Cart from './pages/Cart'
 import About from './pages/About'
+import Checkout from './pages/Checkout'
 import ScrollToTop from './components/ScrollToTop'
 
 export default function App() {
@@ -21,6 +22,7 @@ export default function App() {
           <Route path="/product/:id" element={<ProductDetail />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/about" element={<About />} />
+          <Route path="/checkout" element={<Checkout />} />
         </Routes>
       </main>
       <Footer />
