@@ -90,6 +90,29 @@ const SET_SHIPPING_ADDRESS = `
   }
 `
 
+const SET_BILLING_ADDRESS = `
+  mutation SetBilling($cartId: String!, $firstname: String!, $lastname: String!, $street: String!, $city: String!, $postcode: String!, $phone: String!, $regionCode: String!) {
+    setBillingAddressOnCart(input: {
+      cart_id: $cartId
+      billing_address: {
+        address: {
+          firstname: $firstname
+          lastname: $lastname
+          street: [$street]
+          city: $city
+          region: $regionCode
+          country_code: "IN"
+          postcode: $postcode
+          telephone: $phone
+          save_in_address_book: false
+        }
+      }
+    }) {
+      cart { billing_address { city } }
+    }
+  }
+`
+
 const SET_SHIPPING_METHOD = `
   mutation SetShippingMethod($cartId: String!, $carrierCode: String!, $methodCode: String!) {
     setShippingMethodsOnCart(input: {
@@ -237,6 +260,17 @@ export default function Checkout() {
         cartId,
         carrierCode: selectedShipping.carrier_code,
         methodCode: selectedShipping.method_code
+      })
+
+      await gql(SET_BILLING_ADDRESS, {
+        cartId,
+        firstname: form.firstName,
+        lastname: form.lastName,
+        street: form.street,
+        city: form.city,
+        postcode: form.pincode,
+        phone: form.phone,
+        regionCode: form.state,
       })
 
       await gql(SET_PAYMENT_METHOD, { cartId })
