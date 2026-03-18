@@ -67,7 +67,7 @@ const SET_SHIPPING_ADDRESS = `
           lastname: $lastname
           street: [$street]
           city: $city
-          region: $regionCode 
+          region: $regionCode
           country_code: "IN"
           postcode: $postcode
           telephone: $phone
@@ -242,7 +242,14 @@ export default function Checkout() {
       await gql(SET_PAYMENT_METHOD, { cartId })
 
       const orderData = await gql(PLACE_ORDER, { cartId })
-      const magentoOrderId = orderData.placeOrder.order.order_number
+      const magentoOrderId = orderData?.placeOrder?.order?.order_number
+
+      if (!magentoOrderId) {
+        localStorage.removeItem('mage_cart_id')
+        setError('Cart expired. Please add items again.')
+        navigate('/cart')
+        return
+      }
 
       const rzpData = await gql(PLACE_RAZORPAY_ORDER, {
         orderId: magentoOrderId,
