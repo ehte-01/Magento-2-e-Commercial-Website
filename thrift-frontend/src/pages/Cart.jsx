@@ -7,6 +7,15 @@ import { formatPriceValue } from '../lib/graphql'
 export default function Cart() {
   const { items: cart, totalItems, totalPrice, updateQty, removeItem, clearCart } = useCart()
 
+  const handleCheckout = () => {
+    const cartId = localStorage.getItem('mage_cart_id')
+    if (cartId) {
+      window.location.href = `https://thriftfashion.me/checkout?guest_cart_id=${cartId}`
+    } else {
+      window.location.href = 'https://thriftfashion.me/checkout'
+    }
+  }
+
   if (cart.length === 0) {
     return (
       <div className="min-h-[60vh] flex items-center justify-center">
@@ -148,7 +157,7 @@ export default function Cart() {
               </div>
 
               <button
-                onClick={() => window.location.href = 'https://thriftfashion.me/checkout'}
+                onClick={handleCheckout}
                 className="w-full py-3.5 bg-brand-600 hover:bg-brand-500 text-white font-medium rounded-full transition-colors cursor-pointer"
               >
                 Proceed to Checkout
