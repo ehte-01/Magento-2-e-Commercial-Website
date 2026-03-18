@@ -6,6 +6,46 @@ import { Loader2, CheckCircle, ChevronLeft } from 'lucide-react'
 
 const RAZORPAY_KEY = 'rzp_test_S8Wg3fplOboThw'
 
+const INDIAN_STATES = [
+  { code: 'AN', name: 'Andaman and Nicobar Islands' },
+  { code: 'AP', name: 'Andhra Pradesh' },
+  { code: 'AR', name: 'Arunachal Pradesh' },
+  { code: 'AS', name: 'Assam' },
+  { code: 'BR', name: 'Bihar' },
+  { code: 'CH', name: 'Chandigarh' },
+  { code: 'CG', name: 'Chhattisgarh' },
+  { code: 'DN', name: 'Dadra and Nagar Haveli' },
+  { code: 'DD', name: 'Daman and Diu' },
+  { code: 'DL', name: 'Delhi' },
+  { code: 'GA', name: 'Goa' },
+  { code: 'GJ', name: 'Gujarat' },
+  { code: 'HR', name: 'Haryana' },
+  { code: 'HP', name: 'Himachal Pradesh' },
+  { code: 'JK', name: 'Jammu and Kashmir' },
+  { code: 'JH', name: 'Jharkhand' },
+  { code: 'KA', name: 'Karnataka' },
+  { code: 'KL', name: 'Kerala' },
+  { code: 'LA', name: 'Ladakh' },
+  { code: 'LD', name: 'Lakshadweep' },
+  { code: 'MP', name: 'Madhya Pradesh' },
+  { code: 'MH', name: 'Maharashtra' },
+  { code: 'MN', name: 'Manipur' },
+  { code: 'ML', name: 'Meghalaya' },
+  { code: 'MZ', name: 'Mizoram' },
+  { code: 'NL', name: 'Nagaland' },
+  { code: 'OD', name: 'Odisha' },
+  { code: 'PY', name: 'Puducherry' },
+  { code: 'PB', name: 'Punjab' },
+  { code: 'RJ', name: 'Rajasthan' },
+  { code: 'SK', name: 'Sikkim' },
+  { code: 'TN', name: 'Tamil Nadu' },
+  { code: 'TS', name: 'Telangana' },
+  { code: 'TR', name: 'Tripura' },
+  { code: 'UP', name: 'Uttar Pradesh' },
+  { code: 'UK', name: 'Uttarakhand' },
+  { code: 'WB', name: 'West Bengal' },
+]
+
 async function gql(query, variables = {}) {
   const res = await fetch('/graphql', {
     method: 'POST',
@@ -18,7 +58,7 @@ async function gql(query, variables = {}) {
 }
 
 const SET_SHIPPING_ADDRESS = `
-  mutation SetShipping($cartId: String!, $firstname: String!, $lastname: String!, $street: String!, $city: String!, $postcode: String!, $phone: String!) {
+  mutation SetShipping($cartId: String!, $firstname: String!, $lastname: String!, $street: String!, $city: String!, $postcode: String!, $phone: String!, $region: String!) {
     setShippingAddressesOnCart(input: {
       cart_id: $cartId
       shipping_addresses: [{
@@ -27,6 +67,7 @@ const SET_SHIPPING_ADDRESS = `
           lastname: $lastname
           street: [$street]
           city: $city
+          region: { region_code: $region }
           country_code: "IN"
           postcode: $postcode
           telephone: $phone
@@ -132,7 +173,7 @@ export default function Checkout() {
 
   const [form, setForm] = useState({
     firstName: '', lastName: '', email: '',
-    phone: '', street: '', city: '', pincode: ''
+    phone: '', street: '', city: '', pincode: '', state: ''
   })
 
   const shipping = totalPrice >= 999 ? 0 : 99
@@ -166,6 +207,7 @@ export default function Checkout() {
         city: form.city,
         postcode: form.pincode,
         phone: form.phone,
+        region: form.state,
       })
 
       const methods = data.setShippingAddressesOnCart.cart.shipping_addresses[0]?.available_shipping_methods || []
@@ -331,21 +373,25 @@ export default function Checkout() {
                     className="w-full px-4 py-3 border border-warm-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-brand-400"
                   />
                 </div>
+
                 <input
                   name="email" value={form.email} onChange={handleChange}
                   placeholder="Email Address" type="email" required
                   className="w-full px-4 py-3 border border-warm-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-brand-400"
                 />
+
                 <input
                   name="phone" value={form.phone} onChange={handleChange}
                   placeholder="Phone Number" required
                   className="w-full px-4 py-3 border border-warm-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-brand-400"
                 />
+
                 <textarea
                   name="street" value={form.street} onChange={handleChange}
                   placeholder="Street Address" required rows={2}
                   className="w-full px-4 py-3 border border-warm-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-brand-400"
                 />
+
                 <div className="grid grid-cols-2 gap-4">
                   <input
                     name="city" value={form.city} onChange={handleChange}
@@ -358,6 +404,20 @@ export default function Checkout() {
                     className="w-full px-4 py-3 border border-warm-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-brand-400"
                   />
                 </div>
+
+                <select
+                  name="state" value={form.state} onChange={handleChange}
+                  required
+                  className="w-full px-4 py-3 border border-warm-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-brand-400 bg-white text-warm-700"
+                >
+                  <option value="">Select State</option>
+                  {INDIAN_STATES.map(state => (
+                    <option key={state.code} value={state.code}>
+                      {state.name}
+                    </option>
+                  ))}
+                </select>
+
                 <p className="text-xs text-warm-400">🇮🇳 Currently shipping within India only</p>
 
                 <button
