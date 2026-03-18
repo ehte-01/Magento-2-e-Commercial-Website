@@ -67,7 +67,7 @@ const SET_SHIPPING_ADDRESS = `
           lastname: $lastname
           street: [$street]
           city: $city
-          region: { region_code: $regionCode }
+          region: $regionCode 
           country_code: "IN"
           postcode: $postcode
           telephone: $phone
