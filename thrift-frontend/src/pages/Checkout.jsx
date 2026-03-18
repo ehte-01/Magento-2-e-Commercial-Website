@@ -18,7 +18,7 @@ async function gql(query, variables = {}) {
 }
 
 const SET_SHIPPING_ADDRESS = `
-  mutation SetShipping($cartId: String!, $firstname: String!, $lastname: String!, $street: String!, $city: String!, $postcode: String!, $phone: String!, $email: String!) {
+  mutation SetShipping($cartId: String!, $firstname: String!, $lastname: String!, $street: String!, $city: String!, $postcode: String!, $phone: String!) {
     setShippingAddressesOnCart(input: {
       cart_id: $cartId
       shipping_addresses: [{
@@ -27,8 +27,6 @@ const SET_SHIPPING_ADDRESS = `
           lastname: $lastname
           street: [$street]
           city: $city
-          region: "MH"
-          region_code: "MH"
           country_code: "IN"
           postcode: $postcode
           telephone: $phone
@@ -155,13 +153,11 @@ export default function Checkout() {
     setLoading(true)
     setError('')
     try {
-      // Set email on cart
       await gql(SET_EMAIL_ON_CART, {
         cartId,
         email: form.email
       })
 
-      // Set shipping address
       const data = await gql(SET_SHIPPING_ADDRESS, {
         cartId,
         firstname: form.firstName,
@@ -170,7 +166,6 @@ export default function Checkout() {
         city: form.city,
         postcode: form.pincode,
         phone: form.phone,
-        email: form.email
       })
 
       const methods = data.setShippingAddressesOnCart.cart.shipping_addresses[0]?.available_shipping_methods || []
@@ -196,21 +191,17 @@ export default function Checkout() {
     setLoading(true)
     setError('')
     try {
-      // Set shipping method
       await gql(SET_SHIPPING_METHOD, {
         cartId,
         carrierCode: selectedShipping.carrier_code,
         methodCode: selectedShipping.method_code
       })
 
-      // Set payment method
       await gql(SET_PAYMENT_METHOD, { cartId })
 
-      // Place order
       const orderData = await gql(PLACE_ORDER, { cartId })
       const magentoOrderId = orderData.placeOrder.order.order_number
 
-      // Create Razorpay order
       const rzpData = await gql(PLACE_RAZORPAY_ORDER, {
         orderId: magentoOrderId,
         referrer: window.location.href
@@ -218,7 +209,6 @@ export default function Checkout() {
 
       const { rzp_order_id, amount, currency } = rzpData.placeRazorpayOrder
 
-      // Open Razorpay
       const options = {
         key: RAZORPAY_KEY,
         amount: amount,
@@ -264,7 +254,6 @@ export default function Checkout() {
     setLoading(false)
   }
 
-  // Load Razorpay script
   useEffect(() => {
     const script = document.createElement('script')
     script.src = 'https://checkout.razorpay.com/v1/checkout.js'
@@ -273,7 +262,6 @@ export default function Checkout() {
     return () => document.body.removeChild(script)
   }, [])
 
-  // Step 3 — Success
   if (step === 3) {
     return (
       <div className="min-h-[70vh] flex items-center justify-center">
@@ -297,7 +285,6 @@ export default function Checkout() {
     <div className="min-h-screen">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 lg:py-14">
 
-        {/* Header */}
         <div className="flex items-center gap-4 mb-8">
           <Link to="/cart" className="text-warm-500 hover:text-warm-900 transition-colors">
             <ChevronLeft size={20} />
@@ -305,7 +292,6 @@ export default function Checkout() {
           <h1 className="font-display text-3xl font-semibold text-warm-900">Checkout</h1>
         </div>
 
-        {/* Steps */}
         <div className="flex items-center gap-3 mb-10">
           {['Shipping', 'Payment'].map((s, i) => (
             <div key={s} className="flex items-center gap-3">
@@ -327,11 +313,8 @@ export default function Checkout() {
         )}
 
         <div className="grid lg:grid-cols-3 gap-10">
-
-          {/* Left — Form */}
           <div className="lg:col-span-2">
 
-            {/* Step 1 — Shipping */}
             {step === 1 && (
               <form onSubmit={handleShippingSubmit} className="space-y-5">
                 <h2 className="font-semibold text-warm-900 text-lg">Shipping Details</h2>
@@ -375,6 +358,7 @@ export default function Checkout() {
                     className="w-full px-4 py-3 border border-warm-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-brand-400"
                   />
                 </div>
+                <p className="text-xs text-warm-400">🇮🇳 Currently shipping within India only</p>
 
                 <button
                   type="submit"
@@ -387,7 +371,6 @@ export default function Checkout() {
               </form>
             )}
 
-            {/* Step 2 — Shipping Method + Payment */}
             {step === 2 && (
               <div className="space-y-6">
                 <div>
@@ -454,7 +437,6 @@ export default function Checkout() {
             )}
           </div>
 
-          {/* Right — Order Summary */}
           <div>
             <div className="bg-warm-50 rounded-2xl p-6 sticky top-28">
               <h2 className="font-semibold text-warm-900 mb-4">Order Summary</h2>
