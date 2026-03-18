@@ -15,9 +15,7 @@ async function gql(query, variables = {}) {
   return json.data
 }
 
-// ─── GraphQL Mutations ───
-
-const CREATE_CART = `mutation { createGuestCart { cart { id } } }`
+const CREATE_CART = `mutation { createEmptyCart }`
 
 const GET_CART = `
   query GetCart($cartId: String!) {
@@ -81,7 +79,6 @@ const UPDATE_CART_ITEM = `
   }
 `
 
-// ─── Helper: normalize Magento cart items to our format ───
 function normalizeItems(magentoItems = []) {
   return magentoItems.map(item => ({
     id: item.product.sku,
@@ -98,36 +95,31 @@ export function CartProvider({ children }) {
   const [items, setItems] = useState([])
   const [loading, setLoading] = useState(false)
 
-  // ─── Get or create cart ID ───
   const getCartId = useCallback(async () => {
     if (cartId) return cartId
     const data = await gql(CREATE_CART)
-    const id = data.createGuestCart.cart.id
+    const id = data.createEmptyCart
     localStorage.setItem('mage_cart_id', id)
     setCartId(id)
     return id
   }, [cartId])
 
-  // ─── Fetch cart items from Magento ───
   const fetchCart = useCallback(async (id) => {
     if (!id) return
     try {
       const data = await gql(GET_CART, { cartId: id })
       setItems(normalizeItems(data.cart.items))
     } catch (e) {
-      // Cart expired — create new one
       localStorage.removeItem('mage_cart_id')
       setCartId(null)
       setItems([])
     }
   }, [])
 
-  // ─── Load cart on mount ───
   useEffect(() => {
     if (cartId) fetchCart(cartId)
   }, [cartId, fetchCart])
 
-  // ─── Add item ───
   const addItem = useCallback(async (product) => {
     setLoading(true)
     try {
@@ -144,7 +136,6 @@ export function CartProvider({ children }) {
     setLoading(false)
   }, [getCartId])
 
-  // ─── Remove item ───
   const removeItem = useCallback(async (id, size) => {
     const item = items.find(i => i.id === id)
     if (!item) return
@@ -161,14 +152,13 @@ export function CartProvider({ children }) {
     setLoading(false)
   }, [cartId, items])
 
-  // ─── Update quantity ───
   const updateQty = useCallback(async (id, size, qty) => {
     const item = items.find(i => i.id === id)
     if (!item) return
     if (qty < 1) { removeItem(id, size); return }
     setLoading(true)
     try {
-      const data = await gql(UPDATE_CART_ITEM, {
+      await gql(UPDATE_CART_ITEM, {
         cartId: cartId,
         itemId: item.cartItemId,
         qty: qty,
@@ -182,7 +172,6 @@ export function CartProvider({ children }) {
     setLoading(false)
   }, [cartId, items, removeItem])
 
-  // ─── Clear cart ───
   const clearCart = useCallback(async () => {
     for (const item of items) {
       await gql(REMOVE_FROM_CART, {
